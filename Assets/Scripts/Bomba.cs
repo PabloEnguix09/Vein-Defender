@@ -7,6 +7,9 @@ public class Bomba : MonoBehaviour
 {
     public GameObject explosion;
 
+    Animator animator;
+    public float destroyOfftime = 0.5f;
+
     [Range(0, 1)]
     private float fuerza = .3f;
 
@@ -30,14 +33,13 @@ public class Bomba : MonoBehaviour
         enemigo.velocidad = velocidad;
         enemigo.vision = rango;
 
-
+        animator = gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
         if (enemigo.vida <= 0)
         {
-            Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
             Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, radioExplosion);
             for (int i = 0; i < colliders.Length; i++)
             {
@@ -63,7 +65,16 @@ public class Bomba : MonoBehaviour
                 }
             }
             Debug.Log("Explota");
-            Destroy(gameObject);
+            // Inicia la animacion de explotar
+            animator.SetBool("Explode", true);
+            // Cuenta regresiva hasta terminar la animacion de explotar
+            destroyOfftime -= Time.deltaTime;
+            // Destruye el gameobject y crea las particulas
+            if(destroyOfftime <= 0)
+            {
+                Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -74,5 +85,11 @@ public class Bomba : MonoBehaviour
             Debug.Log("Choque");
             enemigo.vida = 0;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radioExplosion);
     }
 }
