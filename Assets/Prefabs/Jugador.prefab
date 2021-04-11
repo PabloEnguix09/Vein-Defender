@@ -192,12 +192,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximaVelocidad: 10
-<<<<<<< HEAD
+
   personaje: {fileID: 1952147553462290193}
-=======
+
   fuerzaSalto: 10
   personaje: {fileID: 3655693384906380749}
->>>>>>> develop
+
 --- !u!114 &4821090250797695099
 MonoBehaviour:
   m_ObjectHideFlags: 0
