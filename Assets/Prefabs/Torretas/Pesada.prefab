@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 657334864259403398}
   m_Layer: 0
   m_Name: Pesada
-  m_TagString: Torreta
+  m_TagString: Torretas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

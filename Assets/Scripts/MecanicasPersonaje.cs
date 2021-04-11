@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  AUTHOR: Pablo Enguix Llopis
+ *  STATUS: WIP
+ *  NAME: MecanicasPersonaje.cs
+ *  GAMEOBJECT: Jugador
+ *  DESCRIPTION: This script is used to read the inputs of the keyboard and executate the different actions
+ */
+
 [RequireComponent(typeof(Personaje))]
 public class MecanicasPersonaje : MonoBehaviour
 {
@@ -27,13 +35,18 @@ public class MecanicasPersonaje : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 invocar.SetColocada(false);
-                invocar.PreviewTorreta("Basica");
+                invocar.PreviewTorreta("torretaBasica");
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 invocar.SetColocada(false);
                 invocar.PreviewTorreta("Pesada");
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            personaje.Saltar();
         }
     }
 }

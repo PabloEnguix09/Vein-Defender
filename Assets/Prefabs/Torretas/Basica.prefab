@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 5021900153224224542}
   m_Layer: 0
   m_Name: Basica
-  m_TagString: Torreta
+  m_TagString: Torretas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

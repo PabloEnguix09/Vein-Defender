@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Torreta
+  - Torretas
+  - Bases
+  - Enemigos
   layers:
   - Default
   - TransparentFX

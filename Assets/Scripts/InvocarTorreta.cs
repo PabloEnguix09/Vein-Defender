@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  AUTHOR: Pablo Enguix Llopis
+ *  STATUS: WIP
+ *  NAME: InvocarTorreta.cs
+ *  GAMEOBJECT: Jugador
+ *  DESCRIPTION: This script is used todeploy the turrets
+ */
+
 public class InvocarTorreta : MonoBehaviour
 {
     public GameObject[] torretas;
@@ -37,7 +45,7 @@ public class InvocarTorreta : MonoBehaviour
         // Si existe torreta y está en el rango de colocación
         if (torreta != null && (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Terreno"))))
         {
-            torreta.position = new Vector3(punto.point.x, 0, punto.point.z);
+            torreta.position = new Vector3(punto.point.x, punto.point.y, punto.point.z);
         }
 
         // Si pulsa clic izquierdo se "destruye" la torreta de previsualización y spawnea la otra más arriba

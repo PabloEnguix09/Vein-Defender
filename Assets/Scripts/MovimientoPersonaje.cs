@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  AUTHOR: Pablo Enguix Llopis
+ *  STATUS: WIP
+ *  NAME: MovimientoPersonaje.cs
+ *  GAMEOBJECT: Jugador
+ *  DESCRIPTION: This script is used to make the different moves of the character
+ */
+
 [RequireComponent(typeof(Rigidbody))]
 public class MovimientoPersonaje : MonoBehaviour
 {
@@ -9,6 +17,7 @@ public class MovimientoPersonaje : MonoBehaviour
 
     private Vector3 velocidad;
     public float maximaVelocidad = 0.1f;
+    public float fuerzaSalto = 300f;
     public Vector3 Velocidad { get => velocidad; set => velocidad = value; }
 
     public Transform personaje;
@@ -53,5 +62,13 @@ public class MovimientoPersonaje : MonoBehaviour
     public Movimientos GetMovimientos()
     {
         return tipos;
+    }
+
+    internal void Saltar()
+    {
+        if(personaje.transform.position.y == 0)
+        {
+            rb.AddForce(Vector3.up * fuerzaSalto);
+        }
     }
 }

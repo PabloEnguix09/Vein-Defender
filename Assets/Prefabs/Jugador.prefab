@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alcance: 5
+  salud: 0
   camara: {fileID: 4821090251707822499}
   personaje: {fileID: 4821090250797695098}
 --- !u!114 &4821090250797695098
@@ -191,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximaVelocidad: 10
+  fuerzaSalto: 10
   personaje: {fileID: 3655693384906380749}
 --- !u!114 &4821090250797695099
 MonoBehaviour:
@@ -205,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torretas:
-  - {fileID: 740092667429279546, guid: 0f9a1e00021eaea479f81c36e3a8ac9d, type: 3}
+  - {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
   - {fileID: 3671158431268791085, guid: 534e017d8f7d09243936ad9063eda095, type: 3}
   alcance: 50
 --- !u!1 &4821090251707822497
