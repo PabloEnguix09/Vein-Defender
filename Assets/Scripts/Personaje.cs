@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  AUTHOR: Pablo Enguix Llopis
+ *  STATUS: WIP
+ *  NAME: Personaje.cs
+ *  GAMEOBJECT: Jugador
+ *  DESCRIPTION: This script is used to make all the character-related features, such as movement, jump, run and health 
+ */
+
 public class Personaje : MonoBehaviour
 {
     private float adelante;
@@ -43,6 +51,11 @@ public class Personaje : MonoBehaviour
         {
             personaje.SetMovimientos(MovimientoPersonaje.Movimientos.Caminar);
         }
+    }
+
+    public void Saltar()
+    {
+        personaje.Saltar();
     }
 
     // SOLO PARA LAS ESCENAS: Muestra el rayo de apuntado

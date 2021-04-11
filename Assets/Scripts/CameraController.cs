@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  AUTHOR: Pablo Enguix Llopis
+ *  STATUS: WIP
+ *  NAME: CameraController.cs
+ *  GAMEOBJECT: Camara (inside Jugador prefab)
+ *  DESCRIPTION: This script is used to rotate the camera with the mouse and detect collisions with other objects to make the camera closer to the player
+ */
+
 public class CameraController : MonoBehaviour
 {
     // Velocidad de movimiento del ratón
