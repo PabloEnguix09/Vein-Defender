@@ -18,6 +18,7 @@ public class MovimientoPersonaje : MonoBehaviour
     private Vector3 velocidad;
     public float maximaVelocidad = 0.1f;
     public float fuerzaSalto = 300f;
+    private bool haSaltado = false;
     public Vector3 Velocidad { get => velocidad; set => velocidad = value; }
 
     public Transform personaje;
@@ -66,9 +67,27 @@ public class MovimientoPersonaje : MonoBehaviour
 
     internal void Saltar()
     {
-        if(personaje.transform.position.y == 0)
+        if(!haSaltado)
         {
             rb.AddForce(Vector3.up * fuerzaSalto);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Player" &&
+            collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.layer == 6)
+        {
+            Debug.Log("Hey");
+            haSaltado = false;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.gameObject.layer == 6)
+        {
+            Debug.Log("Au kse");
+            haSaltado = true;
         }
     }
 }

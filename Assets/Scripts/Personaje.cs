@@ -18,9 +18,6 @@ public class Personaje : MonoBehaviour
 
     public float alcance = 12.5f;
 
-    [Range(0,10)]
-    public float salud = 10f;
-
     public CameraController camara;
     public MovimientoPersonaje personaje;
 
