@@ -176,7 +176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alcance: 5
-  salud: 0
   camara: {fileID: 4821090251707822499}
   personaje: {fileID: 4821090250797695098}
 --- !u!114 &4821090250797695098
@@ -192,12 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximaVelocidad: 10
-
+  fuerzaSalto: 300
   personaje: {fileID: 1952147553462290193}
-
-  fuerzaSalto: 10
-  personaje: {fileID: 3655693384906380749}
-
 --- !u!114 &4821090250797695099
 MonoBehaviour:
   m_ObjectHideFlags: 0
