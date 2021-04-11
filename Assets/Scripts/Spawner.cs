@@ -9,8 +9,8 @@ public class Spawner : MonoBehaviour
     public GameObject segundoTipoDeEnemigo;
     private int xPos;
     private int zPos;
-    private int conteo;
-    private int conteo2;
+    public int conteo;
+    public int conteo2;
     public int limitePrimerEnemigo;
     public int limiteSegundoEnemigo;
     public float radioDeAparicion;
@@ -25,12 +25,12 @@ public class Spawner : MonoBehaviour
     {
         Enemigo.final = gameObject.transform;
 
-        StartCoroutine(Aparicion());
-        StartCoroutine(AparicionBombas());
+        //StartCoroutine(Aparicion());
+        //StartCoroutine(AparicionBombas());
     }
 
 
-    IEnumerator Aparicion()
+    public IEnumerator Aparicion()
     {
         while (conteo < limitePrimerEnemigo)
         {
@@ -49,7 +49,7 @@ public class Spawner : MonoBehaviour
             conteo += 1;
         }
     }
-    IEnumerator AparicionBombas()
+    public IEnumerator AparicionBombas()
     {
         while (conteo2 < limiteSegundoEnemigo)
         {
