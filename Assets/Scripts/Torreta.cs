@@ -83,7 +83,7 @@ public class Torreta : MonoBehaviour
         timer += Time.deltaTime;
         if (enemigoApuntando != null)
         {
-            Vector3 dir = enemigoApuntando.transform.position - transform.position;
+            Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position ;
             Quaternion VisionRotacion = Quaternion.LookRotation(dir);
             Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadGiro).eulerAngles;
             parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
