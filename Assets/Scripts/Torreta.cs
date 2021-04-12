@@ -12,6 +12,8 @@ public class Torreta : MonoBehaviour
     //
     // AUTHOR: autor
     // FEATURES ADDED: Añadido gasto energetico
+    // AUTHOR: Luis Belloch
+    // FEATURES ADDED: TorretaDestruida
     // ---------------------------------------------------
 
     [Range(0, 1)]
@@ -79,9 +81,14 @@ public class Torreta : MonoBehaviour
     public float velocidadGiro = 10f;
     private Disparo disparo;
 
+    Personaje personaje;
+
     // Start is called before the first frame update
     void Start()
     {
+        // Busca el jugador
+        personaje = FindObjectOfType<Personaje>();
+
         enemigoApuntando = null;
         disparo = GetComponentInChildren<Disparo>();
     }
@@ -110,6 +117,12 @@ public class Torreta : MonoBehaviour
                 disparo.Disparar();
                 //e.vida -= fuerza;
             }
+        }
+
+        // Torreta destruida
+        if(vida <= 0)
+        {
+            DestruirTorreta();
         }
     }
 
@@ -154,5 +167,13 @@ public class Torreta : MonoBehaviour
         }
         if (encontrado) return enemigoMasCercano;
         else return null;
+    }
+
+    // Llamado desde InvocarTorretas.cs EliminarTorreta()
+    public void DestruirTorreta()
+    {
+        // Destruye la torreta y devuelve la energia al jugador
+        personaje.energia += gastoEnergia;
+        Destroy(gameObject);
     }
 }

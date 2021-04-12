@@ -72,7 +72,7 @@ public class InvocarTorreta : MonoBehaviour
             }
 
             // Si pulsa Esc se destruye la previsualización
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 Destroy(torreta.gameObject);
                 torreta = null;
@@ -105,7 +105,7 @@ public class InvocarTorreta : MonoBehaviour
     {
         SetColocada(true);
         GameObject aux;
-        aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, alturaSpawn, torreta.position.z), Quaternion.identity);
+        aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, torreta.position.y + alturaSpawn, torreta.position.z), Quaternion.identity);
         aux.GetComponent<Torreta>().enabled = true;
         aux.GetComponent<TorretaBasica>().enabled = true;
         Torreta torretaCreada = aux.GetComponent<Torreta>();
@@ -115,5 +115,18 @@ public class InvocarTorreta : MonoBehaviour
             return;
         }
         personaje.Energia -= torretaCreada.gastoEnergia;
+    }
+
+    // Llamado desde MecanicasPersonaje.cs
+    public void EliminarTorreta()
+    {
+        RaycastHit punto;
+        // Comprueba que este apuntando a una torreta en el Layer Torreta
+        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Torreta"))) {
+            // Toma la torreta del RaycastHit
+            GameObject torreta = punto.transform.gameObject;
+            // Destruye la torreta
+            torreta.GetComponent<Torreta>().DestruirTorreta();
+        }
     }
 }
