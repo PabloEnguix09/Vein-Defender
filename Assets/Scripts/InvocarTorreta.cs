@@ -15,7 +15,7 @@ public class InvocarTorreta : MonoBehaviour
     public GameObject[] torretas;
     public float alcance = 50.0f;
 
-    private Transform torreta;
+    private GameObject torreta;
     private Rigidbody rb;
     private bool colocada = true;
 
@@ -45,7 +45,7 @@ public class InvocarTorreta : MonoBehaviour
         // Si existe torreta y está en el rango de colocación
         if (torreta != null && (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Terreno"))))
         {
-            torreta.position = new Vector3(punto.point.x, punto.point.y, punto.point.z);
+            torreta.transform.position = new Vector3(punto.point.x, punto.point.y, punto.point.z);
         }
 
         // Si pulsa clic izquierdo se "destruye" la torreta de previsualización y spawnea la otra más arriba
@@ -53,7 +53,7 @@ public class InvocarTorreta : MonoBehaviour
         {
             if(PosicionLegal())
             {
-                Transform torretaSpawn = torreta;
+                Transform torretaSpawn = torreta.transform;
                 Destroy(torreta.gameObject);
                 torreta = null;
                 rb = torretaSpawn.GetComponent<Rigidbody>();
@@ -84,7 +84,7 @@ public class InvocarTorreta : MonoBehaviour
         {
             if (torretas[i].name == nombre)
             {
-                torreta = ((GameObject)Instantiate(torretas[i])).transform;
+                torreta = ((GameObject)Instantiate(torretas[i]));
                 sitio = torreta.GetComponent<ComprobarSitio>();
                 rb = torreta.GetComponent<Rigidbody>();
                 rb.mass = 0f;
@@ -95,6 +95,9 @@ public class InvocarTorreta : MonoBehaviour
     public void SpawnTorreta(Transform torreta)
     {
         SetColocada(true);
-        Instantiate(torreta, new Vector3(torreta.position.x, 20, torreta.position.z), Quaternion.identity);
+        GameObject aux;
+         aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, 20, torreta.position.z), Quaternion.identity);
+        aux.GetComponent<Torreta>().enabled = true;
+        aux.GetComponent<TorretaBasica>().enabled = true;
     }
 }
