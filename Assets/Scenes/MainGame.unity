@@ -976,14 +976,6 @@ PrefabInstance:
       propertyPath: barraEnergia
       value: 
       objectReference: {fileID: 1870866795}
-    - target: {fileID: 4821090250797695098, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: fuerzaSalto
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: alturaSpawn
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
 --- !u!20 &549240591 stripped
