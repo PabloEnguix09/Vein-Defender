@@ -40,16 +40,16 @@ public class MecanicasPersonaje : MonoBehaviour
                 invocar.SetColocada(false);
                 invocar.PreviewTorreta("torretaBasica");
             }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                invocar.SetColocada(false);
-                invocar.PreviewTorreta("Pesada");
-            }
         }
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
             personaje.Saltar();
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            invocar.EliminarTorreta();
         }
     }
 }

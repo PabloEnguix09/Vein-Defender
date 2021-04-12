@@ -40,17 +40,4 @@ public class TorretaBasica : MonoBehaviour
         torreta.rango = rango;
         torreta.gastoEnergia = gastoEnergia;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (torreta.vida <= 0)
-        {
-            Debug.Log("Torreta muere");
-            GameObject jugador = GameObject.FindGameObjectWithTag("Player");
-            Personaje personaje = jugador.GetComponent<Personaje>();
-            personaje.Energia += gastoEnergia;
-            Destroy(gameObject);
-        }
-    }
 }

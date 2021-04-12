@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2853860864220122475}
   - component: {fileID: 6352674016225417504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnerBalas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 8764539634500259854}
   - component: {fileID: -4541721285109252986}
   - component: {fileID: 5022851198151062355}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: torretaBasica
   m_TagString: Torretas
   m_Icon: {fileID: 0}
@@ -208,6 +208,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7409424846342233334, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -6803186898478926095, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -235,6 +239,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
       propertyPath: m_Name
       value: Sparky
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400953273696924981, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
