@@ -4,13 +4,23 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemigo : MonoBehaviour
 {
+
+    // ---------------------------------------------------
+    // NAME: Enemigo.cs
+    // STATUS: WIP
+    // GAMEOBJECT: Enemigo
+    // DESCRIPTION: Este escript reune todas las capacidades basicas de un enemigo. Movimiento y estadisticas.
+    //
+    // AUTHOR: Jorge Grau
+    // FEATURES ADDED: Los enemigos tienen unas estadisticas que eredan de su tipo y siguen una ruta establecida por su spawner, si algo aparece en su radio de vision van a por el. Tambien el recibir daño por disparos.
+    // ---------------------------------------------------
+
     private Base base1;
     private Base base2;
     private Base base3;
     public static Transform final;
     public NavMeshAgent agente;
     private Transform objetivo;
-
 
     [Range(0, 1)]
     [SerializeField]
@@ -44,17 +54,6 @@ public class Enemigo : MonoBehaviour
 
     public float velocidad;
 
-    public float Velocidad
-    {
-        get { return velocidad; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            velocidad = value;
-        }
-    }
-
     public float vision;
 
     public float Vision
@@ -69,12 +68,12 @@ public class Enemigo : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
     void Start()
     {
 
         agente = GetComponent<NavMeshAgent>();
 
+        // El enemigo busca a que base dirigirse, si todas estan destruidas va donde a aparecido
         if (base1.Salud > 0)
         {
             agente.destination = base1.transform.position;
@@ -99,7 +98,7 @@ public class Enemigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // Busca un objetivo y se dirige hacia el
         objetivo = BuscarObjetivo();
 
         agente.destination = objetivo.position;
@@ -116,6 +115,7 @@ public class Enemigo : MonoBehaviour
 
     Transform BuscarObjetivo()
     {
+        // Se crea una esfera buscando todos los colliders en el rango de vision, si encuentra una torreta o a un enemigo se dirige hacia el.
         Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, vision);
 
         for (int i = 0; i < colliders.Length; i++)
@@ -156,12 +156,11 @@ public class Enemigo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        // Si es golpeado por una bala recibe daño y la bala se destruye.
         if (other.gameObject.GetComponent<Bala>() != null)
         {
             Bala bala = other.gameObject.GetComponent<Bala>();
             vida -= bala.fuerza;
-            Debug.Log(other.name);
             Destroy(other.gameObject);
         }
     }

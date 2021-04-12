@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Torreta : MonoBehaviour
 {
+    // ---------------------------------------------------
+    // NAME: nombre
+    // STATUS: estado
+    // GAMEOBJECT: objeto
+    // DESCRIPTION: descripcion
+    //
+    // AUTHOR: autor
+    // FEATURES ADDED: Añadido gasto energetico
+    // ---------------------------------------------------
 
     [Range(0, 1)]
     [SerializeField]
@@ -60,6 +69,8 @@ public class Torreta : MonoBehaviour
             rango = value;
         }
     }
+
+    public float gastoEnergia;
 
     private GameObject enemigoApuntando;
     private float timer;

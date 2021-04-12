@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- *  AUTHOR: Pablo Enguix Llopis
- *  STATUS: WIP
- *  NAME: Personaje.cs
- *  GAMEOBJECT: Jugador
- *  DESCRIPTION: This script is used to make all the character-related features, such as movement, jump, run and health 
- */
+// ---------------------------------------------------
+// NAME: Personaje.cs
+// STATUS: WIP
+// GAMEOBJECT: Jugador
+// DESCRIPTION: Este script contiene todo lo relacionado con el personaje, movimiento, salto, vida...
+//
+// AUTHOR: Pablo Enguix Llopis
+// FEATURES ADDED: cosas hechas
+//
+// AUTHOR: Jorge Grau
+// FEATURES ADDED: Salud y energia añadidos
+// ---------------------------------------------------
 
 public class Personaje : MonoBehaviour
 {
@@ -16,11 +21,57 @@ public class Personaje : MonoBehaviour
     private float derecha;
     private Vector3 velocidad;
 
+    public ControlVida barraVida;
+    public ControlEnergia barraEnergia;
+
+    [Range(0, 1)]
+    [SerializeField]
+    public float salud = 1;
+
+    public float Salud
+    {
+        get { return salud; }
+
+        set
+        {
+            
+            value = Mathf.Clamp01(value);
+            salud = value;
+            Debug.Log(salud);
+            barraVida.controlVida(salud);
+            if (salud <= 0)
+            {
+                Debug.Log("Destruido");
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    public float energia = 10;
+
+    public float Energia
+    {
+        get { return energia; }
+
+        set 
+        { 
+            energia = value;
+            barraEnergia.controlEnergia(energia);
+        }
+    }
+
     public float alcance = 12.5f;
 
     public CameraController camara;
     public MovimientoPersonaje personaje;
 
+    private void Start()
+    {
+        barraVida.maximaVida(salud);
+
+        barraEnergia.maximaEnergia(energia);
+        
+    }
     public void Mover(float adelante, float derecha)
     {
         this.adelante = adelante;

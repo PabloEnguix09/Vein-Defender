@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- *  AUTHOR: Pablo Enguix Llopis
- *  STATUS: WIP
- *  NAME: ComprobarSitio.cs
- *  GAMEOBJECT: All turrets
- *  DESCRIPTION: This script is used to check if, when the character wants to deploy a turret, if the place to deploy is free
- */
+// ---------------------------------------------------
+// NAME: nombre
+// STATUS: estado
+// GAMEOBJECT: objeto
+// DESCRIPTION: descripcion
+//
+// AUTHOR: autor
+// FEATURES ADDED: cosas hechas
+// ---------------------------------------------------
 
 public class ComprobarSitio : MonoBehaviour
 {

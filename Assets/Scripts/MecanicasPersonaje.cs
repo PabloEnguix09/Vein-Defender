@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- *  AUTHOR: Pablo Enguix Llopis
- *  STATUS: WIP
- *  NAME: MecanicasPersonaje.cs
- *  GAMEOBJECT: Jugador
- *  DESCRIPTION: This script is used to read the inputs of the keyboard and executate the different actions
- */
+// ---------------------------------------------------
+// NAME: nombre
+// STATUS: estado
+// GAMEOBJECT: objeto
+// DESCRIPTION: descripcion
+//
+// AUTHOR: autor
+// FEATURES ADDED: cosas hechas
+// ---------------------------------------------------
+
 
 [RequireComponent(typeof(Personaje))]
 public class MecanicasPersonaje : MonoBehaviour

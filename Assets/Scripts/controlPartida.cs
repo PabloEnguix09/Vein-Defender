@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- *  AUTHOR: Adrián Maldonado Llambies
- *  STATUS: WIP
- *  NAME: controlPartida.cs
- *  GAMEOBJECT: None
- *  DESCRIPTION: This script is used to control the game start, restart and end; 
- */
+// ---------------------------------------------------
+// NAME: controlPartida.cs
+// STATUS: WIP
+// GAMEOBJECT: objeto
+// DESCRIPTION: descripcion
+//
+// AUTHOR: autor
+// FEATURES ADDED: cosas hechas
+//
+// AUTHOR: Jorge Grau
+// FEATURES ADDED: Si T-Byte muere acaba la partida. Añadida camara secundaria.
+// ---------------------------------------------------
+
 public class controlPartida : MonoBehaviour
 {
     Base[] bases;
     Spawner[] spawners;
+    public GameObject jugador;
+    Personaje personaje;
+    public Camera CamaraSecundaria;
+
     public GameObject textoEstado;
     public GameObject textoRonda;
 
@@ -25,6 +35,8 @@ public class controlPartida : MonoBehaviour
     {
         bases = (Base[])GameObject.FindObjectsOfType(typeof(Base));
         spawners = (Spawner[])GameObject.FindObjectsOfType(typeof(Spawner));
+        personaje = jugador.GetComponent<Personaje>();
+        CamaraSecundaria.gameObject.SetActive(false);
         ronda = 1;
     }
 
@@ -38,6 +50,11 @@ public class controlPartida : MonoBehaviour
             {
                 finDePartida = false;
             }
+        }
+
+        if (personaje.Salud <= 0)
+        {
+            finDePartida = true;
         }
 
         finDeRonda = false;
@@ -101,6 +118,11 @@ public class controlPartida : MonoBehaviour
 
         if (finDePartida)
         {
+            if (!CamaraSecundaria.isActiveAndEnabled)
+            {
+                CamaraSecundaria.gameObject.SetActive(!CamaraSecundaria.gameObject.activeSelf);
+            }
+            
             GameObject[] torretas = (GameObject[])GameObject.FindGameObjectsWithTag("Torretas");
             foreach (GameObject t in torretas)
             {

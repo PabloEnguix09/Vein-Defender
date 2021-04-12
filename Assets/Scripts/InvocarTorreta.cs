@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- *  AUTHOR: Pablo Enguix Llopis
- *  STATUS: WIP
- *  NAME: InvocarTorreta.cs
- *  GAMEOBJECT: Jugador
- *  DESCRIPTION: This script is used todeploy the turrets
- */
+// ---------------------------------------------------
+// NAME: nombre
+// STATUS: estado
+// GAMEOBJECT: objeto
+// DESCRIPTION: descripcion
+//
+// AUTHOR: Pablo Enguix Llopis
+// FEATURES ADDED: cosas hecha
+//
+// AUTHOR: Jorge Grau
+// FEATURES ADDED: Comprobación de energia y gasto de energia.
+// ---------------------------------------------------
+
 
 public class InvocarTorreta : MonoBehaviour
 {
@@ -18,6 +24,8 @@ public class InvocarTorreta : MonoBehaviour
     private GameObject torreta;
     private Rigidbody rb;
     private bool colocada = true;
+
+    private Personaje personaje;
 
     public bool GetColocada()
     {
@@ -34,7 +42,7 @@ public class InvocarTorreta : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        personaje = this.GetComponent<Personaje>();
     }
 
     // Update is called once per frame
@@ -51,7 +59,8 @@ public class InvocarTorreta : MonoBehaviour
         // Si pulsa clic izquierdo se "destruye" la torreta de previsualización y spawnea la otra más arriba
         if (Input.GetMouseButtonDown(0))
         {
-            if(PosicionLegal())
+
+            if (PosicionLegal())
             {
                 Transform torretaSpawn = torreta.transform;
                 Destroy(torreta.gameObject);
@@ -96,8 +105,15 @@ public class InvocarTorreta : MonoBehaviour
     {
         SetColocada(true);
         GameObject aux;
-         aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, 20, torreta.position.z), Quaternion.identity);
+        aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, 20, torreta.position.z), Quaternion.identity);
         aux.GetComponent<Torreta>().enabled = true;
         aux.GetComponent<TorretaBasica>().enabled = true;
+        Torreta torretaCreada = aux.GetComponent<Torreta>();
+        if(personaje.Energia - torretaCreada.gastoEnergia < 0)
+        {
+            Destroy(aux);
+            return;
+        }
+        personaje.Energia -= torretaCreada.gastoEnergia;
     }
 }

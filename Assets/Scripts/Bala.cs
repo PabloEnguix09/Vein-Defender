@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
+    // ---------------------------------------------------
+    // NAME: nombre
+    // STATUS: estado
+    // GAMEOBJECT: objeto
+    // DESCRIPTION: descripcion
+    //
+    // AUTHOR: autor
+    // FEATURES ADDED: cosas hechas
+    // ---------------------------------------------------
 
     public float velocidad;
 
@@ -23,11 +32,11 @@ public class Bala : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (transform.position.y < -0f)
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Disparo : MonoBehaviour
 {
+    // ---------------------------------------------------
+    // NAME: nombre
+    // STATUS: estado
+    // GAMEOBJECT: objeto
+    // DESCRIPTION: descripcion
+    //
+    // AUTHOR: autor
+    // FEATURES ADDED: cosas hechas
+    // ---------------------------------------------------
 
     public GameObject bala;
 

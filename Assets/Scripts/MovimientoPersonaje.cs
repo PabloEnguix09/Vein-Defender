@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- *  AUTHOR: Pablo Enguix Llopis
- *  STATUS: WIP
- *  NAME: MovimientoPersonaje.cs
- *  GAMEOBJECT: Jugador
- *  DESCRIPTION: This script is used to make the different moves of the character
- */
+// ---------------------------------------------------
+// NAME: nombre
+// STATUS: estado
+// GAMEOBJECT: objeto
+// DESCRIPTION: descripcion
+//
+// AUTHOR: autor
+// FEATURES ADDED: cosas hechas
+// ---------------------------------------------------
+
 
 [RequireComponent(typeof(Rigidbody))]
 public class MovimientoPersonaje : MonoBehaviour
