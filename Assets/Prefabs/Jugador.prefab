@@ -214,6 +214,8 @@ MonoBehaviour:
   torretas:
   - {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
   - {fileID: 3671158431268791085, guid: 534e017d8f7d09243936ad9063eda095, type: 3}
+  previews:
+  - {fileID: 3464747742077781797, guid: 148cf7a240858cd418c75a775bcb67d7, type: 3}
   alcance: 50
   alturaSpawn: 20
 --- !u!1 &4821090251707822497

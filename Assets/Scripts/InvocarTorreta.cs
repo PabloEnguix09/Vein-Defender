@@ -19,6 +19,7 @@ using UnityEngine;
 public class InvocarTorreta : MonoBehaviour
 {
     public GameObject[] torretas;
+    public GameObject[] previews;
     public float alcance = 50.0f;
     public float alturaSpawn = 50.0f;
 
@@ -61,13 +62,21 @@ public class InvocarTorreta : MonoBehaviour
             {
                 if (PosicionLegal())
                 {
-                    Transform torretaSpawn = torreta.transform;
-                    Destroy(torreta.gameObject);
-                    torreta = null;
-                    rb = torretaSpawn.GetComponent<Rigidbody>();
-                    rb.mass = 1f;
-                    rb.constraints = RigidbodyConstraints.FreezeRotation;
-                    SpawnTorreta(torretaSpawn);
+                    for(int i = 0; i < previews.Length; i++)
+                    {
+                        if(previews[i].gameObject.name + "(Clone)" == torreta.gameObject.name)
+                        {
+                            Transform torretaSpawn = torretas[i].transform;
+                            torretaSpawn.position = torreta.transform.position;
+                            torretaSpawn.rotation = torreta.transform.rotation;
+                            Destroy(torreta.gameObject);
+                            torreta = null;
+                            rb = torretaSpawn.GetComponent<Rigidbody>();
+                            rb.mass = 1f;
+                            rb.constraints = RigidbodyConstraints.FreezeRotation;
+                            SpawnTorreta(torretaSpawn);
+                        }
+                    }
                 }
             }
 
@@ -89,11 +98,11 @@ public class InvocarTorreta : MonoBehaviour
 
     public void PreviewTorreta(string nombre)
     {
-        for (int i = 0; i < torretas.Length; i++)
+        for (int i = 0; i < previews.Length; i++)
         {
-            if (torretas[i].name == nombre)
+            if (previews[i].name == nombre + "_preview")
             {
-                torreta = ((GameObject)Instantiate(torretas[i]));
+                torreta = ((GameObject)Instantiate(previews[i]));
                 sitio = torreta.GetComponent<ComprobarSitio>();
                 rb = torreta.GetComponent<Rigidbody>();
                 rb.mass = 0f;

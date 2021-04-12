@@ -135,9 +135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 0
   fuerza: 0
-  velocidadAtaque: 0
-  rango: 0
-  gastoEnergia: 0
+  velocidadAtaque: 1
+  rango: 40
+  gastoEnergia: 1
   parteQueRota: {fileID: 8421103798193483843}
   velocidadGiro: 10
 --- !u!114 &5022851198151062355
