@@ -22,7 +22,7 @@ public class ComprobarSitio : MonoBehaviour
         if (collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Torretas" &&
         collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.layer == 6)
         {
-            Debug.Log("Hey");
+            Debug.Log("La torreta ha tocado el suelo");
             Rigidbody rb = collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.GetComponent<Rigidbody>();
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }

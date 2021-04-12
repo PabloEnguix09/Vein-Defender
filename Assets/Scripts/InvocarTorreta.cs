@@ -55,31 +55,30 @@ public class InvocarTorreta : MonoBehaviour
         if (torreta != null && (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Terreno"))))
         {
             torreta.transform.position = new Vector3(punto.point.x, punto.point.y, punto.point.z);
-        }
 
-        // Si pulsa clic izquierdo se "destruye" la torreta de previsualización y spawnea la otra más arriba
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            if (PosicionLegal())
+            // Si pulsa clic izquierdo se "destruye" la torreta de previsualización y spawnea la otra más arriba
+            if (Input.GetMouseButtonDown(0))
             {
-                Transform torretaSpawn = torreta.transform;
+                if (PosicionLegal())
+                {
+                    Transform torretaSpawn = torreta.transform;
+                    Destroy(torreta.gameObject);
+                    torreta = null;
+                    rb = torretaSpawn.GetComponent<Rigidbody>();
+                    rb.mass = 1f;
+                    rb.constraints = RigidbodyConstraints.FreezeRotation;
+                    SpawnTorreta(torretaSpawn);
+                }
+            }
+
+            // Si pulsa Esc se destruye la previsualización
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
                 Destroy(torreta.gameObject);
                 torreta = null;
-                rb = torretaSpawn.GetComponent<Rigidbody>();
-                rb.mass = 1f;
-                rb.constraints = RigidbodyConstraints.FreezeRotation;
-                SpawnTorreta(torretaSpawn);
+                SetColocada(true);
+                return;
             }
-        }
-
-        // Si pulsa Esc se destruye la previsualización
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Destroy(torreta.gameObject);
-            torreta = null;
-            SetColocada(true);
-            return;
         }
     }
 
