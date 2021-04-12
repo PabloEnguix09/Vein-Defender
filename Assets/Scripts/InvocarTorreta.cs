@@ -20,6 +20,7 @@ public class InvocarTorreta : MonoBehaviour
 {
     public GameObject[] torretas;
     public float alcance = 50.0f;
+    public float alturaSpawn = 50.0f;
 
     private GameObject torreta;
     private Rigidbody rb;
@@ -67,7 +68,7 @@ public class InvocarTorreta : MonoBehaviour
                 torreta = null;
                 rb = torretaSpawn.GetComponent<Rigidbody>();
                 rb.mass = 1f;
-                rb.constraints = RigidbodyConstraints.None;
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
                 SpawnTorreta(torretaSpawn);
             }
         }
@@ -105,7 +106,7 @@ public class InvocarTorreta : MonoBehaviour
     {
         SetColocada(true);
         GameObject aux;
-        aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, 20, torreta.position.z), Quaternion.identity);
+        aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, alturaSpawn, torreta.position.z), Quaternion.identity);
         aux.GetComponent<Torreta>().enabled = true;
         aux.GetComponent<TorretaBasica>().enabled = true;
         Torreta torretaCreada = aux.GetComponent<Torreta>();

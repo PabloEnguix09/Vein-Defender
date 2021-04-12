@@ -107,7 +107,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 90
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &8764539634500259854
 MonoBehaviour:
@@ -137,6 +137,7 @@ MonoBehaviour:
   fuerza: 0
   velocidadAtaque: 0
   rango: 0
+  gastoEnergia: 0
   parteQueRota: {fileID: 8421103798193483843}
   velocidadGiro: 10
 --- !u!114 &5022851198151062355
@@ -155,6 +156,7 @@ MonoBehaviour:
   fuerza: 0.4
   velocidadAtaque: 1
   rango: 40
+  gastoEnergia: 1
 --- !u!1001 &2663121656723951258
 PrefabInstance:
   m_ObjectHideFlags: 0

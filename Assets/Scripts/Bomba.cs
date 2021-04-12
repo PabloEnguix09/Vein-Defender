@@ -1,3 +1,13 @@
+// ---------------------------------------------------
+// NAME: Bomba.cs
+// STATUS: WIP
+// GAMEOBJECT: Enemigo
+// DESCRIPTION: Aqui se reunen las capacidades especiales del enemigo bomba y sus estadisticas
+//
+// AUTHOR: Jorge Grau
+// FEATURES ADDED: Añadidas las estadisticas, la explosion al chocar y el daño de explosion en area.
+// ---------------------------------------------------
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,30 +15,21 @@ using UnityEngine.AI;
 
 public class Bomba : MonoBehaviour
 {
-    // ---------------------------------------------------
-    // NAME: Bomba.cs
-    // STATUS: WIP
-    // GAMEOBJECT: Enemigo
-    // DESCRIPTION: Aqui se reunen las capacidades especiales del enemigo bomba y sus estadisticas
-    //
-    // AUTHOR: Jorge Grau
-    // FEATURES ADDED: Añadidas las estadisticas, la explosion al chocar y el daño de explosion en area.
-    // ---------------------------------------------------
-// Arreglar bombas
+
     public GameObject explosion;
 
     Animator animator;
     public float destroyOfftime = 0.5f;
 
     [Range(0, 1)]
-    private float fuerza = .3f;
+    public float fuerza = .3f;
 
     [Range(0, 1)]
-    private float vida = .5f;
+    public float vida = .5f;
 
-    private float velocidad = 10;
+    public float velocidad = 10;
 
-    private float rango = 4;
+    public float rango = 4;
 
     public float radioExplosion = 2f;
 
