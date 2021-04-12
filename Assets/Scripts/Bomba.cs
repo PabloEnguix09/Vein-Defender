@@ -5,7 +5,7 @@
 // DESCRIPTION: Aqui se reunen las capacidades especiales del enemigo bomba y sus estadisticas
 //
 // AUTHOR: Jorge Grau
-// FEATURES ADDED: Añadidas las estadisticas, la explosion al chocar y el daño de explosion en area.
+// FEATURES ADDED: Aï¿½adidas las estadisticas, la explosion al chocar y el daï¿½o de explosion en area.
 // ---------------------------------------------------
 
 using System.Collections;
@@ -63,7 +63,7 @@ public class Bomba : MonoBehaviour
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
                 Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, radioExplosion);
 
-                // Inflinge daño a todos los objetivos dentro del rango
+                // Inflinge daï¿½o a todos los objetivos dentro del rango
                 for (int i = 0; i < colliders.Length; i++)
                 {
                     if (colliders[i].CompareTag("Bases"))
