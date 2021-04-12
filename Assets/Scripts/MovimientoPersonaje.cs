@@ -81,7 +81,6 @@ public class MovimientoPersonaje : MonoBehaviour
         if (collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Player" &&
             collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.layer == 6)
         {
-            Debug.Log("Hey");
             haSaltado = false;
         }
     }
@@ -89,7 +88,6 @@ public class MovimientoPersonaje : MonoBehaviour
     {
         if (collision.collider.gameObject.layer == 6)
         {
-            Debug.Log("Au kse");
             haSaltado = true;
         }
     }

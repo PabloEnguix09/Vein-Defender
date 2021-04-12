@@ -24,7 +24,7 @@ public class ComprobarSitio : MonoBehaviour
         {
             Debug.Log("Hey");
             Rigidbody rb = collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.GetComponent<Rigidbody>();
-            rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
         if(collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Torretas" &&
         collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.tag == "Torretas")

@@ -68,6 +68,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
   destroyOfftime: 0.4
+  fuerza: 0.3
+  vida: 0.5
+  velocidad: 10
+  rango: 5
   radioExplosion: 2
 --- !u!65 &6975631623353459762
 BoxCollider:

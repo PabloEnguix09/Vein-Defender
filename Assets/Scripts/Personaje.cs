@@ -26,6 +26,8 @@ public class Personaje : MonoBehaviour
 
     [Range(0, 1)]
     [SerializeField]
+    public float saludMaxima = 1;
+
     public float salud = 1;
 
     public float Salud
@@ -49,6 +51,8 @@ public class Personaje : MonoBehaviour
 
     public float energia = 10;
 
+    public float energiaMaxima = 10;
+
     public float Energia
     {
         get { return energia; }
@@ -67,6 +71,9 @@ public class Personaje : MonoBehaviour
 
     private void Start()
     {
+        salud = saludMaxima;
+        energia = energiaMaxima;
+
         barraVida.maximaVida(salud);
 
         barraEnergia.maximaEnergia(energia);

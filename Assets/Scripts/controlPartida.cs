@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // ---------------------------------------------------
 // NAME: controlPartida.cs
@@ -30,6 +31,8 @@ public class controlPartida : MonoBehaviour
     private bool finDeRonda;
     private bool todosSpawneados;
     private int ronda;
+
+    Enemigo[] enemigos;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +62,7 @@ public class controlPartida : MonoBehaviour
 
         finDeRonda = false;
         todosSpawneados = false;
-        Enemigo[] enemigos = (Enemigo[])GameObject.FindObjectsOfType(typeof(Enemigo));
+        enemigos = (Enemigo[])GameObject.FindObjectsOfType(typeof(Enemigo));
         foreach (Spawner s in spawners)
         {
             if(s.conteo == s.limitePrimerEnemigo && s.conteo2 == s.limiteSegundoEnemigo)
@@ -150,36 +153,13 @@ public class controlPartida : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la partida";
-            foreach (Enemigo e in enemigos)
-            {
-                Destroy(e.gameObject);
-            }
-            GameObject[] torretas = (GameObject[])GameObject.FindGameObjectsWithTag("Torretas");
-            foreach (GameObject t in torretas)
-            {
-                Destroy(t);
-            }
-
-            foreach (Spawner s in spawners)
-            {
-                s.conteo = 0;
-                s.conteo2 = 0;
-            }
-
-            foreach (Base b in bases)
-            {
-                b.salud = 1f;
-            }
-            Personaje[] personajes = (Personaje[])GameObject.FindObjectsOfType(typeof(Personaje));
-            foreach (Personaje p in personajes)
-            {
-                p.transform.position = Vector3.zero;
-                StopAllCoroutines();
-            }
-            
-            Debug.Log("Reiniciar");
+            Restart();
         }
 
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
