@@ -22,14 +22,14 @@ public class ComprobarSitio : MonoBehaviour
         if (collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Torretas" &&
         collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.layer == 6)
         {
-            Debug.Log("La torreta ha tocado el suelo");
+            //Debug.Log("La torreta ha tocado el suelo");
             Rigidbody rb = collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.GetComponent<Rigidbody>();
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
         if(collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Previews" &&
         collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.tag == "Torretas")
         {
-            Debug.Log("Hay colisión");
+            //Debug.Log("Hay colisión");
             colliders.Add(collision);
         }
     }
@@ -37,7 +37,7 @@ public class ComprobarSitio : MonoBehaviour
     {
         if (collision.collider.gameObject.tag == "Torretas" && collision.gameObject.tag == "Torretas") 
         {
-            Debug.Log("Ya no hay colisión");
+            //Debug.Log("Ya no hay colisión");
             colliders.Remove(collision);
         }
     }

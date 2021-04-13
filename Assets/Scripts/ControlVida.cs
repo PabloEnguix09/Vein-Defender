@@ -17,14 +17,26 @@ public class ControlVida : MonoBehaviour
 
     public Slider sliderVida;
 
+    Personaje personaje;
+
+    private void Start()
+    {
+        personaje = FindObjectOfType<Personaje>();
+    }
+
     public void maximaVida(float vida)
     {
         sliderVida.maxValue = vida;
         sliderVida.value = vida;
     }
+    // En desuso
     public void controlVida(float vida)
     {
-        sliderVida.value = vida;
-        Debug.Log("HeyEscucha");
+
+    }
+
+    private void Update()
+    {
+        sliderVida.value = personaje.salud;
     }
 }

@@ -140,7 +140,7 @@ public class controlPartida : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Debug.Log("Empesar partida");
+            //Debug.Log("Empesar partida");
             foreach(Spawner s in spawners)
             {
                 StartCoroutine(s.Aparicion());
@@ -152,7 +152,7 @@ public class controlPartida : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Debug.Log("Fin de partida");
+            //Debug.Log("Fin de partida");
         }
 
         if (Input.GetKeyDown(KeyCode.R))

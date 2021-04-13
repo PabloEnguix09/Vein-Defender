@@ -18,6 +18,8 @@ public class Base : MonoBehaviour
     [SerializeField]
     public float salud = 1;
 
+    public GameObject modelo;
+
     public float Salud
     {
         get { return salud; }
@@ -28,9 +30,15 @@ public class Base : MonoBehaviour
             salud = value;
             if (salud <= 0)
             {
-                Debug.Log("Destruido");
-                //Destroy(gameObject);
+                // Debug.Log("Destruido");
+                // Destroy(gameObject);
+                modelo.SetActive(false);
             }
         }
+    }
+
+    private void Start()
+    {
+        modelo.SetActive(true);
     }
 }

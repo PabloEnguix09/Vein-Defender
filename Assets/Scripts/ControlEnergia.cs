@@ -38,12 +38,6 @@ public class ControlEnergia : MonoBehaviour
         imagen.color = gradienteEnergia.Evaluate(1f);
     }
 
-    public void controlEnergia(float energia)
-    {
-        Debug.Log(energia.ToString());
-
-    }
-
     private void Update()
     {
         sliderEnergia.value = energiaMax - personaje.energia;
