@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2853860864220122475}
   - component: {fileID: 6352674016225417504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnerBalas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 8764539634500259854}
   - component: {fileID: -4541721285109252986}
   - component: {fileID: 5022851198151062355}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: torretaBasica
   m_TagString: Torretas
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807558183801602318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.7033037, y: 23.852377, z: 146.4583}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2558034091581843825}
@@ -91,8 +91,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3, y: 1.8418801, z: 1.3458278}
-  m_Center: {x: 0, y: 0.84594, z: -0.12708604}
+  m_Size: {x: 1.6799791, y: 2.4790318, z: 2.347229}
+  m_Center: {x: 0.018449187, y: 1.1645159, z: -0.021072388}
 --- !u!54 &5472326091319646047
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8764539634500259854
 MonoBehaviour:
@@ -135,9 +135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 0
   fuerza: 0
-  velocidadAtaque: 0
-  rango: 0
-  gastoEnergia: 0
+  velocidadAtaque: 1
+  rango: 40
+  gastoEnergia: 1
   parteQueRota: {fileID: 8421103798193483843}
   velocidadGiro: 10
 --- !u!114 &5022851198151062355
@@ -208,6 +208,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7409424846342233334, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -6803186898478926095, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -235,6 +239,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
       propertyPath: m_Name
       value: Sparky
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400953273696924981, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fb7695e9a7554744b0c47d0442340e5, type: 3}

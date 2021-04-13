@@ -39,11 +39,11 @@ public class Personaje : MonoBehaviour
             
             value = Mathf.Clamp01(value);
             salud = value;
-            Debug.Log(salud);
+            //Debug.Log(salud);
             barraVida.controlVida(salud);
             if (salud <= 0)
             {
-                Debug.Log("Destruido");
+                //Debug.Log("Destruido");
                 Destroy(gameObject);
             }
         }
@@ -60,7 +60,6 @@ public class Personaje : MonoBehaviour
         set 
         { 
             energia = value;
-            barraEnergia.controlEnergia(energia);
         }
     }
 
