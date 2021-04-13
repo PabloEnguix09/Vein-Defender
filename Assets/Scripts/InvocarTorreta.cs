@@ -99,20 +99,24 @@ public class InvocarTorreta : MonoBehaviour
         if(menuRadial.activeSelf)
         {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
             if(Input.GetMouseButtonDown(0))
             {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 // Comprueba que este apuntando a una opcion en el Layer UI
                 if (Physics.Raycast(ray, out hit, LayerMask.GetMask("UI")))
                 {
                     // Debug.Log("Torreta seleccionada: ");
                     // Las opciones del menu son numeros
-                    int.TryParse(hit.transform.name, out int index);
-                    // Se previsualiza la torreta
-                    SetColocada(false);
-                    PreviewTorreta(index);
+                    bool hecho = int.TryParse(hit.transform.name, out int index);
+                    if (hecho)
+                    {
+                        // Se previsualiza la torreta
+                        SetColocada(false);
+                        PreviewTorreta(index);
 
-                    AlternarMenuRadial();
+                        AlternarMenuRadial();
+                    }
                 }
             }
         }
