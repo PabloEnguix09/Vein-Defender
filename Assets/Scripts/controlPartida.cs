@@ -14,6 +14,9 @@ using UnityEngine.SceneManagement;
 //
 // AUTHOR: Jorge Grau
 // FEATURES ADDED: Si T-Byte muere acaba la partida. Añadida camara secundaria.
+//
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: Restart()
 // ---------------------------------------------------
 
 public class controlPartida : MonoBehaviour
@@ -124,6 +127,7 @@ public class controlPartida : MonoBehaviour
             if (!CamaraSecundaria.isActiveAndEnabled)
             {
                 CamaraSecundaria.gameObject.SetActive(!CamaraSecundaria.gameObject.activeSelf);
+                Cursor.lockState = CursorLockMode.None;
             }
             
             GameObject[] torretas = (GameObject[])GameObject.FindGameObjectsWithTag("Torretas");
