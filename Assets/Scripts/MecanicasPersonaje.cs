@@ -37,8 +37,10 @@ public class MecanicasPersonaje : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                invocar.SetColocada(false);
-                invocar.PreviewTorreta("torretaBasica");
+                // En desuso, ahora se activa desde InvocarTorreta.cs Update()
+                //invocar.SetColocada(false);
+                //invocar.PreviewTorreta("torretaBasica");
+                invocar.AlternarMenuRadial();
             }
         }
 

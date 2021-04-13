@@ -13,6 +13,9 @@ using UnityEngine;
 //
 // AUTHOR: Jorge Grau
 // FEATURES ADDED: Comprobación de energia y gasto de energia.
+// 
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: Arreglos de energía, EliminarTorreta() y menu radial
 // ---------------------------------------------------
 
 
@@ -28,6 +31,8 @@ public class InvocarTorreta : MonoBehaviour
     private bool colocada = true;
 
     private Personaje personaje;
+
+    public GameObject menuRadial;
 
     public bool GetColocada()
     {
@@ -89,6 +94,28 @@ public class InvocarTorreta : MonoBehaviour
                 return;
             }
         }
+
+        // Comportamiento del menu radial solo si esta activo
+        if(menuRadial.activeSelf)
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if(Input.GetMouseButtonDown(0))
+            {
+                // Comprueba que este apuntando a una opcion en el Layer UI
+                if (Physics.Raycast(ray, out hit, LayerMask.GetMask("UI")))
+                {
+                    // Debug.Log("Torreta seleccionada: ");
+                    // Las opciones del menu son numeros
+                    int.TryParse(hit.transform.name, out int index);
+                    // Se previsualiza la torreta
+                    SetColocada(false);
+                    PreviewTorreta(index);
+
+                    AlternarMenuRadial();
+                }
+            }
+        }
     }
 
     private bool PosicionLegal()
@@ -96,18 +123,12 @@ public class InvocarTorreta : MonoBehaviour
         return sitio.colliders.Count <= 0;
     }
 
-    public void PreviewTorreta(string nombre)
+    public void PreviewTorreta(int index)
     {
-        for (int i = 0; i < previews.Length; i++)
-        {
-            if (previews[i].name == nombre + "_preview")
-            {
-                torreta = ((GameObject)Instantiate(previews[i]));
-                sitio = torreta.GetComponent<ComprobarSitio>();
-                rb = torreta.GetComponent<Rigidbody>();
-                rb.mass = 0f;
-            }
-        }
+        torreta = ((GameObject)Instantiate(previews[index]));
+        sitio = torreta.GetComponent<ComprobarSitio>();
+        rb = torreta.GetComponent<Rigidbody>();
+        rb.mass = 0f;
     }
 
     public void SpawnTorreta(Transform torreta)
@@ -133,9 +154,24 @@ public class InvocarTorreta : MonoBehaviour
         // Comprueba que este apuntando a una torreta en el Layer Torreta
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Torreta"))) {
             // Toma la torreta del RaycastHit
-            GameObject torreta = punto.transform.gameObject;
+            GameObject torretaMarcada = punto.transform.gameObject;
             // Destruye la torreta
-            torreta.GetComponent<Torreta>().DestruirTorreta();
+            torretaMarcada.GetComponent<Torreta>().DestruirTorreta();
+        }
+    }
+
+    public void AlternarMenuRadial()
+    {
+        // Si esta desactivado se activa y viceversa
+        menuRadial.SetActive(!menuRadial.activeSelf);
+
+        // Desbloquea el cursor para poder seleccionar
+        if(menuRadial.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        } else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }
