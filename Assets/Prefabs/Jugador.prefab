@@ -131,10 +131,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.9
+  m_Radius: 0.24
   m_Height: 2.5
   m_Direction: 1
-  m_Center: {x: -1.14, y: 1.25, z: 0}
+  m_Center: {x: -1.2243509, y: 1.25, z: 0.17534864}
 --- !u!54 &4821090250797695095
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -218,6 +218,7 @@ MonoBehaviour:
   - {fileID: 3464747742077781797, guid: 148cf7a240858cd418c75a775bcb67d7, type: 3}
   alcance: 50
   alturaSpawn: 20
+  menuRadial: {fileID: 0}
 --- !u!1 &4821090251707822497
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,7 +34,6 @@ public class Bomba : MonoBehaviour
     public float radioExplosion = 2f;
 
     private Enemigo enemigo;
-    bool muerto = false;
 
     // Start is called before the first frame update
     void Start()
