@@ -5,13 +5,14 @@ using UnityEngine;
 public class Torreta : MonoBehaviour
 {
     // ---------------------------------------------------
-    // NAME: nombre
-    // STATUS: estado
-    // GAMEOBJECT: objeto
-    // DESCRIPTION: descripcion
+    // NAME: Torreta.cs
+    // STATUS: WIP
+    // GAMEOBJECT: Torreta
+    // DESCRIPTION: Modelo base para las torretas
     //
-    // AUTHOR: autor
-    // FEATURES ADDED: Añadido gasto energetico
+    // AUTHOR: Adrian
+    // FEATURES ADDED: La torreta apunta al enemigo mas cercano en un rango
+    //
     // AUTHOR: Luis Belloch
     // FEATURES ADDED: TorretaDestruida
     // ---------------------------------------------------
@@ -89,33 +90,37 @@ public class Torreta : MonoBehaviour
         // Busca el jugador
         personaje = FindObjectOfType<Personaje>();
 
+        //No apuntar a nadie
         enemigoApuntando = null;
+
         disparo = GetComponentInChildren<Disparo>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //busca al enemigo mas cercano
         enemigoApuntando = BuscarEnemigo();
+
+        //tiempo para la velocidad de ataque
         timer += Time.deltaTime;
+
+        //si apunta a alguien
         if (enemigoApuntando != null)
         {
+            //rota la torreta en dirección al enemigo apuntado
             Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position ;
             Quaternion VisionRotacion = Quaternion.LookRotation(dir);
+            //rotacion suave
             Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadGiro).eulerAngles;
             parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
 
-            //Quaternion rotacion = Quaternion.LookRotation(enemigoApuntando.transform.position - transform.position);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, rotacion, 10f * Time.deltaTime);
-
+            //si ha pasado el tiempo de recarga
             if (timer >= velocidadAtaque)
             {
-
                 timer = 0;
-                Enemigo e = enemigoApuntando.GetComponent<Enemigo>();
+                //disparar
                 disparo.Disparar();
-                //e.vida -= fuerza;
             }
         }
 
@@ -126,26 +131,30 @@ public class Torreta : MonoBehaviour
         }
     }
 
+    //Funcion de busqueda de enemigo
     GameObject BuscarEnemigo()
     {
         float menorDistancia = Mathf.Infinity;
         bool encontrado = false;
         GameObject enemigoMasCercano = null;
 
+        //generar una esfera de radio <rango> alrededor de la torreta y guardar todas las colisiones en una lista
         Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, rango);
         for (int i = 0; i < colliders.Length; i++)
         {
 
             if (colliders[i].CompareTag("Enemigos"))
             {
+                //si el collider pertenece a un enemigo
                 encontrado = true;
                 RaycastHit hit;
                 if (Physics.Linecast(transform.position, colliders[i].transform.position, out hit, 1, QueryTriggerInteraction.Ignore))
                 {
-
+                    //existe un collider entre el enemigo y la torreta
                 }
                 else
                 {
+                    //si todavía no apunta a nadie
                     if (enemigoMasCercano == null)
                     {
                         enemigoMasCercano = colliders[i].gameObject;
@@ -153,7 +162,9 @@ public class Torreta : MonoBehaviour
                     }
                     else
                     {
+                        //comprueba la distancia entre la torreta y el enemigo
                         float distancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
+                        //si está mas cerca que el anterior enemigo mas cercano lo sustituye
                         if (distancia < menorDistancia)
                         {
                             menorDistancia = distancia;

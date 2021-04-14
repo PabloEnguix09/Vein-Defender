@@ -10,6 +10,9 @@ public class TorretaBasica : MonoBehaviour
     // GAMEOBJECT: objeto
     // DESCRIPTION: descripcion
     //
+    // AUTHOR: Adrián
+    // FEATURES ADDED: Añadidos valores de fuerza, vida, velocidadAtaque y rango
+    //
     // AUTHOR: Jorge
     // FEATURES ADDED: Añadido gasto energetico
     // ---------------------------------------------------
@@ -33,6 +36,7 @@ public class TorretaBasica : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //asignar los valores a la torreta
         torreta = gameObject.GetComponent<Torreta>();
         torreta.fuerza = fuerza;
         torreta.vida = vida;

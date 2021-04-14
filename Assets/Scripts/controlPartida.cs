@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 // NAME: controlPartida.cs
 // STATUS: WIP
 // GAMEOBJECT: objeto
-// DESCRIPTION: descripcion
+// DESCRIPTION: Controlar el inicio de partida, las rondas y la derrota
 //
-// AUTHOR: autor
-// FEATURES ADDED: cosas hechas
+// AUTHOR: Adrian
+// FEATURES ADDED: Se puede iniciar partidas, rondas y la partida acaba al perder las bases.
 //
 // AUTHOR: Jorge Grau
 // FEATURES ADDED: Si T-Byte muere acaba la partida. Añadida camara secundaria.
@@ -36,7 +36,6 @@ public class controlPartida : MonoBehaviour
     private int ronda;
 
     Enemigo[] enemigos;
-    // Start is called before the first frame update
     void Start()
     {
         bases = (Base[])GameObject.FindObjectsOfType(typeof(Base));
@@ -46,18 +45,20 @@ public class controlPartida : MonoBehaviour
         ronda = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
         finDePartida = true;
+        //si todas las bases mueren, se acaba la partida
         foreach (Base b in bases)
         {
+            //comprueba si alguna base tiene vida
             if (b.salud > 0)
             {
                 finDePartida = false;
             }
         }
 
+        //si T-Byte muere, se acaba la partida
         if (personaje.Salud <= 0)
         {
             finDePartida = true;
@@ -66,15 +67,17 @@ public class controlPartida : MonoBehaviour
         finDeRonda = false;
         todosSpawneados = false;
         enemigos = (Enemigo[])GameObject.FindObjectsOfType(typeof(Enemigo));
+
+        //comprobar si han spawneado todos los enemigos
         foreach (Spawner s in spawners)
         {
             if(s.conteo == s.limitePrimerEnemigo && s.conteo2 == s.limiteSegundoEnemigo)
             {
-                
                 todosSpawneados = true;
             }
         }
 
+        //si han aparecido todos los enemigos y están todos muertos se acaba la ronda
         if (todosSpawneados && enemigos.Length == 0)
         {
             finDeRonda = true;
@@ -88,6 +91,7 @@ public class controlPartida : MonoBehaviour
                 case 2:
                     foreach (Spawner s in spawners)
                     {
+                        //inicio ronda 2
                         s.conteo = 0;
                         s.conteo2 = 0;
                         s.limitePrimerEnemigo = 10;
@@ -99,6 +103,7 @@ public class controlPartida : MonoBehaviour
                 case 3:
                     foreach (Spawner s in spawners)
                     {
+                        //inicio ronda 3
                         s.conteo = 0;
                         s.conteo2 = 0;
                         s.limitePrimerEnemigo = 15;
@@ -108,6 +113,7 @@ public class controlPartida : MonoBehaviour
                     }
                     break;
                 case 4:
+                    //ronda 4 o en este caso fin de la zona
                     foreach (Spawner s in spawners)
                     {
                         textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Has ganado, pulsa <R> para volver a empezar";
@@ -126,21 +132,24 @@ public class controlPartida : MonoBehaviour
         {
             if (!CamaraSecundaria.isActiveAndEnabled)
             {
+                //la camara se situa en el cielo.
                 CamaraSecundaria.gameObject.SetActive(!CamaraSecundaria.gameObject.activeSelf);
                 Cursor.lockState = CursorLockMode.None;
             }
             
+            //borrar todas las toretas
             GameObject[] torretas = (GameObject[])GameObject.FindGameObjectsWithTag("Torretas");
             foreach (GameObject t in torretas)
             {
                 Destroy(t);
             }
+            //Texto de la ui
             textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Has perdido, pulsa la tecla <R> para volver a empezar";
         }
 
+        //Pulsar la <k> para empezar rondas/partida
         if (Input.GetKeyDown(KeyCode.K))
         {
-            //Debug.Log("Empesar partida");
             foreach(Spawner s in spawners)
             {
                 StartCoroutine(s.Aparicion());
@@ -148,11 +157,6 @@ public class controlPartida : MonoBehaviour
                 textoEstado.GetComponent<UnityEngine.UI.Text>().text = "";
             }
             
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            //Debug.Log("Fin de partida");
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -164,6 +168,7 @@ public class controlPartida : MonoBehaviour
 
     public void Restart()
     {
+        //reiniciar la partida
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

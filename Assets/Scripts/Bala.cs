@@ -5,13 +5,13 @@ using UnityEngine;
 public class Bala : MonoBehaviour
 {
     // ---------------------------------------------------
-    // NAME: nombre
-    // STATUS: estado
-    // GAMEOBJECT: objeto
-    // DESCRIPTION: descripcion
+    // NAME: Bala.cs
+    // STATUS: WIP
+    // GAMEOBJECT: Bala
+    // DESCRIPTION: Control de las balas disparadas por las torretas
     //
-    // AUTHOR: autor
-    // FEATURES ADDED: cosas hechas
+    // AUTHOR: Adrián
+    // FEATURES ADDED: La bala con impulso y se destruye al golpear algo.
     // ---------------------------------------------------
 
     public float velocidad;
@@ -22,25 +22,23 @@ public class Bala : MonoBehaviour
 
     Rigidbody rb;
 
-    // Start is called before the first frame update
     void Start()
     {
         velocidad = 100f;
         rb = GetComponent<Rigidbody>();
+
+        //Darle impulso de la bala
         rb.AddForce(transform.forward * velocidad, ForceMode.Impulse);
     }
 
-    // Update is called once per frame
     void Update()
-    {/*
-        if (transform.position.y < -0f)
-        {
-            Destroy(gameObject);
-        }*/
+    {
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Destruirse al golpear
         Destroy(gameObject);
     }
 }
