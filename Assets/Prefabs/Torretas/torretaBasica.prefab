@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 5472326091319646047}
   - component: {fileID: 8764539634500259854}
   - component: {fileID: -4541721285109252986}
-  - component: {fileID: 5022851198151062355}
   m_Layer: 7
   m_Name: torretaBasica
   m_TagString: Torretas
@@ -73,7 +72,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807558183801602318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1294656, y: 23.842422, z: 149.99858}
+  m_LocalPosition: {x: 8.618006, y: 23.876871, z: 117.3086}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2558034091581843825}
@@ -133,30 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96517f2596bd50641b5a63963c836b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
-  fuerza: 0
-  velocidadAtaque: 1
-  rango: 40
-  gastoEnergia: 1
+  torretaBasica: {fileID: 11400000, guid: eeb85cd2e40166d45a37bff512706d03, type: 2}
+  vidaActual: 0
   parteQueRota: {fileID: 8421103798193483843}
-  velocidadGiro: 10
---- !u!114 &5022851198151062355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8807558183801602318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vida: 0.3
-  fuerza: 0.4
-  velocidadAtaque: 1
-  rango: 40
-  gastoEnergia: 1
 --- !u!1001 &2663121656723951258
 PrefabInstance:
   m_ObjectHideFlags: 0

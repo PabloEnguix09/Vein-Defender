@@ -14,72 +14,17 @@ public class Torreta : MonoBehaviour
     // FEATURES ADDED: La torreta apunta al enemigo mas cercano en un rango
     //
     // AUTHOR: Luis Belloch
-    // FEATURES ADDED: TorretaDestruida
+    // FEATURES ADDED: TorretaDestruida, ScriptableObjects
     // ---------------------------------------------------
 
-    [Range(0, 1)]
-    [SerializeField]
-    public float vida;
+    public TorretaBasica torretaBasica;
 
-    public float Vida
-    {
-        get { return vida; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            vida = value;
-        }
-    }
-
-    [Range(0, 1)]
-    [SerializeField]
-    public float fuerza;
-
-    public float Fuerza
-    {
-        get { return fuerza; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            fuerza = value;
-        }
-    }
-
-    public float velocidadAtaque;
-
-    public float VelocidadAtaque
-    {
-        get { return velocidadAtaque; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            velocidadAtaque = value;
-        }
-    }
-
-    public float rango;
-
-    public float Rango
-    {
-        get { return rango; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            rango = value;
-        }
-    }
-
-    public float gastoEnergia;
+    public float vidaActual;
 
     private GameObject enemigoApuntando;
     private float timer;
 
     public Transform parteQueRota;
-    public float velocidadGiro = 10f;
     private Disparo disparo;
 
     Personaje personaje;
@@ -87,6 +32,9 @@ public class Torreta : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        vidaActual = torretaBasica.vidaMaxima;
+
         // Busca el jugador
         personaje = FindObjectOfType<Personaje>();
 
@@ -94,6 +42,15 @@ public class Torreta : MonoBehaviour
         enemigoApuntando = null;
 
         disparo = GetComponentInChildren<Disparo>();
+
+        // Reduce la energia del jugador
+        if(personaje.energia - torretaBasica.energia < 0)
+        {
+            Destroy(gameObject);
+        } else
+        {
+            personaje.energia -= torretaBasica.energia;
+        }
     }
 
     // Update is called once per frame
@@ -112,20 +69,20 @@ public class Torreta : MonoBehaviour
             Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position ;
             Quaternion VisionRotacion = Quaternion.LookRotation(dir);
             //rotacion suave
-            Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadGiro).eulerAngles;
+            Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * torretaBasica.velocidadRotacion).eulerAngles;
             parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
 
             //si ha pasado el tiempo de recarga
-            if (timer >= velocidadAtaque)
+            if (timer >= torretaBasica.cadenciaDisparo)
             {
                 timer = 0;
                 //disparar
-                disparo.Disparar();
+                disparo.Disparar(torretaBasica.ataque);
             }
         }
 
         // Torreta destruida
-        if(vida <= 0)
+        if(vidaActual <= 0)
         {
             DestruirTorreta();
         }
@@ -139,7 +96,7 @@ public class Torreta : MonoBehaviour
         GameObject enemigoMasCercano = null;
 
         //generar una esfera de radio <rango> alrededor de la torreta y guardar todas las colisiones en una lista
-        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, rango);
+        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, torretaBasica.distanciaDisparo);
         for (int i = 0; i < colliders.Length; i++)
         {
 
@@ -184,7 +141,7 @@ public class Torreta : MonoBehaviour
     public void DestruirTorreta()
     {
         // Destruye la torreta y devuelve la energia al jugador
-        personaje.energia += gastoEnergia;
+        personaje.energia += torretaBasica.energia;
         Destroy(gameObject);
     }
 }
