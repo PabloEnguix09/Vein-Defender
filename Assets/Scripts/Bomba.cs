@@ -75,7 +75,7 @@ public class Bomba : MonoBehaviour
                     else if (colliders[i].CompareTag("Torretas"))
                     {
                         Torreta estructura = colliders[i].gameObject.GetComponent<Torreta>();
-                        estructura.Vida -= enemigo.fuerza;
+                        estructura.vidaActual -= enemigo.fuerza;
                         //Debug.Log("Golpeo una torrerta");
                     }
 
