@@ -22,51 +22,9 @@ public class Enemigo : MonoBehaviour
     public NavMeshAgent agente;
     private Transform objetivo;
 
-    [Range(0, 1)]
-    [SerializeField]
-    public float vida;
+    public float vidaActual;
 
-    public float Vida
-    {
-        get { return vida; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            vida = value;
-        }
-    }
-
-    [Range(0, 1)]
-    [SerializeField]
-    public float fuerza;
-
-    public float Fuerza
-    {
-        get { return fuerza; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            fuerza = value;
-        }
-    }
-
-    public float velocidad;
-
-    public float vision;
-
-    public float Vision
-    {
-        get { return vision; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            vision = value;
-        }
-    }
-
+    public EnemigoBasico enemigo;
 
     void Start()
     {
@@ -116,7 +74,7 @@ public class Enemigo : MonoBehaviour
     Transform BuscarObjetivo()
     {
         // Se crea una esfera buscando todos los colliders en el rango de vision, si encuentra una torreta o a un enemigo se dirige hacia el.
-        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, vision);
+        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, enemigo.rango);
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -160,7 +118,7 @@ public class Enemigo : MonoBehaviour
         if (other.gameObject.GetComponent<Bala>() != null)
         {
             Bala bala = other.gameObject.GetComponent<Bala>();
-            vida -= bala.fuerza;
+            vidaActual -= bala.fuerza;
             Destroy(other.gameObject);
         }
     }
