@@ -50,10 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agente: {fileID: 6975631623353459764}
-  vida: 0
-  fuerza: 0
-  velocidad: 0
-  vision: 0
+  vidaActual: 0
+  enemigo: {fileID: 11400000, guid: fd263d56c6e71f346bc3fd022b28834b, type: 2}
 --- !u!114 &5186502189369109565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,11 +66,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
   destroyOfftime: 0.4
-  fuerza: 0.3
-  vida: 0.5
-  velocidad: 10
-  rango: 5
   radioExplosion: 2
+  enemigoBasico: {fileID: 11400000, guid: fd263d56c6e71f346bc3fd022b28834b, type: 2}
 --- !u!65 &6975631623353459762
 BoxCollider:
   m_ObjectHideFlags: 0
