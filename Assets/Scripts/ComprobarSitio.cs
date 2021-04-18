@@ -24,7 +24,6 @@ public class ComprobarSitio : MonoBehaviour
         {
             //Debug.Log("La torreta ha tocado el suelo");
             Rigidbody rb = collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.GetComponent<Rigidbody>();
-            rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
         if(collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Previews" &&
         collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.tag == "Torretas")

@@ -15,7 +15,7 @@ using UnityEngine;
 // FEATURES ADDED: Comprobación de energia y gasto de energia.
 // 
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: Arreglos de energía, EliminarTorreta() y menu radial
+// FEATURES ADDED: Arreglos de energía, EliminarTorreta(), menu radial, cambios en la rotacion de invocacion
 // ---------------------------------------------------
 
 
@@ -29,8 +29,6 @@ public class InvocarTorreta : MonoBehaviour
     private GameObject torreta;
     private Rigidbody rb;
     private bool colocada = true;
-
-    private Personaje personaje;
 
     public GameObject menuRadial;
 
@@ -49,7 +47,6 @@ public class InvocarTorreta : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        personaje = this.GetComponent<Personaje>();
     }
 
     // Update is called once per frame
@@ -60,7 +57,9 @@ public class InvocarTorreta : MonoBehaviour
         // Si existe torreta y está en el rango de colocación
         if (torreta != null && (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Terreno"))))
         {
+            // Posicion y rotacion de la preview
             torreta.transform.position = new Vector3(punto.point.x, punto.point.y, punto.point.z);
+            torreta.transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
 
             // Si pulsa clic izquierdo se "destruye" la torreta de previsualización y spawnea la otra más arriba
             if (Input.GetMouseButtonDown(0))
@@ -71,14 +70,18 @@ public class InvocarTorreta : MonoBehaviour
                     {
                         if(previews[i].gameObject.name + "(Clone)" == torreta.gameObject.name)
                         {
+                            // Posicion de la nueva torreta invocada
                             Transform torretaSpawn = torretas[i].transform;
                             torretaSpawn.position = torreta.transform.position;
                             torretaSpawn.rotation = torreta.transform.rotation;
                             Destroy(torreta.gameObject);
+                            // Datos para la nueva torreta invocada
                             torreta = null;
                             rb = torretaSpawn.GetComponent<Rigidbody>();
                             rb.mass = 1f;
-                            rb.constraints = RigidbodyConstraints.FreezeRotation;
+                            // Solo permite la rotacion en Y
+                            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                            rb.constraints = RigidbodyConstraints.FreezePosition;
                             SpawnTorreta(torretaSpawn);
                         }
                     }
