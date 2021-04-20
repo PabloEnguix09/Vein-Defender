@@ -16,8 +16,6 @@ public class Bala : MonoBehaviour
 
     public float velocidad;
 
-    [Range(0, 1)]
-    [SerializeField]
     public float fuerza;
 
     Rigidbody rb;
@@ -29,11 +27,6 @@ public class Bala : MonoBehaviour
 
         //Darle impulso de la bala
         rb.AddForce(transform.forward * velocidad, ForceMode.Impulse);
-    }
-
-    void Update()
-    {
-
     }
 
     private void OnCollisionEnter(Collision collision)

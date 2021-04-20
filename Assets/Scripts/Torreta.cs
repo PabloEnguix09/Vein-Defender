@@ -44,12 +44,12 @@ public class Torreta : MonoBehaviour
         disparo = GetComponentInChildren<Disparo>();
 
         // Reduce la energia del jugador
-        if(personaje.energia - torretaBasica.energia < 0)
+        if(personaje.Energia - torretaBasica.energia < 0)
         {
             Destroy(gameObject);
         } else
         {
-            personaje.energia -= torretaBasica.energia;
+            personaje.Energia -= torretaBasica.energia;
         }
     }
 
@@ -141,7 +141,7 @@ public class Torreta : MonoBehaviour
     public void DestruirTorreta()
     {
         // Destruye la torreta y devuelve la energia al jugador
-        personaje.energia += torretaBasica.energia;
+        personaje.Energia += torretaBasica.energia;
         Destroy(gameObject);
     }
 }
