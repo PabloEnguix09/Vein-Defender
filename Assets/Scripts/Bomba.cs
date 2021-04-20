@@ -76,7 +76,7 @@ public class Bomba : MonoBehaviour
                     else if (colliders[i].CompareTag("Player"))
                     {
                         Personaje personaje = colliders[i].gameObject.GetComponent<Personaje>();
-                        personaje.Salud -= enemigoBasico.ataque;
+                        personaje.RecibirAtaque(enemigoBasico.ataque);
                         //Debug.Log("Golpeo al jugador");
                     }
                 }

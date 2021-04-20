@@ -40,7 +40,7 @@ public class ControlEnergia : MonoBehaviour
 
     private void Update()
     {
-        sliderEnergia.value = energiaMax - personaje.energia;
+        sliderEnergia.value = energiaMax - personaje.Energia;
         imagen.color = gradienteEnergia.Evaluate(sliderEnergia.normalizedValue);
     }
 }

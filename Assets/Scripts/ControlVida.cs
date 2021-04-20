@@ -37,6 +37,6 @@ public class ControlVida : MonoBehaviour
 
     private void Update()
     {
-        sliderVida.value = personaje.salud;
+        sliderVida.value = personaje.Salud;
     }
 }

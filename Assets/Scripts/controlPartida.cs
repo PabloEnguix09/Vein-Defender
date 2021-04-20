@@ -130,21 +130,7 @@ public class controlPartida : MonoBehaviour
 
         if (finDePartida)
         {
-            if (!CamaraSecundaria.isActiveAndEnabled)
-            {
-                //la camara se situa en el cielo.
-                CamaraSecundaria.gameObject.SetActive(!CamaraSecundaria.gameObject.activeSelf);
-                Cursor.lockState = CursorLockMode.None;
-            }
-            
-            //borrar todas las toretas
-            GameObject[] torretas = (GameObject[])GameObject.FindGameObjectsWithTag("Torretas");
-            foreach (GameObject t in torretas)
-            {
-                Destroy(t);
-            }
-            //Texto de la ui
-            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Has perdido, pulsa la tecla <R> para volver a empezar";
+            GameOver();
         }
 
         //Pulsar la <k> para empezar rondas/partida
@@ -170,5 +156,24 @@ public class controlPartida : MonoBehaviour
     {
         //reiniciar la partida
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GameOver()
+    {
+        if (!CamaraSecundaria.isActiveAndEnabled)
+        {
+            //la camara se situa en el cielo.
+            CamaraSecundaria.gameObject.SetActive(!CamaraSecundaria.gameObject.activeSelf);
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        //borrar todas las toretas
+        GameObject[] torretas = (GameObject[])GameObject.FindGameObjectsWithTag("Torretas");
+        foreach (GameObject t in torretas)
+        {
+            Destroy(t);
+        }
+        //Texto de la ui
+        textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Has perdido, pulsa la tecla <R> para volver a empezar";
     }
 }
