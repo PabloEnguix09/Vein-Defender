@@ -15,7 +15,7 @@ using UnityEngine;
 // FEATURES ADDED: Salud y energia añadidos
 //
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: Correcciones a energia y vida, control de partida, recibirAtaque
+// FEATURES ADDED: Correcciones a energia y vida, control de partida, recibirAtaque, mejoras de personaje
 // ---------------------------------------------------
 
 public class Personaje : MonoBehaviour
@@ -91,13 +91,16 @@ public class Personaje : MonoBehaviour
 
     public CameraController camara;
     public MovimientoPersonaje personaje;
+    SistemaMejoras sistemaMejoras;
 
     private void Start()
     {
         // Busca el controlador de partida
         controlPartida = FindObjectOfType<controlPartida>();
+        sistemaMejoras = FindObjectOfType<SistemaMejoras>();
 
-        Setup();
+        // Activa el sistema de mejoras y las aplica al personaje
+        sistemaMejoras.MejorasPersonaje(this);
     }
 
     // Reasigna los valores del personaje

@@ -15,7 +15,7 @@ using UnityEngine;
 // FEATURES ADDED: Comprobación de energia y gasto de energia.
 // 
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: Arreglos de energía, EliminarTorreta(), menu radial, cambios en la rotacion de invocacion
+// FEATURES ADDED: Arreglos de energía, EliminarTorreta(), menu radial, cambios en la rotacion de invocacion, mejoras de torreta
 // ---------------------------------------------------
 
 
@@ -26,11 +26,13 @@ public class InvocarTorreta : MonoBehaviour
     public float alcance = 50.0f;
     public float alturaSpawn = 50.0f;
 
-    private GameObject torreta;
+    public GameObject torreta;
     private Rigidbody rb;
     private bool colocada = true;
 
     public GameObject menuRadial;
+    private ComprobarSitio sitio;
+    public int torretaPreviewIndex = 0;
 
     public bool GetColocada()
     {
@@ -42,11 +44,10 @@ public class InvocarTorreta : MonoBehaviour
         colocada = value;
     }
 
-    private ComprobarSitio sitio;
-
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -66,32 +67,21 @@ public class InvocarTorreta : MonoBehaviour
             {
                 if (PosicionLegal())
                 {
-                    for(int i = 0; i < previews.Length; i++)
-                    {
-                        if(previews[i].gameObject.name + "(Clone)" == torreta.gameObject.name)
-                        {
-                            // Posicion de la nueva torreta invocada
-                            Transform torretaSpawn = torretas[i].transform;
-                            torretaSpawn.position = torreta.transform.position;
-                            torretaSpawn.rotation = torreta.transform.rotation;
-                            Destroy(torreta.gameObject);
-                            // Datos para la nueva torreta invocada
-                            torreta = null;
-                            rb = torretaSpawn.GetComponent<Rigidbody>();
-                            rb.mass = 1f;
-                            // Solo permite la rotacion en Y
-                            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-                            rb.constraints = RigidbodyConstraints.FreezePosition;
-                            SpawnTorreta(torretaSpawn);
-                        }
-                    }
+                    // Posicion de la nueva torreta invocada
+                    Transform torretaSpawn = torretas[torretaPreviewIndex].transform;
+                    torretaSpawn.position = torreta.transform.position;
+                    torretaSpawn.rotation = torreta.transform.rotation;
+                    Destroy(torreta);
+                    // Datos para la nueva torreta invocada
+                    torreta = null;
+                    SpawnTorreta(torretaSpawn);
                 }
             }
 
             // Si pulsa Esc se destruye la previsualización
             if (Input.GetKeyDown(KeyCode.C))
             {
-                Destroy(torreta.gameObject);
+                Destroy(torreta);
                 torreta = null;
                 SetColocada(true);
                 return;
@@ -111,12 +101,12 @@ public class InvocarTorreta : MonoBehaviour
                 {
                     // Debug.Log("Torreta seleccionada: ");
                     // Las opciones del menu son numeros
-                    bool hecho = int.TryParse(hit.transform.name, out int index);
+                    bool hecho = int.TryParse(hit.transform.name, out torretaPreviewIndex);
                     if (hecho)
                     {
                         // Se previsualiza la torreta
                         SetColocada(false);
-                        PreviewTorreta(index);
+                        PreviewTorreta();
 
                         AlternarMenuRadial();
                     }
@@ -130,9 +120,9 @@ public class InvocarTorreta : MonoBehaviour
         return sitio.colliders.Count <= 0;
     }
 
-    public void PreviewTorreta(int index)
+    public void PreviewTorreta()
     {
-        torreta = ((GameObject)Instantiate(previews[index]));
+        torreta = ((GameObject)Instantiate(previews[torretaPreviewIndex]));
         sitio = torreta.GetComponent<ComprobarSitio>();
         rb = torreta.GetComponent<Rigidbody>();
         rb.mass = 0f;
@@ -142,7 +132,7 @@ public class InvocarTorreta : MonoBehaviour
     {
         SetColocada(true);
         GameObject aux;
-        aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, torreta.position.y + alturaSpawn, torreta.position.z), Quaternion.identity);
+        aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, torreta.position.y + alturaSpawn, torreta.position.z), torreta.rotation);
         aux.GetComponent<Torreta>().enabled = true;
         /* Ahora se comprueba desde TorretaBasica Start()
         Torreta torretaCreada = aux.GetComponent<Torreta>();

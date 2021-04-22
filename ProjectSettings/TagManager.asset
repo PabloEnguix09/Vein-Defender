@@ -8,6 +8,8 @@ TagManager:
   - Bases
   - Enemigos
   - CamaraSecundaria
+  - Previews
+  - Terreno
   layers:
   - Default
   - TransparentFX

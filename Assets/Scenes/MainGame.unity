@@ -1179,6 +1179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695095, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: barraVida
       value: 
@@ -1199,6 +1203,10 @@ PrefabInstance:
       propertyPath: menuRadial
       value: 
       objectReference: {fileID: 103211796}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: previews.Array.data[0]
+      value: 
+      objectReference: {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
 --- !u!20 &549240591 stripped
@@ -2190,8 +2198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcca676d9652b844f84a2352c69145d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mejora001: 1
-  mejora002: 1
+  mejorap01: 1
+  mejorap02: 1
+  mejorat01: 1
+  mejorau01: 0
 --- !u!1 &1620630084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,6 +2426,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 48c06a83d46b60042ab2a002cded8db8, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48c06a83d46b60042ab2a002cded8db8, type: 3}
+      propertyPath: m_TagString
+      value: Terreno
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 48c06a83d46b60042ab2a002cded8db8, type: 3}
       propertyPath: m_StaticEditorFlags

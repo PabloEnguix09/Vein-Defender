@@ -19,7 +19,24 @@ public class Torreta : MonoBehaviour
 
     public TorretaBasica torretaBasica;
 
+    [Header("Stats")]
+    public string nombre;
+    public int energia;
+    public int energiaAlt;
     public float vidaActual;
+    public float vidaMaxima;
+    public float escudoMaximo;
+    public float escudoRegen;
+    public float ataque;
+    public float cadenciaDisparo;
+    public enum tipoDisparo
+    {
+        laser, balas
+    }
+    public Quaternion anguloDisparo;
+    public float velocidadRotacion;
+    public float distanciaDisparo;
+    public bool antiaerea;
 
     private GameObject enemigoApuntando;
     private float timer;
@@ -29,28 +46,49 @@ public class Torreta : MonoBehaviour
 
     Personaje personaje;
 
+    SistemaMejoras sistemaMejoras;
+    Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
-
-        vidaActual = torretaBasica.vidaMaxima;
+        // Asigna los valores de SO TorretaBasica
+        nombre = torretaBasica.nombre;
+        vidaMaxima = torretaBasica.vidaMaxima;
+        energia = torretaBasica.energia;
+        energiaAlt = torretaBasica.energiaAlt;
+        ataque = torretaBasica.ataque;
+        anguloDisparo = torretaBasica.anguloDisparo;
+        velocidadRotacion = torretaBasica.velocidadRotacion;
+        cadenciaDisparo = torretaBasica.cadenciaDisparo;
 
         // Busca el jugador
         personaje = FindObjectOfType<Personaje>();
+
+        // busca el rigidbody
+        rb = gameObject.GetComponent<Rigidbody>();
+
+        // Asigna el sistema de mejoras 
+        sistemaMejoras = FindObjectOfType<SistemaMejoras>();
+        // LLama al sistema de mejoras
+        sistemaMejoras.MejorasTorreta(this);
+
+        // Ajusta la vida actual a la maxima
+        vidaActual = vidaMaxima;
+        
+        // Reduce la energia del jugador
+        if (personaje.Energia - energia < 0)
+        {
+            Destroy(gameObject);
+        } else
+        {
+            personaje.Energia -= energia;
+        }
 
         //No apuntar a nadie
         enemigoApuntando = null;
 
         disparo = GetComponentInChildren<Disparo>();
-
-        // Reduce la energia del jugador
-        if(personaje.Energia - torretaBasica.energia < 0)
-        {
-            Destroy(gameObject);
-        } else
-        {
-            personaje.Energia -= torretaBasica.energia;
-        }
     }
 
     // Update is called once per frame
@@ -69,15 +107,15 @@ public class Torreta : MonoBehaviour
             Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position ;
             Quaternion VisionRotacion = Quaternion.LookRotation(dir);
             //rotacion suave
-            Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * torretaBasica.velocidadRotacion).eulerAngles;
+            Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadRotacion).eulerAngles;
             parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
 
             //si ha pasado el tiempo de recarga
-            if (timer >= torretaBasica.cadenciaDisparo)
+            if (timer >= cadenciaDisparo)
             {
                 timer = 0;
                 //disparar
-                disparo.Disparar(torretaBasica.ataque);
+                disparo.Disparar(ataque);
             }
         }
 
@@ -105,11 +143,8 @@ public class Torreta : MonoBehaviour
                 //si el collider pertenece a un enemigo
                 encontrado = true;
                 RaycastHit hit;
-                if (Physics.Linecast(transform.position, colliders[i].transform.position, out hit, 1, QueryTriggerInteraction.Ignore))
-                {
-                    //existe un collider entre el enemigo y la torreta
-                }
-                else
+                // no existe un collider entre el enemigo y la torreta
+                if (!Physics.Linecast(transform.position, colliders[i].transform.position, out hit, 1, QueryTriggerInteraction.Ignore))
                 {
                     //si todavía no apunta a nadie
                     if (enemigoMasCercano == null)
@@ -129,8 +164,6 @@ public class Torreta : MonoBehaviour
                         }
                     }
                 }
-
-
             }
         }
         if (encontrado) return enemigoMasCercano;
@@ -141,7 +174,15 @@ public class Torreta : MonoBehaviour
     public void DestruirTorreta()
     {
         // Destruye la torreta y devuelve la energia al jugador
-        personaje.Energia += torretaBasica.energia;
+        personaje.Energia += energia;
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Terreno")
+        {
+            rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+        }
     }
 }
