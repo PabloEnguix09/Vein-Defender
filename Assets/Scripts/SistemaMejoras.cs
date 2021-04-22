@@ -16,30 +16,49 @@ public class SistemaMejoras : MonoBehaviour
 {
     // Scripts accesibles
     Personaje personaje;
-
+    
+    [Header("Personaje")]
     // Mejoras de personaje
-    public bool mejora001;
-    public bool mejora002;
+    public bool mejorap01;
+    public bool mejorap02;
 
-    private void Start()
+    [Header("Torreta")]
+    // Mejoras de torreta
+    public bool mejorat01;
+
+    [Header("Utilidades")]
+    // Mejoras de torreta
+    public bool mejorau01;
+
+    public void MejorasPersonaje(Personaje personaje)
     {
-        // Busca los scripts accesibles
-        personaje = FindObjectOfType<Personaje>();
 
         // Sube la vida de T-Byte un 35%
-        if(mejora001)
+        if(mejorap01)
         {
             // Sube la vida un 35%
             personaje.saludMaxima += (personaje.saludMaxima / 100) * 35;
             // Reasigna la vida base
-            personaje.Setup();
         }
 
         // Pone un escudo al jugador del 50% de su vida maxima
-        if(mejora002)
+        if(mejorap02)
         {
             personaje.escudoMaximo = (personaje.Salud / 100) * 50;
-            personaje.Setup();
+        }
+
+        personaje.Setup();
+    }
+
+    public void MejorasTorreta(Torreta torreta)
+    {
+        // Reduce el coste de todas las torretas -1 si son mayor de 1
+        if(mejorat01)
+        {
+            if(torreta.energia > 1)
+            {
+                torreta.energia -= 1;
+            }
         }
     }
 }

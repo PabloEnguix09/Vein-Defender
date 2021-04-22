@@ -14,7 +14,6 @@ using UnityEngine;
 
 public class ComprobarSitio : MonoBehaviour
 {
-    [HideInInspector]
     public List<Collision> colliders = new List<Collision>();
 
     private void OnCollisionEnter(Collision collision)
@@ -31,6 +30,7 @@ public class ComprobarSitio : MonoBehaviour
             //Debug.Log("Hay colisión");
             colliders.Add(collision);
         }
+
     }
     private void OnCollisionExit(Collision collision)
     {
