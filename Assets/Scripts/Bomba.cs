@@ -31,6 +31,7 @@ public class Bomba : MonoBehaviour
     void Start()
     {
         enemigo = gameObject.GetComponent<Enemigo>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     void Update()
