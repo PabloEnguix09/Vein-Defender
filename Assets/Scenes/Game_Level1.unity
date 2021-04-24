@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.49411765}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9254902, g: 0.8128032, b: 0.0745098, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -475,7 +475,7 @@ BoxCollider:
   m_GameObject: {fileID: 143336817}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 89.48634, y: 83.96253, z: 23.836565}
   m_Center: {x: 6.381298, y: 122.888695, z: -11.4181385}
@@ -695,8 +695,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
+  m_SubmitButton: Fire1
+  m_CancelButton: Cancelar
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -1179,34 +1179,138 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4821090250797695095, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: m_Mass
-      value: 1
+    - target: {fileID: 4821090250797695094, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: correr
+      value: Run
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695094, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: saltar
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695094, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: menuRadial
+      value: MenuRadial
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695094, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: eliminarTorreta
+      value: Borrar
       objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: barraVida
       value: 
       objectReference: {fileID: 416103044}
     - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: saludMaxima
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: barraEnergia
       value: 
       objectReference: {fileID: 1870866795}
-    - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: escudoMaximo
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: menuRadial
       value: 
       objectReference: {fileID: 103211796}
     - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: previews.Array.data[0]
+      propertyPath: previews.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: torretas.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: previews.Array.data[1]
       value: 
       objectReference: {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: previews.Array.data[2]
+      value: 
+      objectReference: {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: previews.Array.data[3]
+      value: 
+      objectReference: {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: previews.Array.data[4]
+      value: 
+      objectReference: {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: previews.Array.data[5]
+      value: 
+      objectReference: {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: previews.Array.data[6]
+      value: 
+      objectReference: {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: previews.Array.data[7]
+      value: 
+      objectReference: {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: torretas.Array.data[1]
+      value: 
+      objectReference: {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: torretas.Array.data[2]
+      value: 
+      objectReference: {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: torretas.Array.data[3]
+      value: 
+      objectReference: {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: torretas.Array.data[4]
+      value: 
+      objectReference: {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: torretas.Array.data[5]
+      value: 
+      objectReference: {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: torretas.Array.data[6]
+      value: 
+      objectReference: {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: torretas.Array.data[7]
+      value: 
+      objectReference: {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: areasMenuRadial.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: areasMenuRadial.Array.data[0]
+      value: -2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: areasMenuRadial.Array.data[1]
+      value: -1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: areasMenuRadial.Array.data[2]
+      value: -1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: areasMenuRadial.Array.data[3]
+      value: -0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: areasMenuRadial.Array.data[4]
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: areasMenuRadial.Array.data[5]
+      value: 1.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: areasMenuRadial.Array.data[6]
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: areasMenuRadial.Array.data[7]
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: areasMenuRadial.Array.data[8]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
 --- !u!20 &549240591 stripped
@@ -1483,7 +1587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1636,7 +1740,7 @@ GameObject:
   - component: {fileID: 1031544561}
   - component: {fileID: 1031544560}
   m_Layer: 5
-  m_Name: Image
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1675,7 +1779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2013,7 +2117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2332,7 +2436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.034243345, g: 1, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

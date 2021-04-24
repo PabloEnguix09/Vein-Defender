@@ -19,7 +19,8 @@ public class MovimientoPersonaje : MonoBehaviour
     public enum Movimientos { Caminar, Correr}
 
     private Vector3 velocidad;
-    public float maximaVelocidad = 0.1f;
+    float maximaVelocidad = 0.1f;
+    public float velocidadCaminar, velocidadCorrer;
     public float fuerzaSalto = 300f;
     private bool haSaltado = false;
     public Vector3 Velocidad { get => velocidad; set => velocidad = value; }
@@ -53,12 +54,12 @@ public class MovimientoPersonaje : MonoBehaviour
         {
             case Movimientos.Caminar:
                 {
-                    maximaVelocidad = 5f;
+                    maximaVelocidad = velocidadCaminar;
                     break;
                 }
             case Movimientos.Correr:
                 {
-                    maximaVelocidad = 20f;
+                    maximaVelocidad = velocidadCorrer;
                     break;
                 }
         }
