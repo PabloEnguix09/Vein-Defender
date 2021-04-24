@@ -33,6 +33,9 @@ public class MecanicasPersonaje : MonoBehaviour
         if(Input.GetAxisRaw(correr) > 0)
         {
             personaje.Correr();
+        } else
+        {
+            personaje.Caminar();
         }
 
         if (invocar.GetColocada())

@@ -90,7 +90,7 @@ public class Personaje : MonoBehaviour
     }
 
     public CameraController camara;
-    public MovimientoPersonaje personaje;
+    public MovimientoPersonaje movimientoPersonaje;
     SistemaMejoras sistemaMejoras;
 
     private void Start()
@@ -98,6 +98,7 @@ public class Personaje : MonoBehaviour
         // Busca el controlador de partida
         controlPartida = FindObjectOfType<controlPartida>();
         sistemaMejoras = FindObjectOfType<SistemaMejoras>();
+        movimientoPersonaje = gameObject.GetComponent<MovimientoPersonaje>();
 
         // Activa el sistema de mejoras y las aplica al personaje
         sistemaMejoras.MejorasPersonaje(this);
@@ -138,24 +139,22 @@ public class Personaje : MonoBehaviour
         {
             velocidad = Vector3.zero;
         }
-        personaje.Velocidad = objetivo;
+        movimientoPersonaje.Velocidad = objetivo;
     }
 
     public void Correr()
     {
-        if(personaje.GetMovimientos() != MovimientoPersonaje.Movimientos.Correr)
-        {
-            personaje.SetMovimientos(MovimientoPersonaje.Movimientos.Correr);
-        }
-        else
-        {
-            personaje.SetMovimientos(MovimientoPersonaje.Movimientos.Caminar);
-        }
+        movimientoPersonaje.SetMovimientos(MovimientoPersonaje.Movimientos.Correr);
+    }
+
+    public void Caminar()
+    {
+        movimientoPersonaje.SetMovimientos(MovimientoPersonaje.Movimientos.Caminar);
     }
 
     public void Saltar()
     {
-        personaje.Saltar();
+        movimientoPersonaje.Saltar();
     }
 
     public void RecibirAtaque(float fuerza)
