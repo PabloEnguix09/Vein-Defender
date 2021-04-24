@@ -34,6 +34,9 @@ public class InvocarTorreta : MonoBehaviour
     private ComprobarSitio sitio;
     public int torretaPreviewIndex = 0;
 
+    [Header("Areas Menu Radial")]
+    public float[] areasMenuRadial;
+
     public bool GetColocada()
     {
         return colocada;
@@ -63,7 +66,7 @@ public class InvocarTorreta : MonoBehaviour
             torreta.transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
 
             // Si pulsa clic izquierdo se "destruye" la torreta de previsualización y spawnea la otra más arriba
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetAxisRaw("Fire1") > 0)
             {
                 if (PosicionLegal())
                 {
@@ -79,38 +82,12 @@ public class InvocarTorreta : MonoBehaviour
             }
 
             // Si pulsa Esc se destruye la previsualización
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetAxisRaw("Cancelar") > 0)
             {
                 Destroy(torreta);
                 torreta = null;
                 SetColocada(true);
                 return;
-            }
-        }
-
-        // Comportamiento del menu radial solo si esta activo
-        if(menuRadial.activeSelf)
-        {
-            RaycastHit hit;
-            
-            if(Input.GetMouseButtonDown(0))
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                // Comprueba que este apuntando a una opcion en el Layer UI
-                if (Physics.Raycast(ray, out hit, LayerMask.GetMask("UI")))
-                {
-                    // Debug.Log("Torreta seleccionada: ");
-                    // Las opciones del menu son numeros
-                    bool hecho = int.TryParse(hit.transform.name, out torretaPreviewIndex);
-                    if (hecho)
-                    {
-                        // Se previsualiza la torreta
-                        SetColocada(false);
-                        PreviewTorreta();
-
-                        AlternarMenuRadial();
-                    }
-                }
             }
         }
     }
@@ -158,10 +135,10 @@ public class InvocarTorreta : MonoBehaviour
         }
     }
 
-    public void AlternarMenuRadial()
+    public void AlternarMenuRadial(bool activar)
     {
         // Si esta desactivado se activa y viceversa
-        menuRadial.SetActive(!menuRadial.activeSelf);
+        menuRadial.SetActive(activar);
 
         // Desbloquea el cursor para poder seleccionar
         if(menuRadial.activeSelf)
@@ -169,7 +146,55 @@ public class InvocarTorreta : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         } else
         {
+            // Donde esta el raton en pantalla se selecciona esa torreta del area
+            // Devuelve la distancia del raton del centro de la pantalla
+            Vector2 centroPantalla = new Vector2(Screen.width / 2, Screen.height / 2);
+            Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            //Debug.Log(Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0));
+
+            // https://stackoverflow.com/questions/6270785/how-to-determine-whether-a-point-x-y-is-contained-within-an-arc-section-of-a-c
+            // angulo = atan2(Y - CenterY, X - CenterX)
+            float angulo = Mathf.Atan2(mousePosition.y - centroPantalla.y, mousePosition.x - centroPantalla.x);
+            Debug.Log(angulo);
+
+            torretaPreviewIndex = ComprobarCasillaMenu(angulo);
+
+            if(torretaPreviewIndex >= 0)
+            {
+                Debug.Log("Torreta invocada: " + torretaPreviewIndex);
+                // Se previsualiza la torreta 
+                SetColocada(false);
+                PreviewTorreta();
+            }
+
             Cursor.lockState = CursorLockMode.Locked;
         }
+    }
+
+    // Comprueba si el raton esta dentro de una casilla del menu y devuelve la casilla
+    public int ComprobarCasillaMenu(float angulo)
+    {
+        for (int i = 0; i < areasMenuRadial.Length; i++)
+        {
+            // Solo si ha llegado al final, toma el 0 como referencia siguiente
+            if(i + 1 == areasMenuRadial.Length)
+            {
+                return i;
+            }
+            else
+            {
+                if (areasMenuRadial[i] < areasMenuRadial[i + 1])
+                {
+                    if (angulo > areasMenuRadial[i] && angulo < areasMenuRadial[i + 1])
+                    {
+                        return i;
+                    }
+                }
+            }
+            
+        }
+
+        return -1;
     }
 }
