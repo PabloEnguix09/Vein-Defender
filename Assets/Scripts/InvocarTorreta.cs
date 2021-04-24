@@ -81,7 +81,7 @@ public class InvocarTorreta : MonoBehaviour
                 }
             }
 
-            // Si pulsa Esc se destruye la previsualización
+            // Si pulsa C se destruye la previsualizacion
             if (Input.GetAxisRaw("Cancelar") > 0)
             {
                 Destroy(torreta);
@@ -144,16 +144,16 @@ public class InvocarTorreta : MonoBehaviour
         if(menuRadial.activeSelf)
         {
             Cursor.lockState = CursorLockMode.None;
-        } else
+        }
+        // Se cierra el menu
+        else
         {
             // Donde esta el raton en pantalla se selecciona esa torreta del area
             // Devuelve la distancia del raton del centro de la pantalla
             Vector2 centroPantalla = new Vector2(Screen.width / 2, Screen.height / 2);
             Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
-            //Debug.Log(Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0));
-
-            // https://stackoverflow.com/questions/6270785/how-to-determine-whether-a-point-x-y-is-contained-within-an-arc-section-of-a-c
+            // Debug.Log(Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0));
             // angulo = atan2(Y - CenterY, X - CenterX)
             float angulo = Mathf.Atan2(mousePosition.y - centroPantalla.y, mousePosition.x - centroPantalla.x);
             //Debug.Log(angulo);
@@ -192,9 +192,7 @@ public class InvocarTorreta : MonoBehaviour
                     }
                 }
             }
-            
         }
-
         return -1;
     }
 }
