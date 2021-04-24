@@ -22,6 +22,8 @@ public class Enemigo : MonoBehaviour
     public NavMeshAgent agente;
     private Transform objetivo;
 
+    public GameObject explosion;
+
     public float vidaActual;
 
     public EnemigoBasico enemigo;
@@ -121,8 +123,28 @@ public class Enemigo : MonoBehaviour
         if (other.gameObject.GetComponent<Bala>() != null)
         {
             Bala bala = other.gameObject.GetComponent<Bala>();
-            vidaActual -= bala.fuerza;
-            Destroy(other.gameObject);
+            if (bala.radioExplosion > 0)
+            {
+                Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+                Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, bala.radioExplosion);
+                // Inflinge daño a todos los objetivos dentro del rango
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    if (colliders[i].CompareTag("Enemigos"))
+                    {
+                        Enemigo otroEnemigo = colliders[i].gameObject.GetComponent<Enemigo>();
+                        otroEnemigo.vidaActual -= bala.danyoExplosion;
+                    }
+
+                }
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                vidaActual -= bala.fuerza;
+                Destroy(other.gameObject);
+            }
+            
         }
     }
 

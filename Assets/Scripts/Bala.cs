@@ -37,27 +37,6 @@ public class Bala : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        if (radioExplosion > 0)
-        {
-            Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
-            Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, radioExplosion);
-
-            // Inflinge daño a todos los objetivos dentro del rango
-            for (int i = 0; i < colliders.Length; i++)
-            {
-
-
-                if (colliders[i].CompareTag("Enemigos"))
-                {
-                    Enemigo otroEnemigo = colliders[i].gameObject.GetComponent<Enemigo>();
-                    otroEnemigo.vidaActual -= danyoExplosion;
-                    Debug.Log("Golpeo un enemigo");
-                }
-
-            }
-        }
-        Debug.Log("Explota");
         Destroy(gameObject);
     }
 }

@@ -24,6 +24,5 @@ public class Disparo : MonoBehaviour
         bala.GetComponent<Bala>().danyoExplosion = danyoEplosion;
         //Generar la bala apuntando el la direccion que apunta la torreta
         Instantiate(bala, transform.position, transform.rotation);
-        Debug.Log("pium");
     }
 }
