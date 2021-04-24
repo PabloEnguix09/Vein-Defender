@@ -5,7 +5,7 @@
 // DESCRIPTION: Aqui se reunen las capacidades especiales del enemigo bomba y sus estadisticas
 //
 // AUTHOR: Jorge Grau
-// FEATURES ADDED: Añadidas las estadisticas, la explosion al chocar y el daño de explosion en area.
+// FEATURES ADDED: Aï¿½adidas las estadisticas, la explosion al chocar y el daï¿½o de explosion en area.
 // ---------------------------------------------------
 
 using System.Collections;
@@ -20,7 +20,7 @@ public class Bomba : MonoBehaviour
 
     Animator animator;
     public float destroyOfftime = 0.5f;
-
+    public float vida;
     public float radioExplosion = 2f;
 
     public EnemigoBasico enemigoBasico;
@@ -38,8 +38,8 @@ public class Bomba : MonoBehaviour
     {
         if (enemigo.vidaActual <= 0)
         {
-            // Inicia la animacion de explotar
-            animator.SetBool("Explode", true);
+            // Inicia la animacion de explotar comentado porque peta
+            //animator.SetBool("Explode", true);
 
             // Cuenta regresiva hasta terminar la animacion de explotar
             destroyOfftime -= Time.deltaTime;
@@ -50,7 +50,7 @@ public class Bomba : MonoBehaviour
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
                 Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, radioExplosion);
 
-                // Inflinge daño a todos los objetivos dentro del rango
+                // Inflinge daï¿½o a todos los objetivos dentro del rango
                 for (int i = 0; i < colliders.Length; i++)
                 {
                     if (colliders[i].CompareTag("Bases"))
@@ -63,7 +63,24 @@ public class Bomba : MonoBehaviour
                     else if (colliders[i].CompareTag("Torretas"))
                     {
                         Torreta estructura = colliders[i].gameObject.GetComponent<Torreta>();
-                        estructura.vidaActual -= enemigoBasico.ataque;
+                       
+                        if (estructura.escudoActual > 0)
+                        {
+                            if (estructura.escudoActual < enemigoBasico.ataque)
+                            {
+                                float aux = enemigoBasico.ataque - estructura.escudoActual;
+                                estructura.escudoActual = 0;
+                                estructura.vidaActual -= aux;
+                            }
+                            else
+                            {
+                                estructura.escudoActual -= enemigoBasico.ataque;
+                            }
+                        }
+                        else
+                        {
+                            estructura.vidaActual -= enemigoBasico.ataque;
+                        }
                         //Debug.Log("Golpeo una torrerta");
                     }
 

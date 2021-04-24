@@ -16,11 +16,14 @@ public class Disparo : MonoBehaviour
 
     public GameObject bala;
 
-    public void Disparar(float ataque)
+    public void Disparar(float ataque, float radioExplosion,float danyoEplosion)
     {
         //asignar a la bala el daño de la torreta
         bala.GetComponent<Bala>().fuerza = ataque;
+        bala.GetComponent<Bala>().radioExplosion =radioExplosion;
+        bala.GetComponent<Bala>().danyoExplosion = danyoEplosion;
         //Generar la bala apuntando el la direccion que apunta la torreta
         Instantiate(bala, transform.position, transform.rotation);
+        Debug.Log("pium");
     }
 }
