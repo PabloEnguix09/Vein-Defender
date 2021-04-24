@@ -169,6 +169,7 @@ public class Torreta : MonoBehaviour
     {
         float menorDistancia = Mathf.Infinity;
         bool encontrado = false;
+         
         GameObject enemigoMasCercano = null;
 
         //generar una esfera de radio <rango> alrededor de la torreta y guardar todas las colisiones en una lista
@@ -179,15 +180,16 @@ public class Torreta : MonoBehaviour
             if (colliders[i].CompareTag("Enemigos"))
             {
                 //si el collider pertenece a un enemigo
-                encontrado = true;
+                
                 RaycastHit hit;
                 // no existe un collider entre el enemigo y la torreta
-                if (!Physics.Linecast(transform.position, colliders[i].transform.position, out hit, 1, QueryTriggerInteraction.Ignore))
+                Physics.Raycast(transform.position, Vector3.Normalize( colliders[i].transform.position-transform.position ), out hit, distanciaDisparo, LayerMask.GetMask("Terreno"));
+                Debug.Log(hit.collider);
+                if (hit.collider == null)
                 {
                     //si todav�a no apunta a nadie
                     if (enemigoMasCercano == null)
                     {
-
                         Vector3 dir2 = parteQueRota.position - colliders[i].gameObject.transform.position;
                         Quaternion VisionRotacion = Quaternion.LookRotation(dir2);
                         float aux = VisionRotacion.eulerAngles.y - this.transform.rotation.eulerAngles.y;
@@ -201,6 +203,7 @@ public class Torreta : MonoBehaviour
                             menorDistancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
 
                         }
+                        encontrado = true;
                     }
                     else
                     {
