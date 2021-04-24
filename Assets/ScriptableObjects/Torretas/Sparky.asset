@@ -20,7 +20,10 @@ MonoBehaviour:
   escudoRegen: 0
   ataque: 1
   cadenciaDisparo: 1
+  escudoActual: 0
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   velocidadRotacion: 2
-  distanciaDisparo: 10
+  distanciaDisparo: 100
   antiaerea: 1
+  radioExplosion: 0
+  danyoExplosion: 0
