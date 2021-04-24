@@ -1188,10 +1188,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1870866795}
     - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: alcance
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: menuRadial
       value: 
       objectReference: {fileID: 103211796}
@@ -2445,7 +2441,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647269030}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5c74e0a2e1f077644b26b8d8678559a8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -2460,10 +2456,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647269030}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10000
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0

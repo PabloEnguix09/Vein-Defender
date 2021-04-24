@@ -116,8 +116,7 @@ public class controlPartida : MonoBehaviour
                     //ronda 4 o en este caso fin de la zona
                     foreach (Spawner s in spawners)
                     {
-                        textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Has ganado, pulsa <R> para volver a empezar";
-                        textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Final";
+                        SceneManager.LoadScene(SceneManager.GetSceneAt(1).ToString());
                     }
                     break;
                 default:
