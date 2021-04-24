@@ -15,6 +15,9 @@ public class Torreta : MonoBehaviour
     //
     // AUTHOR: Luis Belloch
     // FEATURES ADDED: TorretaDestruida, ScriptableObjects
+    //
+    // AUTHOR: Pau Blanes
+    //FEATURES ADDED: regenreacion de escudo y rango de vision
     // ---------------------------------------------------
 
     public TorretaBasica torretaBasica;
@@ -26,28 +29,34 @@ public class Torreta : MonoBehaviour
     public float vidaActual;
     public float vidaMaxima;
     public float escudoMaximo;
+    public float escudoActual;
     public float escudoRegen;
     public float ataque;
     public float cadenciaDisparo;
-    public enum tipoDisparo
-    {
-        laser, balas
-    }
-    public Quaternion anguloDisparo;
     public float velocidadRotacion;
     public float distanciaDisparo;
     public bool antiaerea;
 
-    private GameObject enemigoApuntando;
-    private float timer;
+    public float radioExplosion;
+    public float danyoExplosion;
 
+    private float timerDisparo;
+    private float timerEscudo;
+
+
+    private GameObject enemigoApuntando;
     public Transform parteQueRota;
     private Disparo disparo;
-
+    public Quaternion anguloDisparo;
     Personaje personaje;
 
     SistemaMejoras sistemaMejoras;
     Rigidbody rb;
+    public enum tipoDisparo
+    {
+        laser, balas
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +70,11 @@ public class Torreta : MonoBehaviour
         anguloDisparo = torretaBasica.anguloDisparo;
         velocidadRotacion = torretaBasica.velocidadRotacion;
         cadenciaDisparo = torretaBasica.cadenciaDisparo;
+        escudoActual = torretaBasica.escudoActual;
+        escudoMaximo = torretaBasica.escudoMaximo;
+        escudoRegen = torretaBasica.escudoRegen;
+        radioExplosion = torretaBasica.radioExplosion;
+        danyoExplosion = torretaBasica.danyoExplosion;
 
         // Busca el jugador
         personaje = FindObjectOfType<Personaje>();
@@ -75,12 +89,13 @@ public class Torreta : MonoBehaviour
 
         // Ajusta la vida actual a la maxima
         vidaActual = vidaMaxima;
-        
+
         // Reduce la energia del jugador
         if (personaje.Energia - energia < 0)
         {
             Destroy(gameObject);
-        } else
+        }
+        else
         {
             personaje.Energia -= energia;
         }
@@ -89,6 +104,9 @@ public class Torreta : MonoBehaviour
         enemigoApuntando = null;
 
         disparo = GetComponentInChildren<Disparo>();
+
+        timerDisparo = 0;
+        timerEscudo = 0;
     }
 
     // Update is called once per frame
@@ -98,32 +116,52 @@ public class Torreta : MonoBehaviour
         enemigoApuntando = BuscarEnemigo();
 
         //tiempo para la velocidad de ataque
-        timer += Time.deltaTime;
+        timerDisparo += Time.deltaTime;
 
         //si apunta a alguien
         if (enemigoApuntando != null)
         {
             //rota la torreta en dirección al enemigo apuntado
-            Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position ;
+            Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
             Quaternion VisionRotacion = Quaternion.LookRotation(dir);
             //rotacion suave
             Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadRotacion).eulerAngles;
             parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
 
             //si ha pasado el tiempo de recarga
-            if (timer >= cadenciaDisparo)
+            if (timerDisparo >= cadenciaDisparo)
             {
-                timer = 0;
+                timerDisparo = 0;
                 //disparar
-                disparo.Disparar(ataque);
+                disparo.Disparar(ataque,radioExplosion,danyoExplosion);
             }
         }
 
         // Torreta destruida
-        if(vidaActual <= 0)
+        if (vidaActual <= 0)
         {
             DestruirTorreta();
         }
+
+        if (escudoActual <= escudoMaximo)
+        {
+            //tiempo para la recarga de escudo
+            timerEscudo += Time.deltaTime;
+            if (timerEscudo >= 1)
+            {
+                if ((escudoActual + escudoRegen) > escudoMaximo)
+                {
+                    escudoActual = escudoMaximo;
+                }
+                else
+                {
+                    escudoActual += escudoRegen;
+                }
+                timerEscudo = 0;
+            }
+
+        }
+
     }
 
     //Funcion de busqueda de enemigo
@@ -149,18 +187,40 @@ public class Torreta : MonoBehaviour
                     //si todavía no apunta a nadie
                     if (enemigoMasCercano == null)
                     {
-                        enemigoMasCercano = colliders[i].gameObject;
-                        menorDistancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
+
+                        Vector3 dir2 = parteQueRota.position - colliders[i].gameObject.transform.position;
+                        Quaternion VisionRotacion = Quaternion.LookRotation(dir2);
+                        float aux = VisionRotacion.eulerAngles.y - this.transform.rotation.eulerAngles.y;
+                        if (aux < 0)
+                        {
+                            aux += 360;
+                        }
+                        if (anguloDisparo.y >= aux || 360 - anguloDisparo.y <= aux)
+                        {
+                            enemigoMasCercano = colliders[i].gameObject;
+                            menorDistancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
+
+                        }
                     }
                     else
                     {
-                        //comprueba la distancia entre la torreta y el enemigo
-                        float distancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
-                        //si está mas cerca que el anterior enemigo mas cercano lo sustituye
-                        if (distancia < menorDistancia)
+                        Vector3 dir2 = parteQueRota.position - colliders[i].gameObject.transform.position;
+                        Quaternion VisionRotacion = Quaternion.LookRotation(dir2);
+                        float aux = VisionRotacion.eulerAngles.y - this.transform.rotation.eulerAngles.y;
+                        if (aux < 0)
                         {
-                            menorDistancia = distancia;
-                            enemigoMasCercano = colliders[i].gameObject;
+                            aux += 360;
+                        }
+                        if (anguloDisparo.y >= aux || 360 - anguloDisparo.y <= aux)
+                        {
+                            //comprueba la distancia entre la torreta y el enemigo
+                            float distancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
+                            //si está mas cerca que el anterior enemigo mas cercano lo sustituye
+                            if (distancia < menorDistancia)
+                            {
+                                menorDistancia = distancia;
+                                enemigoMasCercano = colliders[i].gameObject;
+                            }
                         }
                     }
                 }
@@ -180,7 +240,7 @@ public class Torreta : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Terreno")
+        if (collision.gameObject.tag == "Terreno")
         {
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }

@@ -126,6 +126,7 @@ MonoBehaviour:
   vidaActual: 0
   vidaMaxima: 0
   escudoMaximo: 0
+  escudoActual: 0
   escudoRegen: 0
   ataque: 0
   cadenciaDisparo: 0

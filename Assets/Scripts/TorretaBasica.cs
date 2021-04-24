@@ -6,6 +6,9 @@
 //
 // AUTHOR: Luis
 // FEATURES ADDED: Creado el Scriptable Object de las torretas
+//
+// AUTHOR: Pau Blanes
+// FEATURES ADDED: escudoActual
 // ---------------------------------------------------
 
 using UnityEngine;
@@ -21,6 +24,7 @@ public class TorretaBasica : ScriptableObject
     public float escudoRegen;
     public float ataque;
     public float cadenciaDisparo;
+    public float escudoActual;
     public enum tipoDisparo
     {
         laser, balas
@@ -29,4 +33,6 @@ public class TorretaBasica : ScriptableObject
     public float velocidadRotacion;
     public float distanciaDisparo;
     public bool antiaerea;
+    public float radioExplosion;
+    public float danyoExplosion;
 }
