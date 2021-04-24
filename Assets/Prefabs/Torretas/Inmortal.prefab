@@ -113,8 +113,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550871163448655305}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 87.57677, y: 3.334961, z: 30.07218}
+  m_LocalRotation: {x: 0, y: 0.9992291, z: 0, w: -0.039258685}
+  m_LocalPosition: {x: -106.808426, y: 2.8779783, z: 47.98431}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8021512664349204342}
@@ -174,11 +174,13 @@ MonoBehaviour:
   escudoRegen: 0
   ataque: 0
   cadenciaDisparo: 0
-  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   velocidadRotacion: 0
   distanciaDisparo: 0
   antiaerea: 0
+  radioExplosion: 0
+  danyoExplosion: 0
   parteQueRota: {fileID: 7532045515835935692}
+  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5414226525075569495
 GameObject:
   m_ObjectHideFlags: 0
