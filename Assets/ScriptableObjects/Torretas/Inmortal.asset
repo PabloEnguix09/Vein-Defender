@@ -25,5 +25,5 @@ MonoBehaviour:
   velocidadRotacion: 2
   distanciaDisparo: 200
   antiaerea: 0
-  radioExplosion: 2
-  danyoExplosion: 100
+  radioExplosion: 1
+  danyoExplosion: 5
