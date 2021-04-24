@@ -156,13 +156,13 @@ public class InvocarTorreta : MonoBehaviour
             // https://stackoverflow.com/questions/6270785/how-to-determine-whether-a-point-x-y-is-contained-within-an-arc-section-of-a-c
             // angulo = atan2(Y - CenterY, X - CenterX)
             float angulo = Mathf.Atan2(mousePosition.y - centroPantalla.y, mousePosition.x - centroPantalla.x);
-            Debug.Log(angulo);
+            //Debug.Log(angulo);
 
             torretaPreviewIndex = ComprobarCasillaMenu(angulo);
 
             if(torretaPreviewIndex >= 0)
             {
-                Debug.Log("Torreta invocada: " + torretaPreviewIndex);
+                //Debug.Log("Torreta invocada: " + torretaPreviewIndex);
                 // Se previsualiza la torreta 
                 SetColocada(false);
                 PreviewTorreta();
