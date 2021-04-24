@@ -22,7 +22,7 @@ public class MovimientoPersonaje : MonoBehaviour
     public float maximaVelocidad = 0.1f;
     public float velocidadCaminar, velocidadCorrer;
     public float fuerzaSalto = 300f;
-    private bool volando = false;
+    public bool volando = true;
     public Vector3 Velocidad { get => velocidad; set => velocidad = value; }
 
     public Transform personaje;

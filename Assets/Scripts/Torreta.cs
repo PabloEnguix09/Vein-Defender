@@ -61,6 +61,7 @@ public class Torreta : MonoBehaviour
         anguloDisparo = torretaBasica.anguloDisparo;
         velocidadRotacion = torretaBasica.velocidadRotacion;
         cadenciaDisparo = torretaBasica.cadenciaDisparo;
+        distanciaDisparo = torretaBasica.distanciaDisparo;
 
         // Busca el jugador
         personaje = FindObjectOfType<Personaje>();
