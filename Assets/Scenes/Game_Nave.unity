@@ -904,8 +904,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 547666960}
-        m_TargetAssemblyTypeName: SistemaMejoras, Assembly-CSharp
+      - m_Target: {fileID: 334826133}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
         m_MethodName: ActivarMejora01
         m_Mode: 1
         m_Arguments:
