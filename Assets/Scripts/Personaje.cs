@@ -174,7 +174,7 @@ public class Personaje : MonoBehaviour
     }
 
     // SOLO PARA LAS ESCENAS: Muestra el rayo de apuntado
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 13f);
