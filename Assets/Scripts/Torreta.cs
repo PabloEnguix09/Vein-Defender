@@ -237,7 +237,7 @@ public class Torreta : MonoBehaviour
         Gizmos.color = Color.green;
         if(enemigoApuntando != null)
         {
-            Gizmos.DrawRay(parteQueRota.position, Vector3.Normalize(enemigoApuntando.transform.position - parteQueRota.position) * Vector3.Distance(parteQueRota.position, objetivo.transform.position));
+            Gizmos.DrawRay(parteQueRota.position, Vector3.Normalize(enemigoApuntando.transform.position - parteQueRota.position) * Vector3.Distance(parteQueRota.position, enemigoApuntando.transform.position));
         }
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(parteQueRota.position, distanciaDisparo);
