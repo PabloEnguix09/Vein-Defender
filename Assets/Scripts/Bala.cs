@@ -10,9 +10,13 @@ public class Bala : MonoBehaviour
     // GAMEOBJECT: Bala
     // DESCRIPTION: Control de las balas disparadas por las torretas
     //
-    // AUTHOR: Adri�n
+    // AUTHOR: Adri�n
     // FEATURES ADDED: La bala con impulso y se destruye al golpear algo.
+    //
+    // AUTHOR: Pau
+    // FEATURES ADDED: Inflingir daño a player, torretas y base
     // ---------------------------------------------------
+
 
     public float velocidad;
 
@@ -37,6 +41,46 @@ public class Bala : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        // compruebo si golpeo una base y aplico daño
+       
+        if (collision.gameObject.CompareTag("Bases"))
+        {
+            Base estructura = collision.gameObject.gameObject.GetComponent<Base>();
+            estructura.Salud -= fuerza;
+            
+        }
+        // compruebo si golpeo una torreta y aplico daño
+        else if (collision.gameObject.CompareTag("Torretas"))
+        {
+            Torreta estructura = collision.gameObject.gameObject.GetComponent<Torreta>();
+
+            if (estructura.escudoActual > 0)
+            {
+                if (estructura.escudoActual < fuerza)
+                {
+                    float aux = fuerza - estructura.escudoActual;
+                    estructura.escudoActual = 0;
+                    estructura.vidaActual -= aux;
+                }
+                else
+                {
+                    estructura.escudoActual -= fuerza;
+                }
+            }
+            else
+            {
+                estructura.vidaActual -= fuerza;
+            }
+            
+        }
+        // compruebo si golpeo un jugador y aplico daño
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            Personaje personaje = collision.gameObject.gameObject.GetComponent<Personaje>();
+            personaje.RecibirAtaque(fuerza);
+            
+        }
+    // destruyo la bala
+    Destroy(gameObject);
     }
 }

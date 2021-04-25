@@ -11,18 +11,22 @@ public class Disparo : MonoBehaviour
     // DESCRIPTION: descripcion
     //
     // AUTHOR: Adrian
-    // FEATURES ADDED: Se asigna el daño de la torreta a la bala y la posiciona apuntando hacia donde apunta la torreta
+    // FEATURES ADDED: Se asigna el daï¿½o de la torreta a la bala y la posiciona apuntando hacia donde apunta la torreta
+    //
+    // AUTHOR: Pau
+    // FEATURES ADDED: AÃ±adido radio de explosion de bala y daÃ±o de explosion
     // ---------------------------------------------------
 
     public GameObject bala;
 
-    public void Disparar(float ataque, float radioExplosion,float danyoEplosion)
+    public void Disparar(float ataque, float radioExplosion,float danyoExplosion)
     {
-        //asignar a la bala el daño de la torreta
+        //asignar a la bala el daï¿½o de la torreta
         bala.GetComponent<Bala>().fuerza = ataque;
         bala.GetComponent<Bala>().radioExplosion =radioExplosion;
-        bala.GetComponent<Bala>().danyoExplosion = danyoEplosion;
+        bala.GetComponent<Bala>().danyoExplosion = danyoExplosion;
         //Generar la bala apuntando el la direccion que apunta la torreta
         Instantiate(bala, transform.position, transform.rotation);
+      
     }
 }

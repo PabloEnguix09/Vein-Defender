@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -528,7 +528,7 @@ RectTransform:
   - {fileID: 416103043}
   - {fileID: 103211797}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -689,7 +689,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4227345956825809941, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809941, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -749,16 +749,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: limitePrimerEnemigo
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: primerTipoDeEnemigo
       value: 
-      objectReference: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
+      objectReference: {fileID: 3671158431268791085, guid: 146c3484969542e4cbf96fc36ef21119, type: 3}
+    - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
+      propertyPath: limiteSegundoEnemigo
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: segundoTipoDeEnemigo
       value: 
       objectReference: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
+    - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
+      propertyPath: tiempoAparicionPrimerEnemigo
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809943, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -1174,11 +1182,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809941, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -166.6
+      value: -97.4
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809941, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809941, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1230,16 +1238,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: limitePrimerEnemigo
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: primerTipoDeEnemigo
       value: 
-      objectReference: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
+      objectReference: {fileID: 3671158431268791085, guid: 146c3484969542e4cbf96fc36ef21119, type: 3}
+    - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
+      propertyPath: limiteSegundoEnemigo
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: segundoTipoDeEnemigo
       value: 
       objectReference: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
+    - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
+      propertyPath: tiempoAparicionPrimerEnemigo
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809943, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_Name
       value: Spawner (1)
