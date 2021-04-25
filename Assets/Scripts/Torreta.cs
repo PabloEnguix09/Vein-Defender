@@ -121,7 +121,7 @@ public class Torreta : MonoBehaviour
         //si apunta a alguien
         if (enemigoApuntando != null)
         {
-            //rota la torreta en direcci�n al enemigo apuntado
+            //rota la torreta en direccion al enemigo apuntado
             Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
             Quaternion VisionRotacion = Quaternion.LookRotation(dir);
             //rotacion suave
@@ -154,6 +154,53 @@ public class Torreta : MonoBehaviour
     //Funcion de busqueda de enemigo
     GameObject BuscarEnemigo()
     {
+        // Recogemos todos los enemigos de la zona
+        GameObject[] enemigosEnRango = GameObject.FindGameObjectsWithTag("Enemigos");
+
+        GameObject masCercano = null;
+
+        // Encontramos el enemigo mas cercano
+        if(enemigosEnRango.Length >= 1)
+        {
+            for (int i = 0; i < enemigosEnRango.Length; i++)
+            {
+                // Si aun no ha encontrado ninguna torreta
+                if (masCercano == null)
+                {
+                    // Comprueba que tenga vision del enemigo
+                    if (ComprobarVision(enemigosEnRango[i]))
+                    {
+                        masCercano = enemigosEnRango[i];
+                    }
+                }
+                // Si ya tiene un enemigo asignado
+                else if(masCercano != null)
+                {
+                    // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
+                    if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
+                    {
+                        // Comprueba que tenga vision del enemigo
+                        if (ComprobarVision(enemigosEnRango[i]))
+                        {
+                            masCercano = enemigosEnRango[i];
+                        }
+                    }
+                }
+            }
+        }
+        // Comprueba que existe un enemigo visible
+        if(masCercano != null)
+        {
+            // Ahora que tenemos la torreta mas cercana devolvemos el GameObject si esta dentro del rango de disparo
+            if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) < distanciaDisparo)
+            {
+                return masCercano;
+            }
+        }
+        // Si no, devuelve un null
+        return null;
+
+        /*
         float menorDistancia = Mathf.Infinity;
          
         GameObject enemigoMasCercano = null;
@@ -215,6 +262,25 @@ public class Torreta : MonoBehaviour
             }
         }
         return null;
+        */
+    }
+
+    bool ComprobarVision(GameObject objetivo)
+    {
+        // Comprobamos que no tenga terreno entre la torreta y el enemigo
+        RaycastHit hit;
+        // no existe un collider entre el enemigo y la torreta
+        Physics.Raycast(parteQueRota.position, Vector3.Normalize(objetivo.transform.position - parteQueRota.position), out hit, distanciaDisparo, LayerMask.GetMask("Terreno"));
+
+        if(hit.collider == null)
+        {
+            return true;
+        }
+        if(Vector3.Distance(parteQueRota.position, hit.point) > Vector3.Distance(parteQueRota.position, objetivo.transform.position))
+        {
+            return true;
+        }
+        return false;
     }
 
     // Llamado desde InvocarTorretas.cs EliminarTorreta()
@@ -236,7 +302,10 @@ public class Torreta : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawRay(parteQueRota.position, Vector3.forward * distanciaDisparo);
+        if(enemigoApuntando != null)
+        {
+            Gizmos.DrawRay(parteQueRota.position, Vector3.Normalize(enemigoApuntando.transform.position - parteQueRota.position) * distanciaDisparo);
+        }
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(parteQueRota.position, distanciaDisparo);
     }
