@@ -36,6 +36,8 @@ public class controlPartida : MonoBehaviour
     private int ronda;
 
     Enemigo[] enemigos;
+
+    GameManager gameManager;
     void Start()
     {
         bases = (Base[])GameObject.FindObjectsOfType(typeof(Base));
@@ -43,6 +45,8 @@ public class controlPartida : MonoBehaviour
         personaje = jugador.GetComponent<Personaje>();
         CamaraSecundaria.gameObject.SetActive(false);
         ronda = 1;
+
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -116,6 +120,7 @@ public class controlPartida : MonoBehaviour
                     //ronda 4 o en este caso fin de la zona
                     foreach (Spawner s in spawners)
                     {
+                        gameManager.misionesCompletadas++;
                         SceneManager.LoadScene(SceneManager.GetSceneAt(1).ToString());
                     }
                     break;

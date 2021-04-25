@@ -1,7 +1,7 @@
 // ---------------------------------------------------
 // NAME: SistemaMejoras.cs
 // STATUS: WIP
-// GAMEOBJECT: ControlPartida
+// GAMEOBJECT: GameManager
 // DESCRIPTION: Manipula los objetos del juego para establecer mejoras
 //
 // AUTHOR: Luis Belloch
