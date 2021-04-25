@@ -14,7 +14,7 @@ public class Torreta : MonoBehaviour
     // FEATURES ADDED: La torreta apunta al enemigo mas cercano en un rango
     //
     // AUTHOR: Luis Belloch
-    // FEATURES ADDED: TorretaDestruida, ScriptableObjects
+    // FEATURES ADDED: TorretaDestruida, ScriptableObjects, apuntado de enemigos rehecho
     //
     // AUTHOR: Pau Blanes
     //FEATURES ADDED: regenreacion de escudo y rango de vision
@@ -199,84 +199,17 @@ public class Torreta : MonoBehaviour
         }
         // Si no, devuelve un null
         return null;
-
-        /*
-        float menorDistancia = Mathf.Infinity;
-         
-        GameObject enemigoMasCercano = null;
-
-        //generar una esfera de radio <rango> alrededor de la torreta y guardar todas las colisiones en una lista
-        Collider[] colliders = Physics.OverlapSphere(parteQueRota.position, torretaBasica.distanciaDisparo);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-
-            if (colliders[i].CompareTag("Enemigos"))
-            {
-                //si el collider pertenece a un enemigo
-                
-                RaycastHit hit;
-                // no existe un collider entre el enemigo y la torreta
-                Physics.Raycast(parteQueRota.position, Vector3.Normalize( colliders[i].transform.position - parteQueRota.position), out hit, distanciaDisparo, LayerMask.GetMask("Terreno"));
-
-                if (hit.collider == null)
-                {
-                    //si todavia no apunta a nadie
-                    if (enemigoMasCercano == null)
-                    {
-                        Vector3 dir2 = parteQueRota.position - colliders[i].gameObject.transform.position;
-                        Quaternion VisionRotacion = Quaternion.LookRotation(dir2);
-                        float aux = VisionRotacion.eulerAngles.y - this.transform.rotation.eulerAngles.y;
-                        if (aux < 0)
-                        {
-                            aux += 360;
-                        }
-                        if (anguloDisparo.y >= aux || 360 - anguloDisparo.y <= aux)
-                        {
-                            enemigoMasCercano = colliders[i].gameObject;
-                            menorDistancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
-
-                        }
-                    }
-                    else
-                    {
-                        Vector3 dir2 = parteQueRota.position - colliders[i].gameObject.transform.position;
-                        Quaternion VisionRotacion = Quaternion.LookRotation(dir2);
-                        float aux = VisionRotacion.eulerAngles.y - this.transform.rotation.eulerAngles.y;
-                        if (aux < 0)
-                        {
-                            aux += 360;
-                        }
-                        if (anguloDisparo.y >= aux || 360 - anguloDisparo.y <= aux)
-                        {
-                            //comprueba la distancia entre la torreta y el enemigo
-                            float distancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
-                            //si esta mas cerca que el anterior enemigo mas cercano lo sustituye
-                            if (distancia < menorDistancia)
-                            {
-                                menorDistancia = distancia;
-                                enemigoMasCercano = colliders[i].gameObject;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return null;
-        */
     }
 
+    // Comprueba que el enemigo apuntado no tenga ninguna pared entre la torreta y el
     bool ComprobarVision(GameObject objetivo)
     {
         // Comprobamos que no tenga terreno entre la torreta y el enemigo
         RaycastHit hit;
         // no existe un collider entre el enemigo y la torreta
-        Physics.Raycast(parteQueRota.position, Vector3.Normalize(objetivo.transform.position - parteQueRota.position), out hit, distanciaDisparo, LayerMask.GetMask("Terreno"));
+        Physics.Raycast(parteQueRota.position, Vector3.Normalize(objetivo.transform.position - parteQueRota.position), out hit, Vector3.Distance(parteQueRota.position, objetivo.transform.position), LayerMask.GetMask("Terreno"));
 
         if(hit.collider == null)
-        {
-            return true;
-        }
-        if(Vector3.Distance(parteQueRota.position, hit.point) > Vector3.Distance(parteQueRota.position, objetivo.transform.position))
         {
             return true;
         }
@@ -304,7 +237,7 @@ public class Torreta : MonoBehaviour
         Gizmos.color = Color.green;
         if(enemigoApuntando != null)
         {
-            Gizmos.DrawRay(parteQueRota.position, Vector3.Normalize(enemigoApuntando.transform.position - parteQueRota.position) * distanciaDisparo);
+            Gizmos.DrawRay(parteQueRota.position, Vector3.Normalize(enemigoApuntando.transform.position - parteQueRota.position) * Vector3.Distance(parteQueRota.position, objetivo.transform.position));
         }
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(parteQueRota.position, distanciaDisparo);
