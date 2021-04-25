@@ -22,8 +22,25 @@ public class MenuButtons : MonoBehaviour
     public Sprite[] mapas;
     public Image mapa;
     public int siguienteNivel = 0;
+    public GameObject mejoras, botonStart;
+
+    GameManager gameManager;
+    SistemaMejoras sistemaMejoras;
 
     bool mapaAbierto = false;
+
+    // Recoge el game manager
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        sistemaMejoras = FindObjectOfType<SistemaMejoras>();
+        // Si ya se ha completado una mision, se activa la seleccion de mejoras
+        if(gameManager.misionesCompletadas > 0)
+        {
+            mejoras.SetActive(true);
+            botonStart.SetActive(false);
+        }
+    }
 
     public void OnClickStart()
     {
@@ -52,5 +69,12 @@ public class MenuButtons : MonoBehaviour
                 SceneManager.LoadScene(GameScene);
             }
         }
+    }
+
+    public void ActivarMejora01()
+    {
+        sistemaMejoras.mejorap01 = true;
+        mejoras.SetActive(false);
+        botonStart.SetActive(true);
     }
 }
