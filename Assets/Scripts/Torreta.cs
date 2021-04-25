@@ -36,18 +36,18 @@ public class Torreta : MonoBehaviour
     public float velocidadRotacion;
     public float distanciaDisparo;
     public bool antiaerea;
+    public Quaternion anguloDisparo;
 
     public float radioExplosion;
     public float danyoExplosion;
 
     private float timerDisparo;
-    private float timerEscudo;
 
-
+    [Header("Partes")]
     private GameObject enemigoApuntando;
     public Transform parteQueRota;
     private Disparo disparo;
-    public Quaternion anguloDisparo;
+
     Personaje personaje;
 
     SistemaMejoras sistemaMejoras;
@@ -75,6 +75,7 @@ public class Torreta : MonoBehaviour
         escudoRegen = torretaBasica.escudoRegen;
         radioExplosion = torretaBasica.radioExplosion;
         danyoExplosion = torretaBasica.danyoExplosion;
+        distanciaDisparo = torretaBasica.distanciaDisparo;
 
         // Busca el jugador
         personaje = FindObjectOfType<Personaje>();
@@ -106,7 +107,6 @@ public class Torreta : MonoBehaviour
         disparo = GetComponentInChildren<Disparo>();
 
         timerDisparo = 0;
-        timerEscudo = 0;
     }
 
     // Update is called once per frame
@@ -143,23 +143,10 @@ public class Torreta : MonoBehaviour
             DestruirTorreta();
         }
 
-        if (escudoActual <= escudoMaximo)
+        // regeneracion de escudo
+        if (escudoActual < escudoMaximo)
         {
-            //tiempo para la recarga de escudo
-            timerEscudo += Time.deltaTime;
-            if (timerEscudo >= 1)
-            {
-                if ((escudoActual + escudoRegen) > escudoMaximo)
-                {
-                    escudoActual = escudoMaximo;
-                }
-                else
-                {
-                    escudoActual += escudoRegen;
-                }
-                timerEscudo = 0;
-            }
-
+            escudoActual += escudoRegen * Time.deltaTime;
         }
 
     }
@@ -168,12 +155,11 @@ public class Torreta : MonoBehaviour
     GameObject BuscarEnemigo()
     {
         float menorDistancia = Mathf.Infinity;
-        bool encontrado = false;
          
         GameObject enemigoMasCercano = null;
 
         //generar una esfera de radio <rango> alrededor de la torreta y guardar todas las colisiones en una lista
-        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, torretaBasica.distanciaDisparo);
+        Collider[] colliders = Physics.OverlapSphere(parteQueRota.position, torretaBasica.distanciaDisparo);
         for (int i = 0; i < colliders.Length; i++)
         {
 
@@ -183,11 +169,11 @@ public class Torreta : MonoBehaviour
                 
                 RaycastHit hit;
                 // no existe un collider entre el enemigo y la torreta
-                Physics.Raycast(transform.position, Vector3.Normalize( colliders[i].transform.position-transform.position ), out hit, distanciaDisparo, LayerMask.GetMask("Terreno"));
-                Debug.Log(hit.collider);
+                Physics.Raycast(parteQueRota.position, Vector3.Normalize( colliders[i].transform.position - parteQueRota.position), out hit, distanciaDisparo, LayerMask.GetMask("Terreno"));
+
                 if (hit.collider == null)
                 {
-                    //si todav�a no apunta a nadie
+                    //si todavia no apunta a nadie
                     if (enemigoMasCercano == null)
                     {
                         Vector3 dir2 = parteQueRota.position - colliders[i].gameObject.transform.position;
@@ -203,7 +189,6 @@ public class Torreta : MonoBehaviour
                             menorDistancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
 
                         }
-                        encontrado = true;
                     }
                     else
                     {
@@ -218,7 +203,7 @@ public class Torreta : MonoBehaviour
                         {
                             //comprueba la distancia entre la torreta y el enemigo
                             float distancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
-                            //si est� mas cerca que el anterior enemigo mas cercano lo sustituye
+                            //si esta mas cerca que el anterior enemigo mas cercano lo sustituye
                             if (distancia < menorDistancia)
                             {
                                 menorDistancia = distancia;
@@ -229,8 +214,7 @@ public class Torreta : MonoBehaviour
                 }
             }
         }
-        if (encontrado) return enemigoMasCercano;
-        else return null;
+        return null;
     }
 
     // Llamado desde InvocarTorretas.cs EliminarTorreta()
@@ -247,5 +231,13 @@ public class Torreta : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(parteQueRota.position, Vector3.forward * distanciaDisparo);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(parteQueRota.position, distanciaDisparo);
     }
 }

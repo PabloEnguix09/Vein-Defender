@@ -113,8 +113,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550871163448655305}
-  m_LocalRotation: {x: 0, y: 0.9992291, z: 0, w: -0.039258685}
-  m_LocalPosition: {x: -106.808426, y: 2.8779783, z: 47.98431}
+  m_LocalRotation: {x: 0, y: 0.9656982, z: 0, w: 0.25966728}
+  m_LocalPosition: {x: -54.633762, y: 2.1168573, z: 12.995425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8021512664349204342}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96517f2596bd50641b5a63963c836b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torretaBasica: {fileID: 11400000, guid: df436cad2713f1945ac22a8b5f2a9d69, type: 2}
+  torretaBasica: {fileID: 11400000, guid: 484fe70af7e23ac4a975dc13a69478d5, type: 2}
   nombre: 
   energia: 0
   energiaAlt: 0
@@ -177,10 +177,10 @@ MonoBehaviour:
   velocidadRotacion: 0
   distanciaDisparo: 0
   antiaerea: 0
+  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   radioExplosion: 0
   danyoExplosion: 0
   parteQueRota: {fileID: 7532045515835935692}
-  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5414226525075569495
 GameObject:
   m_ObjectHideFlags: 0

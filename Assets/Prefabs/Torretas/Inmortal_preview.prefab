@@ -404,9 +404,9 @@ GameObject:
   - component: {fileID: 5559636559443203216}
   - component: {fileID: 4707300584132605655}
   - component: {fileID: 370284353657971453}
-  - component: {fileID: 1020778570645358884}
+  - component: {fileID: 7886029749308271952}
   m_Layer: 7
-  m_Name: inmortalPrefab
+  m_Name: Inmortal_preview
   m_TagString: Torretas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,7 +457,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &1020778570645358884
+--- !u!114 &7886029749308271952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -466,27 +466,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8332529569172267353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96517f2596bd50641b5a63963c836b86, type: 3}
+  m_Script: {fileID: 11500000, guid: 61a8bea4b49cdf64581e81fff6dd11e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torretaBasica: {fileID: 11400000, guid: df436cad2713f1945ac22a8b5f2a9d69, type: 2}
-  nombre: 
-  energia: 0
-  energiaAlt: 0
-  vidaActual: 0
-  vidaMaxima: 0
-  escudoMaximo: 0
-  escudoActual: 0
-  escudoRegen: 0
-  ataque: 0
-  cadenciaDisparo: 0
-  velocidadRotacion: 0
-  distanciaDisparo: 0
-  antiaerea: 0
-  radioExplosion: 0
-  danyoExplosion: 0
-  parteQueRota: {fileID: 7532045515835935692}
-  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8462339642009093956
 GameObject:
   m_ObjectHideFlags: 0
