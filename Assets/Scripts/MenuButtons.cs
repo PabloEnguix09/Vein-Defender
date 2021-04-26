@@ -35,16 +35,31 @@ public class MenuButtons : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         sistemaMejoras = FindObjectOfType<SistemaMejoras>();
         // Si ya se ha completado una mision, se activa la seleccion de mejoras
-        if(gameManager.misionesCompletadas > 0)
+        int misionesCompletadas = PlayerPrefs.GetInt("misiones_completadas");
+
+        if( SceneManager.GetActiveScene().buildIndex == 1)
         {
-            mejoras.SetActive(true);
-            botonStart.SetActive(false);
+            if(misionesCompletadas > 0)
+            {
+                mejoras.SetActive(true);
+                botonStart.SetActive(false);
+
+            } else
+            {
+                mejoras.SetActive(false);
+                botonStart.SetActive(true);
+            }
         }
     }
 
     public void OnClickStart()
     {
         SceneManager.LoadScene(GameScene);
+    }
+
+    public void OnClickReset()
+    {
+        PlayerPrefs.SetInt("misiones_completadas", 0);
     }
 
     public void OnClickExit()
