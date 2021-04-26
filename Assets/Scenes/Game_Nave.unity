@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3ded4d10f451145a9eb4f916715b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  misionesCompletadas: 1
+  misionesCompletadas: 0
 --- !u!1 &549170940
 GameObject:
   m_ObjectHideFlags: 0

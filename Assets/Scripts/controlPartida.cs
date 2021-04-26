@@ -120,7 +120,8 @@ public class controlPartida : MonoBehaviour
                     //ronda 4 o en este caso fin de la zona
                     foreach (Spawner s in spawners)
                     {
-                        gameManager.misionesCompletadas++;
+                        int misionesCompletadas = PlayerPrefs.GetInt("misiones_completadas");
+                        PlayerPrefs.SetInt("misiones_completadas", misionesCompletadas + 1);
                         SceneManager.LoadScene(SceneManager.GetSceneAt(1).ToString());
                     }
                     break;
