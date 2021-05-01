@@ -20,6 +20,7 @@ public class MovimientoPersonaje : MonoBehaviour
 
     private Vector3 velocidad;
     public float maximaVelocidad = 0.1f;
+    public float maximaVelocidadSalto = 40f;
     public float velocidadCaminar, velocidadCorrer;
     public float fuerzaSalto = 300f;
     public bool volando = true;
@@ -45,6 +46,11 @@ public class MovimientoPersonaje : MonoBehaviour
         if (velocidad.magnitude > 0)
         {
             personaje.rotation = Quaternion.LookRotation(velocidad);
+        }
+        //Si la velocidad del eje Y es mas grande a maximaVelocidadSalto
+        if (rb.velocity.y > maximaVelocidadSalto)
+        {
+            rb.AddForce(Vector3.down * fuerzaSalto);//Creamos una fuerza opueta para frenar el salto
         }
     }
 
