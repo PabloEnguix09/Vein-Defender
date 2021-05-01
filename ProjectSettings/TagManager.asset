@@ -8,6 +8,9 @@ TagManager:
   - Bases
   - Enemigos
   - CamaraSecundaria
+  - Previews
+  - Terreno
+  - Minimapa
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - UI
   - Terreno
   - Torreta
-  - 
+  - MarcadorMinimapa
   - 
   - 
   - 

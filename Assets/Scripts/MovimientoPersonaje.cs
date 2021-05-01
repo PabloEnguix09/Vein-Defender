@@ -20,8 +20,9 @@ public class MovimientoPersonaje : MonoBehaviour
 
     private Vector3 velocidad;
     public float maximaVelocidad = 0.1f;
+    public float velocidadCaminar, velocidadCorrer;
     public float fuerzaSalto = 300f;
-    private bool haSaltado = false;
+    public bool volando = true;
     public Vector3 Velocidad { get => velocidad; set => velocidad = value; }
 
     public Transform personaje;
@@ -33,6 +34,7 @@ public class MovimientoPersonaje : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        maximaVelocidad = velocidadCaminar;
     }
 
     // Update is called once per frame
@@ -53,12 +55,12 @@ public class MovimientoPersonaje : MonoBehaviour
         {
             case Movimientos.Caminar:
                 {
-                    maximaVelocidad = 5f;
+                    maximaVelocidad = velocidadCaminar;
                     break;
                 }
             case Movimientos.Correr:
                 {
-                    maximaVelocidad = 20f;
+                    maximaVelocidad = velocidadCorrer;
                     break;
                 }
         }
@@ -70,7 +72,7 @@ public class MovimientoPersonaje : MonoBehaviour
 
     internal void Saltar()
     {
-        if(!haSaltado)
+        if(!volando)
         {
             rb.AddForce(Vector3.up * fuerzaSalto);
         }
@@ -81,14 +83,14 @@ public class MovimientoPersonaje : MonoBehaviour
         if (collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Player" &&
             collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.layer == 6)
         {
-            haSaltado = false;
+            volando = false;
         }
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.collider.gameObject.layer == 6)
         {
-            haSaltado = true;
+            volando = true;
         }
     }
 }

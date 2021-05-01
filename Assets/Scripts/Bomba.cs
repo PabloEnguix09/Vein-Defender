@@ -20,39 +20,26 @@ public class Bomba : MonoBehaviour
 
     Animator animator;
     public float destroyOfftime = 0.5f;
-
-    [Range(0, 1)]
-    public float fuerza = .3f;
-
-    [Range(0, 1)]
-    public float vida = .5f;
-
-    public float velocidad = 10;
-
-    public float rango = 4;
-
+    public float vida;
     public float radioExplosion = 2f;
 
+    public EnemigoBasico enemigoBasico;
+
     private Enemigo enemigo;
-    bool muerto = false;
 
     // Start is called before the first frame update
     void Start()
     {
         enemigo = gameObject.GetComponent<Enemigo>();
-        enemigo.fuerza = fuerza;
-        enemigo.vida = vida;
-        enemigo.vision = rango;
-        enemigo.agente.speed = velocidad;
         animator = gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (enemigo.vida <= 0)
+        if (enemigo.vidaActual <= 0)
         {
-            // Inicia la animacion de explotar
-            animator.SetBool("Explode", true);
+            // Inicia la animacion de explotar comentado porque peta
+            //animator.SetBool("Explode", true);
 
             // Cuenta regresiva hasta terminar la animacion de explotar
             destroyOfftime -= Time.deltaTime;
@@ -69,28 +56,45 @@ public class Bomba : MonoBehaviour
                     if (colliders[i].CompareTag("Bases"))
                     {
                         Base estructura = colliders[i].gameObject.GetComponent<Base>();
-                        estructura.Salud -= enemigo.fuerza;
+                        estructura.Salud -= enemigoBasico.ataque;
                         //Debug.Log("Golpeo una base");
                     }
 
                     else if (colliders[i].CompareTag("Torretas"))
                     {
                         Torreta estructura = colliders[i].gameObject.GetComponent<Torreta>();
-                        estructura.Vida -= enemigo.fuerza;
+                       
+                        if (estructura.escudoActual > 0)
+                        {
+                            if (estructura.escudoActual < enemigoBasico.ataque)
+                            {
+                                float aux = enemigoBasico.ataque - estructura.escudoActual;
+                                estructura.escudoActual = 0;
+                                estructura.vidaActual -= aux;
+                            }
+                            else
+                            {
+                                estructura.escudoActual -= enemigoBasico.ataque;
+                            }
+                        }
+                        else
+                        {
+                            estructura.vidaActual -= enemigoBasico.ataque;
+                        }
                         //Debug.Log("Golpeo una torrerta");
                     }
 
                     else if (colliders[i].CompareTag("Enemigos"))
                     {
                         Enemigo otroEnemigo = colliders[i].gameObject.GetComponent<Enemigo>();
-                        otroEnemigo.Vida -= enemigo.fuerza;
+                        otroEnemigo.vidaActual -= enemigoBasico.ataque;
                         //Debug.Log("Golpeo un enemigo");
                     }
 
                     else if (colliders[i].CompareTag("Player"))
                     {
                         Personaje personaje = colliders[i].gameObject.GetComponent<Personaje>();
-                        personaje.Salud -= enemigo.fuerza;
+                        personaje.RecibirAtaque(enemigoBasico.ataque);
                         //Debug.Log("Golpeo al jugador");
                     }
                 }
@@ -108,7 +112,7 @@ public class Bomba : MonoBehaviour
         if (other.gameObject.GetComponent<Base>() != null || other.gameObject.GetComponent<Torreta>() != null || other.gameObject.GetComponent<Personaje>())
         {
             //Debug.Log("Choque");
-            enemigo.vida = 0;
+            enemigo.vidaActual = 0;
         }
     }
 

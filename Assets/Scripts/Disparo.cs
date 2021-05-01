@@ -5,20 +5,28 @@ using UnityEngine;
 public class Disparo : MonoBehaviour
 {
     // ---------------------------------------------------
-    // NAME: nombre
-    // STATUS: estado
-    // GAMEOBJECT: objeto
+    // NAME: Disparo.cs
+    // STATUS: WIP
+    // GAMEOBJECT: Disparo
     // DESCRIPTION: descripcion
     //
-    // AUTHOR: autor
-    // FEATURES ADDED: cosas hechas
+    // AUTHOR: Adrian
+    // FEATURES ADDED: Se asigna el da�o de la torreta a la bala y la posiciona apuntando hacia donde apunta la torreta
+    //
+    // AUTHOR: Pau
+    // FEATURES ADDED: Añadido radio de explosion de bala y daño de explosion
     // ---------------------------------------------------
 
     public GameObject bala;
 
-    public void Disparar()
+    public void Disparar(float ataque, float radioExplosion,float danyoExplosion)
     {
-        bala.GetComponent<Bala>().fuerza = GetComponentInParent<Torreta>().fuerza;
+        //asignar a la bala el da�o de la torreta
+        bala.GetComponent<Bala>().fuerza = ataque;
+        bala.GetComponent<Bala>().radioExplosion =radioExplosion;
+        bala.GetComponent<Bala>().danyoExplosion = danyoExplosion;
+        //Generar la bala apuntando el la direccion que apunta la torreta
         Instantiate(bala, transform.position, transform.rotation);
+      
     }
 }

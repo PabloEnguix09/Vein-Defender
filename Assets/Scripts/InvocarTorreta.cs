@@ -15,7 +15,7 @@ using UnityEngine;
 // FEATURES ADDED: Comprobación de energia y gasto de energia.
 // 
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: Arreglos de energía, EliminarTorreta() y menu radial
+// FEATURES ADDED: Arreglos de energía, EliminarTorreta(), menu radial, cambios en la rotacion de invocacion, mejoras de torreta
 // ---------------------------------------------------
 
 
@@ -26,13 +26,16 @@ public class InvocarTorreta : MonoBehaviour
     public float alcance = 50.0f;
     public float alturaSpawn = 50.0f;
 
-    private GameObject torreta;
+    public GameObject torreta;
     private Rigidbody rb;
     private bool colocada = true;
 
-    private Personaje personaje;
-
     public GameObject menuRadial;
+    private ComprobarSitio sitio;
+    public int torretaPreviewIndex = 0;
+
+    [Header("Areas Menu Radial")]
+    public float[] areasMenuRadial;
 
     public bool GetColocada()
     {
@@ -44,12 +47,10 @@ public class InvocarTorreta : MonoBehaviour
         colocada = value;
     }
 
-    private ComprobarSitio sitio;
-
     // Start is called before the first frame update
     void Start()
     {
-        personaje = this.GetComponent<Personaje>();
+        
     }
 
     // Update is called once per frame
@@ -60,64 +61,33 @@ public class InvocarTorreta : MonoBehaviour
         // Si existe torreta y está en el rango de colocación
         if (torreta != null && (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Terreno"))))
         {
+            // Posicion y rotacion de la preview
             torreta.transform.position = new Vector3(punto.point.x, punto.point.y, punto.point.z);
+            torreta.transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
 
             // Si pulsa clic izquierdo se "destruye" la torreta de previsualización y spawnea la otra más arriba
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetAxisRaw("Fire1") > 0)
             {
                 if (PosicionLegal())
                 {
-                    for(int i = 0; i < previews.Length; i++)
-                    {
-                        if(previews[i].gameObject.name + "(Clone)" == torreta.gameObject.name)
-                        {
-                            Transform torretaSpawn = torretas[i].transform;
-                            torretaSpawn.position = torreta.transform.position;
-                            torretaSpawn.rotation = torreta.transform.rotation;
-                            Destroy(torreta.gameObject);
-                            torreta = null;
-                            rb = torretaSpawn.GetComponent<Rigidbody>();
-                            rb.mass = 1f;
-                            rb.constraints = RigidbodyConstraints.FreezeRotation;
-                            SpawnTorreta(torretaSpawn);
-                        }
-                    }
+                    // Posicion de la nueva torreta invocada
+                    Transform torretaSpawn = torretas[torretaPreviewIndex].transform;
+                    torretaSpawn.position = torreta.transform.position;
+                    torretaSpawn.rotation = torreta.transform.rotation;
+                    Destroy(torreta);
+                    // Datos para la nueva torreta invocada
+                    torreta = null;
+                    SpawnTorreta(torretaSpawn);
                 }
             }
 
-            // Si pulsa Esc se destruye la previsualización
-            if (Input.GetKeyDown(KeyCode.C))
+            // Si pulsa C se destruye la previsualizacion
+            if (Input.GetAxisRaw("Cancelar") > 0)
             {
-                Destroy(torreta.gameObject);
+                Destroy(torreta);
                 torreta = null;
                 SetColocada(true);
                 return;
-            }
-        }
-
-        // Comportamiento del menu radial solo si esta activo
-        if(menuRadial.activeSelf)
-        {
-            RaycastHit hit;
-            
-            if(Input.GetMouseButtonDown(0))
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                // Comprueba que este apuntando a una opcion en el Layer UI
-                if (Physics.Raycast(ray, out hit, LayerMask.GetMask("UI")))
-                {
-                    // Debug.Log("Torreta seleccionada: ");
-                    // Las opciones del menu son numeros
-                    bool hecho = int.TryParse(hit.transform.name, out int index);
-                    if (hecho)
-                    {
-                        // Se previsualiza la torreta
-                        SetColocada(false);
-                        PreviewTorreta(index);
-
-                        AlternarMenuRadial();
-                    }
-                }
             }
         }
     }
@@ -127,9 +97,9 @@ public class InvocarTorreta : MonoBehaviour
         return sitio.colliders.Count <= 0;
     }
 
-    public void PreviewTorreta(int index)
+    public void PreviewTorreta()
     {
-        torreta = ((GameObject)Instantiate(previews[index]));
+        torreta = ((GameObject)Instantiate(previews[torretaPreviewIndex]));
         sitio = torreta.GetComponent<ComprobarSitio>();
         rb = torreta.GetComponent<Rigidbody>();
         rb.mass = 0f;
@@ -139,16 +109,17 @@ public class InvocarTorreta : MonoBehaviour
     {
         SetColocada(true);
         GameObject aux;
-        aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, torreta.position.y + alturaSpawn, torreta.position.z), Quaternion.identity);
+        aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, torreta.position.y + alturaSpawn, torreta.position.z), torreta.rotation);
         aux.GetComponent<Torreta>().enabled = true;
-        aux.GetComponent<TorretaBasica>().enabled = true;
+        /* Ahora se comprueba desde TorretaBasica Start()
         Torreta torretaCreada = aux.GetComponent<Torreta>();
-        if(personaje.Energia - torretaCreada.gastoEnergia < 0)
+        if(personaje.Energia - torretaCreada.torretaBasica.energia < 0)
         {
             Destroy(aux);
             return;
         }
-        personaje.Energia -= torretaCreada.gastoEnergia;
+        personaje.Energia -= torretaCreada.torretaBasica.gastoEnergia;
+        */
     }
 
     // Llamado desde MecanicasPersonaje.cs
@@ -164,18 +135,64 @@ public class InvocarTorreta : MonoBehaviour
         }
     }
 
-    public void AlternarMenuRadial()
+    public void AlternarMenuRadial(bool activar)
     {
         // Si esta desactivado se activa y viceversa
-        menuRadial.SetActive(!menuRadial.activeSelf);
+        menuRadial.SetActive(activar);
 
         // Desbloquea el cursor para poder seleccionar
         if(menuRadial.activeSelf)
         {
             Cursor.lockState = CursorLockMode.None;
-        } else
+        }
+        // Se cierra el menu
+        else
         {
+            // Donde esta el raton en pantalla se selecciona esa torreta del area
+            // Devuelve la distancia del raton del centro de la pantalla
+            Vector2 centroPantalla = new Vector2(Screen.width / 2, Screen.height / 2);
+            Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            // Debug.Log(Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            // angulo = atan2(Y - CenterY, X - CenterX)
+            float angulo = Mathf.Atan2(mousePosition.y - centroPantalla.y, mousePosition.x - centroPantalla.x);
+            //Debug.Log(angulo);
+
+            torretaPreviewIndex = ComprobarCasillaMenu(angulo);
+
+            if(torretaPreviewIndex >= 0)
+            {
+                //Debug.Log("Torreta invocada: " + torretaPreviewIndex);
+                // Se previsualiza la torreta 
+                SetColocada(false);
+                PreviewTorreta();
+            }
+
             Cursor.lockState = CursorLockMode.Locked;
         }
+    }
+
+    // Comprueba si el raton esta dentro de una casilla del menu y devuelve la casilla
+    public int ComprobarCasillaMenu(float angulo)
+    {
+        for (int i = 0; i < areasMenuRadial.Length; i++)
+        {
+            // Solo si ha llegado al final, toma el 0 como referencia siguiente
+            if(i + 1 == areasMenuRadial.Length)
+            {
+                return i;
+            }
+            else
+            {
+                if (areasMenuRadial[i] < areasMenuRadial[i + 1])
+                {
+                    if (angulo > areasMenuRadial[i] && angulo < areasMenuRadial[i + 1])
+                    {
+                        return i;
+                    }
+                }
+            }
+        }
+        return -1;
     }
 }

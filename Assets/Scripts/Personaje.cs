@@ -13,6 +13,9 @@ using UnityEngine;
 //
 // AUTHOR: Jorge Grau
 // FEATURES ADDED: Salud y energia añadidos
+//
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: Correcciones a energia y vida, control de partida, recibirAtaque, mejoras de personaje
 // ---------------------------------------------------
 
 public class Personaje : MonoBehaviour
@@ -23,12 +26,12 @@ public class Personaje : MonoBehaviour
 
     public ControlVida barraVida;
     public ControlEnergia barraEnergia;
+    controlPartida controlPartida;
 
-    [Range(0, 1)]
+    public float saludMaxima = 10;
+
     [SerializeField]
-    public float saludMaxima = 1;
-
-    public float salud = 1;
+    float salud = 10;
 
     public float Salud
     {
@@ -36,20 +39,22 @@ public class Personaje : MonoBehaviour
 
         set
         {
-            
-            value = Mathf.Clamp01(value);
+            // comprueba que el valor esté dentro de los posibles
+            value = Mathf.Clamp(value, 0, saludMaxima);
             salud = value;
-            //Debug.Log(salud);
+            
             barraVida.controlVida(salud);
+            // establece el maximo de vida en la barra
+            barraVida.maximaVida(saludMaxima);
             if (salud <= 0)
             {
-                //Debug.Log("Destruido");
-                Destroy(gameObject);
+                controlPartida.GameOver();
             }
         }
     }
 
-    public float energia = 10;
+    [SerializeField]
+    float energia = 10;
 
     public float energiaMaxima = 10;
 
@@ -58,26 +63,65 @@ public class Personaje : MonoBehaviour
         get { return energia; }
 
         set 
-        { 
+        {
+            value = Mathf.Clamp(value, 0, energiaMaxima);
+            // establece el maximo de energia en la barra
+            barraEnergia.maximaEnergia(energiaMaxima);
             energia = value;
         }
     }
 
-    public float alcance = 12.5f;
+    [SerializeField]
+    float escudo = 0;
+
+    public float escudoMaximo = 0;
+
+    public float escudoPorSegundo = 0.01f;
+
+    public float Escudo
+    {
+        get { return escudo; }
+
+        set
+        {
+            value = Mathf.Clamp(value, 0, escudoMaximo);
+            escudo = value;
+        }
+    }
 
     public CameraController camara;
-    public MovimientoPersonaje personaje;
+    public MovimientoPersonaje movimientoPersonaje;
+    SistemaMejoras sistemaMejoras;
 
     private void Start()
     {
-        salud = saludMaxima;
-        energia = energiaMaxima;
+        // Busca el controlador de partida
+        controlPartida = FindObjectOfType<controlPartida>();
+        sistemaMejoras = FindObjectOfType<SistemaMejoras>();
+        movimientoPersonaje = gameObject.GetComponent<MovimientoPersonaje>();
 
-        barraVida.maximaVida(salud);
-
-        barraEnergia.maximaEnergia(energia);
-        
+        // Activa el sistema de mejoras y las aplica al personaje
+        sistemaMejoras.MejorasPersonaje(this);
     }
+
+    // Reasigna los valores del personaje
+    public void Setup()
+    {
+        // reinicia la energia y la vida actuales
+        Salud = saludMaxima;
+        Energia = energiaMaxima;
+        Escudo = escudoMaximo;
+    }
+
+    private void Update()
+    {
+        // Regenerar el escudo
+        if(Escudo < escudoMaximo)
+        {
+            Escudo = Escudo + escudoPorSegundo * Time.deltaTime;
+        }
+    }
+
     public void Mover(float adelante, float derecha)
     {
         this.adelante = adelante;
@@ -95,30 +139,44 @@ public class Personaje : MonoBehaviour
         {
             velocidad = Vector3.zero;
         }
-        personaje.Velocidad = objetivo;
+        movimientoPersonaje.Velocidad = objetivo;
     }
 
     public void Correr()
     {
-        if(personaje.GetMovimientos() != MovimientoPersonaje.Movimientos.Correr)
-        {
-            personaje.SetMovimientos(MovimientoPersonaje.Movimientos.Correr);
-        }
-        else
-        {
-            personaje.SetMovimientos(MovimientoPersonaje.Movimientos.Caminar);
-        }
+        movimientoPersonaje.SetMovimientos(MovimientoPersonaje.Movimientos.Correr);
+    }
+
+    public void Caminar()
+    {
+        movimientoPersonaje.SetMovimientos(MovimientoPersonaje.Movimientos.Caminar);
     }
 
     public void Saltar()
     {
-        personaje.Saltar();
+        movimientoPersonaje.Saltar();
+    }
+
+    public void RecibirAtaque(float fuerza)
+    {
+        if(Escudo > 0)
+        {
+            // Restamos la fuerza al escudo y el escudo a la fuerza
+            float auxFuerza = fuerza;
+            fuerza -= Escudo;
+            Escudo -= auxFuerza;
+        }
+        // Despues restamos la fuerza que quede a la salud
+        if (fuerza > 0)
+        {
+            Salud -= fuerza;
+        }
     }
 
     // SOLO PARA LAS ESCENAS: Muestra el rayo de apuntado
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * alcance);
+        Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 13f);
     }
 }

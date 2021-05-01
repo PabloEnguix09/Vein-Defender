@@ -12,6 +12,9 @@ public class Spawner : MonoBehaviour
     //
     // AUTHOR: Jorge
     // FEATURES ADDED: Configuración y funcionalidad del spawner al completo
+    //
+    // AUTHOR: Pau
+    // FEATURES ADDED: funcion para crear drones
     // ---------------------------------------------------
 
     // Aqui van los GameObject de los enemigos, pueden ser distintos o iguales y el codigo se puede expandir hasta tener todo tipo de enemigos diferentes
@@ -51,7 +54,7 @@ public class Spawner : MonoBehaviour
         //StartCoroutine(AparicionBombas());
     }
 
-
+    //creacion de la funcion que genera drones y les asigna sus bases objetivo
     public IEnumerator Aparicion()
     {
         while (conteo < limitePrimerEnemigo)
@@ -65,14 +68,15 @@ public class Spawner : MonoBehaviour
             zPos = Random.Range(zPos1, zPos2);
             
             // Se crea el enemigo y se le asignan las bases
-            GameObject bomba =  Instantiate(primerTipoDeEnemigo, new Vector3(xPos, 1, zPos), Quaternion.identity);
-            Enemigo enemigo = bomba.GetComponent<Enemigo>();
+            GameObject dron =  Instantiate(primerTipoDeEnemigo, new Vector3(xPos, 1, zPos), Quaternion.identity);
+            Enemigo enemigo = dron.GetComponent<Enemigo>();
             enemigo.AsignarBases(primeraBase, segundaBase, terceraBase);
 
             yield return new WaitForSeconds(tiempoAparicionPrimerEnemigo);
             conteo += 1;
         }
     }
+    //creacion de la funcion que genera enemigos bomba y les asigna sus bases objetivo
     public IEnumerator AparicionBombas()
     {
         while (conteo2 < limiteSegundoEnemigo)

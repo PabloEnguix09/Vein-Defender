@@ -8,8 +8,8 @@ using UnityEngine;
 // GAMEOBJECT: objeto
 // DESCRIPTION: descripcion
 //
-// AUTHOR: autor
-// FEATURES ADDED: cosas hechas
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: usando axis para controles
 // ---------------------------------------------------
 
 
@@ -18,6 +18,8 @@ public class MecanicasPersonaje : MonoBehaviour
 {
     private Personaje personaje;
     private InvocarTorreta invocar;
+
+    public string correr, menuRadial, saltar, eliminarTorreta;
 
     private void Start()
     {
@@ -28,28 +30,34 @@ public class MecanicasPersonaje : MonoBehaviour
     {
         personaje.Mover(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetAxisRaw(correr) > 0)
+        {
+            personaje.Caminar();
+        } else
         {
             personaje.Correr();
         }
 
         if (invocar.GetColocada())
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetAxisRaw(menuRadial) > 0 && !invocar.menuRadial.activeSelf)
             {
                 // En desuso, ahora se activa desde InvocarTorreta.cs Update()
                 //invocar.SetColocada(false);
                 //invocar.PreviewTorreta("torretaBasica");
-                invocar.AlternarMenuRadial();
+                invocar.AlternarMenuRadial(true);
+            } else if (Input.GetAxisRaw(menuRadial) <= 0 && invocar.menuRadial.activeSelf)
+            {
+                invocar.AlternarMenuRadial(false);
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetAxisRaw(saltar) > 0)
         {
             personaje.Saltar();
         }
 
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetAxisRaw(eliminarTorreta) > 0)
         {
             invocar.EliminarTorreta();
         }

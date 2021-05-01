@@ -5,175 +5,241 @@ using UnityEngine;
 public class Torreta : MonoBehaviour
 {
     // ---------------------------------------------------
-    // NAME: nombre
-    // STATUS: estado
-    // GAMEOBJECT: objeto
-    // DESCRIPTION: descripcion
+    // NAME: Torreta.cs
+    // STATUS: WIP
+    // GAMEOBJECT: Torreta
+    // DESCRIPTION: Modelo base para las torretas
     //
-    // AUTHOR: autor
-    // FEATURES ADDED: Añadido gasto energetico
+    // AUTHOR: Adrian
+    // FEATURES ADDED: La torreta apunta al enemigo mas cercano en un rango
+    //
     // AUTHOR: Luis Belloch
-    // FEATURES ADDED: TorretaDestruida
+    // FEATURES ADDED: TorretaDestruida, ScriptableObjects, apuntado de enemigos rehecho
+    //
+    // AUTHOR: Pau Blanes
+    //FEATURES ADDED: regenreacion de escudo y rango de vision
     // ---------------------------------------------------
 
-    [Range(0, 1)]
-    [SerializeField]
-    public float vida;
+    public TorretaBasica torretaBasica;
 
-    public float Vida
-    {
-        get { return vida; }
+    [Header("Stats")]
+    public string nombre;
+    public int energia;
+    public int energiaAlt;
+    public float vidaActual;
+    public float vidaMaxima;
+    public float escudoMaximo;
+    public float escudoActual;
+    public float escudoRegen;
+    public float ataque;
+    public float cadenciaDisparo;
+    public float velocidadRotacion;
+    public float distanciaDisparo;
+    public bool antiaerea;
+    public Quaternion anguloDisparo;
 
-        set
-        {
-            value = Mathf.Clamp01(value);
-            vida = value;
-        }
-    }
+    public float radioExplosion;
+    public float danyoExplosion;
 
-    [Range(0, 1)]
-    [SerializeField]
-    public float fuerza;
+    private float timerDisparo;
 
-    public float Fuerza
-    {
-        get { return fuerza; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            fuerza = value;
-        }
-    }
-
-    public float velocidadAtaque;
-
-    public float VelocidadAtaque
-    {
-        get { return velocidadAtaque; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            velocidadAtaque = value;
-        }
-    }
-
-    public float rango;
-
-    public float Rango
-    {
-        get { return rango; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            rango = value;
-        }
-    }
-
-    public float gastoEnergia;
-
+    [Header("Partes")]
     private GameObject enemigoApuntando;
-    private float timer;
-
     public Transform parteQueRota;
-    public float velocidadGiro = 10f;
     private Disparo disparo;
 
     Personaje personaje;
 
+    SistemaMejoras sistemaMejoras;
+    Rigidbody rb;
+    public enum tipoDisparo
+    {
+        laser, balas
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
+        // Asigna los valores de SO TorretaBasica
+        nombre = torretaBasica.nombre;
+        vidaMaxima = torretaBasica.vidaMaxima;
+        energia = torretaBasica.energia;
+        energiaAlt = torretaBasica.energiaAlt;
+        ataque = torretaBasica.ataque;
+        anguloDisparo = torretaBasica.anguloDisparo;
+        velocidadRotacion = torretaBasica.velocidadRotacion;
+        cadenciaDisparo = torretaBasica.cadenciaDisparo;
+        escudoActual = torretaBasica.escudoActual;
+        escudoMaximo = torretaBasica.escudoMaximo;
+        escudoRegen = torretaBasica.escudoRegen;
+        radioExplosion = torretaBasica.radioExplosion;
+        danyoExplosion = torretaBasica.danyoExplosion;
+        distanciaDisparo = torretaBasica.distanciaDisparo;
+
         // Busca el jugador
         personaje = FindObjectOfType<Personaje>();
 
+        // busca el rigidbody
+        rb = gameObject.GetComponent<Rigidbody>();
+
+        // Asigna el sistema de mejoras 
+        sistemaMejoras = FindObjectOfType<SistemaMejoras>();
+        // LLama al sistema de mejoras
+        sistemaMejoras.MejorasTorreta(this);
+
+        // Ajusta la vida actual a la maxima
+        vidaActual = vidaMaxima;
+
+        // Reduce la energia del jugador
+        if (personaje.Energia - energia < 0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            personaje.Energia -= energia;
+        }
+
+        //No apuntar a nadie
         enemigoApuntando = null;
+
         disparo = GetComponentInChildren<Disparo>();
+
+        timerDisparo = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //busca al enemigo mas cercano
         enemigoApuntando = BuscarEnemigo();
-        timer += Time.deltaTime;
+
+        //tiempo para la velocidad de ataque
+        timerDisparo += Time.deltaTime;
+
+        //si apunta a alguien
         if (enemigoApuntando != null)
         {
-            Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position ;
+            //rota la torreta en direccion al enemigo apuntado
+            Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
             Quaternion VisionRotacion = Quaternion.LookRotation(dir);
-            Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadGiro).eulerAngles;
+            //rotacion suave
+            Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadRotacion).eulerAngles;
             parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
 
-            //Quaternion rotacion = Quaternion.LookRotation(enemigoApuntando.transform.position - transform.position);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, rotacion, 10f * Time.deltaTime);
-
-            if (timer >= velocidadAtaque)
+            //si ha pasado el tiempo de recarga
+            if (timerDisparo >= cadenciaDisparo)
             {
-
-                timer = 0;
-                Enemigo e = enemigoApuntando.GetComponent<Enemigo>();
-                disparo.Disparar();
-                //e.vida -= fuerza;
+                timerDisparo = 0;
+                //disparar
+                disparo.Disparar(ataque,radioExplosion,danyoExplosion);
             }
         }
 
         // Torreta destruida
-        if(vida <= 0)
+        if (vidaActual <= 0)
         {
             DestruirTorreta();
         }
+
+        // regeneracion de escudo
+        if (escudoActual < escudoMaximo)
+        {
+            escudoActual += escudoRegen * Time.deltaTime;
+        }
+
     }
 
+    //Funcion de busqueda de enemigo
     GameObject BuscarEnemigo()
     {
-        float menorDistancia = Mathf.Infinity;
-        bool encontrado = false;
-        GameObject enemigoMasCercano = null;
+        // Recogemos todos los enemigos de la zona
+        GameObject[] enemigosEnRango = GameObject.FindGameObjectsWithTag("Enemigos");
 
-        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, rango);
-        for (int i = 0; i < colliders.Length; i++)
+        GameObject masCercano = null;
+
+        // Encontramos el enemigo mas cercano
+        if(enemigosEnRango.Length >= 1)
         {
-
-            if (colliders[i].CompareTag("Enemigos"))
+            for (int i = 0; i < enemigosEnRango.Length; i++)
             {
-                encontrado = true;
-                RaycastHit hit;
-                if (Physics.Linecast(transform.position, colliders[i].transform.position, out hit, 1, QueryTriggerInteraction.Ignore))
+                // Si aun no ha encontrado ninguna torreta
+                if (masCercano == null)
                 {
-
-                }
-                else
-                {
-                    if (enemigoMasCercano == null)
+                    // Comprueba que tenga vision del enemigo
+                    if (ComprobarVision(enemigosEnRango[i]))
                     {
-                        enemigoMasCercano = colliders[i].gameObject;
-                        menorDistancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
+                        masCercano = enemigosEnRango[i];
                     }
-                    else
+                }
+                // Si ya tiene un enemigo asignado
+                else if(masCercano != null)
+                {
+                    // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
+                    if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
                     {
-                        float distancia = Vector3.Distance(colliders[i].gameObject.transform.position, transform.position);
-                        if (distancia < menorDistancia)
+                        // Comprueba que tenga vision del enemigo
+                        if (ComprobarVision(enemigosEnRango[i]))
                         {
-                            menorDistancia = distancia;
-                            enemigoMasCercano = colliders[i].gameObject;
+                            masCercano = enemigosEnRango[i];
                         }
                     }
                 }
-
-
             }
         }
-        if (encontrado) return enemigoMasCercano;
-        else return null;
+        // Comprueba que existe un enemigo visible
+        if(masCercano != null)
+        {
+            // Ahora que tenemos la torreta mas cercana devolvemos el GameObject si esta dentro del rango de disparo
+            if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) < distanciaDisparo)
+            {
+                return masCercano;
+            }
+        }
+        // Si no, devuelve un null
+        return null;
+    }
+
+    // Comprueba que el enemigo apuntado no tenga ninguna pared entre la torreta y el
+    bool ComprobarVision(GameObject objetivo)
+    {
+        // Comprobamos que no tenga terreno entre la torreta y el enemigo
+        RaycastHit hit;
+        // no existe un collider entre el enemigo y la torreta
+        Physics.Raycast(parteQueRota.position, Vector3.Normalize(objetivo.transform.position - parteQueRota.position), out hit, Vector3.Distance(parteQueRota.position, objetivo.transform.position), LayerMask.GetMask("Terreno"));
+
+        if(hit.collider == null)
+        {
+            return true;
+        }
+        return false;
     }
 
     // Llamado desde InvocarTorretas.cs EliminarTorreta()
     public void DestruirTorreta()
     {
         // Destruye la torreta y devuelve la energia al jugador
-        personaje.energia += gastoEnergia;
+        personaje.Energia += energia;
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Terreno")
+        {
+            rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        if(enemigoApuntando != null)
+        {
+            Gizmos.DrawRay(parteQueRota.position, Vector3.Normalize(enemigoApuntando.transform.position - parteQueRota.position) * Vector3.Distance(parteQueRota.position, enemigoApuntando.transform.position));
+        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(parteQueRota.position, distanciaDisparo);
     }
 }

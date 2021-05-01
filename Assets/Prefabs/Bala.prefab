@@ -127,7 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 0
-  fuerza: 0
+  fuerza: 5
+  radioExplosion: 2
+  danyoExplosion: 100
+  explosion: {fileID: 239686495835347244, guid: 6e76efe3252ce944bb3354ca2b34d17d, type: 3}
 --- !u!108 &-3375001736466938335
 Light:
   m_ObjectHideFlags: 0

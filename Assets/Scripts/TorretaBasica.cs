@@ -1,43 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
+// ---------------------------------------------------
+// NAME: TorretaBasica
+// STATUS: WIP
+// GAMEOBJECT: sistema
+// DESCRIPTION: maneja la creacion de los objetos Torreta y sus datos
+//
+// AUTHOR: Luis
+// FEATURES ADDED: Creado el Scriptable Object de las torretas
+//
+// AUTHOR: Pau Blanes
+// FEATURES ADDED: escudoActual
+// ---------------------------------------------------
+
 using UnityEngine;
 
-public class TorretaBasica : MonoBehaviour
+[CreateAssetMenu(fileName = "TorretaBasica", menuName = "Objetos/Torreta", order = 1)]
+public class TorretaBasica : ScriptableObject
 {
-    // ---------------------------------------------------
-    // NAME: nombre
-    // STATUS: estado
-    // GAMEOBJECT: objeto
-    // DESCRIPTION: descripcion
-    //
-    // AUTHOR: Jorge
-    // FEATURES ADDED: Añadido gasto energetico
-    // ---------------------------------------------------
-
-    [Range(0, 1)]
-    [SerializeField]
-    public float vida = 0.3f;
-
-    [Range(0, 1)]
-    [SerializeField]
-    public float fuerza = 0f;
-
-    public float velocidadAtaque = 1f;
-
-    public float rango = 40f;
-
-    public float gastoEnergia = 1;
-
-    private Torreta torreta;
-
-    // Start is called before the first frame update
-    void Start()
+    public string nombre;
+    public int energia;
+    public int energiaAlt; 
+    public float vidaMaxima;
+    public float escudoMaximo;
+    public float escudoRegen;
+    public float ataque;
+    public float cadenciaDisparo;
+    public float escudoActual;
+    public enum tipoDisparo
     {
-        torreta = gameObject.GetComponent<Torreta>();
-        torreta.fuerza = fuerza;
-        torreta.vida = vida;
-        torreta.velocidadAtaque = velocidadAtaque;
-        torreta.rango = rango;
-        torreta.gastoEnergia = gastoEnergia;
+        laser, balas
     }
+    public Quaternion anguloDisparo;
+    public float velocidadRotacion;
+    public float distanciaDisparo;
+    public bool antiaerea;
+    public float radioExplosion;
+    public float danyoExplosion;
 }

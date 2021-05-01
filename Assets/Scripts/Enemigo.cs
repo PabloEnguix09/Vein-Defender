@@ -12,7 +12,7 @@ public class Enemigo : MonoBehaviour
     // DESCRIPTION: Este escript reune todas las capacidades basicas de un enemigo. Movimiento y estadisticas.
     //
     // AUTHOR: Jorge Grau
-    // FEATURES ADDED: Los enemigos tienen unas estadisticas que eredan de su tipo y siguen una ruta establecida por su spawner, si algo aparece en su radio de vision van a por el. Tambien el recibir daño por disparos.
+    // FEATURES ADDED: Los enemigos tienen unas estadisticas que eredan de su tipo y siguen una ruta establecida por su spawner, si algo aparece en su radio de vision van a por el. Tambien el recibir daï¿½o por disparos.
     // ---------------------------------------------------
 
     private Base base1;
@@ -22,56 +22,19 @@ public class Enemigo : MonoBehaviour
     public NavMeshAgent agente;
     private Transform objetivo;
 
-    [Range(0, 1)]
-    [SerializeField]
-    public float vida;
+    public GameObject explosion;
 
-    public float Vida
-    {
-        get { return vida; }
+    public float vidaActual;
 
-        set
-        {
-            value = Mathf.Clamp01(value);
-            vida = value;
-        }
-    }
-
-    [Range(0, 1)]
-    [SerializeField]
-    public float fuerza;
-
-    public float Fuerza
-    {
-        get { return fuerza; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            fuerza = value;
-        }
-    }
-
-    public float velocidad;
-
-    public float vision;
-
-    public float Vision
-    {
-        get { return vision; }
-
-        set
-        {
-            value = Mathf.Clamp01(value);
-            vision = value;
-        }
-    }
-
+    public EnemigoBasico enemigo;
 
     void Start()
     {
 
         agente = GetComponent<NavMeshAgent>();
+
+        // Pone la vida al maximo
+        vidaActual = enemigo.vidaMaxima;
 
         // El enemigo busca a que base dirigirse, si todas estan destruidas va donde a aparecido
         if (base1.Salud > 0)
@@ -116,7 +79,7 @@ public class Enemigo : MonoBehaviour
     Transform BuscarObjetivo()
     {
         // Se crea una esfera buscando todos los colliders en el rango de vision, si encuentra una torreta o a un enemigo se dirige hacia el.
-        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, vision);
+        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, enemigo.rango);
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -125,11 +88,13 @@ public class Enemigo : MonoBehaviour
             {
                 return objetivo = colliders[i].transform;
             }
-
-            else if (colliders[i].CompareTag("Torretas"))
+            else if(colliders[i].CompareTag("Torretas"))
             {
+               
                 return objetivo = colliders[i].transform;
             }
+
+             
         }
 
         if (base1.Salud > 0)
@@ -156,12 +121,32 @@ public class Enemigo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Si es golpeado por una bala recibe daño y la bala se destruye.
+        // Si es golpeado por una bala recibe daï¿½o y la bala se destruye.
         if (other.gameObject.GetComponent<Bala>() != null)
         {
             Bala bala = other.gameObject.GetComponent<Bala>();
-            vida -= bala.fuerza;
-            Destroy(other.gameObject);
+            if (bala.radioExplosion > 0)
+            {
+                Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+                Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, bala.radioExplosion);
+                // Inflinge daï¿½o a todos los objetivos dentro del rango
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    if (colliders[i].CompareTag("Enemigos"))
+                    {
+                        Enemigo otroEnemigo = colliders[i].gameObject.GetComponent<Enemigo>();
+                        otroEnemigo.vidaActual -= bala.danyoExplosion;
+                    }
+
+                }
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                vidaActual -= bala.fuerza;
+                Destroy(other.gameObject);
+            }
+            
         }
     }
 
