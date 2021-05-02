@@ -47,14 +47,23 @@ public class DardoLocalizador : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        // Recogemos todos los enemigos de la zona
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigos");
+
+        for(int i = 0; i < enemigos.Length; i++)
+        {
+            if (enemigos[i].GetComponent<Enemigo>().marcado)
+            {
+                enemigos[i].GetComponent<Enemigo>().marcado = false;
+            }
+        }
+
         enemigo = other.gameObject.GetComponent<Enemigo>();
 
         if(enemigo != null)
         {
-            enemigo.marcado = true;
 
-            Debug.Log("UWU");
+            enemigo.marcado = true;
 
             Destroy(gameObject);
         }

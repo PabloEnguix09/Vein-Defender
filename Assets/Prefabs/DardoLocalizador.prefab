@@ -112,6 +112,8 @@ MonoBehaviour:
   velocidad: 50
   tiempoDeVida: 10
   contador: 0
+  enemigo: {fileID: 0}
+  personaje: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
 --- !u!54 &-7044184246162379511
 Rigidbody:
   m_ObjectHideFlags: 0
