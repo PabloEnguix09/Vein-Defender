@@ -16,6 +16,10 @@ using UnityEngine;
 //
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: Correcciones a energia y vida, control de partida, recibirAtaque, mejoras de personaje
+//
+//
+// AUTHOR: Juan Ferrera Sala
+// FEATURES ADDED: Creacion del dardo localizador
 // ---------------------------------------------------
 
 public class Personaje : MonoBehaviour
@@ -32,6 +36,9 @@ public class Personaje : MonoBehaviour
 
     [SerializeField]
     float salud = 10;
+
+    public GameObject dardoLocalizador;
+    public Camera camaraJugador;
 
     public float Salud
     {
@@ -119,6 +126,17 @@ public class Personaje : MonoBehaviour
         if(Escudo < escudoMaximo)
         {
             Escudo = Escudo + escudoPorSegundo * Time.deltaTime;
+        }
+
+        //Disparo de dardo localizador
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject dardoLocalizadorObjeto = Instantiate(dardoLocalizador);
+
+            dardoLocalizadorObjeto.transform.position = camaraJugador.transform.position + camaraJugador.transform.forward;
+
+            dardoLocalizadorObjeto.transform.forward = camaraJugador.transform.forward;
+
         }
     }
 

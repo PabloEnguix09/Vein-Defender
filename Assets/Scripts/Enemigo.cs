@@ -28,6 +28,8 @@ public class Enemigo : MonoBehaviour
 
     public EnemigoBasico enemigo;
 
+    public bool marcado = false;
+
     void Start()
     {
 
