@@ -110,16 +110,10 @@ public class InvocarTorreta : MonoBehaviour
         SetColocada(true);
         GameObject aux;
         aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, torreta.position.y + alturaSpawn, torreta.position.z), torreta.rotation);
-        aux.GetComponent<Torreta>().enabled = true;
-        /* Ahora se comprueba desde TorretaBasica Start()
-        Torreta torretaCreada = aux.GetComponent<Torreta>();
-        if(personaje.Energia - torretaCreada.torretaBasica.energia < 0)
+        if(aux.GetComponent<Torreta>())
         {
-            Destroy(aux);
-            return;
+            aux.GetComponent<Torreta>().enabled = true;
         }
-        personaje.Energia -= torretaCreada.torretaBasica.gastoEnergia;
-        */
     }
 
     // Llamado desde MecanicasPersonaje.cs
