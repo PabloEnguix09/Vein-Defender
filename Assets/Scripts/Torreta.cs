@@ -168,7 +168,7 @@ public class Torreta : MonoBehaviour
         {
             for (int i = 0; i < enemigosEnRango.Length; i++)
             {
-                // Si aun no ha encontrado ninguna torreta
+                // Si aun no ha encontrado ningun enemigo
                 if (masCercano == null)
                 {
                     // Comprueba que tenga vision del enemigo
@@ -183,11 +183,16 @@ public class Torreta : MonoBehaviour
                     // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
                     if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
                     {
-                        // Comprueba que tenga vision del enemigo
-                        if (ComprobarVision(enemigosEnRango[i]))
+                        //Comprobamos que no este marcado
+                        if(masCercano.GetComponent<Enemigo>().marcado == false)
                         {
-                            masCercano = enemigosEnRango[i];
+                            // Comprueba que tenga vision del enemigo
+                            if (ComprobarVision(enemigosEnRango[i]))
+                            {
+                                masCercano = enemigosEnRango[i];
+                            }
                         }
+                        
                     }
                 }
             }

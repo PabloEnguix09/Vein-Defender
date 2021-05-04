@@ -12,10 +12,14 @@ using UnityEngine;
 // FEATURES ADDED: cosas hechas
 //
 // AUTHOR: Jorge Grau
-// FEATURES ADDED: Salud y energia añadidos
+// FEATURES ADDED: Salud y energia aï¿½adidos
 //
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: Correcciones a energia y vida, control de partida, recibirAtaque, mejoras de personaje, camara secundaria
+// FEATURES ADDED: Correcciones a energia y vida, control de partida, recibirAtaque, mejoras de personaje
+//
+//
+// AUTHOR: Juan Ferrera Sala
+// FEATURES ADDED: Creacion del dardo localizador
 // ---------------------------------------------------
 
 public class Personaje : MonoBehaviour
@@ -36,13 +40,16 @@ public class Personaje : MonoBehaviour
     [SerializeField]
     float salud = 10;
 
+    public GameObject dardoLocalizador;
+    public Camera camaraJugador;
+
     public float Salud
     {
         get { return salud; }
 
         set
         {
-            // comprueba que el valor esté dentro de los posibles
+            // comprueba que el valor estï¿½ dentro de los posibles
             value = Mathf.Clamp(value, 0, saludMaxima);
             salud = value;
             
@@ -122,6 +129,17 @@ public class Personaje : MonoBehaviour
         if(Escudo < escudoMaximo)
         {
             Escudo = Escudo + escudoPorSegundo * Time.deltaTime;
+        }
+
+        //Disparo de dardo localizador
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject dardoLocalizadorObjeto = Instantiate(dardoLocalizador);
+
+            dardoLocalizadorObjeto.transform.position = camaraJugador.transform.position + camaraJugador.transform.forward;
+
+            dardoLocalizadorObjeto.transform.forward = camaraJugador.transform.forward;
+
         }
     }
 
