@@ -112,28 +112,32 @@ public class Torreta : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //busca al enemigo mas cercano
-        enemigoApuntando = BuscarEnemigo();
-
-        //tiempo para la velocidad de ataque
-        timerDisparo += Time.deltaTime;
-
-        //si apunta a alguien
-        if (enemigoApuntando != null)
+        // Solo si la torreta tiene ataque
+        if(ataque > 0)
         {
-            //rota la torreta en direccion al enemigo apuntado
-            Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
-            Quaternion VisionRotacion = Quaternion.LookRotation(dir);
-            //rotacion suave
-            Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadRotacion).eulerAngles;
-            parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
+            //busca al enemigo mas cercano
+            enemigoApuntando = BuscarEnemigo();
 
-            //si ha pasado el tiempo de recarga
-            if (timerDisparo >= cadenciaDisparo)
+            //tiempo para la velocidad de ataque
+            timerDisparo += Time.deltaTime;
+
+            //si apunta a alguien
+            if (enemigoApuntando != null)
             {
-                timerDisparo = 0;
-                //disparar
-                disparo.Disparar(ataque,radioExplosion,danyoExplosion);
+                //rota la torreta en direccion al enemigo apuntado
+                Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
+                Quaternion VisionRotacion = Quaternion.LookRotation(dir);
+                //rotacion suave
+                Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadRotacion).eulerAngles;
+                parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
+
+                //si ha pasado el tiempo de recarga
+                if (timerDisparo >= cadenciaDisparo)
+                {
+                    timerDisparo = 0;
+                    //disparar
+                    disparo.Disparar(ataque, radioExplosion, danyoExplosion);
+                }
             }
         }
 

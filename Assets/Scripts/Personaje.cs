@@ -15,7 +15,7 @@ using UnityEngine;
 // FEATURES ADDED: Salud y energia añadidos
 //
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: Correcciones a energia y vida, control de partida, recibirAtaque, mejoras de personaje
+// FEATURES ADDED: Correcciones a energia y vida, control de partida, recibirAtaque, mejoras de personaje, camara secundaria
 // ---------------------------------------------------
 
 public class Personaje : MonoBehaviour
@@ -27,8 +27,11 @@ public class Personaje : MonoBehaviour
     public ControlVida barraVida;
     public ControlEnergia barraEnergia;
     controlPartida controlPartida;
+    public GameObject camaraMejora;
 
     public float saludMaxima = 10;
+
+    public bool camaraSecundariaActivada = false;
 
     [SerializeField]
     float salud = 10;
@@ -170,6 +173,25 @@ public class Personaje : MonoBehaviour
         if (fuerza > 0)
         {
             Salud -= fuerza;
+        }
+    }
+
+    // Cambia a la camara secundaria o la primaria
+    public void CambiarCamara()
+    {
+        if(camaraMejora != null)
+        {
+            if(camaraMejora.GetComponentInChildren<Camera>().enabled)
+            {
+                camaraMejora.GetComponentInChildren<Camera>().enabled = false;
+                camara.camara.GetComponent<Camera>().enabled = true;
+                camaraSecundariaActivada = false;
+            } else
+            {
+                camara.camara.GetComponent<Camera>().enabled = false;
+                camaraMejora.GetComponentInChildren<Camera>().enabled = true;
+                camaraSecundariaActivada = true;
+            }
         }
     }
 

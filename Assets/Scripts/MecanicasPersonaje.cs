@@ -19,7 +19,7 @@ public class MecanicasPersonaje : MonoBehaviour
     private Personaje personaje;
     private InvocarTorreta invocar;
 
-    public string correr, menuRadial, saltar, eliminarTorreta;
+    public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara;
 
     private void Start()
     {
@@ -38,28 +38,39 @@ public class MecanicasPersonaje : MonoBehaviour
             personaje.Correr();
         }
 
-        if (invocar.GetColocada())
-        {
-            if (Input.GetAxisRaw(menuRadial) > 0 && !invocar.menuRadial.activeSelf)
-            {
-                // En desuso, ahora se activa desde InvocarTorreta.cs Update()
-                //invocar.SetColocada(false);
-                //invocar.PreviewTorreta("torretaBasica");
-                invocar.AlternarMenuRadial(true);
-            } else if (Input.GetAxisRaw(menuRadial) <= 0 && invocar.menuRadial.activeSelf)
-            {
-                invocar.AlternarMenuRadial(false);
-            }
-        }
-
-        if(Input.GetAxisRaw(saltar) > 0)
+        if (Input.GetAxisRaw(saltar) > 0)
         {
             personaje.Saltar();
         }
 
-        if(Input.GetAxisRaw(eliminarTorreta) > 0)
+        // No pueden usarse con la camara secundaria
+        if (!personaje.camaraSecundariaActivada)
         {
-            invocar.EliminarTorreta();
+            if (invocar.GetColocada())
+            {
+                // No puede abrirse si ya hay otro abierto
+                if (Input.GetAxisRaw(menuRadial) > 0 && !invocar.menuRadial.activeSelf)
+                {
+                    // En desuso, ahora se activa desde InvocarTorreta.cs Update()
+                    //invocar.SetColocada(false);
+                    //invocar.PreviewTorreta("torretaBasica");
+                    invocar.AlternarMenuRadial(true);
+                }
+                else if (Input.GetAxisRaw(menuRadial) <= 0 && invocar.menuRadial.activeSelf)
+                {
+                    invocar.AlternarMenuRadial(false);
+                }
+            }
+
+            if (Input.GetAxisRaw(eliminarTorreta) > 0)
+            {
+                invocar.EliminarTorreta();
+            }
+        }
+        
+        if(Input.GetButtonDown(cambiarCamara))
+        {
+            personaje.CambiarCamara();
         }
     }
 }
