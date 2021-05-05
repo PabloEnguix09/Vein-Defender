@@ -52,7 +52,7 @@ public class SistemaMejoras : MonoBehaviour
 
     public void MejorasTorreta(Torreta torreta)
     {
-        // Reduce el coste de todas las torretas -1 si son mayor de 1
+        // Reduce el coste de todas las Torreta -1 si son mayor de 1
         if(mejorat01)
         {
             if(torreta.energia > 1)

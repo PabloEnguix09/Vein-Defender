@@ -8,13 +8,13 @@ public class Torreta : MonoBehaviour
     // NAME: Torreta.cs
     // STATUS: WIP
     // GAMEOBJECT: Torreta
-    // DESCRIPTION: Modelo base para las torretas
+    // DESCRIPTION: Modelo base para las Torreta
     //
     // AUTHOR: Adrian
     // FEATURES ADDED: La torreta apunta al enemigo mas cercano en un rango
     //
     // AUTHOR: Luis Belloch
-    // FEATURES ADDED: TorretaDestruida, ScriptableObjects, apuntado de enemigos rehecho
+    // FEATURES ADDED: TorretaDestruida, ScriptableObjects, apuntado de Enemigo rehecho
     //
     // AUTHOR: Pau Blanes
     //FEATURES ADDED: regenreacion de escudo y rango de vision
@@ -46,7 +46,8 @@ public class Torreta : MonoBehaviour
     [Header("Partes")]
     private GameObject enemigoApuntando;
     public Transform parteQueRota;
-    private Disparo disparo;
+    public GameObject balaObjeto;
+    public GameObject spawnerBalas;
 
     Personaje personaje;
 
@@ -104,8 +105,6 @@ public class Torreta : MonoBehaviour
         //No apuntar a nadie
         enemigoApuntando = null;
 
-        disparo = GetComponentInChildren<Disparo>();
-
         timerDisparo = 0;
     }
 
@@ -136,7 +135,18 @@ public class Torreta : MonoBehaviour
                 {
                     timerDisparo = 0;
                     //disparar
-                    disparo.Disparar(ataque, radioExplosion, danyoExplosion);
+
+                    Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+
+                    ataqueObjeto.fuerza = ataque;
+                    ataqueObjeto.tipo = Ataque.Tipo.laser;
+                    ataqueObjeto.origen = gameObject;
+                    ataqueObjeto.fuerzaExplosion = danyoExplosion;
+                    ataqueObjeto.radioExplosion = radioExplosion;
+
+                    Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
+
+                    bala.ataque = ataqueObjeto;
                 }
             }
         }
@@ -158,8 +168,8 @@ public class Torreta : MonoBehaviour
     //Funcion de busqueda de enemigo
     GameObject BuscarEnemigo()
     {
-        // Recogemos todos los enemigos de la zona
-        GameObject[] enemigosEnRango = GameObject.FindGameObjectsWithTag("Enemigos");
+        // Recogemos todos los Enemigo de la zona
+        GameObject[] enemigosEnRango = GameObject.FindGameObjectsWithTag("Enemigo");
 
         GameObject masCercano = null;
 
@@ -239,6 +249,32 @@ public class Torreta : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
+    }
+
+    // Recibe un ataque
+    public void RecibirAtaque(Ataque ataque)
+    {
+
+        // El escudo reduce el ataque 
+        if (escudoActual > 0)
+        {
+            if (escudoActual < ataque.fuerza)
+            {
+                float aux = ataque.fuerza - escudoActual;
+                escudoActual = 0;
+                vidaActual -= aux;
+            }
+            else
+            {
+                // El resto del escudo golpea en la vida
+                escudoActual -= ataque.fuerza;
+            }
+        }
+        else
+        {
+            vidaActual -= ataque.fuerza;
+        }
+       
     }
 
     private void OnDrawGizmosSelected()

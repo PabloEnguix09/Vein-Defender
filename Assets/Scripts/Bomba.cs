@@ -50,55 +50,40 @@ public class Bomba : MonoBehaviour
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
                 Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, radioExplosion);
 
+                Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+
+                ataqueObjeto.fuerza = enemigoBasico.ataque;
+                ataqueObjeto.tipo = Ataque.Tipo.laser;
+                ataqueObjeto.origen = gameObject;
+
                 // Inflinge da�o a todos los objetivos dentro del rango
                 for (int i = 0; i < colliders.Length; i++)
                 {
-                    if (colliders[i].CompareTag("Bases"))
+                    if (colliders[i].CompareTag("Base"))
                     {
                         Base estructura = colliders[i].gameObject.GetComponent<Base>();
-                        estructura.Salud -= enemigoBasico.ataque;
-                        //Debug.Log("Golpeo una base");
+                        estructura.RecibirAtaque(ataqueObjeto);
                     }
 
-                    else if (colliders[i].CompareTag("Torretas"))
+                    else if (colliders[i].CompareTag("Torreta"))
                     {
                         Torreta estructura = colliders[i].gameObject.GetComponent<Torreta>();
-                       
-                        if (estructura.escudoActual > 0)
-                        {
-                            if (estructura.escudoActual < enemigoBasico.ataque)
-                            {
-                                float aux = enemigoBasico.ataque - estructura.escudoActual;
-                                estructura.escudoActual = 0;
-                                estructura.vidaActual -= aux;
-                            }
-                            else
-                            {
-                                estructura.escudoActual -= enemigoBasico.ataque;
-                            }
-                        }
-                        else
-                        {
-                            estructura.vidaActual -= enemigoBasico.ataque;
-                        }
-                        //Debug.Log("Golpeo una torrerta");
+
+                        estructura.RecibirAtaque(ataqueObjeto);
                     }
 
-                    else if (colliders[i].CompareTag("Enemigos"))
+                    else if (colliders[i].CompareTag("Enemigo"))
                     {
                         Enemigo otroEnemigo = colliders[i].gameObject.GetComponent<Enemigo>();
-                        otroEnemigo.vidaActual -= enemigoBasico.ataque;
-                        //Debug.Log("Golpeo un enemigo");
+                        otroEnemigo.RecibirAtaque(ataqueObjeto);
                     }
 
                     else if (colliders[i].CompareTag("Player"))
                     {
                         Personaje personaje = colliders[i].gameObject.GetComponent<Personaje>();
-                        personaje.RecibirAtaque(enemigoBasico.ataque);
-                        //Debug.Log("Golpeo al jugador");
+                        personaje.RecibirAtaque(ataqueObjeto);
                     }
                 }
-                //Debug.Log("Explota");
                 Destroy(gameObject);
             }
         }

@@ -5,7 +5,7 @@
 // DESCRIPTION: maneja la creacion de los objetos Enemigo y sus datos
 //
 // AUTHOR: Luis
-// FEATURES ADDED: Creado el Scriptable Object de las torretas
+// FEATURES ADDED: Creado el Scriptable Object de las Torreta
 //
 // AUTHOR: Pau
 // FEATURES ADDED: añadidas las variables rango de disparo y velocidad de disparo

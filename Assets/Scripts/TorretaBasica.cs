@@ -5,7 +5,7 @@
 // DESCRIPTION: maneja la creacion de los objetos Torreta y sus datos
 //
 // AUTHOR: Luis
-// FEATURES ADDED: Creado el Scriptable Object de las torretas
+// FEATURES ADDED: Creado el Scriptable Object de las Torreta
 //
 // AUTHOR: Pau Blanes
 // FEATURES ADDED: escudoActual
@@ -25,7 +25,8 @@ public class TorretaBasica : ScriptableObject
     public float ataque;
     public float cadenciaDisparo;
     public float escudoActual;
-    public enum tipoDisparo
+    public TipoDisparo tipoDisparo;
+    public enum TipoDisparo
     {
         laser, balas
     }

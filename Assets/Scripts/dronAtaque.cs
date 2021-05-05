@@ -21,9 +21,10 @@ public class dronAtaque : MonoBehaviour
 
     private float timerDisparo;
     private GameObject objetivoApuntado;
+    public GameObject spawnerBalas;
     public Transform parteQueRota;
-    private Disparo disparo;
     public GameObject explosion;
+    public GameObject balaObjeto;
     public EnemigoBasico enemigoBasico;
     private Enemigo enemigo;
     // Start is called before the first frame update
@@ -31,7 +32,6 @@ public class dronAtaque : MonoBehaviour
     {
         enemigo = gameObject.GetComponent<Enemigo>();
         timerDisparo = 0;
-        disparo = GetComponentInChildren<Disparo>();
     }
 
     // Update is called once per frame
@@ -63,11 +63,17 @@ public class dronAtaque : MonoBehaviour
             if (timerDisparo >= enemigoBasico.velocidadDisparo)
             {
                 timerDisparo = 0;
-                
-                //disparar
-                disparo.Disparar(1, 0, 0);
-                
 
+                //disparar
+                Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+
+                ataqueObjeto.fuerza = ataque;
+                ataqueObjeto.tipo = Ataque.Tipo.laser;
+                ataqueObjeto.origen = gameObject;
+
+                Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
+
+                bala.ataque = ataqueObjeto;
             }
         }
 
@@ -75,9 +81,6 @@ public class dronAtaque : MonoBehaviour
 
     GameObject buscarObjetivo()
     {
-       
-  
-       
         GameObject masCercano = null;
 
         // Encontramos el enemigo mas cercano
@@ -87,40 +90,36 @@ public class dronAtaque : MonoBehaviour
         // Inflinge da�o a todos los objetivos dentro del rango
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].CompareTag("Bases")||colliders[i].CompareTag("Torretas")||colliders[i].CompareTag("Player"))
+            if (colliders[i].CompareTag("Base")||colliders[i].CompareTag("Torreta")||colliders[i].CompareTag("Player"))
             {
 
-                    // Si aun no ha encontrado ninguna torreta
-                    if (masCercano == null)
+                // Si aun no ha encontrado ninguna torreta
+                if (masCercano == null)
+                {
+
+                    // Comprueba que tenga vision del enemigo
+                    if (ComprobarVision(colliders[i].gameObject))
+                    {
+
+                        masCercano = colliders[i].gameObject;
+                    }
+                }
+                // Si ya tiene un enemigo asignado
+                else if (masCercano != null)
+                {
+
+                    // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
+                    if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, colliders[i].gameObject.transform.position))
                     {
 
                         // Comprueba que tenga vision del enemigo
                         if (ComprobarVision(colliders[i].gameObject))
                         {
-
                             masCercano = colliders[i].gameObject;
                         }
+
                     }
-                    // Si ya tiene un enemigo asignado
-                    else if (masCercano != null)
-                    {
-
-                        // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
-                        if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, colliders[i].gameObject.transform.position))
-                        {
-
-                            // Comprueba que tenga vision del enemigo
-                            if (ComprobarVision(colliders[i].gameObject))
-                            {
-                                masCercano = colliders[i].gameObject;
-                            }
-
-                        }
-                    }
-
-                
-
-            
+                }
             }
         }
     
