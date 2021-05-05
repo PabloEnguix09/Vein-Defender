@@ -41,7 +41,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4888983860427133026}
-  - component: {fileID: 3959813866657960135}
   m_Layer: 0
   m_Name: SpawnerBalas
   m_TagString: Untagged
@@ -63,19 +62,6 @@ Transform:
   m_Father: {fileID: 6296818363537097098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3959813866657960135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177128191745919905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10b6bf5784132044990c2cee5ae87bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bala: {fileID: 1620851414836905604, guid: 7d66bcdabc8823b4a8266d4e6d414e4e, type: 3}
 --- !u!1 &3423261646629694683
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +160,7 @@ GameObject:
   - component: {fileID: -5524388919886827921}
   m_Layer: 0
   m_Name: dron
-  m_TagString: Enemigos
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,6 +197,7 @@ MonoBehaviour:
   explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
   vidaActual: 0
   enemigo: {fileID: 11400000, guid: a4b93a0647b52104fb708494839de417, type: 2}
+  marcado: 0
 --- !u!65 &4623521371561484417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -234,7 +221,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
+  m_Speed: 16
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -298,8 +285,10 @@ MonoBehaviour:
   velocidad: 3
   rango: 10
   rangoDisparo: 50
+  spawnerBalas: {fileID: 1177128191745919905}
   parteQueRota: {fileID: 3963209385025984642}
   explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
+  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
   enemigoBasico: {fileID: 11400000, guid: a4b93a0647b52104fb708494839de417, type: 2}
 --- !u!1 &5597369856214270378
 GameObject:

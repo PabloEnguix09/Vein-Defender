@@ -41,4 +41,9 @@ public class Base : MonoBehaviour
     {
         modelo.SetActive(true);
     }
+
+    public void RecibirAtaque(Ataque ataque)
+    {
+        salud -= ataque.fuerza;
+    }
 }

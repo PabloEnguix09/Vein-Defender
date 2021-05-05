@@ -21,7 +21,7 @@ using UnityEngine;
 
 public class InvocarTorreta : MonoBehaviour
 {
-    public GameObject[] torretas;
+    public GameObject[] Torreta;
     public GameObject[] previews;
     public float alcance = 50.0f;
     public float alturaSpawn = 50.0f;
@@ -71,7 +71,7 @@ public class InvocarTorreta : MonoBehaviour
                 if (PosicionLegal())
                 {
                     // Posicion de la nueva torreta invocada
-                    Transform torretaSpawn = torretas[torretaPreviewIndex].transform;
+                    Transform torretaSpawn = Torreta[torretaPreviewIndex].transform;
                     torretaSpawn.position = torreta.transform.position;
                     torretaSpawn.rotation = torreta.transform.rotation;
                     Destroy(torreta);

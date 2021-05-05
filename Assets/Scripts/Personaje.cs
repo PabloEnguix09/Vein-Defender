@@ -43,6 +43,8 @@ public class Personaje : MonoBehaviour
     public GameObject dardoLocalizador;
     public Camera camaraJugador;
 
+    public GameObject minimapa;
+
     public float Salud
     {
         get { return salud; }
@@ -178,19 +180,19 @@ public class Personaje : MonoBehaviour
         movimientoPersonaje.Saltar();
     }
 
-    public void RecibirAtaque(float fuerza)
+    public void RecibirAtaque(Ataque ataque)
     {
-        if(Escudo > 0)
+        if (Escudo > 0)
         {
             // Restamos la fuerza al escudo y el escudo a la fuerza
-            float auxFuerza = fuerza;
-            fuerza -= Escudo;
+            float auxFuerza = ataque.fuerza;
+            ataque.fuerza -= Escudo;
             Escudo -= auxFuerza;
         }
         // Despues restamos la fuerza que quede a la salud
-        if (fuerza > 0)
+        if (ataque.fuerza > 0)
         {
-            Salud -= fuerza;
+            Salud -= ataque.fuerza;
         }
     }
 

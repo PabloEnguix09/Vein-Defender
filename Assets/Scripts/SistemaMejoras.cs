@@ -21,6 +21,7 @@ public class SistemaMejoras : MonoBehaviour
     // Mejoras de personaje
     public bool mejorap01;
     public bool mejorap02;
+    public bool mejoraMinimapa;   
 
     [Header("Torreta")]
     // Mejoras de torreta
@@ -46,13 +47,20 @@ public class SistemaMejoras : MonoBehaviour
         {
             personaje.escudoMaximo = (personaje.Salud / 100) * 50;
         }
+        // Pone un minimapa
+        if(mejoraMinimapa)
+        {
+
+            personaje.minimapa.SetActive(true);
+
+        }
 
         personaje.Setup();
     }
 
     public void MejorasTorreta(Torreta torreta)
     {
-        // Reduce el coste de todas las torretas -1 si son mayor de 1
+        // Reduce el coste de todas las Torreta -1 si son mayor de 1
         if(mejorat01)
         {
             if(torreta.energia > 1)

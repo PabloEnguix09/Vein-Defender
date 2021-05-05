@@ -18,14 +18,14 @@ public class ComprobarSitio : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Torretas" &&
+        if (collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Torreta" &&
         collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.layer == 6)
         {
             //Debug.Log("La torreta ha tocado el suelo");
             Rigidbody rb = collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.GetComponent<Rigidbody>();
         }
         if(collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Previews" &&
-        collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.tag == "Torretas")
+        collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.tag == "Torreta")
         {
             //Debug.Log("Hay colisión");
             colliders.Add(collision);
@@ -34,7 +34,7 @@ public class ComprobarSitio : MonoBehaviour
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.collider.gameObject.tag == "Torretas" && collision.gameObject.tag == "Torretas") 
+        if (collision.collider.gameObject.tag == "Torreta" && collision.gameObject.tag == "Torreta") 
         {
             //Debug.Log("Ya no hay colisión");
             colliders.Remove(collision);

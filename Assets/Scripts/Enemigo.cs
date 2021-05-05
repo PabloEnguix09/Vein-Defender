@@ -12,7 +12,7 @@ public class Enemigo : MonoBehaviour
     // DESCRIPTION: Este escript reune todas las capacidades basicas de un enemigo. Movimiento y estadisticas.
     //
     // AUTHOR: Jorge Grau
-    // FEATURES ADDED: Los enemigos tienen unas estadisticas que eredan de su tipo y siguen una ruta establecida por su spawner, si algo aparece en su radio de vision van a por el. Tambien el recibir da�o por disparos.
+    // FEATURES ADDED: Los Enemigo tienen unas estadisticas que eredan de su tipo y siguen una ruta establecida por su spawner, si algo aparece en su radio de vision van a por el. Tambien el recibir da�o por disparos.
     // ---------------------------------------------------
 
     private Base base1;
@@ -90,13 +90,13 @@ public class Enemigo : MonoBehaviour
             {
                 return objetivo = colliders[i].transform;
             }
-            else if(colliders[i].CompareTag("Torretas"))
+            else if (colliders[i].CompareTag("Torreta"))
             {
-               
+
                 return objetivo = colliders[i].transform;
             }
 
-             
+
         }
 
         if (base1.Salud > 0)
@@ -121,35 +121,8 @@ public class Enemigo : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void RecibirAtaque(Ataque ataque)
     {
-        // Si es golpeado por una bala recibe da�o y la bala se destruye.
-        if (other.gameObject.GetComponent<Bala>() != null)
-        {
-            Bala bala = other.gameObject.GetComponent<Bala>();
-            if (bala.radioExplosion > 0)
-            {
-                Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
-                Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, bala.radioExplosion);
-                // Inflinge da�o a todos los objetivos dentro del rango
-                for (int i = 0; i < colliders.Length; i++)
-                {
-                    if (colliders[i].CompareTag("Enemigos"))
-                    {
-                        Enemigo otroEnemigo = colliders[i].gameObject.GetComponent<Enemigo>();
-                        otroEnemigo.vidaActual -= bala.danyoExplosion;
-                    }
-
-                }
-                Destroy(other.gameObject);
-            }
-            else
-            {
-                vidaActual -= bala.fuerza;
-                Destroy(other.gameObject);
-            }
-            
-        }
+        vidaActual -= ataque.fuerza;
     }
-
 }

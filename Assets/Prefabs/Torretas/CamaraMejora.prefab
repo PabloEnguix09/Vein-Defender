@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: -6276786364535825722}
   m_Layer: 7
   m_Name: CamaraMejora
-  m_TagString: CamaraSecundaria
+  m_TagString: Torreta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,8 +118,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4904404024952468192}
-  m_LocalRotation: {x: 0, y: 0.46522832, z: 0, w: 0.8851908}
-  m_LocalPosition: {x: 6.5352035, y: 23.796444, z: 143.78648}
+  m_LocalRotation: {x: 0, y: 0.41509163, z: 0, w: -0.9097796}
+  m_LocalPosition: {x: -80.67575, y: 2.066949, z: 78.55338}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4904404024303004515}
@@ -199,6 +199,8 @@ MonoBehaviour:
   radioExplosion: 0
   danyoExplosion: 0
   parteQueRota: {fileID: 0}
+  balaObjeto: {fileID: 0}
+  spawnerBalas: {fileID: 0}
 --- !u!1 &9030758315859703961
 GameObject:
   m_ObjectHideFlags: 0
