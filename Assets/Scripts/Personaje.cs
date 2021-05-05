@@ -43,6 +43,8 @@ public class Personaje : MonoBehaviour
     public GameObject dardoLocalizador;
     public Camera camaraJugador;
 
+    public GameObject minimapa;
+
     public float Salud
     {
         get { return salud; }
