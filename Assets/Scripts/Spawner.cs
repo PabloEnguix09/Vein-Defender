@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     // NAME: Spawner.cs
     // STATUS: WIP
     // GAMEOBJECT: Spawner
-    // DESCRIPTION: El spawner genera enemigos en la escena
+    // DESCRIPTION: El spawner genera Enemigo en la escena
     //
     // AUTHOR: Jorge
     // FEATURES ADDED: Configuración y funcionalidad del spawner al completo
@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     // FEATURES ADDED: funcion para crear drones
     // ---------------------------------------------------
 
-    // Aqui van los GameObject de los enemigos, pueden ser distintos o iguales y el codigo se puede expandir hasta tener todo tipo de enemigos diferentes
+    // Aqui van los GameObject de los Enemigo, pueden ser distintos o iguales y el codigo se puede expandir hasta tener todo tipo de Enemigo diferentes
     public GameObject primerTipoDeEnemigo;
     public GameObject segundoTipoDeEnemigo;
 
@@ -25,29 +25,29 @@ public class Spawner : MonoBehaviour
     private int xPos;
     private int zPos;
 
-    // Conteo se usa para saber la cantidad de enemigos spawneados
+    // Conteo se usa para saber la cantidad de Enemigo spawneados
     public int conteo;
     public int conteo2;
 
-    // El limite de aparicion de enemigos.
+    // El limite de aparicion de Enemigo.
     public int limitePrimerEnemigo;
     public int limiteSegundoEnemigo;
 
-    // El tiempo de aparcicion entre enemigos
+    // El tiempo de aparcicion entre Enemigo
     public float tiempoAparicionPrimerEnemigo;
     public float tiempoAparicionSegundoEnemigo;
 
     // El radio de aparicion alrededor del spawner
     public float radioDeAparicion;
 
-    // Las bases a las que apuntaran los enemigos generados
+    // Las bases a las que apuntaran los Enemigo generados
     public Base primeraBase;
     public Base segundaBase;
     public Base terceraBase;
 
     void Start()
     {
-        // La posicion a la que se deben dirigir los enemigos
+        // La posicion a la que se deben dirigir los Enemigo
         Enemigo.final = gameObject.transform;
 
         //StartCoroutine(Aparicion());
@@ -76,7 +76,7 @@ public class Spawner : MonoBehaviour
             conteo += 1;
         }
     }
-    //creacion de la funcion que genera enemigos bomba y les asigna sus bases objetivo
+    //creacion de la funcion que genera Enemigo bomba y les asigna sus bases objetivo
     public IEnumerator AparicionBombas()
     {
         while (conteo2 < limiteSegundoEnemigo)

@@ -8,25 +8,19 @@ public class Bala : MonoBehaviour
     // NAME: Bala.cs
     // STATUS: WIP
     // GAMEOBJECT: Bala
-    // DESCRIPTION: Control de las balas disparadas por las torretas
+    // DESCRIPTION: Control de las balas disparadas por las Torreta
     //
     // AUTHOR: Adri�n
     // FEATURES ADDED: La bala con impulso y se destruye al golpear algo.
     //
     // AUTHOR: Pau
-    // FEATURES ADDED: Inflingir daño a player, torretas y base
+    // FEATURES ADDED: Inflingir daño a player, Torreta y base
     // ---------------------------------------------------
 
 
     public float velocidad;
-
-    public float fuerza;
-
-    public float radioExplosion;
-
-    public float danyoExplosion;
-
     public GameObject explosion;
+    public Ataque ataque;
 
     Rigidbody rb;
 
@@ -39,48 +33,99 @@ public class Bala : MonoBehaviour
         rb.AddForce(transform.forward * velocidad, ForceMode.Impulse);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         // compruebo si golpeo una base y aplico daño
-       
-        if (collision.gameObject.CompareTag("Bases"))
+        
+        if (collision.gameObject.CompareTag("Base"))
         {
-            Base estructura = collision.gameObject.gameObject.GetComponent<Base>();
-            estructura.Salud -= fuerza;
-            
+
+            if (!ataque.origen.CompareTag("Torreta"))
+            {
+                Base estructura = collision.gameObject.gameObject.GetComponent<Base>();
+                estructura.RecibirAtaque(ataque);
+
+                ExplosionAtaque(ataque);
+            }
         }
         // compruebo si golpeo una torreta y aplico daño
-        else if (collision.gameObject.CompareTag("Torretas"))
+        if (collision.gameObject.CompareTag("Torreta"))
         {
-            Torreta estructura = collision.gameObject.gameObject.GetComponent<Torreta>();
+            if (!ataque.origen.CompareTag("Torreta"))
+            {
+                // Recoje el script torreta
+                Torreta torreta = collision.gameObject.gameObject.GetComponent<Torreta>();
+                // Inflige danyo
+                torreta.RecibirAtaque(ataque);
 
-            if (estructura.escudoActual > 0)
-            {
-                if (estructura.escudoActual < fuerza)
-                {
-                    float aux = fuerza - estructura.escudoActual;
-                    estructura.escudoActual = 0;
-                    estructura.vidaActual -= aux;
-                }
-                else
-                {
-                    estructura.escudoActual -= fuerza;
-                }
+                ExplosionAtaque(ataque);
             }
-            else
-            {
-                estructura.vidaActual -= fuerza;
-            }
-            
         }
         // compruebo si golpeo un jugador y aplico daño
-        else if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Personaje personaje = collision.gameObject.gameObject.GetComponent<Personaje>();
-            personaje.RecibirAtaque(fuerza);
-            
+            if(!ataque.origen.CompareTag("Torreta"))
+            {
+                Personaje personaje = collision.gameObject.gameObject.GetComponent<Personaje>();
+                personaje.RecibirAtaque(ataque);
+
+                ExplosionAtaque(ataque);
+            }
+
         }
-    // destruyo la bala
-    Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Enemigo"))
+        {
+            if (!ataque.origen.CompareTag("Enemigo"))
+            {
+                Enemigo enemigo = collision.gameObject.GetComponent<Enemigo>();
+
+                enemigo.RecibirAtaque(ataque);
+
+                ExplosionAtaque(ataque);
+            }
+        } 
+        if(collision.gameObject.CompareTag("Terreno"))
+        {
+            ExplosionAtaque(ataque);
+        }
+    }
+    // Busca objetivos cerca del punto de impacto
+    private void ExplosionAtaque(Ataque ataque)
+    {
+        if (ataque.radioExplosion > 0)
+        {
+            // Recoje todos los colliders dentro del rango y les aplica el ataque
+            Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, ataque.radioExplosion);
+
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].CompareTag("Base"))
+                {
+                    Base estructura = colliders[i].gameObject.GetComponent<Base>();
+                    estructura.RecibirAtaque(ataque);
+                }
+
+                if (colliders[i].CompareTag("Torreta"))
+                {
+                    Torreta estructura = colliders[i].gameObject.GetComponent<Torreta>();
+
+                    estructura.RecibirAtaque(ataque);
+                }
+
+                if (colliders[i].CompareTag("Enemigo"))
+                {
+                    Enemigo otroEnemigo = colliders[i].gameObject.GetComponent<Enemigo>();
+                    otroEnemigo.RecibirAtaque(ataque);
+                }
+
+                if (colliders[i].CompareTag("Player"))
+                {
+                    Personaje personaje = colliders[i].gameObject.GetComponent<Personaje>();
+                    personaje.RecibirAtaque(ataque);
+                }
+            }
+        }
+
+        Destroy(gameObject);
     }
 }

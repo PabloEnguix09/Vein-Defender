@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Torretas
-  - Bases
-  - Enemigos
   - CamaraSecundaria
   - Previews
   - Terreno
   - Minimapa
+  - Torreta
+  - Base
+  - Enemigo
   layers:
   - Default
   - TransparentFX

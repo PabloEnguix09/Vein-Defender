@@ -35,7 +35,7 @@ public class controlPartida : MonoBehaviour
     private bool todosSpawneados;
     private int ronda;
 
-    Enemigo[] enemigos;
+    Enemigo[] Enemigo;
 
     GameManager gameManager;
     void Start()
@@ -70,9 +70,9 @@ public class controlPartida : MonoBehaviour
 
         finDeRonda = false;
         todosSpawneados = false;
-        enemigos = (Enemigo[])GameObject.FindObjectsOfType(typeof(Enemigo));
+        Enemigo = (Enemigo[])GameObject.FindObjectsOfType(typeof(Enemigo));
 
-        //comprobar si han spawneado todos los enemigos
+        //comprobar si han spawneado todos los Enemigo
         foreach (Spawner s in spawners)
         {
             if(s.conteo == s.limitePrimerEnemigo && s.conteo2 == s.limiteSegundoEnemigo)
@@ -81,8 +81,8 @@ public class controlPartida : MonoBehaviour
             }
         }
 
-        //si han aparecido todos los enemigos y están todos muertos se acaba la ronda
-        if (todosSpawneados && enemigos.Length == 0)
+        //si han aparecido todos los Enemigo y están todos muertos se acaba la ronda
+        if (todosSpawneados && Enemigo.Length == 0)
         {
             finDeRonda = true;
         }
@@ -173,8 +173,8 @@ public class controlPartida : MonoBehaviour
         }
 
         //borrar todas las toretas
-        GameObject[] torretas = (GameObject[])GameObject.FindGameObjectsWithTag("Torretas");
-        foreach (GameObject t in torretas)
+        GameObject[] Torreta = (GameObject[])GameObject.FindGameObjectsWithTag("Torreta");
+        foreach (GameObject t in Torreta)
         {
             Destroy(t);
         }

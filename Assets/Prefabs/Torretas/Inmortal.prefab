@@ -110,8 +110,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550871163448655305}
-  m_LocalRotation: {x: 0, y: 0.12100336, z: 0, w: -0.9926521}
-  m_LocalPosition: {x: -60.28552, y: 1.4924022, z: 41.457996}
+  m_LocalRotation: {x: 0, y: 0.20663275, z: 0, w: -0.9784186}
+  m_LocalPosition: {x: -68.37189, y: 1.0125315, z: 79.89662}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6392596038898667606}
@@ -178,6 +178,8 @@ MonoBehaviour:
   radioExplosion: 0
   danyoExplosion: 0
   parteQueRota: {fileID: 7532045515835935692}
+  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
+  spawnerBalas: {fileID: 8692653184960525093}
 --- !u!1 &4964510614397554650
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +530,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7586572420046420169}
-  - component: {fileID: 1655956193336028290}
   m_Layer: 7
   m_Name: SpawnerBalas
   m_TagString: Untagged
@@ -550,19 +551,6 @@ Transform:
   m_Father: {fileID: 7532045515835935692}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1655956193336028290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8692653184960525093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10b6bf5784132044990c2cee5ae87bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bala: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
 --- !u!1 &8800319937972346325
 GameObject:
   m_ObjectHideFlags: 0

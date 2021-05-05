@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8739878863374643262}
   m_Layer: 0
   m_Name: Enemigo
-  m_TagString: Enemigos
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
   vidaActual: 0
   enemigo: {fileID: 11400000, guid: fd263d56c6e71f346bc3fd022b28834b, type: 2}
+  marcado: 0
 --- !u!114 &5186502189369109565
 MonoBehaviour:
   m_ObjectHideFlags: 0
