@@ -21,17 +21,19 @@ public class Ouroboros : MonoBehaviour
 
     private float timerDisparo;
 
+    public GameObject explosion;
+
     [Header("Partes")]
     private GameObject enemigoApuntando;
     public Transform parteQueRota;
-    private Disparo disparo;
+    public GameObject balaObjeto;
+    public GameObject spawnerBalas;
 
     // Start is called before the first frame update
     void Start()
     {
         enemigo = gameObject.GetComponent<Enemigo>();
         timerDisparo = 0;
-        disparo = GetComponentInChildren<Disparo>();
     }
 
     // Update is called once per frame
@@ -48,7 +50,6 @@ public class Ouroboros : MonoBehaviour
         //si apunta a alguien
         if (enemigoApuntando != null)
         {
-            comprobarInvisibilidad(enemigoApuntando);
             //rota la torreta en direccion al enemigo apuntado
             Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
             Quaternion VisionRotacion = Quaternion.LookRotation(dir);
@@ -61,15 +62,29 @@ public class Ouroboros : MonoBehaviour
             {
                 timerDisparo = 0;
                 //disparar
-                disparo.Disparar(enemigoBasico.ataque, enemigoBasico.ataqueExplosion, enemigoBasico.rangoExplosion);
+                comprobarInvisibilidad(enemigoApuntando);
+                Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+
+                ataqueObjeto.fuerza = enemigoBasico.ataque;
+                ataqueObjeto.tipo = Ataque.Tipo.laser;
+                ataqueObjeto.origen = gameObject;
+
+                Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
+
+                bala.ataque = ataqueObjeto;
             }
         }
     }
     //Funcion de busqueda de enemigo
     GameObject BuscarEnemigo()
     {
+        if (enemigo.vidaActual <= 0)
+        {
+            Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
         // Recogemos todos los enemigos de la zona
-        GameObject[] enemigosEnRango = GameObject.FindGameObjectsWithTag("Torretas");
+        GameObject[] enemigosEnRango = GameObject.FindGameObjectsWithTag("Torreta");
 
         GameObject masCercano = null;
 
@@ -135,10 +150,6 @@ public class Ouroboros : MonoBehaviour
             enemigo.invisibilidad = false;
         }
         else { enemigo.invisibilidad = true; }
-
-        Debug.Log("Distancia " + Vector3.Distance(parteQueRota.position, enemigoApuntando.transform.position).ToString());
-        Debug.Log("Rango " + enemigoBasico.rangoDisparo);
-        Debug.Log("Invisibilidad " + enemigo.invisibilidad.ToString());
 
     }
 }

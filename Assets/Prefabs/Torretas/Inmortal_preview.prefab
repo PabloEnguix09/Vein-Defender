@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 7886029749308271952}
   m_Layer: 7
   m_Name: Inmortal_preview
-  m_TagString: Torretas
+  m_TagString: Torreta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

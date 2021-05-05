@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: -4541721285109252986}
   m_Layer: 7
   m_Name: torretaBasica
-  m_TagString: Torretas
+  m_TagString: Torreta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,8 +137,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807558183801602318}
-  m_LocalRotation: {x: 0, y: 0.6177235, z: 0, w: -0.7863954}
-  m_LocalPosition: {x: -86.791046, y: 3.4740424, z: 111.91082}
+  m_LocalRotation: {x: 0, y: 0.76182187, z: 0, w: -0.64778656}
+  m_LocalPosition: {x: -51.6044, y: 2.1523263, z: 8.509475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2558034091581843825}

@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3321968153897784293}
   m_Layer: 7
   m_Name: torretaBasica_preview
-  m_TagString: Torretas
+  m_TagString: Torreta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 3145819532675483902}
   m_Layer: 0
   m_Name: CamaraMejora_preview
-  m_TagString: Untagged
+  m_TagString: Torreta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
