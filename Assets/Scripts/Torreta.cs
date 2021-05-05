@@ -178,33 +178,37 @@ public class Torreta : MonoBehaviour
         {
             for (int i = 0; i < enemigosEnRango.Length; i++)
             {
-                // Si aun no ha encontrado ningun enemigo
-                if (masCercano == null)
-                {
-                    // Comprueba que tenga vision del enemigo
-                    if (ComprobarVision(enemigosEnRango[i]))
+                // Si el enemigo es visible
+                if (!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad){
+                    // Si aun no ha encontrado ningun enemigo
+                    if (masCercano == null)
                     {
-                        masCercano = enemigosEnRango[i];
-                    }
-                }
-                // Si ya tiene un enemigo asignado
-                else if(masCercano != null)
-                {
-                    // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
-                    if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
-                    {
-                        //Comprobamos que no este marcado
-                        if(masCercano.GetComponent<Enemigo>().marcado == false)
+                        // Comprueba que tenga vision del enemigo
+                        if (ComprobarVision(enemigosEnRango[i]))
                         {
-                            // Comprueba que tenga vision del enemigo
-                            if (ComprobarVision(enemigosEnRango[i]))
-                            {
-                                masCercano = enemigosEnRango[i];
-                            }
+                            masCercano = enemigosEnRango[i];
                         }
-                        
+                    }
+                    // Si ya tiene un enemigo asignado
+                    else if (masCercano != null)
+                    {
+                        // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
+                        if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
+                        {
+                            //Comprobamos que no este marcado
+                            if (masCercano.GetComponent<Enemigo>().marcado == false)
+                            {
+                                // Comprueba que tenga vision del enemigo
+                                if (ComprobarVision(enemigosEnRango[i]))
+                                {
+                                    masCercano = enemigosEnRango[i];
+                                }
+                            }
+
+                        }
                     }
                 }
+                
             }
         }
         // Comprueba que existe un enemigo visible

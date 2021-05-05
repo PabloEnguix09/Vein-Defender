@@ -16,11 +16,16 @@ using UnityEngine;
 public class EnemigoBasico : ScriptableObject
 {
     public float ataque;
+    public float ataqueExplosion;
+    public float rangoExplosion;
+    public float velocidadDisparo;
     public float vidaMaxima;
     public float velocidad;
     public float rango;
     public float rangoDisparo;
-    public float velocidadDisparo;
+    public bool puedeSerInvisible;
+
+
     public enum tipo
     {
         terrestre, volador, subterraneo

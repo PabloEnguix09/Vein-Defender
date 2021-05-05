@@ -16,6 +16,7 @@ public class dronAtaque : MonoBehaviour
     public float ataque;
     public float vidaMaxima;
     public float velocidad;
+
     public float rango;
     public float rangoDisparo;
 

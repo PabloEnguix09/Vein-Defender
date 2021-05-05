@@ -39,7 +39,7 @@ public class Bomba : MonoBehaviour
         if (enemigo.vidaActual <= 0)
         {
             // Inicia la animacion de explotar comentado porque peta
-            //animator.SetBool("Explode", true);
+            animator.SetBool("Explode", true);
 
             // Cuenta regresiva hasta terminar la animacion de explotar
             destroyOfftime -= Time.deltaTime;

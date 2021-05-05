@@ -29,6 +29,7 @@ public class Enemigo : MonoBehaviour
     public EnemigoBasico enemigo;
 
     public bool marcado = false;
+    public bool invisibilidad;
 
     void Start()
     {
@@ -37,6 +38,9 @@ public class Enemigo : MonoBehaviour
 
         // Pone la vida al maximo
         vidaActual = enemigo.vidaMaxima;
+        agente.speed = enemigo.velocidad;
+
+        invisibilidad = enemigo.puedeSerInvisible;
 
         // El enemigo busca a que base dirigirse, si todas estan destruidas va donde a aparecido
         if (base1.Salud > 0)
