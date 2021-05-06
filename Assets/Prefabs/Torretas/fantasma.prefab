@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &660270741642782306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8610478837437565109}
+  m_Layer: 7
+  m_Name: SpawnerBalas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8610478837437565109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660270741642782306}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8633465776767921416}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1 &872483014263077157
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +41,7 @@ GameObject:
   - component: {fileID: 5266583047004600762}
   - component: {fileID: 7057712124234511746}
   - component: {fileID: 7446370162108512012}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Marcador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +122,7 @@ GameObject:
   - component: {fileID: 8633465776767921416}
   - component: {fileID: 1120405275538727178}
   - component: {fileID: 3856006515669233201}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Esfera geod\xE9sica"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +139,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.817, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8610478837437565109}
   m_Father: {fileID: 6798279699415300212}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -176,7 +207,7 @@ GameObject:
   - component: {fileID: 7553313026445306427}
   - component: {fileID: 3163834363831965220}
   - component: {fileID: 5159086894982918864}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cilindro.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +307,7 @@ GameObject:
   - component: {fileID: 6751197128773868814}
   - component: {fileID: 1192584750562366053}
   - component: {fileID: 2811420865364758454}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cilindro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,9 +387,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6798279699415300212}
-  m_Layer: 0
+  - component: {fileID: 5106218884707158237}
+  - component: {fileID: 7501959127884870666}
+  - component: {fileID: 7221177094405627163}
+  m_Layer: 7
   m_Name: fantasma
-  m_TagString: Untagged
+  m_TagString: Torreta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,6 +416,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5106218884707158237
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130392994418107086}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4188352, y: 2.614396, z: 2.9933577}
+  m_Center: {x: 0, y: 0.90731287, z: -0.04482746}
+--- !u!54 &7501959127884870666
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130392994418107086}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7221177094405627163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130392994418107086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96517f2596bd50641b5a63963c836b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torretaBasica: {fileID: 11400000, guid: 897d499691df4484ab13a6d4e76ef3e2, type: 2}
+  nombre: 
+  energia: 0
+  energiaAlt: 0
+  vidaActual: 0
+  vidaMaxima: 0
+  escudoMaximo: 0
+  escudoActual: 0
+  escudoRegen: 0
+  ataque: 0
+  cadenciaDisparo: 0
+  velocidadRotacion: 0
+  distanciaDisparo: 0
+  antiaerea: 0
+  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
+  radioExplosion: 0
+  danyoExplosion: 0
+  parteQueRota: {fileID: 8633465776767921416}
+  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
+  spawnerBalas: {fileID: 660270741642782306}
 --- !u!1 &6757989324842194996
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +489,7 @@ GameObject:
   - component: {fileID: 475957935292546862}
   - component: {fileID: 6890398620446159169}
   - component: {fileID: 1553656375257169861}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Esfera geod\xE9sica.002"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

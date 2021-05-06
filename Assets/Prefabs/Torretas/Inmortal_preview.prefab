@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2688853855958141409}
   - component: {fileID: 3472928435221598579}
   - component: {fileID: 5701025805067557056}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Esfera geod\xE9sica.001"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5323794996825848549}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Inmortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 5397939712721148011}
   - component: {fileID: 3293851525017165966}
   - component: {fileID: 3153484778091482145}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rosca.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7755389735144581916}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Ca\xF1onInmortal"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1401063868372405729}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 1355591155773183502}
   - component: {fileID: 2012208201892921655}
   - component: {fileID: 6701833427757070774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Ca\xF1on.001"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 7201464926755875379}
   - component: {fileID: 4095216016274264081}
   - component: {fileID: 2225798687343191936}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Escudo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 3921208591280679577}
   - component: {fileID: 4455198110746602300}
   - component: {fileID: 6553453530241878246}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

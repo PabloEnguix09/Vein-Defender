@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3100774390184138740}
   - component: {fileID: 4877628961630291603}
   - component: {fileID: 5660168036888852613}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3353508593511038742}
   - component: {fileID: 1173595224439800988}
   - component: {fileID: 59353168228059943}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 283840322}
   - component: {fileID: 283840323}
   - component: {fileID: 3145819532675483902}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CamaraMejora_preview
   m_TagString: Torreta
   m_Icon: {fileID: 0}

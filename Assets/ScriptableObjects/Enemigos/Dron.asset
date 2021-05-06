@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Dron
   m_EditorClassIdentifier: 
   ataque: 1
+  ataqueExplosion: 0
+  rangoExplosion: 0
   velocidadDisparo: 1
   vidaMaxima: 4
   velocidad: 6
-  rango: 10
+  velocidadDeRotacion: 20
+  rango: 15
   rangoDisparo: 10
   puedeSerInvisible: 0
+  vuela: 1

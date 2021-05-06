@@ -17,7 +17,10 @@ MonoBehaviour:
   rangoExplosion: 0
   velocidadDisparo: 0.5
   vidaMaxima: 10
-  velocidad: 3
+  velocidad: 5
+  velocidadDeRotacion: 20
   rango: 25
   rangoDisparo: 15
-  puedeSerInvisible: 1
+  invisibilidad: 0
+  subterraneo: 1
+  vuela: 0

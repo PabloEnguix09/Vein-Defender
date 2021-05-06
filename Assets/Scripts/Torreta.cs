@@ -18,6 +18,9 @@ public class Torreta : MonoBehaviour
     //
     // AUTHOR: Pau Blanes
     //FEATURES ADDED: regenreacion de escudo y rango de vision
+    //
+    // AUTHOR: Jorge Grau
+    //FEATURES ADDED: comprobación de que la torreta es antiaerea (puede atacar enemigos voladores), enemigo subterraneo y estado de invisibilidad(los enemigos invisibles no pueden ser atacados a menos que pierdan la ivisibilidad)
     // ---------------------------------------------------
 
     public TorretaBasica torretaBasica;
@@ -36,6 +39,7 @@ public class Torreta : MonoBehaviour
     public float velocidadRotacion;
     public float distanciaDisparo;
     public bool antiaerea;
+    public bool invisibilidad;
     public Quaternion anguloDisparo;
 
     public float radioExplosion;
@@ -63,20 +67,23 @@ public class Torreta : MonoBehaviour
     void Start()
     {
         // Asigna los valores de SO TorretaBasica
-        nombre = torretaBasica.nombre;
-        vidaMaxima = torretaBasica.vidaMaxima;
+        nombre = torretaBasica.name;
         energia = torretaBasica.energia;
         energiaAlt = torretaBasica.energiaAlt;
-        ataque = torretaBasica.ataque;
-        anguloDisparo = torretaBasica.anguloDisparo;
-        velocidadRotacion = torretaBasica.velocidadRotacion;
-        cadenciaDisparo = torretaBasica.cadenciaDisparo;
-        escudoActual = torretaBasica.escudoActual;
+        vidaActual = torretaBasica.vidaMaxima;
+        vidaMaxima = torretaBasica.vidaMaxima;
         escudoMaximo = torretaBasica.escudoMaximo;
+        escudoActual = torretaBasica.escudoActual;
         escudoRegen = torretaBasica.escudoRegen;
+        ataque = torretaBasica.ataque;
+        cadenciaDisparo = torretaBasica.cadenciaDisparo;
+        velocidadRotacion = torretaBasica.velocidadRotacion;
+        distanciaDisparo = torretaBasica.distanciaDisparo;
+        antiaerea = torretaBasica.antiaerea;
+        invisibilidad = torretaBasica.invisibilidad;
+        anguloDisparo = torretaBasica.anguloDisparo;
         radioExplosion = torretaBasica.radioExplosion;
         danyoExplosion = torretaBasica.danyoExplosion;
-        distanciaDisparo = torretaBasica.distanciaDisparo;
 
         // Busca el jugador
         personaje = FindObjectOfType<Personaje>();
@@ -88,9 +95,6 @@ public class Torreta : MonoBehaviour
         sistemaMejoras = FindObjectOfType<SistemaMejoras>();
         // LLama al sistema de mejoras
         sistemaMejoras.MejorasTorreta(this);
-
-        // Ajusta la vida actual a la maxima
-        vidaActual = vidaMaxima;
 
         // Reduce la energia del jugador
         if (personaje.Energia - energia < 0)
@@ -178,25 +182,17 @@ public class Torreta : MonoBehaviour
         {
             for (int i = 0; i < enemigosEnRango.Length; i++)
             {
-                // Si el enemigo es visible
-                if (!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad){
-                    // Si aun no ha encontrado ningun enemigo
-                    if (masCercano == null)
+                // Comprobamos si el enemigo vuela
+                if (enemigosEnRango[i].GetComponent<Enemigo>().vuela)
+                {
+                    // Si vuela y soy una torreta antiaerea
+                    if (antiaerea)
                     {
-                        // Comprueba que tenga vision del enemigo
-                        if (ComprobarVision(enemigosEnRango[i]))
+                        // Si el enemigo es visible
+                        if (!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad)
                         {
-                            masCercano = enemigosEnRango[i];
-                        }
-                    }
-                    // Si ya tiene un enemigo asignado
-                    else if (masCercano != null)
-                    {
-                        // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
-                        if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
-                        {
-                            //Comprobamos que no este marcado
-                            if (masCercano.GetComponent<Enemigo>().marcado == false)
+                            // Si aun no ha encontrado ningun enemigo
+                            if (masCercano == null)
                             {
                                 // Comprueba que tenga vision del enemigo
                                 if (ComprobarVision(enemigosEnRango[i]))
@@ -204,7 +200,59 @@ public class Torreta : MonoBehaviour
                                     masCercano = enemigosEnRango[i];
                                 }
                             }
+                            // Si ya tiene un enemigo asignado
+                            else if (masCercano != null)
+                            {
+                                // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
+                                if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
+                                {
+                                    //Comprobamos que no este marcado
+                                    if (masCercano.GetComponent<Enemigo>().marcado == false)
+                                    {
+                                        // Comprueba que tenga vision del enemigo
+                                        if (ComprobarVision(enemigosEnRango[i]))
+                                        {
+                                            masCercano = enemigosEnRango[i];
+                                        }
+                                    }
 
+                                }
+                            }
+                        }
+                    }
+                }
+                // Si el enemigo no vuela
+                else
+                {
+                    // Si el enemigo es visible
+                    if (!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad && !enemigosEnRango[i].GetComponent<Enemigo>().subterraneo)
+                    {
+                        // Si aun no ha encontrado ningun enemigo
+                        if (masCercano == null)
+                        {
+                            // Comprueba que tenga vision del enemigo
+                            if (ComprobarVision(enemigosEnRango[i]))
+                            {
+                                masCercano = enemigosEnRango[i];
+                            }
+                        }
+                        // Si ya tiene un enemigo asignado
+                        else if (masCercano != null)
+                        {
+                            // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
+                            if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
+                            {
+                                //Comprobamos que no este marcado
+                                if (masCercano.GetComponent<Enemigo>().marcado == false)
+                                {
+                                    // Comprueba que tenga vision del enemigo
+                                    if (ComprobarVision(enemigosEnRango[i]))
+                                    {
+                                        masCercano = enemigosEnRango[i];
+                                    }
+                                }
+
+                            }
                         }
                     }
                 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7375161621856030606}
   - component: {fileID: 5221700991284517953}
   - component: {fileID: 2812139707674805489}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Ca\xF1on.001"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,10 +110,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550871163448655305}
-  m_LocalRotation: {x: 0, y: 0.511669, z: 0, w: -0.85918266}
-  m_LocalPosition: {x: -45.17882, y: 0.4950136, z: 16.717855}
-  m_LocalRotation: {x: 0, y: 0.18523799, z: 0, w: -0.98269373}
-  m_LocalPosition: {x: -60.08061, y: 2.4307678, z: 8.114703}
+  m_LocalRotation: {x: 0, y: 0.11667076, z: 0, w: -0.9931707}
+  m_LocalPosition: {x: -71.00517, y: 2.1690164, z: -5.495982}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6392596038898667606}
@@ -176,6 +174,7 @@ MonoBehaviour:
   velocidadRotacion: 0
   distanciaDisparo: 0
   antiaerea: 0
+  invisibilidad: 0
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   radioExplosion: 0
   danyoExplosion: 0
@@ -193,7 +192,7 @@ GameObject:
   - component: {fileID: 7234252431818497579}
   - component: {fileID: 898100045113845821}
   - component: {fileID: 4045734944394193211}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8021512664349204342}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +305,7 @@ GameObject:
   - component: {fileID: 1556460420266067595}
   - component: {fileID: 5671763920483841709}
   - component: {fileID: 1658874091329937884}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Esfera geod\xE9sica.001"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7532045515835935692}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Ca\xF1onInmortal"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +420,7 @@ GameObject:
   - component: {fileID: 4960385781094969853}
   - component: {fileID: 7080783704964486087}
   - component: {fileID: 7116479311034441288}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Escudo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6392596038898667606}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Inmortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +563,7 @@ GameObject:
   - component: {fileID: 498283275093680935}
   - component: {fileID: 6596622883215644830}
   - component: {fileID: 250334820912211554}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Marcador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +644,7 @@ GameObject:
   - component: {fileID: 4489082898059949035}
   - component: {fileID: 5598281804410094060}
   - component: {fileID: 8585888102323193595}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rosca.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,16 +5,16 @@
 // DESCRIPTION: Aqui se reunen las capacidades especiales del enemigo ouroboros y sus estadisticas
 //
 // AUTHOR: Jorge Grau
-// FEATURES ADDED: 
+// FEATURES ADDED: Busqueda de objetivos y ajuste de velocidad.
 // ---------------------------------------------------
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Ouroboros : MonoBehaviour
 {
-
     public EnemigoBasico enemigoBasico;
 
     private Enemigo enemigo;
@@ -23,8 +23,10 @@ public class Ouroboros : MonoBehaviour
 
     public GameObject explosion;
 
+    public float velocidadDeRotacion;
+
     [Header("Partes")]
-    private GameObject enemigoApuntando;
+    private GameObject objetivoADisparar;
     public Transform parteQueRota;
     public GameObject balaObjeto;
     public GameObject spawnerBalas;
@@ -34,94 +36,133 @@ public class Ouroboros : MonoBehaviour
     {
         enemigo = gameObject.GetComponent<Enemigo>();
         timerDisparo = 0;
+        velocidadDeRotacion = enemigoBasico.velocidadDeRotacion;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        // Targetea a un enemigo, es invisible
-        // Puede disparar a un enemigo se vuelve visible
-
-        //busca al enemigo mas cercano
-        enemigoApuntando = BuscarEnemigo();
-        //tiempo para la velocidad de ataque
-        timerDisparo += Time.deltaTime;
-
-        //si apunta a alguien
-        if (enemigoApuntando != null)
-        {
-            //rota la torreta en direccion al enemigo apuntado
-            Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
-            Quaternion VisionRotacion = Quaternion.LookRotation(dir);
-            //rotacion suave
-            // rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadRotacion).eulerAngles;
-            //parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
-
-            //si ha pasado el tiempo de recarga
-            if (timerDisparo >= enemigoBasico.velocidadDisparo)
-            {
-                timerDisparo = 0;
-                //disparar
-                comprobarInvisibilidad(enemigoApuntando);
-                Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
-
-                ataqueObjeto.fuerza = enemigoBasico.ataque;
-                ataqueObjeto.tipo = Ataque.Tipo.laser;
-                ataqueObjeto.origen = gameObject;
-
-                Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
-
-                bala.ataque = ataqueObjeto;
-            }
-        }
-    }
-    //Funcion de busqueda de enemigo
-    GameObject BuscarEnemigo()
     {
         if (enemigo.vidaActual <= 0)
         {
             Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        // Recogemos todos los enemigos de la zona
-        GameObject[] enemigosEnRango = GameObject.FindGameObjectsWithTag("Torreta");
+
+        //busca al objetivo mas cercano
+        objetivoADisparar = BuscarObjetivo();
+        //tiempo para la velocidad de ataque
+        timerDisparo += Time.deltaTime;
+        //si apunta a alguien
+        if (objetivoADisparar != null)
+        {
+            // rotar en direccion al objetivo apuntado
+            Vector3 dir = parteQueRota.position - objetivoADisparar.transform.position;
+            Quaternion VisionRotacion = Quaternion.LookRotation(dir);
+            //rotacion suave
+            Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadDeRotacion).eulerAngles;
+            parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
+
+            //si ha pasado el tiempo de recarga
+            if (timerDisparo >= enemigoBasico.velocidadDisparo)
+                {
+                    timerDisparo = 0;
+                    //disparar
+                    Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+
+                    ataqueObjeto.fuerza = enemigoBasico.ataque;
+                    ataqueObjeto.tipo = Ataque.Tipo.laser;
+                    ataqueObjeto.origen = gameObject;
+
+                    Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
+
+                    bala.ataque = ataqueObjeto;
+                }
+
+        }
+    }
+    //Funcion de busqueda de objetivo
+    GameObject BuscarObjetivo()
+    {
+        // Recogemos todos los objetivos de la zona
+        GameObject[] torretas = GameObject.FindGameObjectsWithTag("Torreta");
+        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] bases = GameObject.FindGameObjectsWithTag("Base");
+        List<GameObject> objetivosEnRango = new List<GameObject>();
+
+        objetivosEnRango.AddRange(torretas);
+        objetivosEnRango.AddRange(player);
+        objetivosEnRango.AddRange(bases);
 
         GameObject masCercano = null;
 
-        // Encontramos el enemigo mas cercano
-        if (enemigosEnRango.Length >= 1)
+        // Encontramos el objetivo mas cercano
+        if (objetivosEnRango.Count >= 1)
         {
-            for (int i = 0; i < enemigosEnRango.Length; i++)
+            for (int i = 0; i < objetivosEnRango.Count; i++)
             {
-                // Si aun no ha encontrado ningun enemigo
-                if (masCercano == null)
+
+                // Si el enemigo es visible y es una torreta
+                if (objetivosEnRango[i].TryGetComponent(out Torreta torreta))
                 {
-                    // Comprueba que tenga vision del enemigo
-                    if (ComprobarVision(enemigosEnRango[i]))
+                    if (!torreta.invisibilidad)
                     {
-                        masCercano = enemigosEnRango[i];
+                        // Si aun no ha encontrado ningun objetivo
+                        if (masCercano == null)
+                        {
+                            // Comprueba que tenga vision del objetivo
+                            if (ComprobarVision(objetivosEnRango[i]))
+                            {
+                                masCercano = objetivosEnRango[i];
+                            }
+                        }
+                        // Si ya tiene un objetivo asignado
+                        else if (masCercano != null)
+                        {
+                            // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
+                            if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, objetivosEnRango[i].transform.position))
+                            {
+                                // Comprueba que tenga vision del objetivo
+                                if (ComprobarVision(objetivosEnRango[i]))
+                                {
+                                    masCercano = objetivosEnRango[i];
+                                }
+
+                            }
+                        }
                     }
                 }
-                // Si ya tiene un enemigo asignado
-                else if (masCercano != null)
+                else
                 {
-                    // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
-                    if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
+                    // Si aun no ha encontrado ningun objetivo
+                    if (masCercano == null)
                     {
-                            // Comprueba que tenga vision del enemigo
-                            if (ComprobarVision(enemigosEnRango[i]))
+                        // Comprueba que tenga vision del objetivo
+                        if (ComprobarVision(objetivosEnRango[i]))
+                        {
+                            masCercano = objetivosEnRango[i];
+                        }
+                    }
+                    // Si ya tiene un objetivo asignado
+                    else if (masCercano != null)
+                    {
+                        // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
+                        if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, objetivosEnRango[i].transform.position))
+                        {
+                            // Comprueba que tenga vision del objetivo
+                            if (ComprobarVision(objetivosEnRango[i]))
                             {
-                                masCercano = enemigosEnRango[i];
+                                masCercano = objetivosEnRango[i];
                             }
 
+                        }
                     }
                 }
             }
         }
-        // Comprueba que existe un enemigo visible
+        // Comprueba que existe un objetivo visible
         if (masCercano != null)
         {
-            // Ahora que tenemos la torreta mas cercana devolvemos el GameObject si esta dentro del rango de disparo
+            // Ahora que tenemos el objetivo mas cercano devolvemos el GameObject si esta dentro del rango de disparo
             if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) < enemigoBasico.rangoDisparo)
             {
                 return masCercano;
@@ -133,9 +174,9 @@ public class Ouroboros : MonoBehaviour
 
     bool ComprobarVision(GameObject objetivo)
     {
-        // Comprobamos que no tenga terreno entre la torreta y el enemigo
+        // Comprobamos que no hayan obstaculos desde nuestra posición a la del objetivo
         RaycastHit hit;
-        // no existe un collider entre el enemigo y la torreta
+        // no existe un collider entre nosotros y el objetivo
         Physics.Raycast(parteQueRota.position, Vector3.Normalize(objetivo.transform.position - parteQueRota.position), out hit, Vector3.Distance(parteQueRota.position, objetivo.transform.position), LayerMask.GetMask("Terreno"));
 
         if (hit.collider == null)
@@ -143,13 +184,5 @@ public class Ouroboros : MonoBehaviour
             return true;
         }
         return false;
-    }
-    void comprobarInvisibilidad(GameObject enemigoApuntando)
-    {
-        if (Vector3.Distance(parteQueRota.position, enemigoApuntando.transform.position) <= enemigoBasico.rangoDisparo){
-            enemigo.invisibilidad = false;
-        }
-        else { enemigo.invisibilidad = true; }
-
     }
 }

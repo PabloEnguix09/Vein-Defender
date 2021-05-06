@@ -12,7 +12,7 @@ public class Enemigo : MonoBehaviour
     // DESCRIPTION: Este escript reune todas las capacidades basicas de un enemigo. Movimiento y estadisticas.
     //
     // AUTHOR: Jorge Grau
-    // FEATURES ADDED: Los Enemigo tienen unas estadisticas que eredan de su tipo y siguen una ruta establecida por su spawner, si algo aparece en su radio de vision van a por el. Tambien el recibir da�o por disparos.
+    // FEATURES ADDED: Los Enemigo tienen unas estadisticas que eredan de su tipo y siguen una ruta establecida por su spawner, si algo aparece en su radio de vision van a por el. Tambien el recibir da�o por disparos. Cuando los enemigos disparan a un objetivo se quedan quietos, ademas los que son invisibles pierden la invisibilidad(que es recuperada la moverse de nuevo).
     // ---------------------------------------------------
 
     private Base base1;
@@ -27,20 +27,24 @@ public class Enemigo : MonoBehaviour
     public float vidaActual;
 
     public EnemigoBasico enemigo;
-
     public bool marcado = false;
     public bool invisibilidad;
+    public bool subterraneo;
+    public bool vuela;
 
     void Start()
     {
 
         agente = GetComponent<NavMeshAgent>();
+        agente.speed = enemigo.velocidad;
 
         // Pone la vida al maximo
         vidaActual = enemigo.vidaMaxima;
-        agente.speed = enemigo.velocidad;
 
-        invisibilidad = enemigo.puedeSerInvisible;
+        invisibilidad = enemigo.invisibilidad;
+        subterraneo = enemigo.subterraneo;
+        vuela = enemigo.vuela;
+
 
         // El enemigo busca a que base dirigirse, si todas estan destruidas va donde a aparecido
         if (base1.Salud > 0)
@@ -71,6 +75,24 @@ public class Enemigo : MonoBehaviour
         objetivo = BuscarObjetivo();
 
         agente.destination = objetivo.position;
+        // Si el objetivo esta en nuestro rango de disparo, nos quedamos quietos y perdemos la invisibilidad
+        if (Vector3.Distance(this.transform.position, objetivo.position) <= enemigo.rangoDisparo)
+        {
+            if (enemigo.subterraneo)
+            {
+                subterraneo = false;
+            }
+            agente.speed = 0f;
+        }
+        // Si el objetivo no esta en el rango de disparo mantenemos la velocidad y la invisibilidad
+        else
+        {
+            agente.speed = enemigo.velocidad;
+            if (enemigo.subterraneo)
+            {
+                subterraneo = true;
+            }
+        }
 
     }
 
@@ -84,6 +106,7 @@ public class Enemigo : MonoBehaviour
 
     Transform BuscarObjetivo()
     {
+        /*
         // Se crea una esfera buscando todos los colliders en el rango de vision, si encuentra una torreta o a un enemigo se dirige hacia el.
         Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, enemigo.rango);
 
@@ -100,7 +123,46 @@ public class Enemigo : MonoBehaviour
                 return objetivo = colliders[i].transform;
             }
 
+        }
+        */
 
+        // Recogemos todos los objetivos de la zona
+        GameObject[] torretas = GameObject.FindGameObjectsWithTag("Torreta");
+        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+        List<GameObject> objetivosEnRango = new List<GameObject>();
+
+        for (int i = 0; i < torretas.Length; i++)
+        {
+            objetivosEnRango.Add(torretas[i]);
+        }
+
+        for (int i = 0; i < player.Length; i++)
+        {
+            objetivosEnRango.Add(player[i]);
+        }
+
+        for(int i = 0; i < objetivosEnRango.Count; i++)
+        {
+            // Si el enemigo es visible, es una torreta y esta en rango
+            if (objetivosEnRango[i].TryGetComponent(out Torreta torreta))
+            {
+                if (!torreta.invisibilidad)
+                {
+                    if (Vector3.Distance(this.transform.position, objetivosEnRango[i].transform.position) <= enemigo.rango)
+                    {
+                        return objetivo = objetivosEnRango[i].transform;
+                    }
+                }
+
+            }
+            // Si es el jugador y esta en rango
+            else
+            {
+                if (Vector3.Distance(this.transform.position, objetivosEnRango[i].transform.position) <= enemigo.rango)
+                {
+                    return objetivo = objetivosEnRango[i].transform;
+                }
+            }
         }
 
         if (base1.Salud > 0)

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1606149042367150783}
   - component: {fileID: 3590740093747795541}
   - component: {fileID: 7222190509296242320}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 6738370790001355291}
   - component: {fileID: 6541719567266275479}
   - component: {fileID: 8336458350948943309}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "ca\xF1on"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,9 +193,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4525621470438212222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mohawk
-  m_TagString: Untagged
+  m_TagString: Torreta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 2816515020876501618}
   - component: {fileID: 1355345758996434730}
   - component: {fileID: 1556620252258034945}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: antena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 6272674657256979614}
   - component: {fileID: 3682288651176973309}
   - component: {fileID: 3697346312644340168}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 6816727176325138480}
   - component: {fileID: 2023048127940632256}
   - component: {fileID: 6082661931490159481}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Marcador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 2569830847283553877}
   - component: {fileID: 6626376437100620375}
   - component: {fileID: 7060146223459427692}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Esfera geod\xE9sica"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

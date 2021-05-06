@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
-  m_Name: Inmortal
+  m_Name: Fantasma
   m_EditorClassIdentifier: 
-  nombre: Inmortal
+  nombre: Fantasma
   energia: 3
-  energiaAlt: 0
+  energiaAlt: 6
   vidaMaxima: 10
-  escudoMaximo: 10
-  escudoRegen: 0.5
-  ataque: 5
-  cadenciaDisparo: 1.5
+  escudoMaximo: 0
+  escudoRegen: 0
+  ataque: 10
+  cadenciaDisparo: 1
   escudoActual: 0
-  tipoDisparo: 1
-  anguloDisparo: {x: 0, y: 90, z: 0, w: 0}
-  velocidadRotacion: 2
-  distanciaDisparo: 20
-  antiaerea: 0
-  radioExplosion: 1
-  danyoExplosion: 5
+  tipoDisparo: 0
+  anguloDisparo: {x: 0, y: 360, z: 0, w: 0}
+  velocidadRotacion: 20
+  distanciaDisparo: 200
+  antiaerea: 1
+  invisibilidad: 1
+  radioExplosion: 0
+  danyoExplosion: 0

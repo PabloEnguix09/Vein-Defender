@@ -21,10 +21,12 @@ public class EnemigoBasico : ScriptableObject
     public float velocidadDisparo;
     public float vidaMaxima;
     public float velocidad;
+    public float velocidadDeRotacion;
     public float rango;
     public float rangoDisparo;
-    public bool puedeSerInvisible;
-
+    public bool invisibilidad;
+    public bool subterraneo;
+    public bool vuela;
 
     public enum tipo
     {

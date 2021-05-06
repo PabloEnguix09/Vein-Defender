@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6062330965169037823}
   - component: {fileID: 3205991378048495101}
   - component: {fileID: 1617579497617384134}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Esfera geod\xE9sica"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,9 +94,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1433819003860744398}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hoplita
-  m_TagString: Untagged
+  m_TagString: Torreta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 9178065694170377442}
   - component: {fileID: 6212853294371029210}
   - component: {fileID: 8291465169147924312}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Marcador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 2153260871282864652}
   - component: {fileID: 5414242270681786060}
   - component: {fileID: 583691218968304339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cilindro.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 2554057536141077651}
   - component: {fileID: 5804206929904950932}
   - component: {fileID: 7645576620761667971}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rosca.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 6020081166125443541}
   - component: {fileID: 736402185917316772}
   - component: {fileID: 940580005358564931}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Esfera geod\xE9sica.001"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

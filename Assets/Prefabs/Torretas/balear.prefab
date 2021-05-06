@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 748025022318447802}
   - component: {fileID: 8339258035833809513}
   - component: {fileID: 694825340346193601}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rosca.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7437620477076601964}
   - component: {fileID: 1603949779366834788}
   - component: {fileID: 54052746899233646}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "ca\xF1on"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 5082152138759156682}
   - component: {fileID: 6760685347947285369}
   - component: {fileID: 1580025192948807438}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cilindro.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,9 +278,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8543036720135781218}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: balear
-  m_TagString: Untagged
+  m_TagString: Torreta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 1153230064337438404}
   - component: {fileID: 898927618335847933}
   - component: {fileID: 7020802177065126126}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Marcador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 8394724480567050761}
   - component: {fileID: 4160753175296265570}
   - component: {fileID: 1023780657135718577}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cilindro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 1666743814026666492}
   - component: {fileID: 4747881808058119484}
   - component: {fileID: 205245713925097763}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cilindro.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 3004261855589482339}
   - component: {fileID: 6506631099746864484}
   - component: {fileID: 6978915432584727155}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rosca.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

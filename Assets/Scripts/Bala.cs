@@ -78,9 +78,10 @@ public class Bala : MonoBehaviour
             if (!ataque.origen.CompareTag("Enemigo"))
             {
                 Enemigo enemigo = collision.gameObject.GetComponent<Enemigo>();
-
-                enemigo.RecibirAtaque(ataque);
-
+                if (!enemigo.subterraneo)
+                {
+                    enemigo.RecibirAtaque(ataque);
+                }
                 ExplosionAtaque(ataque);
             }
         } 

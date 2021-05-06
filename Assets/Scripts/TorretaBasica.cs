@@ -35,6 +35,7 @@ public class TorretaBasica : ScriptableObject
     public float velocidadRotacion;
     public float distanciaDisparo;
     public bool antiaerea;
+    public bool invisibilidad;
     public float radioExplosion;
     public float danyoExplosion;
 }
