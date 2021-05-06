@@ -9,7 +9,8 @@ public class Ataque : ScriptableObject
     public Tipo tipo;
     public enum Tipo
     {
-        laser, balas
+        laser = 1,
+        balas = 2
     }
     public float radioExplosion;
     public float fuerzaExplosion;

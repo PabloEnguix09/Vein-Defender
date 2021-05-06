@@ -28,7 +28,8 @@ public class TorretaBasica : ScriptableObject
     public TipoDisparo tipoDisparo;
     public enum TipoDisparo
     {
-        laser, balas
+        laser = 1,
+        balas = 2
     }
     public Quaternion anguloDisparo;
     public float velocidadRotacion;
