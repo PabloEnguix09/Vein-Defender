@@ -16,21 +16,29 @@ public class SistemaMejoras : MonoBehaviour
 {
     // Scripts accesibles
     Personaje personaje;
-    
+
+    public List<int> indice = new List<int>();
+
     [Header("Personaje")]
     // Mejoras de personaje
     public bool mejorap01;
     public bool mejorap02;
-    public bool mejoraMinimapa;   
+    public bool mejoraMinimapa;
+
+    [Header("Desbloquear Torreta")]
+    // Mejoras de torreta
+    public bool inmortal;
+    public bool fantasma;
 
     [Header("Torreta")]
     // Mejoras de torreta
     public bool mejorat01;
 
     [Header("Utilidades")]
-    // Mejoras de torreta
-    public bool mejorau01;
+    // Mejoras de utilidades
+    public bool mejoraCamara;
 
+  
     public void MejorasPersonaje(Personaje personaje)
     {
 
@@ -50,9 +58,7 @@ public class SistemaMejoras : MonoBehaviour
         // Pone un minimapa
         if(mejoraMinimapa)
         {
-
             personaje.minimapa.SetActive(true);
-
         }
 
         personaje.Setup();
@@ -61,12 +67,33 @@ public class SistemaMejoras : MonoBehaviour
     public void MejorasTorreta(Torreta torreta)
     {
         // Reduce el coste de todas las Torreta -1 si son mayor de 1
-        if(mejorat01)
+        if (mejorat01)
         {
-            if(torreta.energia > 1)
+            if (torreta.energia > 1)
             {
                 torreta.energia -= 1;
             }
+        }
+    }
+
+    public void DesbloquearTorreta(Torreta torreta)
+    {
+        // Añade al indice la id de la torreta inmortal
+        if(inmortal)
+        {
+            indice.Add(1);
+        }
+        if (fantasma)
+        {
+            indice.Add(2);
+        }
+    }
+
+    public void MejorasUtilidades()
+    {
+        if (mejoraCamara)
+        {
+            indice.Add(0);
         }
     }
 }

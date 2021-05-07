@@ -3042,8 +3042,10 @@ MonoBehaviour:
   mejorap01: 0
   mejorap02: 0
   mejoraMinimapa: 1
+  inmortal: 0
+  fantasma: 0
   mejorat01: 0
-  mejorau01: 0
+  mejoraCamara: 0
 --- !u!1 &1603763728
 GameObject:
   m_ObjectHideFlags: 0
