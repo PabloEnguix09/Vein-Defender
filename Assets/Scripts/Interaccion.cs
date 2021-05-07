@@ -1,3 +1,12 @@
+// ---------------------------------------------------
+// NAME: Interaccion.cs
+// STATUS: WIP
+// GAMEOBJECT: 
+// DESCRIPTION: Este escript se implementa la posibilidad de interactuar con diversos elementos
+//
+// AUTHOR: Juan Ferrera Sala
+// FEATURES ADDED: Activar el HUD y layer interactuables.
+// ---------------------------------------------------
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

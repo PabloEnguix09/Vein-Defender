@@ -33,11 +33,11 @@ public class Personaje : MonoBehaviour
     controlPartida controlPartida;
     public GameObject camaraMejora;
 
-    public float saludMaxima = 10;
-
-    public bool camaraSecundariaActivada = false;
-
-    [SerializeField]
+    public float saludMaxima = 10;
+
+    public bool camaraSecundariaActivada = false;
+
+    [SerializeField]
     float salud = 10;
 
     public GameObject dardoLocalizador;
@@ -57,11 +57,23 @@ public class Personaje : MonoBehaviour
             value = Mathf.Clamp(value, 0, saludMaxima);
             salud = value;
             
-            barraVida.controlVida(salud);
-            // establece el maximo de vida en la barra
+            barraVida.controlVida(salud);
+            // establece el maximo de vida en la barra
             barraVida.maximaVida(saludMaxima);
+
             if (salud <= 0)
-            {
+            {
+                // Vuelve la camara al jugador si esta la secundaria activada
+                if (camaraMejora != null)
+                {
+                    if (camaraMejora.GetComponentInChildren<Camera>().enabled)
+                    {
+                        camaraMejora.GetComponentInChildren<Camera>().enabled = false;
+                        camara.camara.GetComponent<Camera>().enabled = true;
+                        camaraSecundariaActivada = false;
+                    }
+                }
+
                 controlPartida.GameOver();
             }
         }
@@ -77,9 +89,9 @@ public class Personaje : MonoBehaviour
         get { return energia; }
 
         set 
-        {
-            value = Mathf.Clamp(value, 0, energiaMaxima);
-            // establece el maximo de energia en la barra
+        {
+            value = Mathf.Clamp(value, 0, energiaMaxima);
+            // establece el maximo de energia en la barra
             barraEnergia.maximaEnergia(energiaMaxima);
             energia = value;
         }
@@ -96,7 +108,7 @@ public class Personaje : MonoBehaviour
     {
         get { return escudo; }
 
-        set
+        set
         {
             value = Mathf.Clamp(value, 0, escudoMaximo);
             escudo = value;
@@ -119,39 +131,39 @@ public class Personaje : MonoBehaviour
     }
 
     // Reasigna los valores del personaje
-    public void Setup()
-    {
-        // reinicia la energia y la vida actuales
+    public void Setup()
+    {
+        // reinicia la energia y la vida actuales
         Salud = saludMaxima;
-        Energia = energiaMaxima;
-        Escudo = escudoMaximo;
+        Energia = energiaMaxima;
+        Escudo = escudoMaximo;
     }
 
-    private void Update()
-    {
-        // Regenerar el escudo
-        if(Escudo < escudoMaximo)
-        {
-            Escudo = Escudo + escudoPorSegundo * Time.deltaTime;
-        }
-
-        //Disparo de dardo localizador
-        if (Input.GetButtonDown("Fire1"))
-        {
-            GameObject dardoLocalizadorObjeto = Instantiate(dardoLocalizador);
-
-            dardoLocalizadorObjeto.transform.position = camaraJugador.transform.position + camaraJugador.transform.forward;
-
-            dardoLocalizadorObjeto.transform.forward = camaraJugador.transform.forward;
-
-        }
-
-        if (Input.GetButtonDown("Fire2")){
-
-            Interactuar();
-
-        }
-
+    private void Update()
+    {
+        // Regenerar el escudo
+        if(Escudo < escudoMaximo)
+        {
+            Escudo += escudoPorSegundo * Time.deltaTime;
+        }
+
+        //Disparo de dardo localizador
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject dardoLocalizadorObjeto = Instantiate(dardoLocalizador);
+
+            dardoLocalizadorObjeto.transform.position = camaraJugador.transform.position + camaraJugador.transform.forward;
+
+            dardoLocalizadorObjeto.transform.forward = camaraJugador.transform.forward;
+
+        }
+
+        if (Input.GetButtonDown("Fire2")){
+
+            Interactuar();
+
+        }
+
     }
 
     public void Mover(float adelante, float derecha)
@@ -189,52 +201,60 @@ public class Personaje : MonoBehaviour
         movimientoPersonaje.Saltar();
     }
 
-    public void RecibirAtaque(Ataque ataque)
-    {
-        if (Escudo > 0)
-        {
-            // Restamos la fuerza al escudo y el escudo a la fuerza
-            float auxFuerza = ataque.fuerza;
-            ataque.fuerza -= Escudo;
-            Escudo -= auxFuerza;
-        }
-        // Despues restamos la fuerza que quede a la salud
-        if (ataque.fuerza > 0)
-        {
-            Salud -= ataque.fuerza;
-        }
+    public void RecibirAtaque(Ataque ataque)
+    {
+        if (Escudo > 0)
+        {
+            // Restamos la fuerza al escudo y el escudo a la fuerza
+            float auxFuerza = ataque.fuerza;
+            ataque.fuerza -= Escudo;
+            Escudo -= auxFuerza;
+        }
+        // Despues restamos la fuerza que quede a la salud
+        if (ataque.fuerza > 0)
+        {
+            Salud -= ataque.fuerza;
+        }
     }
 
     // Cambia a la camara secundaria o la primaria
-    public void CambiarCamara()
-    {
-        if(camaraMejora != null)
-        {
-            if(camaraMejora.GetComponentInChildren<Camera>().enabled)
-            {
-                camaraMejora.GetComponentInChildren<Camera>().enabled = false;
-                camara.camara.GetComponent<Camera>().enabled = true;
-                camaraSecundariaActivada = false;
-            } else
-            {
-                camara.camara.GetComponent<Camera>().enabled = false;
-                camaraMejora.GetComponentInChildren<Camera>().enabled = true;
-                camaraSecundariaActivada = true;
-            }
-        }
+    public void CambiarCamara()
+    {
+        if(camaraMejora != null)
+        {
+            if(camaraMejora.GetComponentInChildren<Camera>().enabled)
+            {
+                camaraMejora.GetComponentInChildren<Camera>().enabled = false;
+                camara.camara.GetComponent<Camera>().enabled = true;
+                camaraSecundariaActivada = false;
+            } else
+            {
+                camara.camara.GetComponent<Camera>().enabled = false;
+                camaraMejora.GetComponentInChildren<Camera>().enabled = true;
+                camaraSecundariaActivada = true;
+            }
+        }
     }
 
-    public void Interactuar()
-    {
-        RaycastHit punto;
-        // Comprueba que este apuntando a un item en el Layer Torreta
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Interactuable")))
-        {
-            // Toma la item del RaycastHit
-            GameObject itemMarcado = punto.transform.gameObject;
-            // Abrimos canvas
-            itemMarcado.GetComponent<Interaccion>().Interactuar();
-        }
+    public void Interactuar()
+    {
+        RaycastHit punto;
+        // Comprueba que este apuntando a un item en el Layer Torreta
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Interactuable")))
+        {
+            // Toma la item del RaycastHit
+            GameObject itemMarcado = punto.transform.gameObject;
+            if (itemMarcado.TryGetComponent(out Fantasma torreta))
+            {
+                torreta.activarInvisibilidad(itemMarcado.GetComponent<Torreta>());
+            }
+            else
+            {
+                // Abrimos canvas
+                itemMarcado.GetComponent<Interaccion>().Interactuar();
+            }
+
+        }
     }
 
     // SOLO PARA LAS ESCENAS: Muestra el rayo de apuntado
