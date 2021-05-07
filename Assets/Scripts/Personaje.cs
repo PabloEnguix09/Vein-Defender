@@ -58,8 +58,20 @@ public class Personaje : MonoBehaviour
             barraVida.controlVida(salud);
             // establece el maximo de vida en la barra
             barraVida.maximaVida(saludMaxima);
+
             if (salud <= 0)
             {
+                // Vuelve la camara al jugador si esta la secundaria activada
+                if (camaraMejora != null)
+                {
+                    if (camaraMejora.GetComponentInChildren<Camera>().enabled)
+                    {
+                        camaraMejora.GetComponentInChildren<Camera>().enabled = false;
+                        camara.camara.GetComponent<Camera>().enabled = true;
+                        camaraSecundariaActivada = false;
+                    }
+                }
+
                 controlPartida.GameOver();
             }
         }
@@ -130,7 +142,7 @@ public class Personaje : MonoBehaviour
         // Regenerar el escudo
         if(Escudo < escudoMaximo)
         {
-            Escudo = Escudo + escudoPorSegundo * Time.deltaTime;
+            Escudo += escudoPorSegundo * Time.deltaTime;
         }
 
         //Disparo de dardo localizador
