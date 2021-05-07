@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 2189903771728022069}
   - component: {fileID: 17284705694387960}
   - component: {fileID: 8739878863374643262}
-  - component: {fileID: -5524388919886827921}
+  - component: {fileID: 9092519302909956658}
   m_Layer: 0
   m_Name: dron
   m_TagString: Enemigo
@@ -199,6 +199,8 @@ MonoBehaviour:
   enemigo: {fileID: 11400000, guid: a4b93a0647b52104fb708494839de417, type: 2}
   marcado: 0
   invisibilidad: 0
+  subterraneo: 0
+  vuela: 0
 --- !u!65 &4623521371561484417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -269,7 +271,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-5524388919886827921
+--- !u!114 &9092519302909956658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -278,19 +280,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3671158431268791085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61bba3e8aa0918e41ba8dc93d5f72e4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cabdb0cee9e7504687909436318a0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ataque: 2
-  vidaMaxima: 1
-  velocidad: 3
-  rango: 10
-  rangoDisparo: 50
-  spawnerBalas: {fileID: 1177128191745919905}
-  parteQueRota: {fileID: 3963209385025984642}
-  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
-  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
   enemigoBasico: {fileID: 11400000, guid: a4b93a0647b52104fb708494839de417, type: 2}
+  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
+  velocidadDeRotacion: 20
+  parteQueRota: {fileID: 3963209385025984642}
+  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
+  spawnerBalas: {fileID: 1177128191745919905}
 --- !u!1 &5597369856214270378
 GameObject:
   m_ObjectHideFlags: 0

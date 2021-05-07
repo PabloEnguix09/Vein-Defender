@@ -1,11 +1,14 @@
 // ---------------------------------------------------
-// NAME: Ouroboros.cs
+// NAME: EnemigoDisparo.cs
 // STATUS: WIP
 // GAMEOBJECT: Enemigo
-// DESCRIPTION: Aqui se reunen las capacidades especiales del enemigo ouroboros y sus estadisticas
+// DESCRIPTION: En este script se determinan los objetivos que busca un enemigo capaz de disparar
 //
+// AUTHOR: Pau
+// FEATURES ADDED: Primera versión del codigo(dronAtaque): Añadidas las estadisticas, la seleccion del objetivo a disparar y la funcion de disparar
+// 
 // AUTHOR: Jorge Grau
-// FEATURES ADDED: Busqueda de objetivos y ajuste de velocidad.
+// FEATURES ADDED: Todo el codigo actualizado para que funcione para todos los enemigos independientemente de su tipo, el codigo ahora usa las variables del SO de enemigo y busca objetivos de una forma más eficiente y limpia. Añadida la comprobación de objetiivo invisible.
 // ---------------------------------------------------
 
 using System.Collections;
@@ -13,7 +16,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Ouroboros : MonoBehaviour
+public class EnemigoDisparo : MonoBehaviour
 {
     public EnemigoBasico enemigoBasico;
 

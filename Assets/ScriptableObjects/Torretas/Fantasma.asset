@@ -22,10 +22,10 @@ MonoBehaviour:
   cadenciaDisparo: 1
   escudoActual: 0
   tipoDisparo: 0
-  anguloDisparo: {x: 0, y: 360, z: 0, w: 0}
+  anguloDisparo: {x: 0, y: 180, z: 0, w: 0}
   velocidadRotacion: 20
   distanciaDisparo: 200
   antiaerea: 1
-  invisibilidad: 1
+  invisibilidad: 0
   radioExplosion: 0
   danyoExplosion: 0
