@@ -2,9 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// ---------------------------------------------------
+// NAME: Fantasma.cs
+// STATUS: WIP
+// GAMEOBJECT: Enemigo
+// DESCRIPTION: Este script activa la invisibilidad de la torreta fantasma.
+//
+// AUTHOR: Jorge Grau
+// FEATURES ADDED: Activación de la invisibilidad y comprobación de la energia.
+// ---------------------------------------------------
+
 public class Fantasma : MonoBehaviour
 {
-    private TorretaBasica torreta;
     private Personaje personaje;
     private float energia;
 
@@ -15,21 +24,24 @@ public class Fantasma : MonoBehaviour
         personaje = player[0].GetComponent<Personaje>();
     }
 
-    private void activarInvisibilidad()
+    public void activarInvisibilidad(Torreta fantasma)
     {
-        energia = torreta.energiaAlt - torreta.energia;
-        if (torreta.invisibilidad)
+        energia = fantasma.energiaAlt - fantasma.energia;
+        if (fantasma.invisibilidad)
         {
             // Aumenta la energia del jugador y desactiva la invisibilidad
-            torreta.invisibilidad = false;
+            fantasma.invisibilidad = false;
+            fantasma.energiaEnUso = fantasma.energia;
             personaje.Energia += energia;
+
         }
         else
         {
             // Reduce la energia del jugadory y activa la invisibilidad
             if (!(personaje.Energia - energia < 0))
             {
-                torreta.invisibilidad = true;
+                fantasma.invisibilidad = true;
+                fantasma.energiaEnUso = fantasma.energiaAlt;
                 personaje.Energia -= energia;
             }
         }

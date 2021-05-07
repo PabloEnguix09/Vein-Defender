@@ -118,8 +118,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4904404024952468192}
-  m_LocalRotation: {x: 0, y: 0.040131908, z: 0, w: -0.9991944}
-  m_LocalPosition: {x: 93.295586, y: 5.5397816, z: -26.194422}
+  m_LocalRotation: {x: 0, y: 0.07889453, z: 0, w: 0.996883}
+  m_LocalPosition: {x: -66.53765, y: 2.2309036, z: 2.8972697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4904404024303004515}
@@ -195,6 +195,7 @@ MonoBehaviour:
   velocidadRotacion: 0
   distanciaDisparo: 0
   antiaerea: 0
+  invisibilidad: 0
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   radioExplosion: 0
   danyoExplosion: 0

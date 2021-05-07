@@ -42,7 +42,6 @@ public class DardoLocalizador : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -67,7 +66,5 @@ public class DardoLocalizador : MonoBehaviour
 
             Destroy(gameObject);
         }
-
     }
-
 }

@@ -18,7 +18,7 @@ public class TorretaBasica : ScriptableObject
 {
     public string nombre;
     public int energia;
-    public int energiaAlt; 
+    public int energiaAlt;
     public float vidaMaxima;
     public float escudoMaximo;
     public float escudoRegen;
