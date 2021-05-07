@@ -62,12 +62,6 @@ public class controlPartida : MonoBehaviour
             }
         }
 
-        //si T-Byte muere, se acaba la partida
-        if (personaje.Salud <= 0)
-        {
-            finDePartida = true;
-        }
-
         finDeRonda = false;
         todosSpawneados = false;
         Enemigo = (Enemigo[])GameObject.FindObjectsOfType(typeof(Enemigo));
