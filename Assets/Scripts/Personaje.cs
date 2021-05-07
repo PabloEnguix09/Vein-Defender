@@ -227,13 +227,13 @@ public class Personaje : MonoBehaviour
     public void Interactuar()
     {
         RaycastHit punto;
-        // Comprueba que este apuntando a una torreta en el Layer Torreta
+        // Comprueba que este apuntando a un item en el Layer Torreta
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Interactuable")))
         {
-            // Toma la torreta del RaycastHit
-            GameObject torretaMarcada = punto.transform.gameObject;
+            // Toma la item del RaycastHit
+            GameObject itemMarcado = punto.transform.gameObject;
             // Abrimos canvas
-            torretaMarcada.GetComponent<Interaccion>().Interactuar();
+            itemMarcado.GetComponent<Interaccion>().Interactuar();
         }
     }
 
