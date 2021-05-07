@@ -38,7 +38,8 @@ public class SistemaMejoras : MonoBehaviour
     // Mejoras de utilidades
     public bool mejoraCamara;
 
-  
+    public TorretasDisponibles torretasDisponibles;
+
     public void MejorasPersonaje(Personaje personaje)
     {
 
@@ -76,7 +77,7 @@ public class SistemaMejoras : MonoBehaviour
         }
     }
 
-    public void DesbloquearTorreta(Torreta torreta)
+    public void DesbloquearTorreta()
     {
         // Añade al indice la id de la torreta inmortal
         if(inmortal)
@@ -95,5 +96,13 @@ public class SistemaMejoras : MonoBehaviour
         {
             indice.Add(0);
         }
+    }
+
+    public void lladamaProvisonalTorretas()
+    {
+        Debug.Log("Hola 1" + indice[0].ToString());
+
+        torretasDisponibles.torretasElegidas(indice);
+        
     }
 }

@@ -21,8 +21,8 @@ using UnityEngine;
 
 public class InvocarTorreta : MonoBehaviour
 {
-    public GameObject[] Torreta;
-    public GameObject[] previews;
+    public List<GameObject> Torreta;
+    public List<GameObject> previews;
     public float alcance = 50.0f;
     public float alturaSpawn = 50.0f;
 
@@ -90,6 +90,13 @@ public class InvocarTorreta : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void recibirTorretasYPreviews(List<GameObject> torretasUso, List<GameObject> previewUso)
+    {
+        Torreta = torretasUso;
+
+        previews = previewUso;
     }
 
     private bool PosicionLegal()

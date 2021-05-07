@@ -110,8 +110,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550871163448655305}
-  m_LocalRotation: {x: 0, y: 0.17923152, z: 0, w: -0.98380697}
-  m_LocalPosition: {x: -89.94827, y: 2.3079886, z: 28.887484}
+  m_LocalRotation: {x: 0, y: 0.030101674, z: 0, w: -0.9995469}
+  m_LocalPosition: {x: 29.003965, y: 20.56779, z: 37.04517}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6392596038898667606}
@@ -164,6 +164,7 @@ MonoBehaviour:
   nombre: 
   energia: 0
   energiaAlt: 0
+  energiaEnUso: 0
   vidaActual: 0
   vidaMaxima: 0
   escudoMaximo: 0

@@ -128,6 +128,10 @@ public class Personaje : MonoBehaviour
 
         // Activa el sistema de mejoras y las aplica al personaje
         sistemaMejoras.MejorasPersonaje(this);
+        sistemaMejoras.DesbloquearTorreta();
+        sistemaMejoras.MejorasUtilidades();
+        sistemaMejoras.lladamaProvisonalTorretas();
+
     }
 
     // Reasigna los valores del personaje
@@ -140,9 +144,9 @@ public class Personaje : MonoBehaviour
     }
 
     private void Update()
-    {
+    {
         // Regenerar el escudo
-        if(Escudo < escudoMaximo)
+        if (Escudo < escudoMaximo)
         {
             Escudo += escudoPorSegundo * Time.deltaTime;
         }
