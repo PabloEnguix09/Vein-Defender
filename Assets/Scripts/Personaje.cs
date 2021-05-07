@@ -45,6 +45,8 @@ public class Personaje : MonoBehaviour
 
     public GameObject minimapa;
 
+    public float alcance;
+
     public float Salud
     {
         get { return salud; }
@@ -146,7 +148,7 @@ public class Personaje : MonoBehaviour
         }
 
         //Disparo de dardo localizador
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             GameObject dardoLocalizadorObjeto = Instantiate(dardoLocalizador);
 
@@ -155,6 +157,13 @@ public class Personaje : MonoBehaviour
             dardoLocalizadorObjeto.transform.forward = camaraJugador.transform.forward;
 
         }
+
+        if (Input.GetButtonDown("Fire2")){
+
+            Interactuar();
+
+        }
+
     }
 
     public void Mover(float adelante, float derecha)
@@ -224,6 +233,27 @@ public class Personaje : MonoBehaviour
                 camaraMejora.GetComponentInChildren<Camera>().enabled = true;
                 camaraSecundariaActivada = true;
             }
+        }
+    }
+
+    public void Interactuar()
+    {
+        RaycastHit punto;
+        // Comprueba que este apuntando a un item en el Layer Torreta
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Interactuable")))
+        {
+            // Toma la item del RaycastHit
+            GameObject itemMarcado = punto.transform.gameObject;
+            if (itemMarcado.TryGetComponent(out Fantasma torreta))
+            {
+                torreta.activarInvisibilidad(itemMarcado.GetComponent<Torreta>());
+            }
+            else
+            {
+                // Abrimos canvas
+                itemMarcado.GetComponent<Interaccion>().Interactuar();
+            }
+
         }
     }
 

@@ -20,7 +20,7 @@ public class Torreta : MonoBehaviour
     //FEATURES ADDED: regenreacion de escudo y rango de vision
     //
     // AUTHOR: Jorge Grau
-    //FEATURES ADDED: comprobación de que la torreta es antiaerea (puede atacar enemigos voladores), enemigo subterraneo y estado de invisibilidad(los enemigos invisibles no pueden ser atacados a menos que pierdan la ivisibilidad)
+    //FEATURES ADDED: comprobación de que la torreta es antiaerea (puede atacar enemigos voladores), enemigo subterraneo y estado de invisibilidad(los enemigos invisibles no pueden ser atacados a menos que pierdan la ivisibilidad), añadido tambien la variable energiaEnUso, que guarda el total de energia que consume una torreta en el momento que esta siendo usada, ej: la fantasma gasta 3 si esta invisible gasta 6.
     // ---------------------------------------------------
 
     public TorretaBasica torretaBasica;
@@ -29,6 +29,7 @@ public class Torreta : MonoBehaviour
     public string nombre;
     public int energia;
     public int energiaAlt;
+    public int energiaEnUso;
     public float vidaActual;
     public float vidaMaxima;
     public float escudoMaximo;
@@ -70,6 +71,7 @@ public class Torreta : MonoBehaviour
         nombre = torretaBasica.name;
         energia = torretaBasica.energia;
         energiaAlt = torretaBasica.energiaAlt;
+        energiaEnUso = torretaBasica.energia;
         vidaActual = torretaBasica.vidaMaxima;
         vidaMaxima = torretaBasica.vidaMaxima;
         escudoMaximo = torretaBasica.escudoMaximo;
@@ -97,13 +99,13 @@ public class Torreta : MonoBehaviour
         sistemaMejoras.MejorasTorreta(this);
 
         // Reduce la energia del jugador
-        if (personaje.Energia - energia < 0)
+        if (personaje.Energia - energiaEnUso < 0)
         {
             Destroy(gameObject);
         }
         else
         {
-            personaje.Energia -= energia;
+            personaje.Energia -= energiaEnUso;
         }
 
         //No apuntar a nadie
@@ -291,7 +293,7 @@ public class Torreta : MonoBehaviour
     public void DestruirTorreta()
     {
         // Destruye la torreta y devuelve la energia al jugador
-        personaje.Energia += energia;
+        personaje.Energia += energiaEnUso;
         Destroy(gameObject);
     }
 
