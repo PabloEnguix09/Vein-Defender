@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Tanque_apoyo
   m_EditorClassIdentifier: 
   ataque: 0
-  vidaMaxima: 0
-  velocidad: 0
-  rango: 0
+  vidaMaxima: 15
+  velocidad: 1.5
+  rango: 5
   rangoDisparo: 0
   velocidadDisparo: 0
