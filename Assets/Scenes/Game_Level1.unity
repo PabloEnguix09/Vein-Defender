@@ -1501,6 +1501,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 103211796}
     - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: Torreta.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: previews.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: Torreta.Array.data[2]
       value: 
       objectReference: {fileID: 6130392994418107086, guid: 6006fd67c0e211144954615e31d3a5bd, type: 3}
@@ -2545,6 +2553,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4821090250797695092, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
   m_PrefabInstance: {fileID: 549240590}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1231788365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+  m_PrefabInstance: {fileID: 549240590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231788363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99b23707c9a04644a0ca91d9a4fc708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1301662614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,6 +3009,7 @@ GameObject:
   - component: {fileID: 1594907899}
   - component: {fileID: 1594907898}
   - component: {fileID: 1594907900}
+  - component: {fileID: 1594907901}
   m_Layer: 0
   m_Name: ControlPartida
   m_TagString: Untagged
@@ -3039,11 +3059,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcca676d9652b844f84a2352c69145d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indice: 
   mejorap01: 0
   mejorap02: 0
-  mejoraMinimapa: 1
+  mejoraMinimapa: 0
+  inmortal: 1
+  fantasma: 0
   mejorat01: 0
-  mejorau01: 0
+  mejoraCamara: 0
+  torretasDisponibles: {fileID: 1594907901}
+--- !u!114 &1594907901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594907897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cab2138b262788499dfb2f9faaeafa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torretasTotales:
+  - {fileID: 4904404024952468192, guid: 7f9fa124546ddbf4db14ed5589ad5cdd, type: 3}
+  - {fileID: 3550871163448655305, guid: 171e963a627ee5f49b1e8601ce7c1684, type: 3}
+  - {fileID: 6130392994418107086, guid: 6006fd67c0e211144954615e31d3a5bd, type: 3}
+  previewsTotales:
+  - {fileID: 4904404024952468192, guid: 44f8f863ecb24b8468d9041fc7a1e88f, type: 3}
+  - {fileID: 8332529569172267353, guid: 5acf723585b763244988b5d1ee09c9e1, type: 3}
+  - {fileID: 8332529569172267353, guid: 5acf723585b763244988b5d1ee09c9e1, type: 3}
+  torretasDisponibles: []
+  previewsDisponibles: []
+  torretasUso: []
+  previewsUso: []
+  invocarTorreta: {fileID: 1231788365}
 --- !u!1 &1603763728
 GameObject:
   m_ObjectHideFlags: 0
