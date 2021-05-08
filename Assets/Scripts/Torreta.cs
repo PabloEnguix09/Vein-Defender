@@ -20,7 +20,10 @@ public class Torreta : MonoBehaviour
     //FEATURES ADDED: regenreacion de escudo y rango de vision
     //
     // AUTHOR: Jorge Grau
-    //FEATURES ADDED: comprobación de que la torreta es antiaerea (puede atacar enemigos voladores), enemigo subterraneo y estado de invisibilidad(los enemigos invisibles no pueden ser atacados a menos que pierdan la ivisibilidad), añadido tambien la variable energiaEnUso, que guarda el total de energia que consume una torreta en el momento que esta siendo usada, ej: la fantasma gasta 3 si esta invisible gasta 6.
+    //FEATURES ADDED: comprobación de que la torreta es antiaerea (puede atacar enemigos voladores), enemigo subterraneo y estado de invisibilidad(los enemigos invisibles no pueden ser atacados a menos que pierdan la ivisibilidad), añadido tambien la variable energiaEnUso, que guarda el total de energia que consume una torreta en el momento que esta siendo usada, ej: la fantasma gasta 3 si esta invisible gasta 6. 
+    //
+    //AUTHOR: Juan Ferrera Sala
+    //FEATURES ADDED:Si el enemigo es visible esta marcado le esta disparndo una Mohawk
     // ---------------------------------------------------
 
     public TorretaBasica torretaBasica;
@@ -197,8 +200,9 @@ public class Torreta : MonoBehaviour
                     // Si vuela y soy una torreta antiaerea
                     if (antiaerea)
                     {
-                        // Si el enemigo es visible
-                        if (!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad)
+
+                        // Si el enemigo es visible esta marcado le esta disparndo una Mohawk
+                        if (!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<Enemigo>().marcado)
                         {
                             // Si aun no ha encontrado ningun enemigo
                             if (masCercano == null)
@@ -233,9 +237,11 @@ public class Torreta : MonoBehaviour
                 // Si el enemigo no vuela
                 else
                 {
-                    // Si el enemigo es visible
-                    if (!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad && !enemigosEnRango[i].GetComponent<Enemigo>().subterraneo)
+                    // Si el enemigo no es subterraneo
+                    if (!enemigosEnRango[i].GetComponent<Enemigo>().subterraneo )
                     {
+                        //Si el enemigo es visible esta marcado le esta disparndo una Mohawk
+                        if(!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<Enemigo>().marcado)
                         // Si aun no ha encontrado ningun enemigo
                         if (masCercano == null)
                         {

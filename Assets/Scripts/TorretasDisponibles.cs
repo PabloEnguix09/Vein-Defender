@@ -2,6 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// ---------------------------------------------------
+// NAME: TorretaDisponibles.cs
+// STATUS: WIP
+// GAMEOBJECT: objeto
+// DESCRIPTION: descripcion
+//
+// AUTHOR: Juan Ferrera Sala
+// FEATURES ADDED: creamos el Script y pasamos a recibirTorretasYPreviews a invocar torretas.
+//
+// AUTHOR: Jorge Grau
+// FEATURES ADDED: 
+// ---------------------------------------------------
+
 public class TorretasDisponibles : MonoBehaviour
 {
 

@@ -54,6 +54,7 @@ public class DardoLocalizador : MonoBehaviour
             if (Enemigo[i].GetComponent<Enemigo>().marcado)
             {
                 Enemigo[i].GetComponent<Enemigo>().marcado = false;
+
             }
         }
 

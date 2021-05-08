@@ -6,6 +6,9 @@
 //
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: script creado
+//
+// AUTHOR: Juan Ferrera Sala
+// FEATURES ADDED: Se han introducido las mejoras de Camara,inmortal,fantasma,mejoraMinimapa
 // ---------------------------------------------------
 
 using System.Collections;
