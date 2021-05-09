@@ -56,7 +56,7 @@ public class Torreta : MonoBehaviour
     public Transform parteQueRota;
     public GameObject balaObjeto;
     public GameObject spawnerBalas;
-    AudioHandler audio;
+    AudioHandler audioHandler;
 
     Personaje personaje;
 
@@ -103,7 +103,7 @@ public class Torreta : MonoBehaviour
         sistemaMejoras.MejorasTorreta(this);
 
         // Busca el AudioHandler
-        audio = gameObject.GetComponent<AudioHandler>();
+        audioHandler = gameObject.GetComponent<AudioHandler>();
 
         // Reduce la energia del jugador
         if (personaje.Energia - energiaEnUso < 0)
@@ -150,7 +150,7 @@ public class Torreta : MonoBehaviour
                     //disparar
 
                     // sonido disparar
-                    audio.PlaySound(0, false);
+                    audioHandler.PlaySound(0, false);
 
                     Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
 

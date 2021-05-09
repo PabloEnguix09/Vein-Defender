@@ -9,6 +9,9 @@
 // 
 // AUTHOR: Jorge Grau
 // FEATURES ADDED: Todo el codigo actualizado para que funcione para todos los enemigos independientemente de su tipo, el codigo ahora usa las variables del SO de enemigo y busca objetivos de una forma más eficiente y limpia. Añadida la comprobación de objetiivo invisible.
+//
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: sonidos
 // ---------------------------------------------------
 
 using System.Collections;
@@ -33,6 +36,7 @@ public class EnemigoDisparo : MonoBehaviour
     public Transform parteQueRota;
     public GameObject balaObjeto;
     public GameObject spawnerBalas;
+    AudioHandler audioHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +44,8 @@ public class EnemigoDisparo : MonoBehaviour
         enemigo = gameObject.GetComponent<Enemigo>();
         timerDisparo = 0;
         velocidadDeRotacion = enemigoBasico.velocidadDeRotacion;
+
+        audioHandler = gameObject.GetComponent<AudioHandler>();
     }
 
     // Update is called once per frame
@@ -67,19 +73,22 @@ public class EnemigoDisparo : MonoBehaviour
 
             //si ha pasado el tiempo de recarga
             if (timerDisparo >= enemigoBasico.velocidadDisparo)
-                {
-                    timerDisparo = 0;
-                    //disparar
-                    Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+            {
+                timerDisparo = 0;
 
-                    ataqueObjeto.fuerza = enemigoBasico.ataque;
-                    ataqueObjeto.tipo = Ataque.Tipo.laser;
-                    ataqueObjeto.origen = gameObject;
+                // Sonido de disparo
+                audioHandler.PlaySound(0, false);
+                //disparar
+                Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
 
-                    Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
+                ataqueObjeto.fuerza = enemigoBasico.ataque;
+                ataqueObjeto.tipo = Ataque.Tipo.laser;
+                ataqueObjeto.origen = gameObject;
 
-                    bala.ataque = ataqueObjeto;
-                }
+                Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
+
+                bala.ataque = ataqueObjeto;
+            }
 
         }
     }
