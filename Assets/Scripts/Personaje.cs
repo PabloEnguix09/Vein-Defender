@@ -31,6 +31,7 @@ public class Personaje : MonoBehaviour
     public ControlVida barraVida;
     public ControlEnergia barraEnergia;
     controlPartida controlPartida;
+
     public GameObject camaraMejora;
 
     public float saludMaxima = 10;
@@ -121,10 +122,11 @@ public class Personaje : MonoBehaviour
 
     private void Start()
     {
-        // Busca el controlador de partida
+        // Busca componentes internos
         controlPartida = FindObjectOfType<controlPartida>();
         sistemaMejoras = FindObjectOfType<SistemaMejoras>();
         movimientoPersonaje = gameObject.GetComponent<MovimientoPersonaje>();
+
 
         // Activa el sistema de mejoras y las aplica al personaje
         sistemaMejoras.MejorasPersonaje(this);
@@ -135,7 +137,7 @@ public class Personaje : MonoBehaviour
     }
 
     // Reasigna los valores del personaje
-    public void Setup()
+    public void Setup()
     {
         // reinicia la energia y la vida actuales
         Salud = saludMaxima;
@@ -203,6 +205,7 @@ public class Personaje : MonoBehaviour
     public void Saltar()
     {
         movimientoPersonaje.Saltar();
+
     }
 
     public void RecibirAtaque(Ataque ataque)

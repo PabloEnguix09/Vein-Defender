@@ -31,11 +31,15 @@ public class MovimientoPersonaje : MonoBehaviour
 
     private Movimientos tipos;
 
+    AudioHandler audioHandler;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         maximaVelocidad = velocidadCaminar;
+
+        audioHandler = gameObject.GetComponent<AudioHandler>();
     }
 
     // Update is called once per frame
@@ -81,6 +85,8 @@ public class MovimientoPersonaje : MonoBehaviour
         if(!volando)
         {
             rb.AddForce(Vector3.up * fuerzaSalto);
+            // Sonido del salto
+            audioHandler.PlaySound(0, false);
         }
     }
 

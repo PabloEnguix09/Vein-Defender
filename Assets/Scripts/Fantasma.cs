@@ -16,16 +16,22 @@ public class Fantasma : MonoBehaviour
 {
     private Personaje personaje;
     private float energia;
+    AudioHandler audioHandler;
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
         personaje = player[0].GetComponent<Personaje>();
+
+        audioHandler = gameObject.GetComponent<AudioHandler>();
     }
 
     public void activarInvisibilidad(Torreta fantasma)
     {
+        // Sonido invisibildad
+        audioHandler.PlaySound(1, false);
+
         energia = fantasma.energiaAlt - fantasma.energia;
         if (fantasma.invisibilidad)
         {
