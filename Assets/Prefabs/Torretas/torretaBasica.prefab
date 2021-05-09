@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2666752234006740351}
   - component: {fileID: 5427692872031993915}
   - component: {fileID: 5187506156081593432}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Marcador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,13 +139,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807558183801602318}
-<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0.07019218, z: 0, w: -0.9975335}
   m_LocalPosition: {x: -83.51265, y: 2.2516725, z: 5.665788}
-=======
-  m_LocalRotation: {x: 0, y: 0.7052531, z: 0, w: -0.70895565}
-  m_LocalPosition: {x: 6.182467, y: 20.833149, z: 15.84923}
->>>>>>> develop
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2558034091581843825}
