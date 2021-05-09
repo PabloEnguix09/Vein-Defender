@@ -27,11 +27,15 @@ public class Bomba : MonoBehaviour
 
     private Enemigo enemigo;
 
+    AudioHandler audioHandler;
+
     // Start is called before the first frame update
     void Start()
     {
         enemigo = gameObject.GetComponent<Enemigo>();
         animator = gameObject.GetComponent<Animator>();
+
+        audioHandler = gameObject.GetComponent<AudioHandler>();
     }
 
     void Update()
@@ -47,7 +51,11 @@ public class Bomba : MonoBehaviour
             // Destruye el gameobject y crea las particulas
             if (destroyOfftime <= 0)
             {
+                // Sonido explosion
+                audioHandler.PlaySound(0, false);
+                // Particulas explosion
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+                // Impacto de explosion y objetivos afectados
                 Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, radioExplosion);
 
                 Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
