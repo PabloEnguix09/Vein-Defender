@@ -103,9 +103,6 @@ public class SistemaMejoras : MonoBehaviour
 
     public void lladamaProvisonalTorretas()
     {
-        Debug.Log("Hola 1" + indice[0].ToString());
-
-        torretasDisponibles.torretasElegidas(indice);
-        
+        torretasDisponibles.torretasElegidas(indice);   
     }
 }

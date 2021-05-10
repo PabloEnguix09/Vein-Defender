@@ -118,8 +118,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4904404024952468192}
-  m_LocalRotation: {x: 0, y: 0.78206456, z: 0, w: -0.62319744}
-  m_LocalPosition: {x: 89.45358, y: 4.897752, z: -2.3569012}
+  m_LocalRotation: {x: 0, y: 0.4146925, z: 0, w: -0.90996164}
+  m_LocalPosition: {x: -0.4829745, y: -0.8385718, z: -59.534405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4904404024303004515}
@@ -185,6 +185,7 @@ MonoBehaviour:
   nombre: 
   energia: 0
   energiaAlt: 0
+  energiaEnUso: 0
   vidaActual: 0
   vidaMaxima: 0
   escudoMaximo: 0
@@ -202,6 +203,8 @@ MonoBehaviour:
   parteQueRota: {fileID: 0}
   balaObjeto: {fileID: 0}
   spawnerBalas: {fileID: 0}
+  explosionElectrica: {fileID: 0}
+  explosionBala: {fileID: 0}
 --- !u!1 &9030758315859703961
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +264,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e85f3de520cc4164d8cdd9dc4c146c2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -342,7 +345,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e85f3de520cc4164d8cdd9dc4c146c2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

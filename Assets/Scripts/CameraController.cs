@@ -59,4 +59,10 @@ public class CameraController : MonoBehaviour
             camara.localPosition = Vector3.Lerp(camara.localPosition, offset, Time.deltaTime);
         }
     }
+
+    public void BloquearCamara(){
+        Cursor.lockState = CursorLockMode.None;
+        sensibilidad = 0;
+    }
+
 }

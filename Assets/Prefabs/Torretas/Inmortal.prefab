@@ -112,8 +112,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550871163448655305}
-  m_LocalRotation: {x: 0, y: 0.030101674, z: 0, w: -0.9995469}
-  m_LocalPosition: {x: 29.003965, y: 20.56779, z: 37.04517}
+  m_LocalRotation: {x: 0, y: 0.8900135, z: 0, w: -0.45593414}
+  m_LocalPosition: {x: 10.469629, y: 23.382055, z: 61.519264}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6392596038898667606}
@@ -182,8 +182,10 @@ MonoBehaviour:
   radioExplosion: 0
   danyoExplosion: 0
   parteQueRota: {fileID: 7532045515835935692}
-  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
+  balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
   spawnerBalas: {fileID: 8692653184960525093}
+  explosionElectrica: {fileID: 442871650001608145, guid: 11e22b382ecf84f45814bc83db35ce21, type: 3}
+  explosionBala: {fileID: 4172967282287518746, guid: 21819afa75c081a468f0fb7d485487da, type: 3}
 --- !u!82 &2819659699344461735
 AudioSource:
   m_ObjectHideFlags: 0
@@ -659,7 +661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8692653184960525093}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.036126256, y: 0.93503034, z: -2.451065}
+  m_LocalPosition: {x: 0, y: 0.904, z: -1.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7532045515835935692}

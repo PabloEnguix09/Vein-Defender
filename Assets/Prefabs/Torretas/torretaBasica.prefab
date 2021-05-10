@@ -105,7 +105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3922804850825610887}
   m_LocalRotation: {x: -0, y: 1, z: -0.000000021855694, w: 0}
-  m_LocalPosition: {x: 0, y: -0, z: -0.285}
+  m_LocalPosition: {x: 0, y: 0, z: -0.15}
   m_LocalScale: {x: 0.06666668, y: 0.06666668, z: 0.06666668}
   m_Children: []
   m_Father: {fileID: 8421103798193483843}
@@ -211,6 +211,8 @@ MonoBehaviour:
   parteQueRota: {fileID: 8421103798193483843}
   balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
   spawnerBalas: {fileID: 3922804850825610887}
+  explosionElectrica: {fileID: 442871650001608145, guid: 11e22b382ecf84f45814bc83db35ce21, type: 3}
+  explosionBala: {fileID: 4172967282287518746, guid: 21819afa75c081a468f0fb7d485487da, type: 3}
 --- !u!82 &186784922925027445
 AudioSource:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ using UnityEngine;
 
 public class TorretasDisponibles : MonoBehaviour
 {
+    // 1,3,2,0
+    // 1,2
 
     //Crear lista de torretas
     public List<GameObject> torretasTotales; //Camara,Inmortal,Balear,Scutum
@@ -37,25 +39,24 @@ public class TorretasDisponibles : MonoBehaviour
     public List<GameObject> previewsUso; //InmortalPrev,BalearPrev,
 
     public InvocarTorreta invocarTorreta;
+    public HUD hud;
 
     // Start is called before the first frame update
 
     public void torretasElegidas(List<int> indice)
     {
+        hud.recibirIndices(indice);
+    }
 
-        for (int i = 0; i < indice.Count; i++)
+    public void recibirInd(List<int> indices)
+    {
+
+        for (int i = 0; i < indices.Count; i++)
         {
-            torretasDisponibles.Add(torretasTotales[indice[i]]);
-            previewsDisponibles.Add(previewsTotales[indice[i]]);
+            torretasDisponibles.Add(torretasTotales[indices[i]]);
+            previewsDisponibles.Add(previewsTotales[indices[i]]);
         }
 
-        //Funcion de pasar
-        // torretasUso = HUD.recibirTorretas(torretasDisponibles);
-        // previewUso = HUD.recibirPreview(previewDisponibles);
-
         invocarTorreta.recibirTorretasYPreviews(torretasDisponibles, previewsDisponibles);
-
-        //invocarTorreta.recibirTorretasYPreviews(torretasUso, previewsUso);
-
     }
 }
