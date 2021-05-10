@@ -62,6 +62,9 @@ public class Torreta : MonoBehaviour
 
     SistemaMejoras sistemaMejoras;
     Rigidbody rb;
+
+    public GameObject explosionElectrica;
+    public ParticleSystem explosionBala;
     public enum tipoDisparo
     {
         laser, balas
@@ -330,6 +333,8 @@ public class Torreta : MonoBehaviour
                 float aux = ataque.fuerza - escudoActual;
                 escudoActual = 0;
                 vidaActual -= aux;
+                ParticleSystem ps = explosionElectrica.GetComponentInChildren<ParticleSystem>();
+                Instantiate(ps, transform.position, transform.rotation);
             }
             else
             {
@@ -340,6 +345,8 @@ public class Torreta : MonoBehaviour
         else
         {
             vidaActual -= ataque.fuerza;
+            ParticleSystem ps = explosionElectrica.GetComponentInChildren<ParticleSystem>();
+            Instantiate(ps, transform.position, transform.rotation);
         }
        
     }

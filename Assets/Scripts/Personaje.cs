@@ -44,6 +44,8 @@ public class Personaje : MonoBehaviour
     public GameObject dardoLocalizador;
     public Camera camaraJugador;
 
+    private CameraController controladorCamara;
+
     public GameObject minimapa;
 
     public float alcance;
@@ -126,8 +128,7 @@ public class Personaje : MonoBehaviour
         controlPartida = FindObjectOfType<controlPartida>();
         sistemaMejoras = FindObjectOfType<SistemaMejoras>();
         movimientoPersonaje = gameObject.GetComponent<MovimientoPersonaje>();
-
-
+        controladorCamara = transform.GetComponentInChildren<CameraController>();
         // Activa el sistema de mejoras y las aplica al personaje
         sistemaMejoras.MejorasPersonaje(this);
         sistemaMejoras.DesbloquearTorreta();
@@ -251,14 +252,15 @@ public class Personaje : MonoBehaviour
         {
             // Toma la item del RaycastHit
             GameObject itemMarcado = punto.transform.gameObject;
-            if (itemMarcado.TryGetComponent(out Fantasma torreta))
-            {
-                torreta.activarInvisibilidad(itemMarcado.GetComponent<Torreta>());
+            if (itemMarcado.TryGetComponent(out Fantasma torreta)){                
+                torreta.activarInvisibilidad(itemMarcado.GetComponent<Torreta>());
             }
-            else
-            {
-                // Abrimos canvas
-                itemMarcado.GetComponent<Interaccion>().Interactuar();
+            else{
+
+                controladorCamara.BloquearCamara();
+
+                // Abrimos canvas
+                itemMarcado.GetComponent<Interaccion>().Interactuar();
             }
 
         }

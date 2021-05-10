@@ -21,10 +21,11 @@ MonoBehaviour:
   ataque: 5
   cadenciaDisparo: 1.5
   escudoActual: 0
-  tipoDisparo: 1
+  tipoDisparo: 2
   anguloDisparo: {x: 0, y: 90, z: 0, w: 0}
   velocidadRotacion: 2
-  distanciaDisparo: 20
+  distanciaDisparo: 200
   antiaerea: 0
+  invisibilidad: 0
   radioExplosion: 1
   danyoExplosion: 5

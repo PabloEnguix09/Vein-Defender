@@ -208,7 +208,7 @@ MonoBehaviour:
   explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
   velocidadDeRotacion: 0
   parteQueRota: {fileID: 2336646741431662956}
-  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
+  balaObjeto: {fileID: 1620851414836905604, guid: 7d66bcdabc8823b4a8266d4e6d414e4e, type: 3}
   spawnerBalas: {fileID: 8331262489921173706}
 --- !u!82 &5480581873360989893
 AudioSource:
@@ -380,7 +380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: bf6e3852a93043e47b0155b148f62101, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -491,7 +491,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f55d3fc172a02ab48abb5428cb0e02d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
