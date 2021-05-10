@@ -1015,7 +1015,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e85f3de520cc4164d8cdd9dc4c146c2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1847,7 +1847,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f55d3fc172a02ab48abb5428cb0e02d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2190,7 +2190,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e85f3de520cc4164d8cdd9dc4c146c2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2627,7 +2627,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e85f3de520cc4164d8cdd9dc4c146c2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2955,7 +2955,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e85f3de520cc4164d8cdd9dc4c146c2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3786,7 +3786,7 @@ MonoBehaviour:
   indices: 0000000000000000000000000000000000000000000000000000000000000000
   indicesElegidos: 
   imagenes: []
-  personaje: {fileID: 1231788367}
+  personaje: {fileID: 0}
   torretasDisponibles: {fileID: 1594907901}
 --- !u!1 &1603763728
 GameObject:
@@ -4803,7 +4803,7 @@ MonoBehaviour:
   indices: 
   indicesElegidos: 
   imagenes: []
-  personaje: {fileID: 1231788367}
+  personaje: {fileID: 0}
   torretasDisponibles: {fileID: 1594907901}
 --- !u!1001 &3667993936741257414
 PrefabInstance:
