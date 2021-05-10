@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
+  m_Name: Berserker
+  m_EditorClassIdentifier: 
+  nombre: Berserker
+  energia: 4
+  energiaAlt: 0
+  vidaMaxima: 30
+  escudoMaximo: 0
+  escudoRegen: 0
+  ataque: 1
+  cadenciaDisparo: 0.15
+  escudoActual: 0
+  tipoDisparo: 1
+  anguloDisparo: {x: 0, y: 130, z: 0, w: 0}
+  velocidadRotacion: 0.75
+  distanciaDisparo: 100
+  antiaerea: 1
+  invisibilidad: 0
+  radioExplosion: 0
+  danyoExplosion: 0
