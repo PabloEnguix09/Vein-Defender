@@ -3512,10 +3512,10 @@ MonoBehaviour:
   mejorap01: 0
   mejorap02: 0
   mejoraMinimapa: 0
-  inmortal: 1
+  inmortal: 0
   fantasma: 0
   mejorat01: 0
-  mejoraCamara: 0
+  mejoraCamara: 1
   torretasDisponibles: {fileID: 1594907901}
 --- !u!114 &1594907901
 MonoBehaviour:
@@ -3538,7 +3538,7 @@ MonoBehaviour:
   - {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
   - {fileID: 4904404024952468192, guid: 44f8f863ecb24b8468d9041fc7a1e88f, type: 3}
   - {fileID: 8332529569172267353, guid: 5acf723585b763244988b5d1ee09c9e1, type: 3}
-  - {fileID: 8332529569172267353, guid: 5acf723585b763244988b5d1ee09c9e1, type: 3}
+  - {fileID: 6130392994418107086, guid: 8f13178a4b1a9264a90c93f549f3a457, type: 3}
   torretasDisponibles: []
   previewsDisponibles: []
   torretasUso: []
