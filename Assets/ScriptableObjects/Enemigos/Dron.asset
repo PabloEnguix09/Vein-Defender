@@ -21,5 +21,6 @@ MonoBehaviour:
   velocidadDeRotacion: 20
   rango: 15
   rangoDisparo: 10
-  puedeSerInvisible: 0
-  vuela: 1
+  invisibilidad: 0
+  subterraneo: 0
+  vuela: 0
