@@ -24,7 +24,7 @@ MonoBehaviour:
   tipoDisparo: 2
   anguloDisparo: {x: 0, y: 90, z: 0, w: 0}
   velocidadRotacion: 2
-  distanciaDisparo: 200
+  distanciaDisparo: 100
   antiaerea: 0
   invisibilidad: 0
   radioExplosion: 1

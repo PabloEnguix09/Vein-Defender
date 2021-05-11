@@ -38,6 +38,8 @@ public class Torreta : MonoBehaviour
     public float escudoMaximo;
     public float escudoActual;
     public float escudoRegen;
+    public float timerEscudo;
+    float actualTimerEscudo;
     public float ataque;
     public float cadenciaDisparo;
     public float velocidadRotacion;
@@ -57,6 +59,7 @@ public class Torreta : MonoBehaviour
     public GameObject balaObjeto;
     public GameObject spawnerBalas;
     AudioHandler audioHandler;
+    public GameObject escudoObjeto;
 
     Personaje personaje;
 
@@ -65,11 +68,6 @@ public class Torreta : MonoBehaviour
 
     public GameObject explosionElectrica;
     public ParticleSystem explosionBala;
-    public enum tipoDisparo
-    {
-        laser, balas
-    }
-
 
     // Start is called before the first frame update
     void Start()
@@ -176,10 +174,35 @@ public class Torreta : MonoBehaviour
             DestruirTorreta();
         }
 
-        // regeneracion de escudo
+        // Regeneracion de escudo
         if (escudoActual < escudoMaximo)
         {
-            escudoActual += escudoRegen * Time.deltaTime;
+            actualTimerEscudo -= Time.deltaTime;
+            // Cuando el han pasado unos segundos sin recibir ataques
+            if(actualTimerEscudo <= 0)
+            {
+                escudoActual += escudoRegen * Time.deltaTime;
+            }
+        }
+        // Si el escudo es mayor que el maximo, se ajusta al maximo
+        if(escudoActual > escudoMaximo)
+        {
+            escudoActual = escudoMaximo;
+        }
+
+        // Si tiene un escudo dentro
+        if(escudoObjeto != null)
+        {
+            // Si el escudo esta activado pero ya no tiene escudo, se desactiva
+            if(escudoObjeto.activeSelf && escudoActual <= 0)
+            {
+                escudoObjeto.SetActive(false);
+            }
+            // Si el escudo esta desactivado pero tiene escudo, se activa
+            if(!escudoObjeto.activeSelf && escudoActual > 0)
+            {
+                escudoObjeto.SetActive(true);
+            }
         }
 
     }
@@ -324,7 +347,8 @@ public class Torreta : MonoBehaviour
     // Recibe un ataque
     public void RecibirAtaque(Ataque ataque)
     {
-
+        // Se reinicia el timer de regeneracion del escudo
+        actualTimerEscudo = timerEscudo;
         // El escudo reduce el ataque 
         if (escudoActual > 0)
         {
