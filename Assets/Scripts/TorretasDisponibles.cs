@@ -45,7 +45,12 @@ public class TorretasDisponibles : MonoBehaviour
 
     public void torretasElegidas(List<int> indice)
     {
-        hud.recibirIndices(indice);
+        //hud.recibirIndices(indice);
+        for(int i = indice.Count; i < 8; i++)
+        {
+            indice.Add(0);
+        }
+        recibirInd(indice);
     }
 
     public void recibirInd(List<int> indices)

@@ -85,11 +85,11 @@ public class SistemaMejoras : MonoBehaviour
         // Añade al indice la id de la torreta inmortal
         if(inmortal)
         {
-            indice.Add(1);
+            indice.Add(2);
         }
         if (fantasma)
         {
-            indice.Add(2);
+            indice.Add(3);
         }
     }
 
@@ -97,7 +97,7 @@ public class SistemaMejoras : MonoBehaviour
     {
         if (mejoraCamara)
         {
-            indice.Add(0);
+            indice.Add(1);
         }
     }
 

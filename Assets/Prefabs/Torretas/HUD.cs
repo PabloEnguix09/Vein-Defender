@@ -14,19 +14,20 @@ public class HUD : MonoBehaviour
 
     private void Update()
     {
+        /*
         if(personaje.transform.position.y < 120f && contador == 0)
         {
             contador = 1;
             
-            /*
+            
             for (int i = 0; i < indices.Count; i++)
             {
                 Debug.Log("Posicion " + i + " idTorreta " + indices[i].ToString());
             }
-            */
 
             torretasDisponibles.recibirInd(indicesElegidos);
         }
+        */
     }
     public void recibirIndices(List<int> index)
     {
