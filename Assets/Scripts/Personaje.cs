@@ -153,6 +153,13 @@ public class Personaje : MonoBehaviour
         {
             Escudo += escudoPorSegundo * Time.deltaTime;
         }
+        // Si en algun momento la camara es destruida, vuelve la vista al jugador
+        if(camaraMejora == null && camaraSecundariaActivada)
+        {
+            camara.camara.GetComponent<Camera>().enabled = true;
+
+            camaraSecundariaActivada = false;
+        }
 
         //Disparo de dardo localizador
         if (Input.GetButtonDown("Fire1"))
