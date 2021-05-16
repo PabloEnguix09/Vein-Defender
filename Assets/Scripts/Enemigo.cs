@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 public class Enemigo : MonoBehaviour
@@ -32,11 +33,15 @@ public class Enemigo : MonoBehaviour
     public bool subterraneo;
     public bool vuela;
 
+    private LineRenderer linea;
+    private List<Vector3> puntos;
+
     void Start()
     {
 
         agente = GetComponent<NavMeshAgent>();
         agente.speed = enemigo.velocidad;
+        linea = GetComponent<LineRenderer>();
 
         // Pone la vida al maximo
         vidaActual = enemigo.vidaMaxima;
@@ -94,8 +99,14 @@ public class Enemigo : MonoBehaviour
             }
         }
 
+        if(agente.hasPath)
+        {
+            linea.positionCount = agente.path.corners.Length;
+            linea.SetPositions(agente.path.corners);
+            linea.enabled = true;
+        }
     }
-
+    
     public void AsignarBases(Base base1, Base base2, Base base3)
     {
         this.base1 = base1;

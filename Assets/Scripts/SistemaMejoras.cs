@@ -30,8 +30,10 @@ public class SistemaMejoras : MonoBehaviour
 
     [Header("Desbloquear Torreta")]
     // Mejoras de torreta
-    public bool inmortal;
-    public bool fantasma;
+    public bool hoplitaMohawk;
+    public bool inmortalFantasma;
+    public bool scutumBerserker;
+    public bool balearTrampa;
 
     [Header("Torreta")]
     // Mejoras de torreta
@@ -82,14 +84,27 @@ public class SistemaMejoras : MonoBehaviour
 
     public void DesbloquearTorreta()
     {
-        // Añade al indice la id de la torreta inmortal
-        if(inmortal)
+        // Añade al indice la id de la torreta holpita y mohawk
+        if (hoplitaMohawk)
         {
             indice.Add(2);
-        }
-        if (fantasma)
-        {
             indice.Add(3);
+        }
+        // Añade al indice la id de la torreta inmortal y la fantasma
+        if(inmortalFantasma)
+        {
+            indice.Add(4);
+            indice.Add(5);
+        }
+        if (scutumBerserker)
+        {
+            indice.Add(6);
+            indice.Add(7);
+        }
+        if (balearTrampa)
+        {
+            indice.Add(8);
+            indice.Add(9);
         }
     }
 

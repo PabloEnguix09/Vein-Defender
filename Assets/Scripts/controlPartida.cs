@@ -38,6 +38,8 @@ public class controlPartida : MonoBehaviour
     Enemigo[] Enemigo;
 
     GameManager gameManager;
+
+    private Camino camino;
     void Start()
     {
         bases = (Base[])GameObject.FindObjectsOfType(typeof(Base));
@@ -125,8 +127,6 @@ public class controlPartida : MonoBehaviour
             }
         }
 
-
-
         if (finDePartida)
         {
             GameOver();
@@ -148,7 +148,6 @@ public class controlPartida : MonoBehaviour
         {
             Restart();
         }
-
     }
 
     public void Restart()

@@ -31,7 +31,6 @@ public class Base : MonoBehaviour
             if (salud <= 0)
             {
                 // Debug.Log("Destruido");
-                // Destroy(gameObject);
                 modelo.SetActive(false);
             }
         }
@@ -45,5 +44,9 @@ public class Base : MonoBehaviour
     public void RecibirAtaque(Ataque ataque)
     {
         salud -= ataque.fuerza;
+        if(salud <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

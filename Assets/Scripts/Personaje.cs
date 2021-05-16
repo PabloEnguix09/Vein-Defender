@@ -12,7 +12,7 @@ using UnityEngine;
 // FEATURES ADDED: cosas hechas
 //
 // AUTHOR: Jorge Grau
-// FEATURES ADDED: Salud y energia a�adidos
+// FEATURES ADDED: Salud y energia
 //
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: Correcciones a energia y vida, control de partida, recibirAtaque, mejoras de personaje
@@ -35,9 +35,7 @@ public class Personaje : MonoBehaviour
     public GameObject camaraMejora;
 
     public float saludMaxima = 10;
-
     public bool camaraSecundariaActivada = false;
-
     [SerializeField]
     float salud = 10;
 
@@ -103,6 +101,8 @@ public class Personaje : MonoBehaviour
     [SerializeField]
     float escudo = 0;
 
+    public GameObject campo;
+
     public float escudoMaximo = 0;
 
     public float escudoPorSegundo = 0.01f;
@@ -111,7 +111,7 @@ public class Personaje : MonoBehaviour
     {
         get { return escudo; }
 
-        set
+        set
         {
             value = Mathf.Clamp(value, 0, escudoMaximo);
             escudo = value;
@@ -139,45 +139,38 @@ public class Personaje : MonoBehaviour
 
     // Reasigna los valores del personaje
     public void Setup()
-    {
-        // reinicia la energia y la vida actuales
+    {
+        // reinicia la energia y la vida actuales
         Salud = saludMaxima;
         Energia = energiaMaxima;
-        Escudo = escudoMaximo;
+        Escudo = escudoMaximo;
     }
 
-    private void Update()
+    private void Update()
     {
-        // Regenerar el escudo
-        if (Escudo < escudoMaximo)
-        {
-            Escudo += escudoPorSegundo * Time.deltaTime;
+        // Regenerar el escudo
+        if (Escudo < escudoMaximo)
+        {            Escudo += escudoPorSegundo * Time.deltaTime;
         }
         // Si en algun momento la camara es destruida, vuelve la vista al jugador
         if(camaraMejora == null && camaraSecundariaActivada)
         {
             camara.camara.GetComponent<Camera>().enabled = true;
-
             camaraSecundariaActivada = false;
         }
-
-        //Disparo de dardo localizador
-        if (Input.GetButtonDown("Fire1"))
-        {
-            GameObject dardoLocalizadorObjeto = Instantiate(dardoLocalizador);
-
-            dardoLocalizadorObjeto.transform.position = camaraJugador.transform.position + camaraJugador.transform.forward;
-
-            dardoLocalizadorObjeto.transform.forward = camaraJugador.transform.forward;
-
-        }
-
-        if (Input.GetButtonDown("Fire2")){
-
-            Interactuar();
-
-        }
-
+
+        //Disparo de dardo localizador
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject dardoLocalizadorObjeto = Instantiate(dardoLocalizador);
+            dardoLocalizadorObjeto.transform.position = camaraJugador.transform.position + camaraJugador.transform.forward;
+            dardoLocalizadorObjeto.transform.forward = camaraJugador.transform.forward;
+        }
+
+        if (Input.GetButtonDown("Fire2")){
+
+            Interactuar();
+        }
     }
 
     public void Mover(float adelante, float derecha)
@@ -216,61 +209,62 @@ public class Personaje : MonoBehaviour
 
     }
 
-    public void RecibirAtaque(Ataque ataque)
-    {
-        if (Escudo > 0)
-        {
+    public void RecibirAtaque(Ataque ataque)
+    {
+        if (Escudo > 0)
+        {
             // Restamos la fuerza al escudo y el escudo a la fuerza
             float auxFuerza = ataque.fuerza;
             ataque.fuerza -= Escudo;
             Escudo -= auxFuerza;
         }
-        // Despues restamos la fuerza que quede a la salud
-        if (ataque.fuerza > 0)
-        {
-            Salud -= ataque.fuerza;
-        }
+        // Despues restamos la fuerza que quede a la salud
+        if (ataque.fuerza > 0)
+        {
+            Salud -= ataque.fuerza;
+        }
     }
 
     // Cambia a la camara secundaria o la primaria
-    public void CambiarCamara()
+    public void CambiarCamara()
     {
-        if(camaraMejora != null)
-        {
-            if(camaraMejora.GetComponentInChildren<Camera>().enabled)
-            {
-                camaraMejora.GetComponentInChildren<Camera>().enabled = false;
-                camara.camara.GetComponent<Camera>().enabled = true;
-                camaraSecundariaActivada = false;
-            } else
-            {
-                camara.camara.GetComponent<Camera>().enabled = false;
-                camaraMejora.GetComponentInChildren<Camera>().enabled = true;
-                camaraSecundariaActivada = true;
-            }
-        }
+        if(camaraMejora != null)
+        {
+            if(camaraMejora.GetComponentInChildren<Camera>().enabled)
+            {
+                camaraMejora.GetComponentInChildren<Camera>().enabled = false;
+                camara.camara.GetComponent<Camera>().enabled = true;
+                camaraSecundariaActivada = false;
+            } 
+            else
+            {
+                camara.camara.GetComponent<Camera>().enabled = false;
+                camaraMejora.GetComponentInChildren<Camera>().enabled = true;
+                camaraSecundariaActivada = true;
+            }
+        }
     }
 
-    public void Interactuar()
-    {
-        RaycastHit punto;
-        // Comprueba que este apuntando a un item en el Layer Torreta
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Interactuable")))
-        {
-            // Toma la item del RaycastHit
-            GameObject itemMarcado = punto.transform.gameObject;
-            if (itemMarcado.TryGetComponent(out Fantasma torreta)){                
+    public void Interactuar()
+    {
+        RaycastHit punto;
+
+        // Comprueba que este apuntando a un item en el Layer Torreta
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Interactuable")))
+        {
+            // Toma la item del RaycastHit
+            GameObject itemMarcado = punto.transform.gameObject;
+            if (itemMarcado.TryGetComponent(out Fantasma torreta))
+            {               
                 torreta.activarInvisibilidad(itemMarcado.GetComponent<Torreta>());
-            }
-            else{
-
+            }
+            else
+            {
                 controladorCamara.BloquearCamara();
-
                 // Abrimos canvas
                 itemMarcado.GetComponent<Interaccion>().Interactuar();
-            }
-
-        }
+            }
+        }
     }
 
     // SOLO PARA LAS ESCENAS: Muestra el rayo de apuntado

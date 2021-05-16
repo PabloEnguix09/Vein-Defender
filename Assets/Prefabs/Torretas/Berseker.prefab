@@ -368,8 +368,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3538574186344979504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.178368, y: 129.7019, z: -34.838013}
+  m_LocalRotation: {x: 0, y: 0.27479914, z: 0, w: -0.96150166}
+  m_LocalPosition: {x: 13.380811, y: 23.82234, z: 80.85016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1712904869515392429}
@@ -429,6 +429,7 @@ MonoBehaviour:
   escudoMaximo: 0
   escudoActual: 0
   escudoRegen: 0
+  timerEscudo: 0
   ataque: 0
   cadenciaDisparo: 0
   velocidadRotacion: 0
@@ -441,6 +442,9 @@ MonoBehaviour:
   parteQueRota: {fileID: 3538574186277535050}
   balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
   spawnerBalas: {fileID: 3538574184662777287}
+  escudoObjeto: {fileID: 0}
+  explosionElectrica: {fileID: 0}
+  explosionBala: {fileID: 0}
 --- !u!82 &3538574186344979506
 AudioSource:
   m_ObjectHideFlags: 0
