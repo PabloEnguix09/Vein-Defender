@@ -274,7 +274,10 @@ public class Torreta : MonoBehaviour
                             // Comprueba que tenga vision del enemigo
                             if (ComprobarVision(enemigosEnRango[i]))
                             {
-                                masCercano = enemigosEnRango[i];
+                                    if (ComprobarAngulo(enemigosEnRango[i]))
+                                    {
+                                        masCercano = enemigosEnRango[i];
+                                    }
                             }
                         }
                         // Si ya tiene un enemigo asignado
@@ -289,7 +292,10 @@ public class Torreta : MonoBehaviour
                                     // Comprueba que tenga vision del enemigo
                                     if (ComprobarVision(enemigosEnRango[i]))
                                     {
-                                        masCercano = enemigosEnRango[i];
+                                        if (ComprobarAngulo(enemigosEnRango[i]))
+                                        {
+                                            masCercano = enemigosEnRango[i];
+                                        }
                                     }
                                 }
 
@@ -326,6 +332,39 @@ public class Torreta : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    bool ComprobarAngulo(GameObject objetivo)
+    {
+        //Calculo cual es el vector necesario para apuntar al enemigo
+        Vector3 vistaRelativa = objetivo.transform.position - parteQueRota.position;
+
+        //guardo el quaternion que necesita para apuntar
+        Quaternion VisionRotacion = Quaternion.LookRotation(vistaRelativa);
+
+        //divido el angulo que puede apuntar entre 2 porque apunta en +0 y -0
+        float rangoEnY = anguloDisparo.eulerAngles.y / 2;
+        
+        //calculo el angulo para apuntar hacia el enemigo
+        float rotaciónNecesaria = VisionRotacion.eulerAngles.y - transform.rotation.eulerAngles.y;
+        
+        //si es negativo lo devulevo a positivo
+        if (rotaciónNecesaria < 0)
+        {
+            rotaciónNecesaria += 360;
+        }
+
+        if (rangoEnY >= rotaciónNecesaria || 360 - rangoEnY <= rotaciónNecesaria)
+        {
+            //si esta en angulo
+            return true;
+        }
+        else
+        {
+            //no esta en angulo
+            return false;
+        }
+        
     }
 
     // Llamado desde InvocarTorretas.cs EliminarTorreta()
