@@ -22,7 +22,7 @@ MonoBehaviour:
   cadenciaDisparo: 2
   escudoActual: 0
   tipoDisparo: 1
-  anguloDisparo: {x: 0, y: 180, z: 0, w: 0}
+  anguloDisparo: {x: 0, y: 0, z: 0, w: 1}
   velocidadRotacion: 5
   distanciaDisparo: 50
   antiaerea: 1

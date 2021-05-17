@@ -336,34 +336,44 @@ public class Torreta : MonoBehaviour
 
     bool ComprobarAngulo(GameObject objetivo)
     {
-        //Calculo cual es el vector necesario para apuntar al enemigo
-        Vector3 vistaRelativa = objetivo.transform.position - parteQueRota.position;
-
-        //guardo el quaternion que necesita para apuntar
-        Quaternion VisionRotacion = Quaternion.LookRotation(vistaRelativa);
-
-        //divido el angulo que puede apuntar entre 2 porque apunta en +0 y -0
-        float rangoEnY = anguloDisparo.eulerAngles.y / 2;
-        
-        //calculo el angulo para apuntar hacia el enemigo
-        float rotaciónNecesaria = VisionRotacion.eulerAngles.y - transform.rotation.eulerAngles.y;
-        
-        //si es negativo lo devulevo a positivo
-        if (rotaciónNecesaria < 0)
+        //en caso de ser 0 es decir 360
+        if(anguloDisparo.eulerAngles.y != 0)
         {
-            rotaciónNecesaria += 360;
-        }
+            //Calculo cual es el vector necesario para apuntar al enemigo
+            Vector3 vistaRelativa = objetivo.transform.position - parteQueRota.position;
 
-        if (rangoEnY >= rotaciónNecesaria || 360 - rangoEnY <= rotaciónNecesaria)
-        {
-            //si esta en angulo
-            return true;
+            //guardo el quaternion que necesita para apuntar
+            Quaternion VisionRotacion = Quaternion.LookRotation(vistaRelativa);
+
+            //divido el angulo que puede apuntar entre 2 porque apunta en +0 y -0
+            float rangoEnY = anguloDisparo.eulerAngles.y / 2;
+        
+            //calculo el angulo para apuntar hacia el enemigo
+            float rotaciónNecesaria = VisionRotacion.eulerAngles.y - transform.rotation.eulerAngles.y;
+        
+            //si es negativo lo devulevo a positivo
+            if (rotaciónNecesaria < 0)
+            {
+                rotaciónNecesaria += 360;
+            }
+
+            if (rangoEnY >= rotaciónNecesaria || 360 - rangoEnY <= rotaciónNecesaria)
+            {
+                //si esta en angulo
+                return true;
+            }
+            else
+            {
+                //no esta en angulo
+                return false;
+            }
         }
         else
         {
-            //no esta en angulo
-            return false;
+            return true;
         }
+
+        
         
     }
 
