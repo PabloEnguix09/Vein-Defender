@@ -20,16 +20,30 @@ public class HUD : MonoBehaviour
     // Indices actuales en el circulo de seleccion
     public List<int> indicesElegidos;
 
-    // Imagenes de preview de cada torreta
+    // Imagenes de preview de cada torreta para controlar su aspecto en el HUD
     public List<GameObject> imagenes;
+
     ItemSlot[] itemSlots;
-    public Personaje personaje;
-    public TorretasDisponibles torretasDisponibles;
+    Personaje personaje;
+    TorretasDisponibles torretasDisponibles;
     private int contador = 0;
 
     private void Start()
     {
         // Encuentra todos los ItemSlot
         itemSlots = FindObjectsOfType<ItemSlot>();
+        personaje = FindObjectOfType<Personaje>();
+        torretasDisponibles = FindObjectOfType<TorretasDisponibles>();
+    }
+
+    public void actualizarTorretasUso()
+    {
+        // Se asigna el indice de cada slot
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            indicesElegidos[i] = itemSlots[i].indiceTorretaActual;
+        }
+        // Se envian los indices del menu a las torretas disponibles
+        torretasDisponibles.actualizarTorretasElegidas(indicesElegidos);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // ---------------------------------------------------
 // NAME: nombre
@@ -23,15 +24,16 @@ public class InvocarTorreta : MonoBehaviour
 {
     public List<GameObject> torretas;
     public List<GameObject> previews;
+    List<Image> imagenes;
     public float alcance = 50.0f;
     public float alturaSpawn = 50.0f;
 
     public GameObject torreta;
-    private Rigidbody rb;
-    private bool colocada = true;
+    Rigidbody rb;
+    bool colocada = true;
 
     public GameObject menuRadial;
-    private ComprobarSitio sitio;
+    ComprobarSitio sitio;
     public int torretaPreviewIndex = 0;
 
     [Header("Areas Menu Radial")]
@@ -47,10 +49,13 @@ public class InvocarTorreta : MonoBehaviour
         colocada = value;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    // Se llama cuando se actualiza el menu HUD de seleccion de torretas antes de empezar a jugar
+    // Asigna las torretas en uso al menu radial
+    public void asignarTorretasActuales(List<GameObject> torretasUso, List<GameObject> previewUso, List<Image> imagenesUso)
     {
-        
+        torretas = torretasUso;
+        previews = previewUso;
+        imagenes = imagenesUso;
     }
 
     // Update is called once per frame
@@ -90,13 +95,6 @@ public class InvocarTorreta : MonoBehaviour
                 return;
             }
         }
-    }
-
-    public void recibirTorretasYPreviews(List<GameObject> torretasUso, List<GameObject> previewUso)
-    {
-        torretas = torretasUso;
-
-        previews = previewUso;
     }
 
     private bool PosicionLegal()

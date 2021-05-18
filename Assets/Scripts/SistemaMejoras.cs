@@ -118,6 +118,6 @@ public class SistemaMejoras : MonoBehaviour
 
     public void lladamaProvisonalTorretas()
     {
-        torretasDisponibles.torretasElegidas(indice);   
+        torretasDisponibles.asignarTorretasDisponibles(indice);   
     }
 }

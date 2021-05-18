@@ -6,6 +6,9 @@
 //
 // AUTHOR: Juan Ferrera Sala
 // FEATURES ADDED: Activar el HUD y layer interactuables.
+//
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: Interaccion con el HUD
 // ---------------------------------------------------
 using System.Collections;
 using System.Collections.Generic;
@@ -25,14 +28,24 @@ public class Interaccion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // Busca el gameObject del HUD
+        hud = FindObjectOfType<HUD>().gameObject;
+        // Lo desactiva al principio por si acaso
         hud.SetActive(false);
-
     }
 
     public void Interactuar()
     {
-        tipoItem = TipoItem.pcTorretas;
-        hud.SetActive(!hud.activeSelf);
+        // Si es un PC de torretas interactua con el HUD de las torretas
+        if(tipoItem == TipoItem.pcTorretas)
+        {
+            if (hud.activeSelf)
+            {
+                // Actualiza las torretas en uso
+                hud.GetComponent<HUD>().actualizarTorretasUso();
+            }
+            // Abre o cierra el menu
+            hud.SetActive(!hud.activeSelf);
+        }
     }
 }
