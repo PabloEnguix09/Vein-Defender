@@ -24,8 +24,8 @@ public class SistemaMejoras : MonoBehaviour
 
     [Header("Personaje")]
     // Mejoras de personaje
-    public bool mejorap01;
-    public bool mejorap02;
+    public bool vidaTbyte;
+    public bool escudoTbyte;
     public bool mejoraMinimapa;
 
     [Header("Desbloquear Torreta")]
@@ -42,14 +42,16 @@ public class SistemaMejoras : MonoBehaviour
     [Header("Utilidades")]
     // Mejoras de utilidades
     public bool mejoraCamara;
+    public bool mejoraCaminos;
 
     public TorretasDisponibles torretasDisponibles;
+    public Camino[] camino;
 
     public void MejorasPersonaje(Personaje personaje)
     {
 
         // Sube la vida de T-Byte un 35%
-        if(mejorap01)
+        if(vidaTbyte)
         {
             // Sube la vida un 35%
             personaje.saludMaxima += (personaje.saludMaxima / 100) * 35;
@@ -57,7 +59,7 @@ public class SistemaMejoras : MonoBehaviour
         }
 
         // Pone un escudo al jugador del 50% de su vida maxima
-        if(mejorap02)
+        if(escudoTbyte)
         {
             personaje.escudoMaximo = (personaje.Salud / 100) * 50;
         }
@@ -113,6 +115,13 @@ public class SistemaMejoras : MonoBehaviour
         if (mejoraCamara)
         {
             indice.Add(1);
+        }
+        if(!mejoraCaminos)
+        {
+            foreach(Camino ruta in camino)
+            {
+                Destroy(ruta.gameObject);
+            }
         }
     }
 

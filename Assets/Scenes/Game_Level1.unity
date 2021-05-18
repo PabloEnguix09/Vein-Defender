@@ -1944,8 +1944,25 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 116.66, y: 4.261, z: -192.58}
+  - {x: 112.96001, y: 3.0410001, z: -157.93}
+  - {x: 98.850006, y: 3.0410001, z: -109.64}
+  - {x: 60.936005, y: 3.071, z: -66.9}
+  - {x: 56.520004, y: 1.6410003, z: -62.490005}
+  - {x: 54.060005, y: 1.6410003, z: -58.710007}
+  - {x: 50.460007, y: 2.6610003, z: -54.83}
+  - {x: 46.550003, y: 1.1910002, z: -50.710007}
+  - {x: 43.800003, y: 1.1910002, z: -43.020004}
+  - {x: 37.460007, y: 10.831, z: -20.529999}
+  - {x: 36.940002, y: 10.831, z: -18.600006}
+  - {x: 36, y: 11.101, z: -14.0099945}
+  - {x: 34.820007, y: 12.021, z: -8.669998}
+  - {x: 31.75, y: 14.461, z: 2.7200012}
+  - {x: 22.880005, y: 20.890999, z: 35.5}
+  - {x: 17.29, y: 24.601, z: 56.199997}
+  - {x: 12.330002, y: 24.601, z: 75.34001}
+  - {x: 3.1600037, y: 24.601, z: 110.05}
+  - {x: -10.839996, y: 24.601, z: 160.74}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1954,7 +1971,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2001,6 +2027,17 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &552850327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8047330804002775869, guid: ce8af6bb1541c2a479225311bba6048e, type: 3}
+  m_PrefabInstance: {fileID: 1030209420}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552850325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c4c62e28a46e74998e9d1e8eaf8220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &566045477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2194,6 +2231,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3285530765979559550, guid: 47f66494e93c82443a052cd764b1dbf8, type: 3}
   m_PrefabInstance: {fileID: 2027272320}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &737108258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6527086027762230483, guid: 47f66494e93c82443a052cd764b1dbf8, type: 3}
+  m_PrefabInstance: {fileID: 2027272320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737108257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c4c62e28a46e74998e9d1e8eaf8220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &737108260
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2235,8 +2283,22 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: -38.14, y: 2.921, z: -16.584}
+  - {x: -32.98, y: 2.921, z: -29.383999}
+  - {x: -12.196999, y: 1.7590001, z: -39.538002}
+  - {x: -7.25, y: 2.261, z: -40.143997}
+  - {x: -4.8600006, y: 1.001, z: -41.123}
+  - {x: 0.25, y: 0.6010001, z: -42.084}
+  - {x: 6.5600014, y: 1.711, z: -38.604}
+  - {x: 11.93, y: 4.351, z: -32.764}
+  - {x: 19.060001, y: 7.921, z: -25.484}
+  - {x: 17.779999, y: 15.811001, z: -9.094}
+  - {x: 17.260002, y: 18.821, z: -1.2939997}
+  - {x: 14.700001, y: 19.041, z: 9.576}
+  - {x: 8.959999, y: 22.711, z: 37.896}
+  - {x: 4.4900017, y: 23.924, z: 66.306}
+  - {x: -0.13999939, y: 23.924, z: 91.502}
+  - {x: -11.129999, y: 23.924, z: 161.106}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -2245,7 +2307,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2580,6 +2651,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8264524918823963563, guid: 6e371c03b5ba89648bf2a9be41c82ff7, type: 3}
   m_PrefabInstance: {fileID: 960794103}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &954804818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8264524918823963560, guid: 6e371c03b5ba89648bf2a9be41c82ff7, type: 3}
+  m_PrefabInstance: {fileID: 960794103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954804817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c4c62e28a46e74998e9d1e8eaf8220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &954804820
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2621,8 +2703,12 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: -97.4, y: 2.79, z: 159.4}
+  - {x: -93.380005, y: 2.86, z: 148.20999}
+  - {x: -90.66, y: 4.46, z: 140.2}
+  - {x: -84.5, y: 4.08, z: 121.15999}
+  - {x: -78.26, y: 2.86, z: 104.049995}
+  - {x: -37.980003, y: 2.8, z: -16.600006}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -2631,7 +2717,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2685,6 +2780,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8264524918823963560, guid: 6e371c03b5ba89648bf2a9be41c82ff7, type: 3}
+      propertyPath: linea
+      value: 
+      objectReference: {fileID: 954804820}
+    - target: {fileID: 8264524918823963560, guid: 6e371c03b5ba89648bf2a9be41c82ff7, type: 3}
+      propertyPath: mejora
+      value: 
+      objectReference: {fileID: 1594907900}
     - target: {fileID: 8264524918823963561, guid: 6e371c03b5ba89648bf2a9be41c82ff7, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -3102,6 +3205,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: base1-base2
       objectReference: {fileID: 0}
+    - target: {fileID: 8047330804002775869, guid: ce8af6bb1541c2a479225311bba6048e, type: 3}
+      propertyPath: linea
+      value: 
+      objectReference: {fileID: 552850326}
+    - target: {fileID: 8047330804002775869, guid: ce8af6bb1541c2a479225311bba6048e, type: 3}
+      propertyPath: mejora
+      value: 
+      objectReference: {fileID: 1594907900}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce8af6bb1541c2a479225311bba6048e, type: 3}
 --- !u!1 &1031544558
@@ -3592,6 +3703,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7424832792344878024, guid: fde5a79e70868c944b6786cb75f73f4a, type: 3}
+      propertyPath: linea
+      value: 
+      objectReference: {fileID: 1993885954}
+    - target: {fileID: 7424832792344878024, guid: fde5a79e70868c944b6786cb75f73f4a, type: 3}
+      propertyPath: mejora
+      value: 
+      objectReference: {fileID: 1594907900}
+    - target: {fileID: 7424832792344878024, guid: fde5a79e70868c944b6786cb75f73f4a, type: 3}
       propertyPath: color.b
       value: 0
       objectReference: {fileID: 0}
@@ -4030,8 +4149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indice: 
-  mejorap01: 0
-  mejorap02: 0
+  vidaTbyte: 0
+  escudoTbyte: 0
   mejoraMinimapa: 0
   hoplitaMohawk: 1
   inmortalFantasma: 1
@@ -4039,7 +4158,13 @@ MonoBehaviour:
   balearTrampa: 1
   mejorat01: 0
   mejoraCamara: 1
+  mejoraCaminos: 1
   torretasDisponibles: {fileID: 1594907901}
+  camino:
+  - {fileID: 1993885952}
+  - {fileID: 954804818}
+  - {fileID: 737108258}
+  - {fileID: 552850327}
 --- !u!114 &1594907901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4855,6 +4980,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7424832792344878027, guid: fde5a79e70868c944b6786cb75f73f4a, type: 3}
   m_PrefabInstance: {fileID: 1324033209}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1993885952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7424832792344878024, guid: fde5a79e70868c944b6786cb75f73f4a, type: 3}
+  m_PrefabInstance: {fileID: 1324033209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993885951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c4c62e28a46e74998e9d1e8eaf8220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &1993885954
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -4896,8 +5032,23 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 88.51, y: 4.5, z: 102.920006}
+  - {x: 95.740005, y: 5.4, z: -5.519989}
+  - {x: 95.990005, y: 5.8, z: -9.349991}
+  - {x: 97.04, y: 5.59, z: -16.759995}
+  - {x: 97.72, y: 5.87, z: -25.309998}
+  - {x: 97.950005, y: 6.3, z: -33.690002}
+  - {x: 98.200005, y: 6.3, z: -37.929993}
+  - {x: 98.55, y: 5.9, z: -42.229996}
+  - {x: 100.58, y: 7.9700003, z: -64.70999}
+  - {x: 105.100006, y: 5.2000003, z: -108.7}
+  - {x: 106.65, y: 6.51, z: -114.48201}
+  - {x: 107.020004, y: 6.94, z: -116.719986}
+  - {x: 106.920006, y: 7.42, z: -120.308}
+  - {x: 107.62, y: 6.38, z: -123.35298}
+  - {x: 110.21001, y: 5.05, z: -131.18999}
+  - {x: 115.23, y: 4.1400003, z: -175.90001}
+  - {x: 116.66, y: 4.26, z: -192.58}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -4906,7 +5057,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0.50000155
-        value: 0.4933328
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -5008,6 +5168,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: base3-base2
       objectReference: {fileID: 0}
+    - target: {fileID: 6527086027762230483, guid: 47f66494e93c82443a052cd764b1dbf8, type: 3}
+      propertyPath: linea
+      value: 
+      objectReference: {fileID: 737108260}
+    - target: {fileID: 6527086027762230483, guid: 47f66494e93c82443a052cd764b1dbf8, type: 3}
+      propertyPath: mejora
+      value: 
+      objectReference: {fileID: 1594907900}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47f66494e93c82443a052cd764b1dbf8, type: 3}
 --- !u!1 &2085461060

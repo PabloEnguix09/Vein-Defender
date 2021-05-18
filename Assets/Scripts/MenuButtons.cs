@@ -88,7 +88,7 @@ public class MenuButtons : MonoBehaviour
 
     public void ActivarMejora01()
     {
-        sistemaMejoras.mejorap01 = true;
+        sistemaMejoras.vidaTbyte = true;
         mejoras.SetActive(false);
         botonStart.SetActive(true);
     }

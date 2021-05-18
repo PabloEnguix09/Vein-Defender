@@ -6,12 +6,7 @@ public class Camino : MonoBehaviour
 {
     public Color color;
     private List<Transform> nodos = new List<Transform>();
-    private LineRenderer linea;
-
-    private void Start()
-    {
-        linea = GetComponent<LineRenderer>();
-    }
+    public LineRenderer linea;
 
     private void OnDrawGizmos()
     {
@@ -44,5 +39,7 @@ public class Camino : MonoBehaviour
         {
             linea.SetPosition(i, nodos[i].position);
         }
+        linea.startWidth = 0.5f;
+        linea.endWidth = 0.5f;
     }
 }
