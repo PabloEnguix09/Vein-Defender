@@ -260,7 +260,6 @@ public class Personaje : MonoBehaviour
             }
             else
             {
-                controladorCamara.BloquearCamara();
                 // Abrimos canvas
                 itemMarcado.GetComponent<Interaccion>().Interactuar();
             }

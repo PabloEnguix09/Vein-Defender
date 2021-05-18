@@ -1,7 +1,7 @@
 // ---------------------------------------------------
 // NAME: Interaccion.cs
 // STATUS: WIP
-// GAMEOBJECT: 
+// GAMEOBJECT: objetos interactuables en el Layer = 
 // DESCRIPTION: Este escript se implementa la posibilidad de interactuar con diversos elementos
 //
 // AUTHOR: Juan Ferrera Sala
@@ -20,6 +20,8 @@ public class Interaccion : MonoBehaviour
     public GameObject hud;
 
     public TipoItem tipoItem;
+
+    CameraController cameraController;
     public enum TipoItem
     {
         pcTorretas = 1
@@ -30,6 +32,7 @@ public class Interaccion : MonoBehaviour
     {
         // Busca el gameObject del HUD
         hud = FindObjectOfType<HUD>().gameObject;
+        cameraController = FindObjectOfType<CameraController>();
         // Lo desactiva al principio por si acaso
         hud.SetActive(false);
     }
@@ -46,6 +49,8 @@ public class Interaccion : MonoBehaviour
             }
             // Abre o cierra el menu
             hud.SetActive(!hud.activeSelf);
+            // Cuando el HUD esta activado queremos tener la camara bloqueada
+            cameraController.BloquearCamara(hud.activeSelf);
         }
     }
 }

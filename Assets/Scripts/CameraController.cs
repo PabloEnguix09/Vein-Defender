@@ -16,7 +16,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     // Velocidad de movimiento del ratón
-	public float sensibilidad = 1.0f;
+	public float sensibilidadMaxima = 1.0f;
+    float sensibilidad;
 
     // Limites de la cámara
 	public float xMin = -60f;
@@ -36,6 +37,8 @@ public class CameraController : MonoBehaviour
 
         rotacion = transform.localRotation;
         offset = camara.localPosition;
+
+        sensibilidad = sensibilidadMaxima;
     }
 
     private void Update()
@@ -60,9 +63,15 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void BloquearCamara(){
-        Cursor.lockState = CursorLockMode.None;
-        sensibilidad = 0;
+    public void BloquearCamara(bool estado){
+        if(estado)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            sensibilidad = 0;
+        } else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            sensibilidad = sensibilidadMaxima;
+        }
     }
-
 }

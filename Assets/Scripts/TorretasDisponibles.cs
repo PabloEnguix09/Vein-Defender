@@ -31,7 +31,7 @@ public class TorretasDisponibles : MonoBehaviour
     public List<GameObject> previewsTotales; //CamaraPrev,InmortalPrev,BalearPrev,ScutumPrev
 
     // Lista de imagenes de las torretas
-    public List<Image> imagenesTotales;
+    public List<Sprite> imagenesTotales;
 
     //Crear lista de torretas
     public List<GameObject> torretasDisponibles; //Inmortal,Balear
@@ -46,7 +46,7 @@ public class TorretasDisponibles : MonoBehaviour
     public List<GameObject> previewsUso; //InmortalPrev,BalearPrev,
 
     // Imagenes de las torretas elegidas
-    public List<Image> imagenesUso;
+    public List<Sprite> imagenesUso;
 
     public InvocarTorreta invocarTorreta;
     public HUD hud;
@@ -54,6 +54,8 @@ public class TorretasDisponibles : MonoBehaviour
     // Recibe una lista de indices que representan los indices de las torretas
     public void asignarTorretasDisponibles(List<int> listaIndices)
     {
+        torretasDisponibles.Clear();
+        previewsDisponibles.Clear();
         for (int i = 0; i < listaIndices.Count; i++)
         {
             // Asigna cada torreta segun su indice
@@ -68,9 +70,12 @@ public class TorretasDisponibles : MonoBehaviour
     // Se llama desde el HUD cuando se terminan de poner las torretas
     public void actualizarTorretasElegidas(List<int> listaIndices)
     {
+        torretasUso.Clear();
+        previewsUso.Clear();
+        imagenesUso.Clear();
         for (int i = 0; i < listaIndices.Count; i++)
         {
-            // Asigna cada torreta en uso segun su indice en las totales
+            // Asigna cada torreta, preview e imagen en uso segun su indice en las totales
             torretasUso.Add(torretasTotales[listaIndices[i]]);
             previewsUso.Add(previewsTotales[listaIndices[i]]);
             imagenesUso.Add(imagenesTotales[listaIndices[i]]);

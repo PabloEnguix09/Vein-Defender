@@ -24,16 +24,17 @@ public class HUD : MonoBehaviour
     public List<GameObject> imagenes;
 
     ItemSlot[] itemSlots;
-    Personaje personaje;
     TorretasDisponibles torretasDisponibles;
-    private int contador = 0;
 
     private void Start()
     {
         // Encuentra todos los ItemSlot
         itemSlots = FindObjectsOfType<ItemSlot>();
-        personaje = FindObjectOfType<Personaje>();
+
         torretasDisponibles = FindObjectOfType<TorretasDisponibles>();
+
+        // se llama la primera vez para no tener un array vacio en InvocarTorreta.cs
+        actualizarTorretasUso();
     }
 
     public void actualizarTorretasUso()

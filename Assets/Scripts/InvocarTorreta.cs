@@ -24,7 +24,7 @@ public class InvocarTorreta : MonoBehaviour
 {
     public List<GameObject> torretas;
     public List<GameObject> previews;
-    List<Image> imagenes;
+    List<Sprite> imagenes;
     public float alcance = 50.0f;
     public float alturaSpawn = 50.0f;
 
@@ -33,6 +33,7 @@ public class InvocarTorreta : MonoBehaviour
     bool colocada = true;
 
     public GameObject menuRadial;
+    public List<Image> imagenesMenuRadial;
     ComprobarSitio sitio;
     public int torretaPreviewIndex = 0;
 
@@ -51,11 +52,16 @@ public class InvocarTorreta : MonoBehaviour
 
     // Se llama cuando se actualiza el menu HUD de seleccion de torretas antes de empezar a jugar
     // Asigna las torretas en uso al menu radial
-    public void asignarTorretasActuales(List<GameObject> torretasUso, List<GameObject> previewUso, List<Image> imagenesUso)
+    public void asignarTorretasActuales(List<GameObject> torretasUso, List<GameObject> previewUso, List<Sprite> imagenesUso)
     {
         torretas = torretasUso;
         previews = previewUso;
         imagenes = imagenesUso;
+        // Se asignan las imagenes al menu radial
+        for (int i = 0; i < imagenesMenuRadial.Count; i++)
+        {
+            imagenesMenuRadial[i].sprite = imagenes[i];
+        }
     }
 
     // Update is called once per frame

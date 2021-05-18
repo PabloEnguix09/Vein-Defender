@@ -650,7 +650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &103211797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4631,10 +4631,22 @@ MonoBehaviour:
   - {fileID: 4369632575579838537, guid: 480a9dcaec3ea7e4e9c79b62f23ddd6d, type: 3}
   - {fileID: 927891262645525017, guid: 5cef0fbc75fc81246823ad4268e70995, type: 3}
   - {fileID: 7367301097023792239, guid: 123779e7fea31db45aea24c81a741ebd, type: 3}
+  imagenesTotales:
+  - {fileID: 21300000, guid: 9a32e7bad8a9b3c4da3bd72659df0a91, type: 3}
+  - {fileID: 21300000, guid: f86a4d701fe124741a348d23c7de62e4, type: 3}
+  - {fileID: 21300000, guid: 7bb127f78ae6fef4b8c9b552da7133eb, type: 3}
+  - {fileID: 21300000, guid: 2f0b9c861349a204b9bfc6b90439f3da, type: 3}
+  - {fileID: 21300000, guid: 327ce9d25d5caaf4988fd4546a6e2413, type: 3}
+  - {fileID: 21300000, guid: 67cf08803ac18b841a71a92bd0ee3d18, type: 3}
+  - {fileID: 21300000, guid: a3c0cafdd96896841b5cf640b0eb8f4e, type: 3}
+  - {fileID: 21300000, guid: 97142ec8b3479e64994cd157bb074e0c, type: 3}
+  - {fileID: 21300000, guid: 6c03776f298762c43b60626a05d6c2de, type: 3}
+  - {fileID: 21300000, guid: f86a4d701fe124741a348d23c7de62e4, type: 3}
   torretasDisponibles: []
   previewsDisponibles: []
   torretasUso: []
   previewsUso: []
+  imagenesUso: []
   invocarTorreta: {fileID: 1231788365}
   hud: {fileID: 0}
 --- !u!1 &1603763728
