@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // ---------------------------------------------------
 // NAME: TorretaDisponibles.cs
-// STATUS: WIP
-// GAMEOBJECT: objeto
-// DESCRIPTION: descripcion
+// STATUS: DONE
+// GAMEOBJECT: ControlPartida
+// DESCRIPTION: controla las listas de torretas disponibles, totales y en uso
 //
 // AUTHOR: Juan Ferrera Sala
 // FEATURES ADDED: creamos el Script y pasamos a recibirTorretasYPreviews a invocar torretas.
 //
 // AUTHOR: Jorge Grau
 // FEATURES ADDED: 
+//
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: selector de torretas al completo
 // ---------------------------------------------------
 
 public class TorretasDisponibles : MonoBehaviour
@@ -26,6 +30,9 @@ public class TorretasDisponibles : MonoBehaviour
     //Crear lista de preview torretas
     public List<GameObject> previewsTotales; //CamaraPrev,InmortalPrev,BalearPrev,ScutumPrev
 
+    // Lista de imagenes de las torretas
+    public List<Sprite> imagenesTotales;
+
     //Crear lista de torretas
     public List<GameObject> torretasDisponibles; //Inmortal,Balear
 
@@ -38,30 +45,42 @@ public class TorretasDisponibles : MonoBehaviour
     //Torretas preview elegidas
     public List<GameObject> previewsUso; //InmortalPrev,BalearPrev,
 
+    // Imagenes de las torretas elegidas
+    public List<Sprite> imagenesUso;
+
     public InvocarTorreta invocarTorreta;
     public HUD hud;
 
-    // Start is called before the first frame update
-
-    public void torretasElegidas(List<int> indice)
+    // Recibe una lista de indices que representan los indices de las torretas
+    public void asignarTorretasDisponibles(List<int> listaIndices)
     {
-        //hud.recibirIndices(indice);
-        for(int i = indice.Count; i < 8; i++)
+        torretasDisponibles.Clear();
+        previewsDisponibles.Clear();
+        for (int i = 0; i < listaIndices.Count; i++)
         {
-            indice.Add(0);
+            // Asigna cada torreta segun su indice
+            torretasDisponibles.Add(torretasTotales[listaIndices[i]]);
+            previewsDisponibles.Add(previewsTotales[listaIndices[i]]);
         }
-        recibirInd(indice);
+        // Ponemos la sparky siempre desbloqueada
+        torretasDisponibles.Add(torretasTotales[0]);
+        previewsDisponibles.Add(previewsTotales[0]);
     }
 
-    public void recibirInd(List<int> indices)
+    // Se llama desde el HUD cuando se terminan de poner las torretas
+    public void actualizarTorretasElegidas(List<int> listaIndices)
     {
-
-        for (int i = 0; i < indices.Count; i++)
+        torretasUso.Clear();
+        previewsUso.Clear();
+        imagenesUso.Clear();
+        for (int i = 0; i < listaIndices.Count; i++)
         {
-            torretasDisponibles.Add(torretasTotales[indices[i]]);
-            previewsDisponibles.Add(previewsTotales[indices[i]]);
+            // Asigna cada torreta, preview e imagen en uso segun su indice en las totales
+            torretasUso.Add(torretasTotales[listaIndices[i]]);
+            previewsUso.Add(previewsTotales[listaIndices[i]]);
+            imagenesUso.Add(imagenesTotales[listaIndices[i]]);
         }
-
-        invocarTorreta.recibirTorretasYPreviews(torretasDisponibles, previewsDisponibles);
+        // Se envian al menu radial
+        invocarTorreta.asignarTorretasActuales(torretasUso, previewsUso, imagenesUso);
     }
 }

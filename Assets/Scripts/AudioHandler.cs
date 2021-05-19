@@ -14,7 +14,6 @@ public class AudioHandler : MonoBehaviour
     {
         source = gameObject.GetComponent<AudioSource>();
     }
-
     public void PlaySound(int index, bool loop)
     {
         source.clip = clips[index];

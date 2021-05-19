@@ -9,7 +9,7 @@ using UnityEngine;
 // DESCRIPTION: descripcion
 //
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: usando axis para controles
+// FEATURES ADDED: usando axis para controles, controlador de la camara
 // ---------------------------------------------------
 
 
@@ -18,6 +18,7 @@ public class MecanicasPersonaje : MonoBehaviour
 {
     private Personaje personaje;
     private InvocarTorreta invocar;
+    CameraController cameraController;
 
     public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara;
 
@@ -25,6 +26,7 @@ public class MecanicasPersonaje : MonoBehaviour
     {
         personaje = GetComponent<Personaje>();
         invocar = GetComponent<InvocarTorreta>();
+        cameraController = FindObjectOfType<CameraController>();
     }
     private void Update()
     {
@@ -51,13 +53,12 @@ public class MecanicasPersonaje : MonoBehaviour
                 // No puede abrirse si ya hay otro abierto
                 if (Input.GetAxisRaw(menuRadial) > 0 && !invocar.menuRadial.activeSelf)
                 {
-                    // En desuso, ahora se activa desde InvocarTorreta.cs Update()
-                    //invocar.SetColocada(false);
-                    //invocar.PreviewTorreta("torretaBasica");
+                    cameraController.BloquearCamara(true);
                     invocar.AlternarMenuRadial(true);
                 }
                 else if (Input.GetAxisRaw(menuRadial) <= 0 && invocar.menuRadial.activeSelf)
                 {
+                    cameraController.BloquearCamara(false);
                     invocar.AlternarMenuRadial(false);
                 }
             }

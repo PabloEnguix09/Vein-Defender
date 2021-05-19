@@ -1,7 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// ---------------------------------------------------
+// NAME: Ataque.cs
+// STATUS: DONE
+// GAMEOBJECT: Ninguno
+// DESCRIPTION: Objeto de ataque
+//
+// AUTHOR: Luis
+// FEATURES ADDED: propiedades base
+// ---------------------------------------------------
 public class Ataque : ScriptableObject
 {
     public float fuerza;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // ---------------------------------------------------
 // NAME: nombre
@@ -21,17 +22,19 @@ using UnityEngine;
 
 public class InvocarTorreta : MonoBehaviour
 {
-    public List<GameObject> Torreta;
+    public List<GameObject> torretas;
     public List<GameObject> previews;
+    List<Sprite> imagenes;
     public float alcance = 50.0f;
     public float alturaSpawn = 50.0f;
 
     public GameObject torreta;
-    private Rigidbody rb;
-    private bool colocada = true;
+    Rigidbody rb;
+    bool colocada = true;
 
     public GameObject menuRadial;
-    private ComprobarSitio sitio;
+    public List<Image> imagenesMenuRadial;
+    ComprobarSitio sitio;
     public int torretaPreviewIndex = 0;
 
     [Header("Areas Menu Radial")]
@@ -47,10 +50,18 @@ public class InvocarTorreta : MonoBehaviour
         colocada = value;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    // Se llama cuando se actualiza el menu HUD de seleccion de torretas antes de empezar a jugar
+    // Asigna las torretas en uso al menu radial
+    public void asignarTorretasActuales(List<GameObject> torretasUso, List<GameObject> previewUso, List<Sprite> imagenesUso)
     {
-        
+        torretas = torretasUso;
+        previews = previewUso;
+        imagenes = imagenesUso;
+        // Se asignan las imagenes al menu radial
+        for (int i = 0; i < imagenesMenuRadial.Count; i++)
+        {
+            imagenesMenuRadial[i].sprite = imagenes[i];
+        }
     }
 
     // Update is called once per frame
@@ -71,7 +82,7 @@ public class InvocarTorreta : MonoBehaviour
                 if (PosicionLegal())
                 {
                     // Posicion de la nueva torreta invocada
-                    Transform torretaSpawn = Torreta[torretaPreviewIndex].transform;
+                    Transform torretaSpawn = torretas[torretaPreviewIndex].transform;
                     torretaSpawn.position = torreta.transform.position;
                     torretaSpawn.rotation = torreta.transform.rotation;
                     Destroy(torreta);
@@ -90,13 +101,6 @@ public class InvocarTorreta : MonoBehaviour
                 return;
             }
         }
-    }
-
-    public void recibirTorretasYPreviews(List<GameObject> torretasUso, List<GameObject> previewUso)
-    {
-        Torreta = torretasUso;
-
-        previews = previewUso;
     }
 
     private bool PosicionLegal()
@@ -141,35 +145,25 @@ public class InvocarTorreta : MonoBehaviour
         // Si esta desactivado se activa y viceversa
         menuRadial.SetActive(activar);
 
-        // Desbloquea el cursor para poder seleccionar
-        if(menuRadial.activeSelf)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
         // Se cierra el menu
-        else
+        if(!menuRadial.activeSelf)
         {
             // Donde esta el raton en pantalla se selecciona esa torreta del area
             // Devuelve la distancia del raton del centro de la pantalla
             Vector2 centroPantalla = new Vector2(Screen.width / 2, Screen.height / 2);
             Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
-            // Debug.Log(Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0));
-            // angulo = atan2(Y - CenterY, X - CenterX)
+            // Formula: angulo = atan2(Y - CenterY, X - CenterX)
             float angulo = Mathf.Atan2(mousePosition.y - centroPantalla.y, mousePosition.x - centroPantalla.x);
-            //Debug.Log(angulo);
 
             torretaPreviewIndex = ComprobarCasillaMenu(angulo);
-
+            // BUG: si al cargar la escena el menu radial esta abierto torretaPreviewIndex da error
             if(torretaPreviewIndex >= 0)
             {
-                //Debug.Log("Torreta invocada: " + torretaPreviewIndex);
                 // Se previsualiza la torreta 
                 SetColocada(false);
                 PreviewTorreta();
             }
-
-            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
@@ -185,6 +179,7 @@ public class InvocarTorreta : MonoBehaviour
             }
             else
             {
+                // Comprueba la casilla donde ha caido el raton y devuelve su numero
                 if (areasMenuRadial[i] < areasMenuRadial[i + 1])
                 {
                     if (angulo > areasMenuRadial[i] && angulo < areasMenuRadial[i + 1])

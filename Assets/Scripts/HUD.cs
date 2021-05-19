@@ -2,62 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+// ---------------------------------------------------
+// NAME: HUD.cs
+// STATUS: WIP
+// GAMEOBJECT: HUD_torretas
+// DESCRIPTION: Manager del selector de torretas
+//
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: propiedades base
+// ---------------------------------------------------
 
 public class HUD : MonoBehaviour
 {
-    public List<int> indices;//Torretas disponibles los valores son iguales al de las imagenes es decir el indice 0 corresponde a la camara, la imagen de la camara es 0
-    public List<int> indicesElegidos;//Torretas disponibles los valores son iguales al de las imagenes es decir el indice 0 corresponde a la camara, la imagen de la camara es 0
+    // Torretas disponibles los valores son iguales al de las imagenes es decir el indice 0 corresponde a la camara, la imagen de la camara es 0
+    // Indices de las torretas
+    public List<int> indicesTorretas;
+    // Indices actuales en el circulo de seleccion
+    public List<int> indicesElegidos;
+
+    // Imagenes de preview de cada torreta para controlar su aspecto en el HUD
     public List<GameObject> imagenes;
-    public Personaje personaje;
-    public TorretasDisponibles torretasDisponibles;
-    private int contador = 0;
 
-    private void Update()
+    ItemSlot[] itemSlots;
+    TorretasDisponibles torretasDisponibles;
+
+    private void Start()
     {
-        /*
-        if(personaje.transform.position.y < 120f && contador == 0)
-        {
-            contador = 1;
-            
-            
-            for (int i = 0; i < indices.Count; i++)
-            {
-                Debug.Log("Posicion " + i + " idTorreta " + indices[i].ToString());
-            }
+        // Encuentra todos los ItemSlot
+        itemSlots = FindObjectsOfType<ItemSlot>();
 
-            torretasDisponibles.recibirInd(indicesElegidos);
-        }
-        */
-    }
-    public void recibirIndices(List<int> index)
-    {
-        indices = index;
+        torretasDisponibles = FindObjectOfType<TorretasDisponibles>();
 
-        Image imagen = imagenes[0].GetComponent<Image>();
-
-        imagenes[0].GetComponent<Image>().color = new Color(imagen.color.r, imagen.color.g, imagen.color.b, 0.5f);
-
-        // 0,2,3,4
-
-
-        for (int i = 0; i < 8; i++)
-        {
-            indicesElegidos.Add(0);
-        }
-
+        // se llama la primera vez para no tener un array vacio en InvocarTorreta.cs
+        actualizarTorretasUso();
     }
 
-    public void recibirMovimientos(string slot, string torretaIndice)
+    public void actualizarTorretasUso()
     {
-        Debug.Log(slot + " " + torretaIndice);
-
-        //0,0,0,5,0,0,0,0,0,0,0
-        indicesElegidos[int.Parse(slot)] = int.Parse(torretaIndice);
-        /*
-        for(int i = 0; i < indicesElegidos.Count; i++)
+        // Se asigna el indice de cada slot
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            Debug.Log("Posicion " + i + " idTorreta " + indicesElegidos[i].ToString());
+            indicesElegidos[i] = itemSlots[i].indiceTorretaActual;
         }
-        */
+        // Se envian los indices del menu a las torretas disponibles
+        torretasDisponibles.actualizarTorretasElegidas(indicesElegidos);
     }
 }
