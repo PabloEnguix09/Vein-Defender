@@ -47,7 +47,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5469684944826799269}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Catapulta
   m_TagString: Untagged
   m_Icon: {fileID: 0}

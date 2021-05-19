@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 816512539699799468}
   - component: {fileID: 5480581873360989893}
   - component: {fileID: -665659544026749356}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ouroboros
   m_TagString: Enemigo
   m_Icon: {fileID: 0}

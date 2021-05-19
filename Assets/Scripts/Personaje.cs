@@ -162,14 +162,34 @@ public class Personaje : MonoBehaviour
         //Disparo de dardo localizador
         if (Input.GetButtonDown("Fire1"))
         {
-            GameObject dardoLocalizadorObjeto = Instantiate(dardoLocalizador);
-            dardoLocalizadorObjeto.transform.position = camaraJugador.transform.position + camaraJugador.transform.forward;
-            dardoLocalizadorObjeto.transform.forward = camaraJugador.transform.forward;
+            DispararDardo();
         }
 
         if (Input.GetButtonDown("Fire2")){
 
             Interactuar();
+        }
+    }
+
+    // Marca enemigos con raycast directamente
+    public void DispararDardo()
+    {
+        /*GameObject dardoLocalizadorObjeto = Instantiate(dardoLocalizador);
+        dardoLocalizadorObjeto.transform.position = camaraJugador.transform.position;
+        dardoLocalizadorObjeto.transform.forward = camaraJugador.transform.forward;
+        */
+
+        RaycastHit punto;
+        // Comprueba que este apuntando a un item en el Layer Enemigo
+        if (Physics.Raycast(camaraJugador.transform.position, camaraJugador.transform.forward, out punto, alcance, LayerMask.GetMask("Enemigo")))
+        {
+
+            Debug.Log(punto.transform.gameObject.name);
+            // Comprueba que sea un enemigo y recoge su script Enemigo
+            if (punto.transform.gameObject.TryGetComponent<Enemigo>(out Enemigo enemigo))
+            {
+                enemigo.Marcar();
+            }
         }
     }
 
@@ -270,6 +290,6 @@ public class Personaje : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 13f);
+        Gizmos.DrawRay(camaraJugador.transform.position, camaraJugador.transform.forward * alcance);
     }
 }

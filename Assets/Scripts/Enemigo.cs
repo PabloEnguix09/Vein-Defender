@@ -107,6 +107,11 @@ public class Enemigo : MonoBehaviour
         }
     }
     
+    public void Marcar()
+    {
+        marcado = true;
+    }
+
     public void AsignarBases(Base base1, Base base2, Base base3)
     {
         this.base1 = base1;

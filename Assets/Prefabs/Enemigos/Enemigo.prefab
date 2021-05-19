@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4184314725290757467}
   - component: {fileID: -7806891871067972096}
   - component: {fileID: -5561164239761131564}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemigo
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
@@ -170,8 +170,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6297567, y: 1.205635, z: 1.5603223}
-  m_Center: {x: -0.0067766905, y: -0.102817476, z: -0.04097581}
+  m_Size: {x: 1.9773469, y: 1.205635, z: 1.5603223}
+  m_Center: {x: 0.039840788, y: -0.102817476, z: -0.04097581}
 --- !u!195 &6975631623353459764
 NavMeshAgent:
   m_ObjectHideFlags: 0

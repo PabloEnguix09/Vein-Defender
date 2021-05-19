@@ -158,10 +158,9 @@ GameObject:
   - component: {fileID: 2189903771728022069}
   - component: {fileID: 17284705694387960}
   - component: {fileID: 8739878863374643262}
-  - component: {fileID: 9092519302909956658}
   - component: {fileID: 10055317896636346}
   - component: {fileID: -839284556805297403}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dron
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
@@ -220,7 +219,7 @@ MonoBehaviour:
   explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
   velocidadDeRotacion: 20
   parteQueRota: {fileID: 3963209385025984642}
-  balaObjeto: {fileID: 1620851414836905604, guid: 7d66bcdabc8823b4a8266d4e6d414e4e, type: 3}
+  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
   spawnerBalas: {fileID: 1177128191745919905}
 --- !u!65 &4623521371561484417
 BoxCollider:
@@ -292,24 +291,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9092519302909956658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3671158431268791085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cabdb0cee9e7504687909436318a0ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigoBasico: {fileID: 11400000, guid: a4b93a0647b52104fb708494839de417, type: 2}
-  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
-  velocidadDeRotacion: 20
-  parteQueRota: {fileID: 3963209385025984642}
-  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
-  spawnerBalas: {fileID: 1177128191745919905}
 --- !u!114 &10055317896636346
 MonoBehaviour:
   m_ObjectHideFlags: 0

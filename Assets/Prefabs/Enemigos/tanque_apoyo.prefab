@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3168091821278525496}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: tanque_apoyo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
