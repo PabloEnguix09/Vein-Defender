@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 9082557075668209364}
   - component: {fileID: 58785568603580019}
   - component: {fileID: -4560643103447484849}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cypher
   m_TagString: Enemigo
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}

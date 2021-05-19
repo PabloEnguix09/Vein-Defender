@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8035008052587799745}
   - component: {fileID: 3905359098871503150}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Zero gravity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
