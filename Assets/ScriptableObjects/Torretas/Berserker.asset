@@ -22,7 +22,7 @@ MonoBehaviour:
   cadenciaDisparo: 0.15
   escudoActual: 0
   tipoDisparo: 1
-  anguloDisparo: {x: 0, y: 130, z: 0, w: 0}
+  anguloDisparo: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
   velocidadRotacion: 0.75
   distanciaDisparo: 100
   antiaerea: 1
