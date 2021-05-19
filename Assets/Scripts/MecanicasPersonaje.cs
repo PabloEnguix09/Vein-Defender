@@ -30,19 +30,24 @@ public class MecanicasPersonaje : MonoBehaviour
     }
     private void Update()
     {
-        personaje.Mover(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+        // Si el jugador no esta paralizado
+        if(!personaje.paralizado)
+        {
+            personaje.Mover(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
-        if(Input.GetAxisRaw(correr) > 0)
-        {
-            personaje.Caminar();
-        } else
-        {
-            personaje.Correr();
-        }
+            if (Input.GetAxisRaw(correr) > 0)
+            {
+                personaje.Caminar();
+            }
+            else
+            {
+                personaje.Correr();
+            }
 
-        if (Input.GetAxisRaw(saltar) > 0)
-        {
-            personaje.Saltar();
+            if (Input.GetAxisRaw(saltar) > 0)
+            {
+                personaje.Saltar();
+            }
         }
 
         // No pueden usarse con la camara secundaria

@@ -122,26 +122,6 @@ public class Enemigo : MonoBehaviour
 
     Transform BuscarObjetivo()
     {
-        /*
-        // Se crea una esfera buscando todos los colliders en el rango de vision, si encuentra una torreta o a un enemigo se dirige hacia el.
-        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, enemigo.rango);
-
-        for (int i = 0; i < colliders.Length; i++)
-        {
-
-            if (colliders[i].CompareTag("Player"))
-            {
-                return objetivo = colliders[i].transform;
-            }
-            else if (colliders[i].CompareTag("Torreta"))
-            {
-
-                return objetivo = colliders[i].transform;
-            }
-
-        }
-        */
-
         // Recogemos todos los objetivos de la zona
         GameObject[] torretas = GameObject.FindGameObjectsWithTag("Torreta");
         GameObject[] player = GameObject.FindGameObjectsWithTag("Player");

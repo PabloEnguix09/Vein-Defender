@@ -31,6 +31,8 @@ public class Personaje : MonoBehaviour
     public ControlVida barraVida;
     public ControlEnergia barraEnergia;
     controlPartida controlPartida;
+    // Se usa en mecanicasPersonaje.cs para bloquear el movimiento
+    public bool paralizado;
 
     public GameObject camaraMejora;
 
@@ -45,6 +47,8 @@ public class Personaje : MonoBehaviour
     private CameraController controladorCamara;
 
     public GameObject minimapa;
+
+    Interaccion interaccionActual;
 
     public float alcance;
 
@@ -63,18 +67,17 @@ public class Personaje : MonoBehaviour
             barraVida.maximaVida(saludMaxima);
 
             if (salud <= 0)
-            {
-                // Vuelve la camara al jugador si esta la secundaria activada
-                if (camaraMejora != null)
-                {
-                    if (camaraMejora.GetComponentInChildren<Camera>().enabled)
+            {
+                // Vuelve la camara al jugador si esta la secundaria activada
+                if (camaraMejora != null)
+                {
+                    if (camaraMejora.GetComponentInChildren<Camera>().enabled)
                     {
                         camaraMejora.GetComponentInChildren<Camera>().enabled = false;
                         camara.camara.GetComponent<Camera>().enabled = true;
                         camaraSecundariaActivada = false;
                     }
-                }
-
+                }
                 controlPartida.GameOver();
             }
         }
@@ -164,10 +167,15 @@ public class Personaje : MonoBehaviour
         {
             DispararDardo();
         }
-
-        if (Input.GetButtonDown("Fire2")){
-
+        // Interactua con un objeto
+        if (Input.GetButtonDown("Fire2"))
+        {
             Interactuar();
+        }
+        // Cierra el menu actual
+        if(Input.GetButtonDown("Cancelar"))
+        {
+            CerrarInteraccion();
         }
     }
 
@@ -278,12 +286,23 @@ public class Personaje : MonoBehaviour
             {               
                 torreta.activarInvisibilidad(itemMarcado.GetComponent<Torreta>());
             }
-            else
+            if(itemMarcado.TryGetComponent(out Interaccion interaccion))
             {
-                // Abrimos canvas
-                itemMarcado.GetComponent<Interaccion>().Interactuar();
+                // Abrimos menu
+                interaccionActual = interaccion.Interactuar();
+                paralizado = true;
             }
         }
+    }
+
+    public void CerrarInteraccion()
+    {
+        if(interaccionActual != null)
+        {
+            interaccionActual.Cerrar();
+        }
+        interaccionActual = null;
+        paralizado = false;
     }
 
     // SOLO PARA LAS ESCENAS: Muestra el rayo de apuntado
