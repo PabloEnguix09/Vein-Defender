@@ -3973,6 +3973,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: base1-base2
       objectReference: {fileID: 0}
+    - target: {fileID: 5298045702813974149, guid: ce8af6bb1541c2a479225311bba6048e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8047330804002775869, guid: ce8af6bb1541c2a479225311bba6048e, type: 3}
       propertyPath: linea
       value: 
@@ -5554,8 +5558,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594907897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.366962, y: 31.7, z: 37.29551}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -35.366974, y: 31.699997, z: 37.295517}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6766,6 +6770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: base3-base2
       objectReference: {fileID: 0}
+    - target: {fileID: 3285530765979559550, guid: 47f66494e93c82443a052cd764b1dbf8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6527086027762230483, guid: 47f66494e93c82443a052cd764b1dbf8, type: 3}
       propertyPath: linea
       value: 
@@ -6888,7 +6896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2087454945
 MonoBehaviour:
   m_ObjectHideFlags: 0

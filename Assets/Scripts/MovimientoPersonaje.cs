@@ -16,7 +16,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class MovimientoPersonaje : MonoBehaviour
 {
-    public enum Movimientos { Caminar, Correr}
+    public enum Movimientos { Caminar = 0, Correr = 1}
 
     private Vector3 velocidad;
     public float maximaVelocidad = 0.1f;

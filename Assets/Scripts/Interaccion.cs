@@ -36,20 +36,32 @@ public class Interaccion : MonoBehaviour
         hud.SetActive(false);
     }
 
-    public void Interactuar()
+    public Interaccion Interactuar()
     {
         // Si es un PC de torretas interactua con el HUD de las torretas
         if(tipoItem == TipoItem.pcTorretas)
         {
-            if (hud.activeSelf)
-            {
-                // Actualiza las torretas en uso
-                hud.GetComponent<HUD>().actualizarTorretasUso();
-            }
-            // Abre o cierra el menu
-            hud.SetActive(!hud.activeSelf);
+            // Abre el menu
+            hud.SetActive(true);
             // Cuando el HUD esta activado queremos tener la camara bloqueada
-            cameraController.BloquearCamara(hud.activeSelf);
+            cameraController.BloquearCamara(true);
+
+            return this;
+        }
+
+        return null;
+    }
+
+    public void Cerrar()
+    {
+        if (tipoItem == TipoItem.pcTorretas)
+        {
+            // Actualiza las torretas en uso
+            hud.GetComponent<HUD>().actualizarTorretasUso();
+            // Cierra el menu
+            hud.SetActive(false);
+            // Cuando el HUD esta desactivado queremos tener la camara liberada
+            cameraController.BloquearCamara(false);
         }
     }
 }
