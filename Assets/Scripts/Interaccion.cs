@@ -30,8 +30,7 @@ public class Interaccion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Busca el gameObject del HUD
-        hud = FindObjectOfType<HUD>().gameObject;
+        // Busca el camera controller
         cameraController = FindObjectOfType<CameraController>();
         // Lo desactiva al principio por si acaso
         hud.SetActive(false);
