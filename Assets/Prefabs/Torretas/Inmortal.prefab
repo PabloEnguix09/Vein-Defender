@@ -182,6 +182,7 @@ MonoBehaviour:
   distanciaDisparo: 0
   antiaerea: 0
   invisibilidad: 0
+  escudo: 1
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   radioExplosion: 0
   danyoExplosion: 0

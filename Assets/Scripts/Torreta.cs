@@ -46,6 +46,7 @@ public class Torreta : MonoBehaviour
     public float distanciaDisparo;
     public bool antiaerea;
     public bool invisibilidad;
+    public bool escudo;
     public Quaternion anguloDisparo;
 
     public float radioExplosion;

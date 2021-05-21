@@ -37,7 +37,15 @@ public class SistemaMejoras : MonoBehaviour
 
     [Header("Torreta")]
     // Mejoras de torreta
-    public bool mejorat01;
+    public bool costeEnergia;
+    public bool balasReforzadas;
+    public bool laseresMejorados;
+    public bool cadenciaMejorada;
+    public bool escanerAmenazas;
+    public bool escudoEnergia;
+    public bool balaExplosiva;
+    public bool laserPerforante;
+    public bool laserPerseguidor;
 
     [Header("Utilidades")]
     // Mejoras de utilidades
@@ -75,12 +83,72 @@ public class SistemaMejoras : MonoBehaviour
     public void MejorasTorreta(Torreta torreta)
     {
         // Reduce el coste de todas las Torreta -1 si son mayor de 1
-        if (mejorat01)
+        if (costeEnergia)
         {
             if (torreta.energia > 1)
             {
                 torreta.energia -= 1;
             }
+        }
+        if(balasReforzadas)
+        {
+            if(torreta.balaObjeto.name == "Bala")
+            {
+                torreta.ataque += torreta.ataque * 0.2f;
+            }
+        }
+        if(laseresMejorados)
+        {
+            if (torreta.balaObjeto.name == "BalaLaser")
+            {
+                torreta.ataque += torreta.ataque * 0.2f;
+            }
+        }
+        if(cadenciaMejorada)
+        {
+            if(torreta.cadenciaDisparo > 1)
+            {
+                torreta.cadenciaDisparo -= 1;
+            }
+        }
+        if (escanerAmenazas)
+        {
+            torreta.distanciaDisparo += 5;  
+        }
+        if(escudoEnergia)
+        {
+            if(!torreta.escudo)
+            {
+                torreta.escudoMaximo = 10;
+                torreta.escudoRegen = 0.5f;
+            }
+            else
+            {
+                torreta.escudoMaximo += torreta.escudoMaximo * 0.5f;
+            }
+        }
+        if(balaExplosiva)
+        {
+            if(torreta.balaObjeto.name == "Bala")
+            {
+                if (torreta.danyoExplosion == 0)
+                {
+                    torreta.danyoExplosion = torreta.ataque * 0.5f;
+                    torreta.radioExplosion = 1;
+                }
+                else
+                {
+                    torreta.radioExplosion += 1;
+                }
+            }
+        }
+        if(laserPerforante)
+        {
+
+        }
+        if(laserPerseguidor)
+        {
+
         }
     }
 
