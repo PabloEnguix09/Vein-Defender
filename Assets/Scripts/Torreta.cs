@@ -47,6 +47,8 @@ public class Torreta : MonoBehaviour
     public bool antiaerea;
     public bool invisibilidad;
     public bool escudo;
+    public bool perforante;
+    public bool perseguidor;
     public Quaternion anguloDisparo;
 
     public float radioExplosion;
@@ -444,5 +446,10 @@ public class Torreta : MonoBehaviour
         }
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(parteQueRota.position, distanciaDisparo);
+    }
+
+    public GameObject GetEnemigoApuntado()
+    {
+        return enemigoApuntando;
     }
 }

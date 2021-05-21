@@ -144,11 +144,17 @@ public class SistemaMejoras : MonoBehaviour
         }
         if(laserPerforante)
         {
-
+            if(torreta.balaObjeto.name == "BalaLaser")
+            {
+                torreta.perforante = true;
+            }
         }
         if(laserPerseguidor)
         {
-
+            if (torreta.balaObjeto.name == "BalaLaser")
+            {
+                torreta.perseguidor = true;
+            }
         }
     }
 

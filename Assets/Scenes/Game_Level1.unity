@@ -5592,8 +5592,8 @@ MonoBehaviour:
   escanerAmenazas: 0
   escudoEnergia: 0
   balaExplosiva: 1
-  laserPerforante: 0
-  laserPerseguidor: 0
+  laserPerforante: 1
+  laserPerseguidor: 1
   mejoraCamara: 1
   mejoraCaminos: 1
   torretasDisponibles: {fileID: 1594907901}
