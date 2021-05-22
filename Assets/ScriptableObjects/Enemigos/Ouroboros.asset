@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: Ouroboros
   m_EditorClassIdentifier: 
   ataque: 1
+  ataqueTemporal: 0
+  ataqueFinal: 1
   ataqueExplosion: 0
   rangoExplosion: 0
   velocidadDisparo: 0.5
+  vidaActual: 0
   vidaMaxima: 10
-  velocidad: 4
+  velocidadInicial: 2
+  velocidadActual: 0
   velocidadDeRotacion: 20
   rango: 25
   rangoDisparo: 15
   invisibilidad: 0
   subterraneo: 1
   vuela: 0
+  atacaJugador: 1
+  atacaTorretas: 1

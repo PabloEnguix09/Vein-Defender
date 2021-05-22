@@ -20,7 +20,7 @@ public class Torreta : MonoBehaviour
     //FEATURES ADDED: regenreacion de escudo y rango de vision
     //
     // AUTHOR: Jorge Grau
-    //FEATURES ADDED: comprobación de que la torreta es antiaerea (puede atacar enemigos voladores), enemigo subterraneo y estado de invisibilidad(los enemigos invisibles no pueden ser atacados a menos que pierdan la ivisibilidad), añadido tambien la variable energiaEnUso, que guarda el total de energia que consume una torreta en el momento que esta siendo usada, ej: la fantasma gasta 3 si esta invisible gasta 6. 
+    //FEATURES ADDED: comprobaciï¿½n de que la torreta es antiaerea (puede atacar enemigos voladores), enemigo subterraneo y estado de invisibilidad(los enemigos invisibles no pueden ser atacados a menos que pierdan la ivisibilidad), aï¿½adido tambien la variable energiaEnUso, que guarda el total de energia que consume una torreta en el momento que esta siendo usada, ej: la fantasma gasta 3 si esta invisible gasta 6. Las torretas pueden reducir el daï¿½o y sabemos la direccion del ataque.
     //
     //AUTHOR: Juan Ferrera Sala
     //FEATURES ADDED:Si el enemigo es visible esta marcado le esta disparndo una Mohawk
@@ -49,12 +49,15 @@ public class Torreta : MonoBehaviour
     public bool escudo;
     public bool perforante;
     public bool perseguidor;
+    public bool disparoPEM;
     public Quaternion anguloDisparo;
 
     public float radioExplosion;
     public float danyoExplosion;
 
     private float timerDisparo;
+    private float timerActivacion;
+    public bool torretaInhabilitada;
     public bool puedeDisparar;
 
     [Header("Partes")]
@@ -96,6 +99,7 @@ public class Torreta : MonoBehaviour
         anguloDisparo = torretaBasica.anguloDisparo;
         radioExplosion = torretaBasica.radioExplosion;
         danyoExplosion = torretaBasica.danyoExplosion;
+        torretaInhabilitada = false;
 
         // Busca el jugador
         personaje = FindObjectOfType<Personaje>();
@@ -128,78 +132,89 @@ public class Torreta : MonoBehaviour
         enemigoApuntando = null;
 
         timerDisparo = 0;
+        timerActivacion = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Solo si la torreta tiene ataque
-        if(ataque > 0)
+        if (!torretaInhabilitada)
         {
-            //busca al enemigo mas cercano
-            enemigoApuntando = BuscarEnemigo();
-
-            //tiempo para la velocidad de ataque
-            timerDisparo += Time.deltaTime;
-
-            //si apunta a alguien
-            if (enemigoApuntando != null)
+            // Solo si la torreta tiene ataque
+            if (ataque > 0)
             {
-                //rota la torreta en direccion al enemigo apuntado
-                Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
-                Quaternion VisionRotacion = Quaternion.LookRotation(dir);
-                //rotacion suave
-                Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadRotacion).eulerAngles;
-                parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
+                //busca al enemigo mas cercano
+                enemigoApuntando = BuscarEnemigo();
 
-                //si ha pasado el tiempo de recarga
-                if (timerDisparo >= cadenciaDisparo)
+                //tiempo para la velocidad de ataque
+                timerDisparo += Time.deltaTime;
+
+                //si apunta a alguien
+                if (enemigoApuntando != null)
                 {
-                    timerDisparo = 0;
-                    //disparar
+                    //rota la torreta en direccion al enemigo apuntado
+                    Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
+                    Quaternion VisionRotacion = Quaternion.LookRotation(dir);
+                    //rotacion suave
+                    Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadRotacion).eulerAngles;
+                    parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
 
-                    Disparar();
+                    timerDisparo += Time.deltaTime;
+                    if (timerDisparo > cadenciaDisparo)
+                    {
+                        timerDisparo = 0;
+                        Disparar();
+                    }
+                }
+            }
+
+            // Torreta destruida
+            if (vidaActual <= 0)
+            {
+                DestruirTorreta();
+            }
+
+            // Regeneracion de escudo
+            if (escudoActual < escudoMaximo)
+            {
+                actualTimerEscudo -= Time.deltaTime;
+                // Cuando el han pasado unos segundos sin recibir ataques
+                if (actualTimerEscudo <= 0)
+                {
+                    escudoActual += escudoRegen * Time.deltaTime;
+                }
+            }
+            // Si el escudo es mayor que el maximo, se ajusta al maximo
+            if (escudoActual > escudoMaximo)
+            {
+                escudoActual = escudoMaximo;
+            }
+
+            // Si tiene un escudo dentro
+            if (escudoObjeto != null)
+            {
+                // Si el escudo esta activado pero ya no tiene escudo, se desactiva
+                if (escudoObjeto.activeSelf && escudoActual <= 0)
+                {
+                    escudoObjeto.SetActive(false);
+                }
+                // Si el escudo esta desactivado pero tiene escudo, se activa
+                if (!escudoObjeto.activeSelf && escudoActual > 0)
+                {
+                    escudoObjeto.SetActive(true);
                 }
             }
         }
-
-        // Torreta destruida
-        if (vidaActual <= 0)
+        else
         {
-            DestruirTorreta();
-        }
-
-        // Regeneracion de escudo
-        if (escudoActual < escudoMaximo)
-        {
-            actualTimerEscudo -= Time.deltaTime;
-            // Cuando el han pasado unos segundos sin recibir ataques
-            if(actualTimerEscudo <= 0)
+            //tiempo para la velocidad de ataque
+            timerActivacion += Time.deltaTime;
+            if(timerActivacion >= 2)
             {
-                escudoActual += escudoRegen * Time.deltaTime;
+                torretaInhabilitada = false;
+                timerActivacion = 0;
             }
         }
-        // Si el escudo es mayor que el maximo, se ajusta al maximo
-        if(escudoActual > escudoMaximo)
-        {
-            escudoActual = escudoMaximo;
-        }
-
-        // Si tiene un escudo dentro
-        if(escudoObjeto != null)
-        {
-            // Si el escudo esta activado pero ya no tiene escudo, se desactiva
-            if(escudoObjeto.activeSelf && escudoActual <= 0)
-            {
-                escudoObjeto.SetActive(false);
-            }
-            // Si el escudo esta desactivado pero tiene escudo, se activa
-            if(!escudoObjeto.activeSelf && escudoActual > 0)
-            {
-                escudoObjeto.SetActive(true);
-            }
-        }
-
     }
 
     public void Disparar()
@@ -247,7 +262,6 @@ public class Torreta : MonoBehaviour
                     // Si vuela y soy una torreta antiaerea
                     if (antiaerea)
                     {
-
                         // Si el enemigo es visible esta marcado le esta disparndo una Mohawk
                         if (!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<Enemigo>().marcado)
                         {
@@ -295,10 +309,14 @@ public class Torreta : MonoBehaviour
                             // Comprueba que tenga vision del enemigo
                             if (ComprobarVision(enemigosEnRango[i]))
                             {
+
+                                    masCercano = enemigosEnRango[i];
+                                    /*
                                     if (ComprobarAngulo(enemigosEnRango[i]))
                                     {
                                         masCercano = enemigosEnRango[i];
                                     }
+                                    */
                             }
                         }
                         // Si ya tiene un enemigo asignado
@@ -313,20 +331,22 @@ public class Torreta : MonoBehaviour
                                     // Comprueba que tenga vision del enemigo
                                     if (ComprobarVision(enemigosEnRango[i]))
                                     {
-                                        if (ComprobarAngulo(enemigosEnRango[i]))
-                                        {
                                             masCercano = enemigosEnRango[i];
-                                        }
+                                            /*
+                                            if (ComprobarAngulo(enemigosEnRango[i]))
+                                            {
+                                                masCercano = enemigosEnRango[i];
+                                            }
+                                            */
                                     }
                                 }
-
                             }
                         }
                     }
                 }
-                
             }
         }
+
         // Comprueba que existe un enemigo visible
         if(masCercano != null)
         {
@@ -348,7 +368,7 @@ public class Torreta : MonoBehaviour
         // no existe un collider entre el enemigo y la torreta
         Physics.Raycast(parteQueRota.position, Vector3.Normalize(objetivo.transform.position - parteQueRota.position), out hit, Vector3.Distance(parteQueRota.position, objetivo.transform.position), LayerMask.GetMask("Terreno"));
 
-        if(hit.collider == null)
+        if (hit.collider == null)
         {
             return true;
         }
@@ -370,15 +390,15 @@ public class Torreta : MonoBehaviour
             float rangoEnY = anguloDisparo.eulerAngles.y / 2;
         
             //calculo el angulo para apuntar hacia el enemigo
-            float rotaciónNecesaria = VisionRotacion.eulerAngles.y - transform.rotation.eulerAngles.y;
+            float rotacionNecesaria = VisionRotacion.eulerAngles.y - transform.rotation.eulerAngles.y;
         
             //si es negativo lo devulevo a positivo
-            if (rotaciónNecesaria < 0)
+            if (rotacionNecesaria < 0)
             {
-                rotaciónNecesaria += 360;
+                rotacionNecesaria += 360;
             }
 
-            if (rangoEnY >= rotaciónNecesaria || 360 - rangoEnY <= rotaciónNecesaria)
+            if (rangoEnY >= rotacionNecesaria || 360 - rangoEnY <= rotacionNecesaria)
             {
                 //si esta en angulo
                 return true;
@@ -414,11 +434,29 @@ public class Torreta : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
+
     }
 
     // Recibe un ataque
     public void RecibirAtaque(Ataque ataque)
     {
+        // Comprobamos si puede reducir daï¿½o
+        if (torretaBasica.reducirDanyo)
+        {
+            // Comprobamos desde donde golpea y si reduce el daï¿½o
+            if (ataque.direccion > 0 && torretaBasica.frente)
+            {
+                ataque.fuerza = ataque.fuerza * torretaBasica.reduccion;
+            }
+            if (ataque.direccion < 0 && torretaBasica.espalda)
+            {
+                ataque.fuerza = ataque.fuerza * torretaBasica.reduccion;
+            }
+            if (ataque.direccion == 0 && torretaBasica.lados)
+            {
+                ataque.fuerza = ataque.fuerza * torretaBasica.reduccion;
+            }
+        }
         // Se reinicia el timer de regeneracion del escudo
         actualTimerEscudo = timerEscudo;
         // El escudo reduce el ataque 
@@ -445,6 +483,11 @@ public class Torreta : MonoBehaviour
             Instantiate(ps, transform.position, transform.rotation);
         }
        
+    }
+
+    public void InhabilitarTorreta()
+    {
+        torretaInhabilitada = true;
     }
 
     private void OnDrawGizmosSelected()

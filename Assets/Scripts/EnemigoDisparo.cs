@@ -8,7 +8,7 @@
 // FEATURES ADDED: Primera versión del codigo(dronAtaque): Añadidas las estadisticas, la seleccion del objetivo a disparar y la funcion de disparar
 // 
 // AUTHOR: Jorge Grau
-// FEATURES ADDED: Todo el codigo actualizado para que funcione para todos los enemigos independientemente de su tipo, el codigo ahora usa las variables del SO de enemigo y busca objetivos de una forma más eficiente y limpia. Añadida la comprobación de objetiivo invisible.
+// FEATURES ADDED: Todo el codigo actualizado para que funcione para todos los enemigos independientemente de su tipo, el codigo ahora usa las variables del SO de enemigo y busca objetivos de una forma más eficiente y limpia. Añadida la comprobación de objetiivo invisible. Añadido el daño y el rango de la explosion en la creación del objeto ataque. Los enemigos atacan al jugador o a las torretas si "pueden". Sabemos la dirección del ataque.
 //
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: sonidos
@@ -23,7 +23,6 @@ public class EnemigoDisparo : MonoBehaviour
 {
     public EnemigoBasico enemigoBasico;
 
-    private Enemigo enemigo;
 
     private float timerDisparo;
 
@@ -41,7 +40,6 @@ public class EnemigoDisparo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemigo = gameObject.GetComponent<Enemigo>();
         timerDisparo = 0;
         velocidadDeRotacion = enemigoBasico.velocidadDeRotacion;
 
@@ -51,11 +49,6 @@ public class EnemigoDisparo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemigo.vidaActual <= 0)
-        {
-            Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
 
         //busca al objetivo mas cercano
         objetivoADisparar = BuscarObjetivo();
@@ -81,9 +74,15 @@ public class EnemigoDisparo : MonoBehaviour
                 //disparar
                 Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
 
-                ataqueObjeto.fuerza = enemigoBasico.ataque;
+                ataqueObjeto.fuerza = enemigoBasico.ataqueFinal;
+                ataqueObjeto.fuerzaExplosion = enemigoBasico.ataqueExplosion;
+                ataqueObjeto.radioExplosion = enemigoBasico.rangoExplosion;
                 ataqueObjeto.tipo = Ataque.Tipo.laser;
                 ataqueObjeto.origen = gameObject;
+
+                // Se busca la direccion desde donde esta atacando al objetivo
+                Vector3 direccion = objetivoADisparar.transform.position - transform.position;
+                ataqueObjeto.direccion = Vector3.Dot(transform.forward, direccion);
 
                 Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
 
@@ -95,14 +94,21 @@ public class EnemigoDisparo : MonoBehaviour
     //Funcion de busqueda de objetivo
     GameObject BuscarObjetivo()
     {
-        // Recogemos todos los objetivos de la zona
-        GameObject[] torretas = GameObject.FindGameObjectsWithTag("Torreta");
-        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-        GameObject[] bases = GameObject.FindGameObjectsWithTag("Base");
         List<GameObject> objetivosEnRango = new List<GameObject>();
+        // Recogemos todos los objetivos de la zona
+        if (enemigoBasico.atacaTorretas)
+        {
+            GameObject[] torretas = GameObject.FindGameObjectsWithTag("Torreta");
+            objetivosEnRango.AddRange(torretas);
+        }
 
-        objetivosEnRango.AddRange(torretas);
-        objetivosEnRango.AddRange(player);
+        if (enemigoBasico.atacaJugador)
+        {
+            GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+            objetivosEnRango.AddRange(player);
+        }
+
+        GameObject[] bases = GameObject.FindGameObjectsWithTag("Base");
         objetivosEnRango.AddRange(bases);
 
         GameObject masCercano = null;

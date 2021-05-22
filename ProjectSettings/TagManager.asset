@@ -11,6 +11,8 @@ TagManager:
   - Torreta
   - Base
   - Enemigo
+  - Bala
+  - Escudo
   layers:
   - Default
   - TransparentFX

@@ -12,9 +12,6 @@ public class Spawner : MonoBehaviour
     //
     // AUTHOR: Jorge
     // FEATURES ADDED: Configuración y funcionalidad del spawner al completo
-    //
-    // AUTHOR: Pau
-    // FEATURES ADDED: funcion para crear drones
     // ---------------------------------------------------
 
     // Aqui van los GameObject de los Enemigo, pueden ser distintos o iguales y el codigo se puede expandir hasta tener todo tipo de Enemigo diferentes

@@ -715,7 +715,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agente: {fileID: 2953471863496997995}
-  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
   vidaActual: 0
   enemigo: {fileID: 11400000, guid: a2411b431505f5c4193f0b9370b67f70, type: 2}
   marcado: 0
@@ -850,6 +849,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 9ace5ac796e49b04c9aa7a7a24ac847c, type: 3}
+--- !u!114 &-5730991974975804148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127863220233718541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ba7e0a8e5183e4190aa86018dce1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigo: {fileID: 11400000, guid: a2411b431505f5c4193f0b9370b67f70, type: 2}
+  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
 --- !u!1 &8331262489921173706
 GameObject:
   m_ObjectHideFlags: 0

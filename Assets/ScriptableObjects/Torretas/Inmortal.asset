@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Inmortal
   energia: 3
-  energiaAlt: 0
+  energiaAlt: 3
   vidaMaxima: 10
   escudoMaximo: 10
   escudoRegen: 0.5
@@ -27,5 +27,10 @@ MonoBehaviour:
   distanciaDisparo: 100
   antiaerea: 0
   invisibilidad: 0
+  "reducirDa\xF1o": 0
+  frente: 0
+  espalda: 0
+  lados: 0
+  reduccion: 1
   radioExplosion: 1
   danyoExplosion: 5

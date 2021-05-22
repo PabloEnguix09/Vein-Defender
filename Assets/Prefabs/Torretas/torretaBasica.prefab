@@ -1462,6 +1462,7 @@ MonoBehaviour:
   escudo: 0
   perforante: 0
   perseguidor: 0
+  disparoPEM: 0
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   radioExplosion: 0
   danyoExplosion: 0

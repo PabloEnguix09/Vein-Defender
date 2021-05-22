@@ -46,6 +46,7 @@ public class SistemaMejoras : MonoBehaviour
     public bool balaExplosiva;
     public bool laserPerforante;
     public bool laserPerseguidor;
+    public bool balaPEM;
 
     [Header("Utilidades")]
     // Mejoras de utilidades
@@ -154,6 +155,13 @@ public class SistemaMejoras : MonoBehaviour
             if (torreta.balaObjeto.name == "BalaLaser")
             {
                 torreta.perseguidor = true;
+            }
+        }
+        if(balaPEM)
+        {
+            if(torreta.balaObjeto.name == "Bala")
+            {
+                torreta.disparoPEM = true;
             }
         }
     }

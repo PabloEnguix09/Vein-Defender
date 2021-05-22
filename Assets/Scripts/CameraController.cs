@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // ---------------------------------------------------
-// NAME: nombre
-// STATUS: estado
+// NAME: CameraController.cs
+// STATUS: WIP
 // GAMEOBJECT: objeto
-// DESCRIPTION: descripcion
+// DESCRIPTION: Controlador de camara
 //
-// AUTHOR: autor
-// FEATURES ADDED: cosas hechas
+// AUTHOR: Jorge Grau Giannakakis
+// FEATURES ADDED: Funcion bloquear camara
 // ---------------------------------------------------
 
 
