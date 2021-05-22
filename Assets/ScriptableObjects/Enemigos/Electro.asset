@@ -10,11 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93603653f7a616749a7ca32af164ca30, type: 3}
-  m_Name: Tanque_apoyo
+  m_Name: Electro
   m_EditorClassIdentifier: 
-  ataque: 0
-  vidaMaxima: 15
-  velocidad: 1.5
-  rango: 5
-  rangoDisparo: 0
-  velocidadDisparo: 0
+  ataque: 1
+  ataqueTemporal: 0
+  ataqueFinal: 2
+  ataqueExplosion: 0
+  rangoExplosion: 25
+  velocidadDisparo: 1
+  vidaActual: 77
+  vidaMaxima: 100
+  velocidad: 6
+  velocidadDeRotacion: 20
+  rango: 10
+  rangoDisparo: 6
+  invisibilidad: 0
+  subterraneo: 0
+  vuela: 0
+  atacaJugador: 1
+  atacaTorretas: 1

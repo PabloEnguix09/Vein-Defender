@@ -27,5 +27,10 @@ MonoBehaviour:
   distanciaDisparo: 50
   antiaerea: 1
   invisibilidad: 0
+  "reducirDa\xF1o": 0
+  frente: 0
+  espalda: 0
+  lados: 0
+  reduccion: 1
   radioExplosion: 0
   danyoExplosion: 0

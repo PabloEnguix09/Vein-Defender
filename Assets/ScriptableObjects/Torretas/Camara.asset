@@ -14,16 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Camara
   energia: 1
-  energiaAlt: 0
+  energiaAlt: 1
   vidaMaxima: 5
   escudoMaximo: 0
   escudoRegen: 0
   ataque: 0
   cadenciaDisparo: 0
   escudoActual: 0
+  tipoDisparo: 0
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   velocidadRotacion: 0
   distanciaDisparo: 0
   antiaerea: 0
+  invisibilidad: 0
+  "reducirDa\xF1o": 0
+  frente: 0
+  espalda: 0
+  lados: 0
+  reduccion: 1
   radioExplosion: 0
   danyoExplosion: 0

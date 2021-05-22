@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93603653f7a616749a7ca32af164ca30, type: 3}
-  m_Name: Cypher
+  m_Name: Catapulta
   m_EditorClassIdentifier: 
-  ataque: 2.5
+  ataque: 5
   ataqueTemporal: 0
   ataqueFinal: 0
-  ataqueExplosion: 0
-  rangoExplosion: 0
-  velocidadDisparo: 0.5
-  vidaMaxima: 5
-  velocidad: 5
-  velocidadDeRotacion: 20
-  rango: 10
-  rangoDisparo: 3
-  invisibilidad: 1
+  ataqueExplosion: 5
+  rangoExplosion: 5
+  velocidadDisparo: 1
+  vidaMaxima: 10
+  velocidad: 2
+  velocidadDeRotacion: 10
+  rango: 30
+  rangoDisparo: 20
+  invisibilidad: 0
   subterraneo: 0
   vuela: 0
-  atacaJugador: 1
+  atacaJugador: 0
   atacaTorretas: 1

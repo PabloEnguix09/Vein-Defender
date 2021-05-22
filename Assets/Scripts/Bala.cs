@@ -70,7 +70,7 @@ public class Bala : MonoBehaviour
             {
                 Base estructura = collision.gameObject.gameObject.GetComponent<Base>();
                 estructura.RecibirAtaque(ataque);
-
+                
                 ExplosionAtaque(ataque);
             }
         }
@@ -82,8 +82,8 @@ public class Bala : MonoBehaviour
                 // Recoje el script torreta
                 Torreta torreta = collision.gameObject.gameObject.GetComponent<Torreta>();
                 // Inflige danyo
+                
                 torreta.RecibirAtaque(ataque);
-
                 ExplosionAtaque(ataque);
             }
         }

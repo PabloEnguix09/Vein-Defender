@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
-  m_Name: Fantasma
+  m_Name: Hoplita
   m_EditorClassIdentifier: 
-  nombre: Fantasma
-  energia: 3
-  energiaAlt: 6
+  nombre: Hoplita
+  energia: 2
+  energiaAlt: 2
   vidaMaxima: 10
   escudoMaximo: 0
   escudoRegen: 0
-  ataque: 10
+  ataque: 3
   cadenciaDisparo: 1
   escudoActual: 0
-  tipoDisparo: 0
-  anguloDisparo: {x: 0, y: 0, z: 0, w: 1}
+  tipoDisparo: 1
+  anguloDisparo: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   velocidadRotacion: 20
-  distanciaDisparo: 200
-  antiaerea: 1
+  distanciaDisparo: 40
+  antiaerea: 0
   invisibilidad: 0
-  "reducirDa\xF1o": 0
-  frente: 0
+  "reducirDa\xF1o": 1
+  frente: 1
   espalda: 0
   lados: 0
-  reduccion: 1
+  reduccion: 0.5
   radioExplosion: 0
   danyoExplosion: 0

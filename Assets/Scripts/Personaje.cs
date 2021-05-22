@@ -12,14 +12,14 @@ using UnityEngine;
 // FEATURES ADDED: cosas hechas
 //
 // AUTHOR: Jorge Grau
-// FEATURES ADDED: Salud y energia
+// FEATURES ADDED: Salud y energia. Funcionalidad a la funcion Interactuar
 //
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: Correcciones a energia y vida, control de partida, recibirAtaque, mejoras de personaje
 //
 //
 // AUTHOR: Juan Ferrera Sala
-// FEATURES ADDED: Creacion del dardo localizador
+// FEATURES ADDED: Creacion del dardo localizador, esqueleto de la función Interactuar
 // ---------------------------------------------------
 
 public class Personaje : MonoBehaviour

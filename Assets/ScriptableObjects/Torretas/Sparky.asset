@@ -21,11 +21,16 @@ MonoBehaviour:
   ataque: 1
   cadenciaDisparo: 1
   escudoActual: 0
-  tipoDisparo: 0
+  tipoDisparo: 1
   anguloDisparo: {x: 0, y: 0, z: 0, w: 1}
-  velocidadRotacion: 2
-  distanciaDisparo: 100
-  antiaerea: 1
+  velocidadRotacion: 20
+  distanciaDisparo: 30
+  antiaerea: 0
   invisibilidad: 0
+  "reducirDa\xF1o": 0
+  frente: 0
+  espalda: 0
+  lados: 0
+  reduccion: 1
   radioExplosion: 0
   danyoExplosion: 0

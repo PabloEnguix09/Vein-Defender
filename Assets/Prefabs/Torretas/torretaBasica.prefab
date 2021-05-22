@@ -213,6 +213,7 @@ MonoBehaviour:
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   radioExplosion: 0
   danyoExplosion: 0
+  torretaInhabilitada: 0
   parteQueRota: {fileID: 8421103798193483843}
   balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
   spawnerBalas: {fileID: 3922804850825610887}

@@ -9,6 +9,9 @@
 //
 // AUTHOR: Pau Blanes
 // FEATURES ADDED: escudoActual
+//
+// AUTHOR: Jorge Grau
+// FEATURES ADDED: antiaerea,invisibilidad,reducirDaño,frente,espalda,lados,reduccion
 // ---------------------------------------------------
 
 using UnityEngine;
@@ -36,6 +39,11 @@ public class TorretaBasica : ScriptableObject
     public float distanciaDisparo;
     public bool antiaerea;
     public bool invisibilidad;
+    public bool reducirDanyo;
+    public bool frente;
+    public bool espalda;
+    public bool lados;
+    public float reduccion;
     public float radioExplosion;
     public float danyoExplosion;
 }
