@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // ---------------------------------------------------
-// NAME: nombre
-// STATUS: estado
-// GAMEOBJECT: objeto
-// DESCRIPTION: descripcion
+// NAME: InvocarTorreta.cs
+// STATUS: WIP
+// GAMEOBJECT: Jugador
+// DESCRIPTION: maneja la invocacion de torretas y el menu radial de seleccion
 //
 // AUTHOR: Pablo Enguix Llopis
 // FEATURES ADDED: cosas hecha
@@ -58,7 +58,7 @@ public class InvocarTorreta : MonoBehaviour
         previews = previewUso;
         imagenes = imagenesUso;
         // Se asignan las imagenes al menu radial
-        for (int i = 0; i < imagenesMenuRadial.Count; i++)
+        for (int i = 0; i < torretas.Count; i++)
         {
             imagenesMenuRadial[i].sprite = imagenes[i];
         }

@@ -51,6 +51,12 @@ public class TorretasDisponibles : MonoBehaviour
     public InvocarTorreta invocarTorreta;
     public HUD hud;
 
+    private void Start()
+    {
+        List<int> listaVacia = new List<int>();
+        actualizarTorretasElegidas(listaVacia);
+    }
+
     // Recibe una lista de indices que representan los indices de las torretas
     public void asignarTorretasDisponibles(List<int> listaIndices)
     {
@@ -73,13 +79,23 @@ public class TorretasDisponibles : MonoBehaviour
         torretasUso.Clear();
         previewsUso.Clear();
         imagenesUso.Clear();
+
+        // Se llena de torretas basicas
+        for (int i = 0; i < 8; i++)
+        {
+            torretasUso.Add(torretasTotales[0]);
+            previewsUso.Add(previewsTotales[0]);
+            imagenesUso.Add(imagenesTotales[0]);
+        }
+        // Se sustituyen por las nuevas
         for (int i = 0; i < listaIndices.Count; i++)
         {
             // Asigna cada torreta, preview e imagen en uso segun su indice en las totales
-            torretasUso.Add(torretasTotales[listaIndices[i]]);
-            previewsUso.Add(previewsTotales[listaIndices[i]]);
-            imagenesUso.Add(imagenesTotales[listaIndices[i]]);
+            torretasUso[i] = torretasTotales[listaIndices[i]];
+            previewsUso[i] = previewsTotales[listaIndices[i]];
+            imagenesUso[i] = imagenesTotales[listaIndices[i]];
         }
+
         // Se envian al menu radial
         invocarTorreta.asignarTorretasActuales(torretasUso, previewsUso, imagenesUso);
     }
