@@ -106,6 +106,10 @@ public class Bala : MonoBehaviour
                 Enemigo enemigo = collision.gameObject.GetComponent<Enemigo>();
                 if (!enemigo.subterraneo)
                 {
+                    if (ataque.origen.GetComponent<Torreta>().balaObjeto.name == "Bala" && ataque.origen.GetComponent<Torreta>().disparoPEM)
+                    {
+                        enemigo.Ralentizar();
+                    }
                     enemigo.RecibirAtaque(ataque);
                 }
                 ExplosionAtaque(ataque);

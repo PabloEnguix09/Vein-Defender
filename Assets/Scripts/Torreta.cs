@@ -49,6 +49,7 @@ public class Torreta : MonoBehaviour
     public bool escudo;
     public bool perforante;
     public bool perseguidor;
+    public bool disparoPEM;
     public Quaternion anguloDisparo;
 
     public float radioExplosion;

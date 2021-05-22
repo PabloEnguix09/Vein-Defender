@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ataque: 5
   ataqueTemporal: 0
-  ataqueFinal: 0
+  ataqueFinal: 5
   ataqueExplosion: 5
   rangoExplosion: 5
   velocidadDisparo: 1
+  vidaActual: 10
   vidaMaxima: 10
-  velocidad: 2
+  velocidadInicial: 2
+  velocidadActual: 0
   velocidadDeRotacion: 10
   rango: 30
   rangoDisparo: 20

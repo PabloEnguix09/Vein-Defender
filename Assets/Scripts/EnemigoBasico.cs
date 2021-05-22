@@ -26,7 +26,8 @@ public class EnemigoBasico : ScriptableObject
     public float velocidadDisparo;
     public float vidaActual;
     public float vidaMaxima;
-    public float velocidad;
+    public float velocidadInicial;
+    public float velocidadActual;
     public float velocidadDeRotacion;
     public float rango;
     public float rangoDisparo;
