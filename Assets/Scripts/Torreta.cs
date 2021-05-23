@@ -58,7 +58,6 @@ public class Torreta : MonoBehaviour
     private float timerDisparo;
     private float timerActivacion;
     public bool torretaInhabilitada;
-    public bool puedeDisparar;
 
     [Header("Partes")]
     private GameObject enemigoApuntando;
@@ -99,7 +98,8 @@ public class Torreta : MonoBehaviour
         anguloDisparo = torretaBasica.anguloDisparo;
         radioExplosion = torretaBasica.radioExplosion;
         danyoExplosion = torretaBasica.danyoExplosion;
-        torretaInhabilitada = false;
+        // Empieza estando inhabilitada
+        torretaInhabilitada = true;
 
         // Busca el jugador
         personaje = FindObjectOfType<Personaje>();
@@ -138,6 +138,8 @@ public class Torreta : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("Inactiva", torretaInhabilitada);
+
         if (!torretaInhabilitada)
         {
             // Solo si la torreta tiene ataque
@@ -219,28 +221,25 @@ public class Torreta : MonoBehaviour
 
     public void Disparar()
     {
-        if(puedeDisparar)
+        // sonido disparar
+        audioHandler.PlaySound(0, false);
+        // Crea las particulas del disparo si el tipo es de balas
+        if (torretaBasica.tipoDisparo == TorretaBasica.TipoDisparo.balas)
         {
-            // sonido disparar
-            audioHandler.PlaySound(0, false);
-            // Crea las particulas del disparo si el tipo es de balas
-            if (torretaBasica.tipoDisparo == TorretaBasica.TipoDisparo.balas)
-            {
-                Destroy(Instantiate(explosionBala, spawnerBalas.transform.position, spawnerBalas.transform.rotation), 1f);
-            }
-
-            Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
-
-            ataqueObjeto.fuerza = ataque;
-            ataqueObjeto.tipo = Ataque.Tipo.laser;
-            ataqueObjeto.origen = gameObject;
-            ataqueObjeto.fuerzaExplosion = danyoExplosion;
-            ataqueObjeto.radioExplosion = radioExplosion;
-
-            Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
-
-            bala.ataque = ataqueObjeto;
+            Destroy(Instantiate(explosionBala, spawnerBalas.transform.position, spawnerBalas.transform.rotation), 1f);
         }
+
+        Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+
+        ataqueObjeto.fuerza = ataque;
+        ataqueObjeto.tipo = Ataque.Tipo.laser;
+        ataqueObjeto.origen = gameObject;
+        ataqueObjeto.fuerzaExplosion = danyoExplosion;
+        ataqueObjeto.radioExplosion = radioExplosion;
+
+        Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
+
+        bala.ataque = ataqueObjeto;
     }
 
     //Funcion de busqueda de enemigo

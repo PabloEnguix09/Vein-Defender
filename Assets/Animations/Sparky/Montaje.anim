@@ -222,7 +222,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -231,7 +231,7 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -241,7 +241,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: puedeDisparar
+    attribute: torretaInhabilitada
     path: 
     classID: 114
     script: {fileID: 11500000, guid: 96517f2596bd50641b5a63963c836b86, type: 3}
@@ -304,7 +304,7 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 0
-      attribute: 932031062
+      attribute: 882112960
       script: {fileID: 11500000, guid: 96517f2596bd50641b5a63963c836b86, type: 3}
       typeID: 114
       customType: 0
@@ -1015,7 +1015,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -1024,7 +1024,7 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -1034,7 +1034,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: puedeDisparar
+    attribute: torretaInhabilitada
     path: 
     classID: 114
     script: {fileID: 11500000, guid: 96517f2596bd50641b5a63963c836b86, type: 3}
