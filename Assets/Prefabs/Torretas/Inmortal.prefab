@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1020778570645358884}
   - component: {fileID: 2819659699344461735}
   - component: {fileID: 7135632874510726962}
+  - component: {fileID: -3516717409552447229}
   m_Layer: 7
   m_Name: Inmortal
   m_TagString: Torreta
@@ -112,8 +113,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550871163448655305}
-  m_LocalRotation: {x: 0, y: 0.0065449276, z: 0, w: 0.9999786}
-  m_LocalPosition: {x: 17.458393, y: 23.700804, z: 68.17103}
+  m_LocalRotation: {x: 0, y: 0.28527123, z: 0, w: -0.95844686}
+  m_LocalPosition: {x: -68.10801, y: 2.347486, z: 10.474237}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 6392596038898667606}
@@ -133,8 +134,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6865005, y: 1.6532078, z: 2.4172459}
-  m_Center: {x: 0.008991228, y: 0.9044299, z: 0.37778693}
+  m_Size: {x: 1.6865005, y: 2.31989, z: 2.4172459}
+  m_Center: {x: 0.008991241, y: 0.5710896, z: 0.37778696}
 --- !u!54 &370284353657971453
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -304,6 +305,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: e2135b0936916a64297e6fe3bbb3617a, type: 3}
+--- !u!95 &-3516717409552447229
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3550871163448655305}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c259b7d091ada54ba6fb0a08f2ab6c7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4964510614397554650
 GameObject:
   m_ObjectHideFlags: 0
