@@ -138,7 +138,7 @@ public class Torreta : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("Inactiva", torretaInhabilitada);
+        //animator.SetBool("Inactiva", torretaInhabilitada);
 
         if (!torretaInhabilitada)
         {
