@@ -12,6 +12,9 @@
 //
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: sonidos
+//
+// AUTHOR: Adrian Maldonado
+// FEATURES ADDED: Comprobacion de tener una torreta delante
 // ---------------------------------------------------
 
 using System.Collections;
@@ -31,7 +34,7 @@ public class EnemigoDisparo : MonoBehaviour
     public float velocidadDeRotacion;
 
     [Header("Partes")]
-    private GameObject objetivoADisparar;
+    private Vector3 objetivoADisparar;
     public Transform parteQueRota;
     public GameObject balaObjeto;
     public GameObject spawnerBalas;
@@ -55,10 +58,10 @@ public class EnemigoDisparo : MonoBehaviour
         //tiempo para la velocidad de ataque
         timerDisparo += Time.deltaTime;
         //si apunta a alguien
-        if (objetivoADisparar != null)
+        if (objetivoADisparar != Vector3.zero)
         {
             // rotar en direccion al objetivo apuntado
-            Vector3 dir = parteQueRota.position - objetivoADisparar.transform.position;
+            Vector3 dir = objetivoADisparar - parteQueRota.position;
             Quaternion VisionRotacion = Quaternion.LookRotation(dir);
             //rotacion suave
             Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadDeRotacion).eulerAngles;
@@ -81,7 +84,7 @@ public class EnemigoDisparo : MonoBehaviour
                 ataqueObjeto.origen = gameObject;
 
                 // Se busca la direccion desde donde esta atacando al objetivo
-                Vector3 direccion = objetivoADisparar.transform.position - transform.position;
+                Vector3 direccion = transform.position - objetivoADisparar;
                 ataqueObjeto.direccion = Vector3.Dot(transform.forward, direccion);
 
                 Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
@@ -92,7 +95,7 @@ public class EnemigoDisparo : MonoBehaviour
         }
     }
     //Funcion de busqueda de objetivo
-    GameObject BuscarObjetivo()
+    Vector3 BuscarObjetivo()
     {
         List<GameObject> objetivosEnRango = new List<GameObject>();
         // Recogemos todos los objetivos de la zona
@@ -111,7 +114,7 @@ public class EnemigoDisparo : MonoBehaviour
         GameObject[] bases = GameObject.FindGameObjectsWithTag("Base");
         objetivosEnRango.AddRange(bases);
 
-        GameObject masCercano = null;
+        Vector3 masCercano = Vector3.zero;
 
         // Encontramos el objetivo mas cercano
         if (objetivosEnRango.Count >= 1)
@@ -130,19 +133,19 @@ public class EnemigoDisparo : MonoBehaviour
                             // Comprueba que tenga vision del objetivo
                             if (ComprobarVision(objetivosEnRango[i]))
                             {
-                                masCercano = objetivosEnRango[i];
+                                masCercano = objetivosEnRango[i].transform.position;
                             }
                         }
                         // Si ya tiene un objetivo asignado
                         else if (masCercano != null)
                         {
                             // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
-                            if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, objetivosEnRango[i].transform.position))
+                            if (Vector3.Distance(parteQueRota.position, masCercano) > Vector3.Distance(parteQueRota.position, objetivosEnRango[i].transform.position))
                             {
                                 // Comprueba que tenga vision del objetivo
                                 if (ComprobarVision(objetivosEnRango[i]))
                                 {
-                                    masCercano = objetivosEnRango[i];
+                                    masCercano = objetivosEnRango[i].transform.position;
                                 }
 
                             }
@@ -157,19 +160,19 @@ public class EnemigoDisparo : MonoBehaviour
                         // Comprueba que tenga vision del objetivo
                         if (ComprobarVision(objetivosEnRango[i]))
                         {
-                            masCercano = objetivosEnRango[i];
+                            masCercano = objetivosEnRango[i].transform.position;
                         }
                     }
                     // Si ya tiene un objetivo asignado
                     else if (masCercano != null)
                     {
                         // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
-                        if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, objetivosEnRango[i].transform.position))
+                        if (Vector3.Distance(parteQueRota.position, masCercano) > Vector3.Distance(parteQueRota.position, objetivosEnRango[i].transform.position))
                         {
                             // Comprueba que tenga vision del objetivo
                             if (ComprobarVision(objetivosEnRango[i]))
                             {
-                                masCercano = objetivosEnRango[i];
+                                masCercano = objetivosEnRango[i].transform.position;
                             }
 
                         }
@@ -180,14 +183,25 @@ public class EnemigoDisparo : MonoBehaviour
         // Comprueba que existe un objetivo visible
         if (masCercano != null)
         {
+            // Comprueba que delante tenga una torreta
+            RaycastHit hit;
+            Physics.Raycast(parteQueRota.position, parteQueRota.forward, out hit, enemigoBasico.rango, LayerMask.GetMask("Torreta"));
+
+            if (hit.collider != null)
+            {
+                //En caso de tener delante una torreta
+                return hit.point;
+
+            }
+
             // Ahora que tenemos el objetivo mas cercano devolvemos el GameObject si esta dentro del rango de disparo
-            if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) < enemigoBasico.rangoDisparo)
+            if (Vector3.Distance(parteQueRota.position, masCercano) < enemigoBasico.rangoDisparo)
             {
                 return masCercano;
             }
         }
         // Si no, devuelve un null
-        return null;
+        return Vector3.zero;
     }
 
     bool ComprobarVision(GameObject objetivo)

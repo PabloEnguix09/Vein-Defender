@@ -17,6 +17,9 @@ using UnityEngine.UI;
 // 
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: Arreglos de energía, EliminarTorreta(), menu radial, cambios en la rotacion de invocacion, mejoras de torreta
+// 
+// AUTHOR: Adrian Maldonado
+// FEATURES ADDED: Comprobacion de que no se esta invocando una torreta sobre otra
 // ---------------------------------------------------
 
 
@@ -105,6 +108,17 @@ public class InvocarTorreta : MonoBehaviour
 
     private bool PosicionLegal()
     {
+        //Comprobar que no se esta invocando una torreta en esa posicion
+        RaycastHit hit;
+        Physics.Raycast(torreta.transform.position, torreta.transform.up, out hit, Mathf.Infinity);
+        
+        if (hit.collider != null)
+        {
+            //En caso de haber una torreta arriba
+            return false;
+
+        }
+
         return sitio.colliders.Count <= 0;
     }
 

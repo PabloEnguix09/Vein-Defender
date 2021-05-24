@@ -14,6 +14,9 @@ public class Enemigo : MonoBehaviour
     //
     // AUTHOR: Jorge Grau
     // FEATURES ADDED: Los Enemigo tienen unas estadisticas que heredan de su tipo y siguen una ruta establecida por su spawner, si algo aparece en su radio de vision van a por el. Tambien el recibir da�o por disparos. Cuando los enemigos disparan a un objetivo se quedan quietos, ademas los que son subterraneos salen del suelo(vuelven al subsuelo al moverse). Los enemigos buscan al jugador o a las torretas si "pueden". Variables de ataque temporal y final
+    //
+    // AUTHOR: Adrian Maldonado
+    // FEATURES ADDED: Comprobacion de tener una torreta delante
     // ---------------------------------------------------
 
     private Base base1;
@@ -21,7 +24,7 @@ public class Enemigo : MonoBehaviour
     private Base base3;
     public static Transform final;
     public NavMeshAgent agente;
-    private Transform objetivo;
+    private Vector3 objetivo;
 
     public float vidaActual;
 
@@ -83,9 +86,9 @@ public class Enemigo : MonoBehaviour
         // Busca un objetivo y se dirige hacia el
         objetivo = BuscarObjetivo();
 
-        agente.destination = objetivo.position;
+        agente.destination = objetivo;
         // Si el objetivo esta en nuestro rango de disparo, nos quedamos quietos y perdemos la invisibilidad
-        if (Vector3.Distance(this.transform.position, objetivo.position) <= enemigo.rangoDisparo)
+        if (Vector3.Distance(this.transform.position, objetivo) <= enemigo.rangoDisparo)
         {
             if (enemigo.subterraneo)
             {
@@ -140,7 +143,7 @@ public class Enemigo : MonoBehaviour
         this.base3 = base3;
     }
 
-    Transform BuscarObjetivo()
+    Vector3 BuscarObjetivo()
     {
         List<GameObject> objetivosEnRango = new List<GameObject>();
 
@@ -168,9 +171,20 @@ public class Enemigo : MonoBehaviour
             {
                 if (!torreta.invisibilidad)
                 {
+                    // Comprueba que delante tenga una torreta
+                    RaycastHit hit;
+                    Physics.Raycast(this.gameObject.transform.position, this.gameObject.transform.forward, out hit, this.enemigo.rango, LayerMask.GetMask("Torreta"));
+
+                    if (hit.collider != null)
+                    {
+                        //En caso de tener delante una torreta
+                        return objetivo = hit.point;
+
+                    }
+
                     if (Vector3.Distance(this.transform.position, objetivosEnRango[i].transform.position) <= enemigo.rango)
                     {
-                        return objetivo = objetivosEnRango[i].transform;
+                        return objetivo = objetivosEnRango[i].transform.position;
                     }
                 }
             }
@@ -179,25 +193,25 @@ public class Enemigo : MonoBehaviour
             {
                 if (Vector3.Distance(this.transform.position, objetivosEnRango[i].transform.position) <= enemigo.rango)
                 {
-                    return objetivo = objetivosEnRango[i].transform;
+                    return objetivo = objetivosEnRango[i].transform.position;
                 }
             }
         }
         if (base1.Salud > 0)
         {
-            return objetivo = base1.transform;
+            return objetivo = base1.transform.position;
         }
         else if (base2.Salud > 0 && base1.Salud <= 0)
         {
-            return objetivo = base2.transform;
+            return objetivo = base2.transform.position;
         }
         else if (base3.Salud > 0 && base1.Salud <= 0 && base2.Salud <= 0)
         {
-            return objetivo = base3.transform;
+            return objetivo = base3.transform.position;
         }
         else
         {
-            return objetivo = final.transform;
+            return objetivo = final.transform.position;
         }
     }
     public void RecibirAtaque(Ataque ataque)

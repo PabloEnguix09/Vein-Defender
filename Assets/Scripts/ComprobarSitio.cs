@@ -10,6 +10,9 @@ using UnityEngine;
 //
 // AUTHOR: autor
 // FEATURES ADDED: cosas hechas
+//
+// AUTHOR: Adrian Maldonado
+// FEATURES ADDED: Comprobacion de torretas, props y escudos
 // ---------------------------------------------------
 
 public class ComprobarSitio : MonoBehaviour
@@ -18,18 +21,12 @@ public class ComprobarSitio : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Torreta" &&
-        collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.layer == 6)
+        if(collision.gameObject.tag == "Torreta" || collision.gameObject.tag == "Prop" || collision.gameObject.tag == "Escudo")
         {
-            //Debug.Log("La torreta ha tocado el suelo");
-            Rigidbody rb = collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.GetComponent<Rigidbody>();
-        }
-        if(collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Previews" &&
-        collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.tag == "Torreta")
-        {
-            //Debug.Log("Hay colisión");
+            //Debug.Log("Hay colisión con una torreta");
             colliders.Add(collision);
         }
+        
 
     }
     private void OnCollisionExit(Collision collision)

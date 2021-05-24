@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 816512539699799468}
   - component: {fileID: 5480581873360989893}
   - component: {fileID: -665659544026749356}
+  - component: {fileID: -5730991974975804148}
   m_Layer: 10
   m_Name: Ouroboros
   m_TagString: Enemigo
@@ -721,6 +722,7 @@ MonoBehaviour:
   invisibilidad: 1
   subterraneo: 0
   vuela: 0
+  ralentizado: 0
 --- !u!114 &816512539699799468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,13 +888,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8331262489921173706}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.00045616968, y: 0.0096, z: 0.0349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.024974082, y: 0.024974076, z: 0.019210828}
   m_Children: []
   m_Father: {fileID: 3541479366865799255}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8540975000874552537
 GameObject:
   m_ObjectHideFlags: 0
