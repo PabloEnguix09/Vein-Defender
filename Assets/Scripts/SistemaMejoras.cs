@@ -52,6 +52,7 @@ public class SistemaMejoras : MonoBehaviour
     // Mejoras de utilidades
     public bool mejoraCamara;
     public bool mejoraCaminos;
+    public bool escudoDefensor;
 
     public TorretasDisponibles torretasDisponibles;
     public Camino[] camino;
@@ -198,12 +199,16 @@ public class SistemaMejoras : MonoBehaviour
         {
             indice.Add(1);
         }
-        if(!mejoraCaminos)
+        if (!mejoraCaminos)
         {
-            foreach(Camino ruta in camino)
+            foreach (Camino ruta in camino)
             {
                 Destroy(ruta.gameObject);
             }
+        }
+        if (escudoDefensor)
+        {
+            indice.Add(10);
         }
     }
 
