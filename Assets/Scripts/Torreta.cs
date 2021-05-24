@@ -221,6 +221,11 @@ public class Torreta : MonoBehaviour
 
     public void Disparar()
     {
+        // Animacion de disparo si lanza balas
+        if(torretaBasica.tipoDisparo == TorretaBasica.TipoDisparo.balas)
+        {
+            animator.SetTrigger("Disparo");
+        }
         // sonido disparar
         audioHandler.PlaySound(0, false);
         // Crea las particulas del disparo si el tipo es de balas
