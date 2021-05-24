@@ -2232,6 +2232,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1870866795}
     - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: caja
+      value: 
+      objectReference: {fileID: 2656894044295091893, guid: 90273d8cf1722034e80fdfad02edd254, type: 3}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: menuRadial
       value: 
       objectReference: {fileID: 103211796}

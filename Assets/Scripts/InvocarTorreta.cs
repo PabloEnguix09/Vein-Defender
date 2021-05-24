@@ -32,6 +32,7 @@ public class InvocarTorreta : MonoBehaviour
     public float alturaSpawn = 50.0f;
 
     public GameObject torreta;
+    public GameObject caja;
     Rigidbody rb;
     bool colocada = true;
 
@@ -130,15 +131,25 @@ public class InvocarTorreta : MonoBehaviour
         rb.mass = 0f;
     }
 
+    // Crea la torreta invocada a una altura alturaSpawn
     public void SpawnTorreta(Transform torreta)
     {
         SetColocada(true);
+        // Invocamos una caja con los datos de la torreta dentro
+        GameObject aux;
+        aux = Instantiate(caja.gameObject, new Vector3(torreta.position.x, torreta.position.y + alturaSpawn, torreta.position.z), torreta.rotation);
+        if (aux.GetComponent<CajaDrop>())
+        {
+            aux.GetComponent<CajaDrop>().torreta = torreta.gameObject;
+        }
+        /*
         GameObject aux;
         aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, torreta.position.y + alturaSpawn, torreta.position.z), torreta.rotation);
         if(aux.GetComponent<Torreta>())
         {
             aux.GetComponent<Torreta>().enabled = true;
         }
+        */
     }
 
     // Llamado desde MecanicasPersonaje.cs

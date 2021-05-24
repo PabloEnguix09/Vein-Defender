@@ -407,8 +407,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6130392994418107086}
-  m_LocalRotation: {x: 0, y: 0.1538483, z: 0, w: -0.9880945}
-  m_LocalPosition: {x: -94.7314, y: 3.2624574, z: 108.27427}
+  m_LocalRotation: {x: 0, y: 0.21516164, z: 0, w: -0.9765785}
+  m_LocalPosition: {x: -29.303522, y: 2.452253, z: -18.28088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6751197128773868814}
@@ -478,9 +478,14 @@ MonoBehaviour:
   distanciaDisparo: 0
   antiaerea: 0
   invisibilidad: 0
+  escudo: 0
+  perforante: 0
+  perseguidor: 0
+  disparoPEM: 0
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   radioExplosion: 0
   danyoExplosion: 0
+  torretaInhabilitada: 0
   parteQueRota: {fileID: 8633465776767921416}
   balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
   spawnerBalas: {fileID: 660270741642782306}
