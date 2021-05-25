@@ -40,7 +40,7 @@ public class CajaDrop : MonoBehaviour
             {
                 aux.GetComponent<Torreta>().enabled = true;
             }
-
+            // Se destruye en un segundo
             Destroy(gameObject, 1);
         }
     }
