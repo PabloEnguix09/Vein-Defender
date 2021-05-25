@@ -13,7 +13,7 @@ public class ControladorVidaEnemigos : MonoBehaviour
         if (vidaActual <= 0)
         {
             Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            
         }
     }
 }

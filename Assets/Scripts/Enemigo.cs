@@ -137,6 +137,7 @@ public class Enemigo : MonoBehaviour
         }
     }
     
+    // Se destruye al enemigo
     public void Destruido()
     {
         animEnemigo.Destruido();
