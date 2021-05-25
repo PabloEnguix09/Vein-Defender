@@ -72,7 +72,7 @@ Animator:
   m_GameObject: {fileID: 2214001448483749421}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4664aef2d5adb094a8723fcd8f2757f2, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -172,7 +172,7 @@ Animator:
   m_GameObject: {fileID: 6043121131127670665}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8fb15347ea2f944a80ad12025f1e1d0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8a62a136a3eba7a4597294cb56b0e777, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -198,6 +198,8 @@ GameObject:
   - component: {fileID: 5978804169573019884}
   - component: {fileID: 5995447842906270357}
   - component: {fileID: 9036643187020348222}
+  - component: {fileID: 4529090333741287606}
+  - component: {fileID: 67536834152370007}
   m_Layer: 10
   m_Name: Catapulta
   m_TagString: Enemigo
@@ -434,6 +436,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemigo: {fileID: 11400000, guid: 21bab4d317d07ec4a90963660aa5982b, type: 2}
   explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
+--- !u!95 &4529090333741287606
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736823799646264108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f8fb15347ea2f944a80ad12025f1e1d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &67536834152370007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736823799646264108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde42e682ff35144bb0af4cc20507488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7271913133916485821
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,25 +548,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &8998966388547561194
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7825378681799797430}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8a62a136a3eba7a4597294cb56b0e777, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6853374135973231320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -621,6 +635,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -192104080083609733, guid: ac560ddd4d7751942b311ba8486576a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9555509
+      objectReference: {fileID: 0}
+    - target: {fileID: -192104080083609733, guid: ac560ddd4d7751942b311ba8486576a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -192104080083609733, guid: ac560ddd4d7751942b311ba8486576a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.29482606
+      objectReference: {fileID: 0}
+    - target: {fileID: -192104080083609733, guid: ac560ddd4d7751942b311ba8486576a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000014901158
+      objectReference: {fileID: 0}
+    - target: {fileID: -192104080083609733, guid: ac560ddd4d7751942b311ba8486576a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -34.294
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac560ddd4d7751942b311ba8486576a7, type: 3}
       propertyPath: m_Name
       value: catapulta
@@ -635,11 +669,6 @@ GameObject:
 --- !u!4 &6383476482730482995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ac560ddd4d7751942b311ba8486576a7, type: 3}
-  m_PrefabInstance: {fileID: 6853374135973231320}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7825378681799797430 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -5510920486141308818, guid: ac560ddd4d7751942b311ba8486576a7, type: 3}
   m_PrefabInstance: {fileID: 6853374135973231320}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2214001448483749421 stripped

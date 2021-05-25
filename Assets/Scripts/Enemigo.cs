@@ -17,6 +17,9 @@ public class Enemigo : MonoBehaviour
     //
     // AUTHOR: Adrian Maldonado
     // FEATURES ADDED: Comprobacion de tener una torreta delante
+    //
+    // AUTHOR: Luis Belloch
+    // FEATURES ADDED: Animaciones
     // ---------------------------------------------------
 
     private Base base1;
@@ -38,12 +41,15 @@ public class Enemigo : MonoBehaviour
     public bool ralentizado;
     private float timerRalentizado;
 
+    AnimEnemigo animEnemigo;
+
     private List<GameObject> tanques = new List<GameObject>();
 
     void Start()
     {
 
-        agente = GetComponent<NavMeshAgent>();
+        agente = GetComponent<NavMeshAgent>();        // Script de control de las animaciones        animEnemigo = GetComponent<AnimEnemigo>();
+
         agente.speed = enemigo.velocidadInicial;
         enemigo.velocidadActual = enemigo.velocidadInicial;
 
@@ -95,16 +101,23 @@ public class Enemigo : MonoBehaviour
                 subterraneo = false;
             }
             agente.speed = 0f;
+            // Entra en la animacion bloqueado
+            animEnemigo.Bloqueado(true);
         }
         // Si el objetivo no esta en el rango de disparo mantenemos la velocidad y la invisibilidad
         else
         {
             agente.speed = enemigo.velocidadActual;
+
             if (enemigo.subterraneo)
             {
                 subterraneo = true;
             }
         }
+
+        // Se mueve en la animacion idle
+        animEnemigo.Bloqueado(false);
+
         agente.speed = enemigo.velocidadActual;
         if (ralentizado)
         {
@@ -116,8 +129,22 @@ public class Enemigo : MonoBehaviour
             enemigo.velocidadActual *= 2;
             timerRalentizado = 0;
         }
-    }
+
+        // Muerte
+        if(enemigo.vidaActual <= 0)
+        {
+            Destruido();
+        }
+    }
     
+    // Se destruye al enemigo
+    public void Destruido()
+    {
+        animEnemigo.Destruido();
+
+        Destroy(gameObject, 0.5f);
+    }
+
     public void Marcar()
     {
         marcado = true;

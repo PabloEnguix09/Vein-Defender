@@ -92,7 +92,7 @@ public class Bomba : MonoBehaviour
                         personaje.RecibirAtaque(ataqueObjeto);
                     }
                 }
-                Destroy(gameObject);
+                enemigo.Destruido();
             }
         }
     }

@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &5852533675727666332
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455389373374598112}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 082a45b8d740d8a47a19e007d319b89b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &5122082941975662892
 Animator:
   serializedVersion: 3
@@ -56,6 +37,7 @@ GameObject:
   - component: {fileID: 5073029413346863240}
   - component: {fileID: 5569949343252198124}
   - component: {fileID: 7640765716017636398}
+  - component: {fileID: 5565838951572313480}
   m_Layer: 10
   m_Name: Electro
   m_TagString: Enemigo
@@ -70,15 +52,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018791793810155938}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.8, z: 0}
+  m_LocalRotation: {x: -0.0061714677, y: 0, z: 0.0061714677, w: 0.9999619}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1570739523515900960}
   - {fileID: 3906615669662427300}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.707, y: -0.004, z: 0.707}
 --- !u!54 &6820253349990951910
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,7 +196,7 @@ Animator:
   m_GameObject: {fileID: 1018791793810155938}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 082a45b8d740d8a47a19e007d319b89b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -311,6 +293,18 @@ MonoBehaviour:
   subterraneo: 0
   vuela: 0
   ralentizado: 0
+--- !u!114 &5565838951572313480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018791793810155938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde42e682ff35144bb0af4cc20507488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4107912613315855605
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +457,7 @@ Animator:
   m_GameObject: {fileID: 5419257552261902916}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd608182f28f11c42a221632fb5f3962, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -565,11 +559,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37deea4214489bc4a8d82d236e1c02bd, type: 3}
---- !u!1 &455389373374598112 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 37deea4214489bc4a8d82d236e1c02bd, type: 3}
-  m_PrefabInstance: {fileID: 761310548623505073}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &944083102597861722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 37deea4214489bc4a8d82d236e1c02bd, type: 3}

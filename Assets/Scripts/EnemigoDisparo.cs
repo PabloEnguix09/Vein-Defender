@@ -11,7 +11,7 @@
 // FEATURES ADDED: Todo el codigo actualizado para que funcione para todos los enemigos independientemente de su tipo, el codigo ahora usa las variables del SO de enemigo y busca objetivos de una forma más eficiente y limpia. Añadida la comprobación de objetiivo invisible. Añadido el daño y el rango de la explosion en la creación del objeto ataque. Los enemigos atacan al jugador o a las torretas si "pueden". Sabemos la dirección del ataque.
 //
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: sonidos
+// FEATURES ADDED: sonidos, animaciones
 //
 // AUTHOR: Adrian Maldonado
 // FEATURES ADDED: Comprobacion de tener una torreta delante
@@ -26,7 +26,6 @@ public class EnemigoDisparo : MonoBehaviour
 {
     public EnemigoBasico enemigoBasico;
 
-
     private float timerDisparo;
 
     public GameObject explosion;
@@ -39,6 +38,7 @@ public class EnemigoDisparo : MonoBehaviour
     public GameObject balaObjeto;
     public GameObject spawnerBalas;
     AudioHandler audioHandler;
+    AnimEnemigo animEnemigo;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +47,7 @@ public class EnemigoDisparo : MonoBehaviour
         velocidadDeRotacion = enemigoBasico.velocidadDeRotacion;
 
         audioHandler = gameObject.GetComponent<AudioHandler>();
+        animEnemigo = GetComponent<AnimEnemigo>();
     }
 
     // Update is called once per frame
@@ -72,24 +73,7 @@ public class EnemigoDisparo : MonoBehaviour
             {
                 timerDisparo = 0;
 
-                // Sonido de disparo
-                audioHandler.PlaySound(0, false);
-                //disparar
-                Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
-
-                ataqueObjeto.fuerza = enemigoBasico.ataqueFinal;
-                ataqueObjeto.fuerzaExplosion = enemigoBasico.ataqueExplosion;
-                ataqueObjeto.radioExplosion = enemigoBasico.rangoExplosion;
-                ataqueObjeto.tipo = Ataque.Tipo.laser;
-                ataqueObjeto.origen = gameObject;
-
-                // Se busca la direccion desde donde esta atacando al objetivo
-                Vector3 direccion = transform.position - objetivoADisparar;
-                ataqueObjeto.direccion = Vector3.Dot(transform.forward, direccion);
-
-                Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
-
-                bala.ataque = ataqueObjeto;
+                Disparar();
             }
 
         }
@@ -202,6 +186,30 @@ public class EnemigoDisparo : MonoBehaviour
         }
         // Si no, devuelve un null
         return Vector3.zero;
+    }
+
+    public void Disparar()
+    {
+        // Animacion Disparo
+        animEnemigo.Dispara();
+        // Sonido de disparo
+        audioHandler.PlaySound(0, false);
+        //disparar
+        Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+
+        ataqueObjeto.fuerza = enemigoBasico.ataqueFinal;
+        ataqueObjeto.fuerzaExplosion = enemigoBasico.ataqueExplosion;
+        ataqueObjeto.radioExplosion = enemigoBasico.rangoExplosion;
+        ataqueObjeto.tipo = Ataque.Tipo.laser;
+        ataqueObjeto.origen = gameObject;
+
+        // Se busca la direccion desde donde esta atacando al objetivo
+        Vector3 direccion = transform.position - objetivoADisparar;
+        ataqueObjeto.direccion = Vector3.Dot(transform.forward, direccion);
+
+        Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
+
+        bala.ataque = ataqueObjeto;
     }
 
     bool ComprobarVision(GameObject objetivo)
