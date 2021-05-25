@@ -36,6 +36,7 @@ public class Fantasma : MonoBehaviour
         if (fantasma.invisibilidad)
         {
             // Aumenta la energia del jugador y desactiva la invisibilidad
+            gameObject.gameObject.GetComponent<Animator>().SetBool("Invisible", false);
             fantasma.invisibilidad = false;
             fantasma.energiaEnUso = fantasma.energia;
             personaje.Energia += energia;
@@ -46,6 +47,7 @@ public class Fantasma : MonoBehaviour
             // Reduce la energia del jugadory y activa la invisibilidad
             if (!(personaje.Energia - energia < 0))
             {
+                gameObject.gameObject.GetComponent<Animator>().SetBool("Invisible", true);
                 fantasma.invisibilidad = true;
                 fantasma.energiaEnUso = fantasma.energiaAlt;
                 personaje.Energia -= energia;

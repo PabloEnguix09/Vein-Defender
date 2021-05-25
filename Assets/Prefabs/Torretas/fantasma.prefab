@@ -287,7 +287,7 @@ Animator:
   m_GameObject: {fileID: 4768647527376857495}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aac87448c09670745b23cafc8fd45432, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 148976152428973208}
   - component: {fileID: -3920304778166982107}
   - component: {fileID: -7177036432562903662}
+  - component: {fileID: 258966532182061920}
   m_Layer: 7
   m_Name: fantasma
   m_TagString: Torreta
@@ -407,8 +408,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6130392994418107086}
-  m_LocalRotation: {x: 0, y: 0.21516164, z: 0, w: -0.9765785}
-  m_LocalPosition: {x: -29.303522, y: 2.452253, z: -18.28088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 92.1114, y: 3.8442006, z: 7.116804}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6751197128773868814}
@@ -615,6 +616,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &258966532182061920
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130392994418107086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75a7dfd570bc8b04d942356785cd8a03, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6201440751395349183
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +771,7 @@ Animator:
   m_GameObject: {fileID: 6757989324842194996}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54b9443ccaa96014796be7a3537840db, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

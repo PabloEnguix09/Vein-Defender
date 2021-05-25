@@ -20,7 +20,7 @@ public class MecanicasPersonaje : MonoBehaviour
     private InvocarTorreta invocar;
     CameraController cameraController;
 
-    public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara;
+    public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara, dispararPEM;
 
     private void Start()
     {

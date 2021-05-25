@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 1598077792622542530}
   - component: {fileID: 5304516819193895933}
   - component: {fileID: 7357387636368556198}
+  - component: {fileID: 570039533176715949}
   m_Layer: 7
   m_Name: hoplita
   m_TagString: Torreta
@@ -114,9 +115,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231341178963932024}
-  m_LocalRotation: {x: 0, y: 0.26555628, z: 0, w: -0.96409535}
-  m_LocalPosition: {x: -33.3571, y: 2.425576, z: -13.347595}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.9992629, z: 0, w: 0.038387716}
+  m_LocalPosition: {x: -79.07415, y: 2.860171, z: 99.16579}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2153260871282864652}
   - {fileID: 6062330965169037823}
@@ -307,6 +308,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: e2135b0936916a64297e6fe3bbb3617a, type: 3}
+--- !u!95 &570039533176715949
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231341178963932024}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a34c9f7cb761964bb17bdb9c64b8810, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6625910868135855118
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +582,6 @@ GameObject:
   - component: {fileID: 622640592779205107}
   - component: {fileID: 6020081166125443541}
   - component: {fileID: 736402185917316772}
-  - component: {fileID: 940580005358564931}
   m_Layer: 7
   m_Name: "Esfera geod\xE9sica.001"
   m_TagString: Untagged
@@ -633,25 +652,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &940580005358564931
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8794255011893488877}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9c830fb939c83c8409391ee905732189, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9133297616028384953
 GameObject:
   m_ObjectHideFlags: 0

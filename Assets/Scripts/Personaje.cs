@@ -191,12 +191,34 @@ public class Personaje : MonoBehaviour
         // Comprueba que este apuntando a un item en el Layer Enemigo
         if (Physics.Raycast(camaraJugador.transform.position, camaraJugador.transform.forward, out punto, alcance, LayerMask.GetMask("Enemigo")))
         {
-
             Debug.Log(punto.transform.gameObject.name);
             // Comprueba que sea un enemigo y recoge su script Enemigo
             if (punto.transform.gameObject.TryGetComponent<Enemigo>(out Enemigo enemigo))
             {
+                if(sistemaMejoras.mejoraDebilitante)
+                {
+                    enemigo.enemigo.ataque -= enemigo.enemigo.ataque * 0.5f;
+                }
                 enemigo.Marcar();
+            }
+        }
+
+        if (Physics.Raycast(camaraJugador.transform.position, camaraJugador.transform.forward, out punto, alcance, LayerMask.GetMask("Torreta")))
+        {
+            Debug.Log(punto.transform.gameObject.name);
+            // Comprueba que sea un enemigo y recoge su script Enemigo
+            if (punto.transform.gameObject.TryGetComponent<Torreta>(out Torreta torreta))
+            {
+                if(torreta.gameObject.name == "torretaBasica(Clone)")
+                {
+                    if (sistemaMejoras.mejoraSparky)
+                    {
+                        torreta.ataque += torreta.ataque * 0.5f;
+                        torreta.radioExplosion +=  torreta.radioExplosion * 0.5f;
+                        torreta.vidaMaxima += torreta.vidaMaxima * 0.5f;
+                        torreta.cadenciaDisparo += torreta.cadenciaDisparo * 0.5f;
+                    }
+                }
             }
         }
     }

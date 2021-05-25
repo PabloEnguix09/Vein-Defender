@@ -92,7 +92,7 @@ Animator:
   m_GameObject: {fileID: 1002922129676238609}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3ac5027f1b64fd947b47384c83bb9de1, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 1981344602465927743}
   - component: {fileID: -1456471108365144400}
   - component: {fileID: -233508616460162296}
+  - component: {fileID: 7663505293334187904}
   m_Layer: 7
   m_Name: mohawk
   m_TagString: Torreta
@@ -243,8 +244,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3914336763499236850}
-  m_LocalRotation: {x: 0, y: 0.60111856, z: 0, w: -0.79915994}
-  m_LocalPosition: {x: -18.895782, y: 20.89325, z: 28.327917}
+  m_LocalRotation: {x: 0, y: 0.5347211, z: 0, w: 0.84502864}
+  m_LocalPosition: {x: -96.43363, y: 2.8169281, z: 142.82512}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6272674657256979614}
@@ -315,9 +316,11 @@ MonoBehaviour:
   escudo: 0
   perforante: 0
   perseguidor: 0
+  disparoPEM: 0
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   radioExplosion: 0
   danyoExplosion: 0
+  torretaInhabilitada: 0
   parteQueRota: {fileID: 6738370790001355291}
   balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
   spawnerBalas: {fileID: 3733249860804764528}
@@ -434,6 +437,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 9ace5ac796e49b04c9aa7a7a24ac847c, type: 3}
+--- !u!95 &7663505293334187904
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3914336763499236850}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0371bcfd713f4bc4a81d782c9fbcc203, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6674621427104275298
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +548,7 @@ Animator:
   m_GameObject: {fileID: 6674621427104275298}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c0822145d25b99a45a868ad9bba26deb, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
