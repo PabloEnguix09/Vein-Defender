@@ -15,8 +15,6 @@ public class Electro : MonoBehaviour
             Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
 
             Electrocutar();
-
-            Destroy(gameObject);
         }
     }
 

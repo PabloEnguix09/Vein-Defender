@@ -129,8 +129,21 @@ public class Enemigo : MonoBehaviour
             enemigo.velocidadActual *= 2;
             timerRalentizado = 0;
         }
+
+        // Muerte
+        if(enemigo.vidaActual <= 0)
+        {
+            Destruido();
+        }
     }
     
+    public void Destruido()
+    {
+        animEnemigo.Destruido();
+
+        Destroy(gameObject, 0.5f);
+    }
+
     public void Marcar()
     {
         marcado = true;
