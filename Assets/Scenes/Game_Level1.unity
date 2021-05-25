@@ -5598,6 +5598,13 @@ MonoBehaviour:
   vidaTbyte: 0
   escudoTbyte: 0
   mejoraMinimapa: 0
+  mejoraMagnetismo: 0
+  mejoraImpulso: 0
+  mejoraEnergia: 0
+  mejoraMarcador: 0
+  mejoraDebilitante: 0
+  mejoraSparky: 1
+  explosionPEM: 0
   hoplitaMohawk: 1
   inmortalFantasma: 1
   scutumBerserker: 1

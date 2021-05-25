@@ -27,6 +27,13 @@ public class SistemaMejoras : MonoBehaviour
     public bool vidaTbyte;
     public bool escudoTbyte;
     public bool mejoraMinimapa;
+    public bool mejoraMagnetismo;
+    public bool mejoraImpulso;
+    public bool mejoraEnergia;
+    public bool mejoraMarcador;
+    public bool mejoraDebilitante;
+    public bool mejoraSparky;
+    public bool explosionPEM;
 
     [Header("Desbloquear Torreta")]
     // Mejoras de torreta
@@ -67,7 +74,6 @@ public class SistemaMejoras : MonoBehaviour
             personaje.saludMaxima += (personaje.saludMaxima / 100) * 35;
             // Reasigna la vida base
         }
-
         // Pone un escudo al jugador del 50% de su vida maxima
         if(escudoTbyte)
         {
@@ -78,12 +84,28 @@ public class SistemaMejoras : MonoBehaviour
         {
             personaje.minimapa.SetActive(true);
         }
+        if(mejoraMagnetismo)
+        {
+            personaje.movimientoPersonaje.maximaVelocidad += personaje.movimientoPersonaje.maximaVelocidad * 0.3f;
+        }
+        if(mejoraImpulso)
+        {
+            personaje.movimientoPersonaje.maximaVelocidadSalto += personaje.movimientoPersonaje.maximaVelocidadSalto * 0.3f;
+        }
+        if(mejoraEnergia)
+        {
+            personaje.energiaMaxima += 5;
+        }
 
         personaje.Setup();
     }
 
     public void MejorasTorreta(Torreta torreta)
     {
+        if (mejoraMarcador)
+        {
+            torreta.disparoMarcado = true;
+        }
         // Reduce el coste de todas las Torreta -1 si son mayor de 1
         if (costeEnergia)
         {

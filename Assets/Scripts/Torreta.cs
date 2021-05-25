@@ -50,6 +50,7 @@ public class Torreta : MonoBehaviour
     public bool perforante;
     public bool perseguidor;
     public bool disparoPEM;
+    public bool disparoMarcado;
     public Quaternion anguloDisparo;
 
     public float radioExplosion;
@@ -241,6 +242,7 @@ public class Torreta : MonoBehaviour
         ataqueObjeto.origen = gameObject;
         ataqueObjeto.fuerzaExplosion = danyoExplosion;
         ataqueObjeto.radioExplosion = radioExplosion;
+
 
         Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
 

@@ -110,6 +110,10 @@ public class Bala : MonoBehaviour
                     {
                         enemigo.Ralentizar();
                     }
+                    if(ataque.origen.GetComponent<Torreta>().disparoMarcado && enemigo.marcado)
+                    {
+                        ataque.fuerza *= 0.2f;
+                    }
                     enemigo.RecibirAtaque(ataque);
                 }
                 ExplosionAtaque(ataque);

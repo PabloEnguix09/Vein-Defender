@@ -1391,8 +1391,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807558183801602318}
-  m_LocalRotation: {x: 0, y: 0.98888576, z: 0, w: 0.14867741}
-  m_LocalPosition: {x: -69.15368, y: 2.3221326, z: 34.630848}
+  m_LocalRotation: {x: 0, y: 0.17579627, z: 0, w: -0.98442656}
+  m_LocalPosition: {x: -22.789907, y: 23.289755, z: 74.990364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2666752234006740351}
@@ -1463,6 +1463,7 @@ MonoBehaviour:
   perforante: 0
   perseguidor: 0
   disparoPEM: 0
+  disparoMarcado: 0
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   radioExplosion: 0
   danyoExplosion: 0
