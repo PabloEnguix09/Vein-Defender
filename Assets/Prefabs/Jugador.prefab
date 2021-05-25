@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 4821090250797695097}
   - component: {fileID: 4821090250797695098}
   - component: {fileID: 4821090250797695099}
+  - component: {fileID: 4665636364903637774}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -338,6 +339,7 @@ MonoBehaviour:
   saltar: Jump
   eliminarTorreta: Borrar
   cambiarCamara: Camara
+  dispararPEM: 
 --- !u!114 &4821090250797695097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +428,25 @@ MonoBehaviour:
   - 1.17
   - 1.97
   - 2.75
+--- !u!95 &4665636364903637774
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821090250797695092}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: acb3aaab4d69ab34f8a6917055d810e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4821090251707822497
 GameObject:
   m_ObjectHideFlags: 0
