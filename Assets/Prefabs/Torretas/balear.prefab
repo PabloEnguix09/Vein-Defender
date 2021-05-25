@@ -175,7 +175,7 @@ Animator:
   m_GameObject: {fileID: 5133181269257244062}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 95485f8863f84e54782937faa1770121, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 8543036720135781218}
   - component: {fileID: 4810076294474495236}
   - component: {fileID: 7220929159783735354}
+  - component: {fileID: 455832829929023367}
   m_Layer: 7
   m_Name: balear
   m_TagString: Torreta
@@ -294,8 +295,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5793717610974240696}
-  m_LocalRotation: {x: 0, y: 0.031410925, z: 0, w: -0.9995066}
-  m_LocalPosition: {x: 6.762356, y: 23.933226, z: 103.41443}
+  m_LocalRotation: {x: 0, y: 0.37743667, z: 0, w: 0.9260354}
+  m_LocalPosition: {x: -9.086428, y: 23.339571, z: 58.735764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8394724480567050761}
@@ -333,6 +334,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &455832829929023367
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5793717610974240696}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c8aed96ab5d76a41842ca6c991ce409, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6043483372098112430
 GameObject:
   m_ObjectHideFlags: 0
