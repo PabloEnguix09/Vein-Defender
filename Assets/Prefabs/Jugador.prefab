@@ -352,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraVida: {fileID: 0}
   barraEnergia: {fileID: 0}
+  paralizado: 0
   camaraMejora: {fileID: 0}
   saludMaxima: 10
   camaraSecundariaActivada: 0
@@ -359,9 +360,11 @@ MonoBehaviour:
   dardoLocalizador: {fileID: 4157861963076887069, guid: df585feeffeefe54b85fd73d7b8948e8, type: 3}
   camaraJugador: {fileID: 4821090250400367773}
   minimapa: {fileID: 690215917}
+  alcance: 0
   energia: 10
   energiaMaxima: 10
   escudo: 0
+  campo: {fileID: 0}
   escudoMaximo: 0
   escudoPorSegundo: 0.01
   camara: {fileID: 4821090251707822499}
@@ -397,15 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b23707c9a04644a0ca91d9a4fc708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Torreta:
-  - {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
-  - {fileID: 3550871163448655305, guid: 171e963a627ee5f49b1e8601ce7c1684, type: 3}
-  - {fileID: 4904404024952468192, guid: 7f9fa124546ddbf4db14ed5589ad5cdd, type: 3}
-  - {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
-  - {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
-  - {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
-  - {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
-  - {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+  torretas: []
   previews:
   - {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
   - {fileID: 8332529569172267353, guid: 5acf723585b763244988b5d1ee09c9e1, type: 3}
@@ -418,7 +413,9 @@ MonoBehaviour:
   alcance: 50
   alturaSpawn: 20
   torreta: {fileID: 0}
+  caja: {fileID: 0}
   menuRadial: {fileID: 0}
+  imagenesMenuRadial: []
   torretaPreviewIndex: 0
   areasMenuRadial:
   - -2.75
@@ -473,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29389b14a4b2715498d92d24a77621d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensibilidad: 1
+  sensibilidadMaxima: 1
   xMin: -45
   xMax: 45
   camara: {fileID: 4821090250400367774}
@@ -540,9 +537,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4729035665421447796, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2395552
+      objectReference: {fileID: 0}
+    - target: {fileID: -4729035665421447796, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6873052
+      objectReference: {fileID: 0}
+    - target: {fileID: -4729035665421447796, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1091477
+      objectReference: {fileID: 0}
+    - target: {fileID: -4421979768088788341, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.240033
+      objectReference: {fileID: 0}
+    - target: {fileID: -4421979768088788341, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3477469
+      objectReference: {fileID: 0}
+    - target: {fileID: -4421979768088788341, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.111622
+      objectReference: {fileID: 0}
+    - target: {fileID: -2343694183307002430, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2395176
+      objectReference: {fileID: 0}
+    - target: {fileID: -2343694183307002430, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4827684
+      objectReference: {fileID: 0}
+    - target: {fileID: -2343694183307002430, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1091693
+      objectReference: {fileID: 0}
+    - target: {fileID: -2342801752360470285, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.240033
+      objectReference: {fileID: 0}
+    - target: {fileID: -2342801752360470285, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6930201
+      objectReference: {fileID: 0}
+    - target: {fileID: -2342801752360470285, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1088723
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
       propertyPath: m_Name
       value: t-byte04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479961454622554131, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.240033
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479961454622554131, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3477469
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479961454622554131, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.111622
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
