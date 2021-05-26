@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8739878863374643262}
   - component: {fileID: 4184314725290757467}
   - component: {fileID: -7806891871067972096}
-  - component: {fileID: -5561164239761131564}
+  - component: {fileID: -4432923326506147488}
   m_Layer: 10
   m_Name: Enemigo
   m_TagString: Enemigo
@@ -135,13 +135,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agente: {fileID: 6975631623353459764}
-  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
   vidaActual: 0
   enemigo: {fileID: 11400000, guid: fd263d56c6e71f346bc3fd022b28834b, type: 2}
   marcado: 0
   invisibilidad: 0
   subterraneo: 0
   vuela: 0
+  ralentizado: 0
 --- !u!114 &5186502189369109565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +339,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: e2135b0936916a64297e6fe3bbb3617a, type: 3}
+--- !u!114 &-4432923326506147488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975631623353459767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde42e682ff35144bb0af4cc20507488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1775343691
 PrefabInstance:
   m_ObjectHideFlags: 0

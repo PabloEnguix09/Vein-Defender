@@ -18,7 +18,6 @@ public class Bomba : MonoBehaviour
 
     public GameObject explosion;
 
-    Animator animator;
     public float destroyOfftime = 0.5f;
     public float vida;
     public float radioExplosion = 2f;
@@ -33,7 +32,6 @@ public class Bomba : MonoBehaviour
     void Start()
     {
         enemigo = gameObject.GetComponent<Enemigo>();
-        animator = gameObject.GetComponent<Animator>();
 
         audioHandler = gameObject.GetComponent<AudioHandler>();
     }
@@ -42,8 +40,6 @@ public class Bomba : MonoBehaviour
     {
         if (enemigo.vidaActual <= 0)
         {
-            // Inicia la animacion de explotar comentado porque peta
-            animator.SetBool("Explode", true);
 
             // Cuenta regresiva hasta terminar la animacion de explotar
             destroyOfftime -= Time.deltaTime;
