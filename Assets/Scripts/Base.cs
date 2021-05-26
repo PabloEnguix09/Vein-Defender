@@ -14,7 +14,6 @@ public class Base : MonoBehaviour
     // FEATURES ADDED: Salud de la base
     // ---------------------------------------------------
 
-    [Range(0, 1)]
     [SerializeField]
     public float salud = 1;
 
