@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 9082557075668209364}
   - component: {fileID: 58785568603580019}
   - component: {fileID: -4560643103447484849}
-  - component: {fileID: -2756596198936104562}
   m_Layer: 10
   m_Name: Cypher
   m_TagString: Enemigo
@@ -259,20 +258,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-2756596198936104562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279376139569410835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96ba7e0a8e5183e4190aa86018dce1ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigo: {fileID: 11400000, guid: 8ae0e4c029cc0774fbac852a192b5595, type: 2}
-  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
 --- !u!1 &1970481623667352109
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4680235019473255928}
   m_LocalRotation: {x: -0.6532815, y: -0.27059802, z: -0.27059808, w: 0.65328145}
-  m_LocalPosition: {x: -0.03197357, y: -1.3474609, z: -0.22937864}
+  m_LocalPosition: {x: -0.03197357, y: -1.3474609, z: -0.2293786}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 6444196758841868939}
@@ -604,7 +589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5172583087608055402}
   m_LocalRotation: {x: 0.32101983, y: 0.63003683, z: 0.32101983, w: 0.6300367}
-  m_LocalPosition: {x: -0.1553423, y: 0.90797186, z: -1.0461309}
+  m_LocalPosition: {x: -0.1553423, y: 0.9079719, z: -1.046131}
   m_LocalScale: {x: 30.67186, y: 30.67186, z: 30.67186}
   m_Children: []
   m_Father: {fileID: 6444196758841868939}
