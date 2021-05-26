@@ -4610,6 +4610,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 6d30399088e8f794ca2319f7562a8b62, type: 3}
+--- !u!114 &1231788374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231788363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 548df7046b93d7b4395147ee145072da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1232994037
 GameObject:
   m_ObjectHideFlags: 0
