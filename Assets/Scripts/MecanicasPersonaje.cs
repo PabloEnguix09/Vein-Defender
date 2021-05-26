@@ -21,7 +21,7 @@ public class MecanicasPersonaje : MonoBehaviour
     CameraController cameraController;
     AnimTByte animTByte;
 
-    public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara, dispararPEM;
+    public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara;
 
     private void Start()
     {

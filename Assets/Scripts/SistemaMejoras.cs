@@ -63,6 +63,7 @@ public class SistemaMejoras : MonoBehaviour
 
     public TorretasDisponibles torretasDisponibles;
     public Camino[] camino;
+    public GameObject[] iconos;
 
     public void MejorasPersonaje(Personaje personaje)
     {
@@ -95,6 +96,11 @@ public class SistemaMejoras : MonoBehaviour
         if(mejoraEnergia)
         {
             personaje.energiaMaxima += 5;
+        }
+        if(explosionPEM)
+        {
+            iconos[11].SetActive(true);
+            indice.Add(11);
         }
 
         personaje.Setup();
@@ -194,23 +200,31 @@ public class SistemaMejoras : MonoBehaviour
         // Añade al indice la id de la torreta holpita y mohawk
         if (hoplitaMohawk)
         {
+            iconos[2].SetActive(true);
             indice.Add(2);
+            iconos[3].SetActive(true);
             indice.Add(3);
         }
         // Añade al indice la id de la torreta inmortal y la fantasma
         if(inmortalFantasma)
         {
+            iconos[4].SetActive(true);
             indice.Add(4);
+            iconos[5].SetActive(true);
             indice.Add(5);
         }
         if (scutumBerserker)
         {
+            iconos[6].SetActive(true);
             indice.Add(6);
+            iconos[7].SetActive(true);
             indice.Add(7);
         }
         if (balearTrampa)
         {
+            iconos[8].SetActive(true);
             indice.Add(8);
+            iconos[9].SetActive(true);
             indice.Add(9);
         }
     }
@@ -219,6 +233,7 @@ public class SistemaMejoras : MonoBehaviour
     {
         if (mejoraCamara)
         {
+            iconos[1].SetActive(true);
             indice.Add(1);
         }
         if (!mejoraCaminos)
@@ -230,6 +245,7 @@ public class SistemaMejoras : MonoBehaviour
         }
         if (escudoDefensor)
         {
+            iconos[10].SetActive(true);
             indice.Add(10);
         }
     }
