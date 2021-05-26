@@ -44,6 +44,7 @@ public class InvocarTorreta : MonoBehaviour
     [Header("Areas Menu Radial")]
     public float[] areasMenuRadial;
 
+    AnimTByte animTByte;
     public bool GetColocada()
     {
         return colocada;
@@ -54,6 +55,11 @@ public class InvocarTorreta : MonoBehaviour
         colocada = value;
     }
 
+    private void Start()
+    {
+        // Script de control de las animaciones
+        animTByte = GetComponent<AnimTByte>();
+    }
     // Se llama cuando se actualiza el menu HUD de seleccion de torretas antes de empezar a jugar
     // Asigna las torretas en uso al menu radial
     public void asignarTorretasActuales(List<GameObject> torretasUso, List<GameObject> previewUso, List<Sprite> imagenesUso)
@@ -140,6 +146,7 @@ public class InvocarTorreta : MonoBehaviour
         aux = Instantiate(caja.gameObject, new Vector3(torreta.position.x, torreta.position.y + alturaSpawn, torreta.position.z), torreta.rotation);
         if (aux.GetComponent<CajaDrop>())
         {
+            animTByte.InvocarTorreta();
             aux.GetComponent<CajaDrop>().torreta = torreta.gameObject;
         }
         /*
@@ -169,9 +176,9 @@ public class InvocarTorreta : MonoBehaviour
     {
         // Si esta desactivado se activa y viceversa
         menuRadial.SetActive(activar);
-
+        animTByte.SeleccionDeTorreta(true);
         // Se cierra el menu
-        if(!menuRadial.activeSelf)
+        if (!menuRadial.activeSelf)
         {
             // Donde esta el raton en pantalla se selecciona esa torreta del area
             // Devuelve la distancia del raton del centro de la pantalla
@@ -180,7 +187,7 @@ public class InvocarTorreta : MonoBehaviour
 
             // Formula: angulo = atan2(Y - CenterY, X - CenterX)
             float angulo = Mathf.Atan2(mousePosition.y - centroPantalla.y, mousePosition.x - centroPantalla.x);
-
+            animTByte.SeleccionDeTorreta(false);
             torretaPreviewIndex = ComprobarCasillaMenu(angulo);
             // BUG: si al cargar la escena el menu radial esta abierto torretaPreviewIndex da error
             if(torretaPreviewIndex >= 0)

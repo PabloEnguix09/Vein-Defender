@@ -52,6 +52,8 @@ public class Personaje : MonoBehaviour
 
     public float alcance;
 
+    AnimTByte animTByte;
+
     public float Salud
     {
         get { return salud; }
@@ -78,6 +80,7 @@ public class Personaje : MonoBehaviour
                         camaraSecundariaActivada = false;
                     }
                 }
+                animTByte.Muerte();
                 controlPartida.GameOver();
             }
         }
@@ -132,6 +135,8 @@ public class Personaje : MonoBehaviour
         sistemaMejoras = FindObjectOfType<SistemaMejoras>();
         movimientoPersonaje = gameObject.GetComponent<MovimientoPersonaje>();
         controladorCamara = transform.GetComponentInChildren<CameraController>();
+        // Script de control de las animaciones
+        animTByte = GetComponent<AnimTByte>();
         // Activa el sistema de mejoras y las aplica al personaje
         sistemaMejoras.MejorasPersonaje(this);
         sistemaMejoras.DesbloquearTorreta();
@@ -166,6 +171,7 @@ public class Personaje : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             DispararDardo();
+            animTByte.LanzarDardo();
         }
         // Interactua con un objeto
         if (Input.GetButtonDown("Fire2"))
@@ -256,6 +262,7 @@ public class Personaje : MonoBehaviour
     public void Saltar()
     {
         movimientoPersonaje.Saltar();
+        animTByte.Salto();
 
     }
 

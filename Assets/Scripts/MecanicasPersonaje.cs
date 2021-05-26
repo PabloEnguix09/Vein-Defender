@@ -19,6 +19,7 @@ public class MecanicasPersonaje : MonoBehaviour
     private Personaje personaje;
     private InvocarTorreta invocar;
     CameraController cameraController;
+    AnimTByte animTByte;
 
     public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara, dispararPEM;
 
@@ -27,6 +28,8 @@ public class MecanicasPersonaje : MonoBehaviour
         personaje = GetComponent<Personaje>();
         invocar = GetComponent<InvocarTorreta>();
         cameraController = FindObjectOfType<CameraController>();
+        // Script de control de las animaciones
+        animTByte = GetComponent<AnimTByte>();
     }
     private void Update()
     {

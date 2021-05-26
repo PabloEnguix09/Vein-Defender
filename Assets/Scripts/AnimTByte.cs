@@ -20,9 +20,9 @@ public class AnimTByte : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void SeleccionDeTorreta()
+    public void SeleccionDeTorreta(bool estado)
     {
-        animator.SetTrigger("SeleccionDeTorreta");
+        animator.SetBool("SeleccionDeTorreta",estado);
     }
 
     public void InvocarTorreta()
