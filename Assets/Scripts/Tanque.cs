@@ -42,6 +42,8 @@ public class Tanque : MonoBehaviour
         if (tanque.vidaActual <= 0)
         {
             rango = 0;
+            // Se destruye
+            tanque.Destruido();
         }
 
         for (int i = 0; i < enemigo.Length; i++)
