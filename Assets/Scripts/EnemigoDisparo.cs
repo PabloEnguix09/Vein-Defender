@@ -61,6 +61,8 @@ public class EnemigoDisparo : MonoBehaviour
         //si apunta a alguien
         if (objetivoADisparar != Vector3.zero)
         {
+            // Animacion de bloqueo para disparar
+            animEnemigo.Bloqueado(true);
             // rotar en direccion al objetivo apuntado
             Vector3 dir = objetivoADisparar - parteQueRota.position;
             Quaternion VisionRotacion = Quaternion.LookRotation(dir);
@@ -75,7 +77,10 @@ public class EnemigoDisparo : MonoBehaviour
 
                 Disparar();
             }
-
+        } else
+        {
+            // Si no apunta a nadie vuelve a la animacion de caminar
+            animEnemigo.Bloqueado(false);
         }
     }
     //Funcion de busqueda de objetivo

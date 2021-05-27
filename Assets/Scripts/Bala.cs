@@ -47,15 +47,21 @@ public class Bala : MonoBehaviour
             }
         }
 
-        rb.AddForce(transform.forward * velocidad, ForceMode.Impulse);
-
         //Darle impulso de la bala
+        rb.AddForce(transform.forward * velocidad, ForceMode.Impulse);
     }
     private void Update()
     {
-        if (ataque.tipo == Ataque.Tipo.laser && ataque.origen.GetComponent<Torreta>().perseguidor)
+        // Disparos perseguidores
+        if (ataque.tipo == Ataque.Tipo.laser)
         {
-            transform.LookAt(perseguir.position);
+            if(ataque.origen.tag == "Torreta")
+            {
+                if (ataque.origen.GetComponent<Torreta>().perseguidor)
+                {
+                    transform.LookAt(perseguir.position);
+                }
+            }
         }
     }
 
