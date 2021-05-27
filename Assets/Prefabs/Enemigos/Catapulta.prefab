@@ -197,7 +197,6 @@ GameObject:
   - component: {fileID: 5397759642853415283}
   - component: {fileID: 5978804169573019884}
   - component: {fileID: 5995447842906270357}
-  - component: {fileID: 9036643187020348222}
   - component: {fileID: 4529090333741287606}
   - component: {fileID: 67536834152370007}
   m_Layer: 10
@@ -422,20 +421,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 683888e348007384d9d4e4be7761828e, type: 3}
---- !u!114 &9036643187020348222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6736823799646264108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96ba7e0a8e5183e4190aa86018dce1ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigo: {fileID: 11400000, guid: 21bab4d317d07ec4a90963660aa5982b, type: 2}
-  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
 --- !u!95 &4529090333741287606
 Animator:
   serializedVersion: 3

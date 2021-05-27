@@ -786,6 +786,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 82f403abb5a44ae47a66f9d5457cf4e4, type: 3}
+      propertyPath: m_TagString
+      value: Terreno
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f403abb5a44ae47a66f9d5457cf4e4, type: 3}
 --- !u!1 &113839995 stripped
@@ -2935,12 +2939,12 @@ PrefabInstance:
       objectReference: {fileID: 6736823799646264108, guid: b467945d7ac668649b7be25e8f19193f, type: 3}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: limiteSegundoEnemigo
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: segundoTipoDeEnemigo
       value: 
-      objectReference: {fileID: 3671158431268791085, guid: 146c3484969542e4cbf96fc36ef21119, type: 3}
+      objectReference: {fileID: 6127863220233718541, guid: 65d106b27194819418c22277f02889a9, type: 3}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: tiempoAparicionPrimerEnemigo
       value: 3
