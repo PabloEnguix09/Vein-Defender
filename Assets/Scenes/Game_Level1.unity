@@ -2944,7 +2944,7 @@ PrefabInstance:
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: primerTipoDeEnemigo
       value: 
-      objectReference: {fileID: 6736823799646264108, guid: b467945d7ac668649b7be25e8f19193f, type: 3}
+      objectReference: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: limiteSegundoEnemigo
       value: 3
@@ -4243,10 +4243,6 @@ PrefabInstance:
     - target: {fileID: 2604654016884646847, guid: 7a469f575895d2343a34b6816b666173, type: 3}
       propertyPath: m_Name
       value: Base
-      objectReference: {fileID: 0}
-    - target: {fileID: 8365321854072210351, guid: 7a469f575895d2343a34b6816b666173, type: 3}
-      propertyPath: salud
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a469f575895d2343a34b6816b666173, type: 3}
