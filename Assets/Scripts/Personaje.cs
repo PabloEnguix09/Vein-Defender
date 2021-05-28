@@ -306,20 +306,24 @@ public class Personaje : MonoBehaviour
     {
         RaycastHit punto;
 
-        // Comprueba que este apuntando a un item en el Layer Torreta
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Interactuable")))
+        // No puedes interactuar con cosas cuando estas usando la camara secundaria
+        if(!camaraSecundariaActivada)
         {
-            // Toma la item del RaycastHit
-            GameObject itemMarcado = punto.transform.gameObject;
-            if (itemMarcado.TryGetComponent(out Fantasma torreta))
-            {               
-                torreta.activarInvisibilidad(itemMarcado.GetComponent<Torreta>());
-            }
-            if(itemMarcado.TryGetComponent(out Interaccion interaccion))
+            // Comprueba que este apuntando a un item en el Layer Torreta
+            if (Physics.Raycast(camaraJugador.transform.position, camaraJugador.transform.forward, out punto, alcance, LayerMask.GetMask("Interactuable")))
             {
-                // Abrimos menu
-                interaccionActual = interaccion.Interactuar();
-                paralizado = true;
+                // Toma la item del RaycastHit
+                GameObject itemMarcado = punto.transform.gameObject;
+                if (itemMarcado.TryGetComponent(out Fantasma torreta))
+                {
+                    torreta.activarInvisibilidad(itemMarcado.GetComponent<Torreta>());
+                }
+                if (itemMarcado.TryGetComponent(out Interaccion interaccion))
+                {
+                    // Abrimos menu
+                    interaccionActual = interaccion.Interactuar();
+                    paralizado = true;
+                }
             }
         }
     }
