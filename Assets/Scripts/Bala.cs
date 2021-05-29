@@ -49,6 +49,7 @@ public class Bala : MonoBehaviour
 
         //Darle impulso de la bala
         rb.AddForce(transform.forward * velocidad, ForceMode.Impulse);
+        
     }
     private void Update()
     {
@@ -59,7 +60,7 @@ public class Bala : MonoBehaviour
             {
                 if (ataque.origen.GetComponent<Torreta>().perseguidor)
                 {
-                    transform.LookAt(perseguir.position);
+                    rb.MovePosition(perseguir.position);
                 }
             }
         }

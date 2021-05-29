@@ -149,6 +149,7 @@ public class SistemaMejoras : MonoBehaviour
         {
             if(!torreta.escudo)
             {
+                torreta.escudo = true;
                 torreta.escudoMaximo = 10;
                 torreta.escudoRegen = 0.5f;
             }
