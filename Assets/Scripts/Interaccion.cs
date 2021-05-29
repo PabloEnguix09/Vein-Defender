@@ -20,7 +20,9 @@ public class Interaccion : MonoBehaviour
     public GameObject hud;
 
     public TipoItem tipoItem;
-
+    //esta variable guardará el animator
+    Animator ani;
+     public GameObject nave;
     CameraController cameraController;
     public enum TipoItem
     {
@@ -34,6 +36,8 @@ public class Interaccion : MonoBehaviour
         cameraController = FindObjectOfType<CameraController>();
         // Lo desactiva al principio por si acaso
         hud.SetActive(false);
+        ani = nave.GetComponent<Animator>(); 
+
     }
 
     public Interaccion Interactuar()
@@ -45,10 +49,10 @@ public class Interaccion : MonoBehaviour
             hud.SetActive(true);
             // Cuando el HUD esta activado queremos tener la camara bloqueada
             cameraController.BloquearCamara(true);
-
+            
             return this;
         }
-
+        
         return null;
     }
 
@@ -62,6 +66,12 @@ public class Interaccion : MonoBehaviour
             hud.SetActive(false);
             // Cuando el HUD esta desactivado queremos tener la camara liberada
             cameraController.BloquearCamara(false);
+            abrirPuerta();
         }
+    }
+
+    public void abrirPuerta()
+    {
+        ani.SetBool("tieneTorretas", true);
     }
 }
