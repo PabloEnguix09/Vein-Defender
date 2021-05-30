@@ -14,15 +14,18 @@ public class AudioHandler : MonoBehaviour
 {
 
     public Sonido[] sonidos;
+    public AudioMixer mixer;
 
     private void Awake()
     {
-        foreach(Sonido s in sonidos)
+
+        foreach (Sonido s in sonidos)
         {
             s.origen = gameObject.AddComponent<AudioSource>();
             s.origen.clip = s.clip;
             s.origen.volume = s.volumen;
             s.origen.pitch = s.tono;
+            s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master/SFX")[0];
         }
     }
 
