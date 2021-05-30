@@ -20,11 +20,11 @@ MonoBehaviour:
   velocidadDisparo: 1
   vidaActual: 10
   vidaMaxima: 10
-  velocidadInicial: 2
-  velocidadActual: 0
+  velocidadInicial: 6
+  velocidadActual: 6
   velocidadDeRotacion: 10
-  rango: 30
-  rangoDisparo: 20
+  rango: 100
+  rangoDisparo: 50
   invisibilidad: 0
   subterraneo: 0
   vuela: 0

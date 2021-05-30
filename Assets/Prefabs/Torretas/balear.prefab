@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3100081318681038863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9042653447098570400}
+  m_Layer: 7
+  m_Name: SpawnerBalas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9042653447098570400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100081318681038863}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0, y: 2.53, z: -2.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5082152138759156682}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &4371956278412912443
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,8 +137,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5133181269257244062}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.0299721, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.82, z: 0.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5082152138759156682}
@@ -217,6 +247,7 @@ Transform:
   - {fileID: 748025022318447802}
   - {fileID: 3004261855589482339}
   - {fileID: 173132593488326539}
+  - {fileID: 9042653447098570400}
   m_Father: {fileID: 8543036720135781218}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -281,6 +312,9 @@ GameObject:
   - component: {fileID: 4810076294474495236}
   - component: {fileID: 7220929159783735354}
   - component: {fileID: 455832829929023367}
+  - component: {fileID: 4505051903386888878}
+  - component: {fileID: 1686567405464764966}
+  - component: {fileID: 5880979935663605370}
   m_Layer: 7
   m_Name: balear
   m_TagString: Torreta
@@ -295,7 +329,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5793717610974240696}
-  m_LocalRotation: {x: 0, y: 0.37743667, z: 0, w: 0.9260354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.086428, y: 23.339571, z: 58.735764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -353,6 +387,160 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4505051903386888878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5793717610974240696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96517f2596bd50641b5a63963c836b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torretaBasica: {fileID: 11400000, guid: 6a4e358bafcc8fb40ab53d51c987e1c5, type: 2}
+  nombre: 
+  energia: 0
+  energiaAlt: 0
+  energiaEnUso: 0
+  vidaActual: 0
+  vidaMaxima: 0
+  escudoMaximo: 0
+  escudoActual: 0
+  escudoRegen: 0
+  timerEscudo: 0
+  ataque: 0
+  cadenciaDisparo: 0
+  velocidadRotacion: 0
+  distanciaDisparo: 0
+  antiaerea: 0
+  invisibilidad: 0
+  escudo: 0
+  perforante: 0
+  perseguidor: 1
+  disparoPEM: 0
+  disparoMarcado: 0
+  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
+  radioExplosion: 0
+  danyoExplosion: 0
+  torretaInhabilitada: 0
+  parteQueRota: {fileID: 5082152138759156682}
+  balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
+  spawnerBalas: {fileID: 3100081318681038863}
+  escudoObjeto: {fileID: 3758823761721074484, guid: a3335bcd79ee8e54d9011103c0010362, type: 3}
+  explosionElectrica: {fileID: 442871650001608145, guid: 11e22b382ecf84f45814bc83db35ce21, type: 3}
+  explosionBala: {fileID: 4172967282287518746, guid: 21819afa75c081a468f0fb7d485487da, type: 3}
+--- !u!82 &1686567405464764966
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5793717610974240696}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &5880979935663605370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5793717610974240696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: e2135b0936916a64297e6fe3bbb3617a, type: 3}
 --- !u!1 &6043483372098112430
 GameObject:
   m_ObjectHideFlags: 0
