@@ -53,10 +53,16 @@ public class Bala : MonoBehaviour
     }
     private void Update(){
         // Disparos perseguidores
-        if (ataque.tipo == Ataque.Tipo.laser){
-            if(ataque.origen.tag == "Torreta"){
-                if (ataque.origen.GetComponent<Torreta>().perseguidor){
-                    rb.MovePosition(perseguir.position);
+        if(perseguir != null)
+        {
+            if (ataque.tipo == Ataque.Tipo.laser)
+            {
+                if (ataque.origen.tag == "Torreta")
+                {
+                    if (ataque.origen.GetComponent<Torreta>().perseguidor)
+                    {
+                        rb.MovePosition(perseguir.position);
+                    }
                 }
             }
         }
@@ -168,6 +174,10 @@ public class Bala : MonoBehaviour
                 {
                     Personaje personaje = colliders[i].gameObject.GetComponent<Personaje>();
                     personaje.RecibirAtaque(ataque);
+                }
+                if(colliders[i].CompareTag("Terreno"))
+                {
+                    Destroy(gameObject);
                 }
             }
         }

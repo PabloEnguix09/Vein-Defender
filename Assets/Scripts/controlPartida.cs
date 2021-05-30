@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 // FEATURES ADDED: Se puede iniciar partidas, rondas y la partida acaba al perder las bases.
 //
 // AUTHOR: Jorge Grau
-// FEATURES ADDED: Si T-Byte muere acaba la partida. Añadida camara secundaria.
+// FEATURES ADDED: Si T-Byte muere acaba la partida. Aï¿½adida camara secundaria.
 //
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: Restart()
@@ -29,6 +29,8 @@ public class controlPartida : MonoBehaviour
 
     public GameObject textoEstado;
     public GameObject textoRonda;
+
+    public GameObject mejora;
 
     private bool finDePartida;
     private bool finDeRonda;
@@ -46,6 +48,7 @@ public class controlPartida : MonoBehaviour
         spawners = (Spawner[])GameObject.FindObjectsOfType(typeof(Spawner));
         personaje = jugador.GetComponent<Personaje>();
         CamaraSecundaria.gameObject.SetActive(false);
+        mejora.SetActive(false);
         ronda = 1;
 
         gameManager = FindObjectOfType<GameManager>();
@@ -77,7 +80,7 @@ public class controlPartida : MonoBehaviour
             }
         }
 
-        //si han aparecido todos los Enemigo y están todos muertos se acaba la ronda
+        //si han aparecido todos los Enemigo y estï¿½n todos muertos se acaba la ronda
         if (todosSpawneados && Enemigo.Length == 0)
         {
             finDeRonda = true;
@@ -118,7 +121,9 @@ public class controlPartida : MonoBehaviour
                     {
                         int misionesCompletadas = PlayerPrefs.GetInt("misiones_completadas");
                         PlayerPrefs.SetInt("misiones_completadas", misionesCompletadas + 1);
-                        SceneManager.LoadScene(SceneManager.GetSceneAt(1).ToString());
+                        Cursor.lockState = CursorLockMode.None;
+                        mejora.SetActive(true);
+                        //SceneManager.LoadScene(SceneManager.GetSceneAt(1).ToString());
                     }
                     break;
                 default:

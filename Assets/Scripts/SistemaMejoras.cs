@@ -22,6 +22,8 @@ public class SistemaMejoras : MonoBehaviour
 
     public List<int> indice = new List<int>();
 
+    public string[] nombres;
+
     [Header("Personaje")]
     // Mejoras de personaje
     public bool vidaTbyte;
