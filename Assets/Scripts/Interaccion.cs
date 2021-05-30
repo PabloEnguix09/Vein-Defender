@@ -21,8 +21,8 @@ public class Interaccion : MonoBehaviour
 
     public TipoItem tipoItem;
     //esta variable guardará el animator
-    Animator ani;
-     public GameObject nave;
+    Animator animator;
+    public GameObject nave;
     CameraController cameraController;
     public enum TipoItem
     {
@@ -36,7 +36,7 @@ public class Interaccion : MonoBehaviour
         cameraController = FindObjectOfType<CameraController>();
         // Lo desactiva al principio por si acaso
         hud.SetActive(false);
-        ani = nave.GetComponent<Animator>(); 
+        animator = nave.GetComponent<Animator>(); 
 
     }
 
@@ -72,6 +72,6 @@ public class Interaccion : MonoBehaviour
 
     public void abrirPuerta()
     {
-        ani.SetBool("tieneTorretas", true);
+        animator.SetBool("tieneTorretas", true);
     }
 }
