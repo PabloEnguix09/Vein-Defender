@@ -2499,7 +2499,7 @@ PrefabInstance:
       objectReference: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
     - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: sonidos.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: sonidos.Array.data[0].clip
