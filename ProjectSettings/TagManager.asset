@@ -13,6 +13,7 @@ TagManager:
   - Enemigo
   - Bala
   - Escudo
+  - Scutum
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
+  m_Name: Balear
+  m_EditorClassIdentifier: 
+  nombre: Balear
+  energia: 4
+  energiaAlt: 4
+  vidaMaxima: 15
+  escudoMaximo: 0
+  escudoRegen: 0
+  ataque: 1
+  cadenciaDisparo: 10
+  escudoActual: 0
+  tipoDisparo: 1
+  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
+  velocidadRotacion: 20
+  distanciaDisparo: 30
+  antiaerea: 0
+  invisibilidad: 0
+  regeneracion: 0
+  reducirDanyo: 0
+  frente: 0
+  espalda: 0
+  lados: 0
+  reduccion: 1
+  radioExplosion: 5
+  danyoExplosion: 1

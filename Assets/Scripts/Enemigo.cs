@@ -48,7 +48,9 @@ public class Enemigo : MonoBehaviour
     void Start()
     {
 
-        agente = GetComponent<NavMeshAgent>();        // Script de control de las animaciones        animEnemigo = GetComponent<AnimEnemigo>();
+        agente = GetComponent<NavMeshAgent>();
+        // Script de control de las animaciones
+        animEnemigo = GetComponent<AnimEnemigo>();
 
         agente.speed = enemigo.velocidadInicial;
         enemigo.velocidadActual = enemigo.velocidadInicial;
@@ -102,7 +104,7 @@ public class Enemigo : MonoBehaviour
             }
             agente.speed = 0f;
             // Entra en la animacion bloqueado
-            animEnemigo.Bloqueado(true);
+            //animEnemigo.Bloqueado(true);
         }
         // Si el objetivo no esta en el rango de disparo mantenemos la velocidad y la invisibilidad
         else
@@ -116,14 +118,13 @@ public class Enemigo : MonoBehaviour
         }
 
         // Se mueve en la animacion idle
-        animEnemigo.Bloqueado(false);
+        //animEnemigo.Bloqueado(false);
 
-        agente.speed = enemigo.velocidadActual;
         if (ralentizado)
         {
             timerRalentizado += Time.deltaTime;
         }
-        if(timerRalentizado >= 2)
+        if (timerRalentizado >= 2)
         {
             ralentizado = false;
             enemigo.velocidadActual *= 2;
@@ -131,16 +132,16 @@ public class Enemigo : MonoBehaviour
         }
 
         // Muerte
-        if(enemigo.vidaActual <= 0)
+        if (enemigo.vidaActual <= 0)
         {
             Destruido();
         }
     }
-    
+
     // Se destruye al enemigo
     public void Destruido()
     {
-        animEnemigo.Destruido();
+        //animEnemigo.Destruido();
 
         Destroy(gameObject, 0.5f);
     }
@@ -191,7 +192,7 @@ public class Enemigo : MonoBehaviour
                 objetivosEnRango.Add(player[i]);
             }
         }
-        for(int i = 0; i < objetivosEnRango.Count; i++)
+        for (int i = 0; i < objetivosEnRango.Count; i++)
         {
             // Si el enemigo es visible, es una torreta y esta en rango
             if (objetivosEnRango[i].TryGetComponent(out Torreta torreta))
@@ -249,9 +250,9 @@ public class Enemigo : MonoBehaviour
     public void RecibirBuff(GameObject tanque)
     {
         // Tenemos una lista de tanques, para saber si un tanque ya a buffado a un enemigo, en caso de que sea asi no se le aplica el buff de nuevo, en caso de no estar buffado aumentamos su ataque temporal.
-        for(int i = 0; i < tanques.Count; i++)
+        for (int i = 0; i < tanques.Count; i++)
         {
-            if(tanques[i] == tanque)
+            if (tanques[i] == tanque)
             {
                 return;
             }

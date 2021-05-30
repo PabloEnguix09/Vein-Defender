@@ -39,6 +39,7 @@ public class TorretaBasica : ScriptableObject
     public float distanciaDisparo;
     public bool antiaerea;
     public bool invisibilidad;
+    public bool regeneracion;
     public bool reducirDanyo;
     public bool frente;
     public bool espalda;

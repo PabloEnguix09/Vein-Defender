@@ -21,7 +21,7 @@ MonoBehaviour:
   vidaActual: 4
   vidaMaxima: 4
   velocidadInicial: 3
-  velocidadActual: 0
+  velocidadActual: 3
   velocidadDeRotacion: 20
   rango: 15
   rangoDisparo: 10
