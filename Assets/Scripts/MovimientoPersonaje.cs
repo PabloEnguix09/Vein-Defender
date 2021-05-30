@@ -86,7 +86,7 @@ public class MovimientoPersonaje : MonoBehaviour
         {
             rb.AddForce(Vector3.up * fuerzaSalto);
             // Sonido del salto
-            audioHandler.PlaySound(0, false);
+            audioHandler.Play(0);
         }
     }
 

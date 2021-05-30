@@ -198,7 +198,7 @@ public class EnemigoDisparo : MonoBehaviour
         // Animacion Disparo
         animEnemigo.Dispara();
         // Sonido de disparo
-        audioHandler.PlaySound(0, false);
+        audioHandler.Play(0);
         //disparar
         Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
 

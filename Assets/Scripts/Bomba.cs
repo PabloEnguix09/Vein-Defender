@@ -48,7 +48,7 @@ public class Bomba : MonoBehaviour
             if (destroyOfftime <= 0)
             {
                 // Sonido explosion
-                audioHandler.PlaySound(0, false);
+                audioHandler.Play(0);
                 // Particulas explosion
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
                 // Impacto de explosion y objetivos afectados

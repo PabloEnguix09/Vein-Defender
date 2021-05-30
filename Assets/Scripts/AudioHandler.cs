@@ -1,25 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Audio;
+using System;
 using UnityEngine;
-
+// ---------------------------------------------------
+// NAME: AudioHandler.cs
+// STATUS: WIP
+// GAMEOBJECT: AudioHandler
+// DESCRIPTION: Controla la ejecucion de efectos de sonido
+//
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: 
+// ---------------------------------------------------
 public class AudioHandler : MonoBehaviour
 {
 
-    AudioSource source;
+    public Sonido[] sonidos;
 
-    public AudioClip[] clips;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        source = gameObject.GetComponent<AudioSource>();
+        foreach(Sonido s in sonidos)
+        {
+            s.origen = gameObject.AddComponent<AudioSource>();
+            s.origen.clip = s.clip;
+            s.origen.volume = s.volumen;
+            s.origen.pitch = s.tono;
+        }
     }
-    public void PlaySound(int index, bool loop)
+
+    public void Play(int indice)
     {
-        source.clip = clips[index];
-
-        source.loop = loop;
-
-        source.Play();
+        Sonido s = Array.Find(sonidos, sonido => sonido.indice == indice);
+        s.origen.Play();
     }
 }
