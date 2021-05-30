@@ -92,9 +92,7 @@ public class Enemigo : MonoBehaviour
     {
         enemigo.ataqueFinal = enemigo.ataque + ataqueTemporal;
         // Busca un objetivo y se dirige hacia el
-        objetivo = BuscarObjetivo();
-
-        agente.destination = objetivo;
+        objetivo = BuscarObjetivo();
         // Si el objetivo esta en nuestro rango de disparo, nos quedamos quietos y perdemos la invisibilidad
         if (Vector3.Distance(this.transform.position, objetivo) <= enemigo.rangoDisparo)
         {

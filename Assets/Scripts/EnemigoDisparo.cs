@@ -74,7 +74,6 @@ public class EnemigoDisparo : MonoBehaviour
             if (timerDisparo >= enemigoBasico.velocidadDisparo)
             {
                 timerDisparo = 0;
-                Debug.Log("ADAGA");
                 Disparar();
             }
         } else
@@ -111,7 +110,7 @@ public class EnemigoDisparo : MonoBehaviour
         // Encontramos el objetivo mas cercano
         if (objetivosEnRango.Count >= 1)
         {
-            Debug.Log("Objetivos en rango " + objetivosEnRango.Count.ToString());
+            //Debug.Log("Objetivos en rango " + objetivosEnRango.Count.ToString());
             for (int i = 0; i < objetivosEnRango.Count; i++)
             {
 
@@ -175,29 +174,21 @@ public class EnemigoDisparo : MonoBehaviour
         }
         // Comprueba que existe un objetivo visible
         if (masCercano != null)
-        {
-            Debug.Log("da");
+        {
             // Comprueba que delante tenga una torreta
             RaycastHit hit;
             Physics.Raycast(parteQueRota.position, parteQueRota.forward, out hit, enemigoBasico.rango, LayerMask.GetMask("Torreta"));
-            Debug.Log("1");
-
-            if (hit.collider != null)
-            {
-                Debug.Log("2");
-
-                //En caso de tener delante una torreta
-                return hit.point;
-
+            if (hit.collider != null)
+            {
+                //En caso de tener delante una torreta
+                return hit.point;
             }
 
-            Debug.Log(masCercano);
+            //Debug.Log(masCercano);
 
             // Ahora que tenemos el objetivo mas cercano devolvemos el GameObject si esta dentro del rango de disparo
             if (Vector3.Distance(parteQueRota.position, masCercano) < enemigoBasico.rangoDisparo)
-            {
-                Debug.Log("3");
-
+            {
                 return masCercano;
             }
         }
@@ -205,32 +196,31 @@ public class EnemigoDisparo : MonoBehaviour
         return Vector3.zero;
     }
 
-    public void Disparar()
-    {
-
-        Debug.Log("Disparo");
+    public void Disparar()
+    {
+        //Debug.Log("Disparo");
         // Animacion Disparo
         //animEnemigo.Dispara();
         // Sonido de disparo
         audioHandler.Play(0);
         //disparar
         Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
-
+
+
         ataqueObjeto.fuerza = enemigoBasico.ataqueFinal;
         ataqueObjeto.fuerzaExplosion = enemigoBasico.ataqueExplosion;
         ataqueObjeto.radioExplosion = enemigoBasico.rangoExplosion;
         ataqueObjeto.tipo = Ataque.Tipo.laser;
         ataqueObjeto.origen = gameObject;
-
+
+
         // Se busca la direccion desde donde esta atacando al objetivo
         Vector3 direccion = transform.position - objetivoADisparar;
         ataqueObjeto.direccion = Vector3.Dot(transform.forward, direccion);
-        Debug.Log("DisparoInst");
-
-        Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
-
+        //Debug.Log("DisparoInst");
+        Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
         bala.ataque = ataqueObjeto;
-        Debug.Log("DisparoFinal");
+        //Debug.Log("DisparoFinal");
     }
 
     bool ComprobarVision(GameObject objetivo)
@@ -244,7 +234,7 @@ public class EnemigoDisparo : MonoBehaviour
         {
             return true;
         }
-        Debug.Log("Falle al " + objetivo.name);
+        //Debug.Log("Falle al " + objetivo.name);
         return false;
     }
 }
