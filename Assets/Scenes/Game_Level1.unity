@@ -1261,6 +1261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hud: {fileID: 2087454944}
   tipoItem: 1
+  nave: {fileID: 1603763728}
 --- !u!23 &242765561
 MeshRenderer:
   m_ObjectHideFlags: 0

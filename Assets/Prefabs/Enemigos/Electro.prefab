@@ -10,7 +10,7 @@ Animator:
   m_GameObject: {fileID: 787187261831143569}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 96ebc39de19e83544817a41b19b67bf0, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigo: {fileID: 11400000, guid: ea5630ade9a77fc4b94a4cea2c3baa3c, type: 2}
-  explosion: {fileID: 442871650001608145, guid: 11e22b382ecf84f45814bc83db35ce21, type: 3}
+  explosion: {fileID: 8728271712439789301, guid: 60f085c6c8b43d445bd11a28b5b18dcc, type: 3}
 --- !u!114 &5569949343252198124
 MonoBehaviour:
   m_ObjectHideFlags: 0
