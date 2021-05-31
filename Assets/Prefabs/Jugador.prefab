@@ -494,6 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidos: []
+  mixer: {fileID: 0}
 --- !u!114 &1231788374
 MonoBehaviour:
   m_ObjectHideFlags: 0
