@@ -234,7 +234,7 @@ public class Torreta : MonoBehaviour
             animator.SetTrigger("Disparo");
         }
         // sonido disparar
-        audioHandler.Play(0);
+        // audioHandler.Play(0);
         // Crea las particulas del disparo si el tipo es de balas
         if (torretaBasica.tipoDisparo == TorretaBasica.TipoDisparo.balas)
         {

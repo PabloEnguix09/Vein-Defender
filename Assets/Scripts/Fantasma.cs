@@ -30,7 +30,7 @@ public class Fantasma : MonoBehaviour
     public void activarInvisibilidad(Torreta fantasma)
     {
         // Sonido invisibildad
-        audioHandler.Play(1);
+        // audioHandler.Play(1);
 
         energia = fantasma.energiaAlt - fantasma.energia;
         if (fantasma.invisibilidad)
