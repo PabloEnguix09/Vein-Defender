@@ -134,11 +134,9 @@ public class Bala : MonoBehaviour
         }
     }
     // Busca objetivos cerca del punto de impacto
-    private void ExplosionAtaque(Ataque ataque)
-    {
-        if (ataque.origen.CompareTag("Torreta"))
-        {
-            if (ataque.tipo == Ataque.Tipo.laser && ataque.origen.GetComponent<Torreta>().perforante)
+    private void ExplosionAtaque(Ataque ataque){
+        if (ataque.origen.CompareTag("Torreta"))        {
+            if (ataque.tipo == Ataque.Tipo.laser && ataque.origen.GetComponent<Torreta>().perforante)
             {
                 enemigosPerforados--;
             }
