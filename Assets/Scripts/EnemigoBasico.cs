@@ -19,15 +19,11 @@ using UnityEngine;
 public class EnemigoBasico : ScriptableObject
 {
     public float ataque;
-    public float ataqueTemporal;
-    public float ataqueFinal;
     public float ataqueExplosion;
     public float rangoExplosion;
     public float velocidadDisparo;
-    public float vidaActual;
     public float vidaMaxima;
-    public float velocidadInicial;
-    public float velocidadActual;
+    public float velocidadMaxima;
     public float velocidadDeRotacion;
     public float rango;
     public float rangoDisparo;
