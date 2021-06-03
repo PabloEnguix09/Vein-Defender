@@ -33,6 +33,13 @@ public class EnemigoBasico : ScriptableObject
     public bool atacaJugador;
     public bool atacaTorretas;
 
+    // Eliminar
+    public float vidaActual;
+    public float velocidadInicial;
+    public float velocidadActual;
+    public float ataqueFinal;
+    public float ataqueTemporal;
+
     public enum tipo
     {
         terrestre, volador, subterraneo
