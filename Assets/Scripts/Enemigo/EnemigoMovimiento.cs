@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 // ---------------------------------------------------
@@ -17,37 +14,34 @@ using UnityEngine.AI;
 // FEATURES ADDED: Comprobacion de tener una torreta delante
 //
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: Animaciones
+// FEATURES ADDED: Optimizado en el nuevo Script
 // ---------------------------------------------------
 
 public class EnemigoMovimiento : MonoBehaviour
 {
+    #region Variables
     // Controlador enemigo
     EnemigoControlador controlador;
-    EnemigoBasico stats;
 
     private Base base1;
     private Base base2;
     private Base base3;
 
     public static Transform final;
-    public NavMeshAgent agente;
-    private Vector3 objetivo;
+    NavMeshAgent agente;
 
     private float timerRalentizado = 0;
-    bool volador;
 
     public bool pausado;
 
     float velocidad;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         #region Componentes y variables
         agente = GetComponent<NavMeshAgent>();
-
-        stats = controlador.stats;
         #endregion
 
         #region Comprueba vida de las bases
@@ -83,11 +77,11 @@ public class EnemigoMovimiento : MonoBehaviour
         {
             timerRalentizado -= Time.deltaTime;
             // La velocidad se reduce a la mitad
-            velocidad = stats.velocidadMaxima / 2;
+            velocidad = controlador.stats.velocidadMaxima / 2;
         } else
         {
             // Si no esta ralentizado la velocidad es normal
-            velocidad = stats.velocidadMaxima;
+            velocidad = controlador.stats.velocidadMaxima;
         }
         #endregion
     }

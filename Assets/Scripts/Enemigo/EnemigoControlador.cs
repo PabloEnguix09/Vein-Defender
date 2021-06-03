@@ -14,7 +14,7 @@ using UnityEngine;
 
 public class EnemigoControlador : MonoBehaviour
 {
-
+    #region Variables
     // Objeto enemigo
     public EnemigoBasico stats;
     // Componentes del enemigo
@@ -22,15 +22,16 @@ public class EnemigoControlador : MonoBehaviour
     EnemigoAtaque ataque;
     EnemigoVida vida;
     EnemigoMovimiento movimiento;
+    #endregion
 
     public void TorretaEnRango()
     {
 
     }
 
-    public void RecibeAtaque()
+    public void RecibeAtaque(Ataque ataque)
     {
-
+        vida.RecibirAtaque(ataque);
     }
 
     public void Caminar()
