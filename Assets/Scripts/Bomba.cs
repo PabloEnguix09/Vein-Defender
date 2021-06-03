@@ -40,56 +40,6 @@ public class Bomba : MonoBehaviour
     {
         if (enemigo.vidaActual <= 0)
         {
-
-            // Cuenta regresiva hasta terminar la animacion de explotar
-            destroyOfftime -= Time.deltaTime;
-            
-            // Destruye el gameobject y crea las particulas
-            if (destroyOfftime <= 0)
-            {
-                // Sonido explosion
-                // audioHandler.Play(0);
-                // Particulas explosion
-                Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
-                // Impacto de explosion y objetivos afectados
-                Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, radioExplosion);
-
-                Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
-
-                ataqueObjeto.fuerza = enemigoBasico.ataque;
-                ataqueObjeto.tipo = Ataque.Tipo.laser;
-                ataqueObjeto.origen = gameObject;
-
-                // Inflinge da�o a todos los objetivos dentro del rango
-                for (int i = 0; i < colliders.Length; i++)
-                {
-                    if (colliders[i].CompareTag("Base"))
-                    {
-                        Base estructura = colliders[i].gameObject.GetComponent<Base>();
-                        estructura.RecibirAtaque(ataqueObjeto);
-                    }
-
-                    else if (colliders[i].CompareTag("Torreta"))
-                    {
-                        Torreta estructura = colliders[i].gameObject.GetComponent<Torreta>();
-
-                        estructura.RecibirAtaque(ataqueObjeto);
-                    }
-
-                    else if (colliders[i].CompareTag("Enemigo"))
-                    {
-                        Enemigo otroEnemigo = colliders[i].gameObject.GetComponent<Enemigo>();
-                        otroEnemigo.RecibirAtaque(ataqueObjeto);
-                    }
-
-                    else if (colliders[i].CompareTag("Player"))
-                    {
-                        Personaje personaje = colliders[i].gameObject.GetComponent<Personaje>();
-                        personaje.RecibirAtaque(ataqueObjeto);
-                    }
-                }
-                enemigo.Destruido();
-            }
         }
     }
 

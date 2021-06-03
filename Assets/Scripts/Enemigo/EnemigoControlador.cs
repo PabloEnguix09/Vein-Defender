@@ -17,11 +17,14 @@ public class EnemigoControlador : MonoBehaviour
     #region Variables
     // Objeto enemigo
     public EnemigoBasico stats;
+
     // Componentes del enemigo
     EnemigoAnimacion animacion;
     EnemigoAtaque ataque;
     EnemigoVida vida;
     EnemigoMovimiento movimiento;
+
+    bool pausa;
     #endregion
 
     public void TorretaEnRango()
@@ -49,14 +52,22 @@ public class EnemigoControlador : MonoBehaviour
 
     }
 
-    public void Potenciado()
+    public void Potenciado(bool estado, GameObject potenciador)
     {
-
+        if(stats.tipoAtaque != EnemigoBasico.Tipo.potenciador)
+        {
+            ataque.Potenciado(estado, potenciador);
+        }
     }
 
     public void Pausa()
     {
+        pausa = true;
+    }
 
+    public void Reanudar()
+    {
+        pausa = false;
     }
 
 }
