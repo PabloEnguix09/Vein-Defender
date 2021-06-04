@@ -27,6 +27,22 @@ public class EnemigoVida : MonoBehaviour
 
     public void RecibirAtaque(Ataque ataque)
     {
-        vida -= ataque.fuerza;
+        // Solo recibe el golpe cuando tiene vida
+        if(vida > 0)
+        {
+            vida -= ataque.fuerza;
+            if (vida <= 0)
+            {
+                // Si es una bomba no se muere directamente, primero explota
+                if (controlador.stats.tipoAtaque == EnemigoBasico.Tipo.bomba)
+                {
+                    controlador.Explotar();
+                }
+                else
+                {
+                    controlador.Muerte();
+                }
+            }
+        }
     }
 }

@@ -112,18 +112,18 @@ public class Bala : MonoBehaviour
         {
             if (!ataque.origen.CompareTag("Enemigo"))
             {
-                Enemigo enemigo = collision.gameObject.GetComponent<Enemigo>();
-                if (!enemigo.subterraneo)
+                EnemigoControlador enemigo = collision.gameObject.GetComponent<EnemigoControlador>();
+                if (!enemigo.stats.subterraneo)
                 {
                     if (ataque.origen.GetComponent<Torreta>().balaObjeto.name == "Bala" && ataque.origen.GetComponent<Torreta>().disparoPEM)
-                    {
-                        enemigo.Ralentizar();
+                    {                        // TODO: debe recibir un ataque que le ralentice
+                        //enemigo.RecibeAtaque();
                     }
                     if(ataque.origen.GetComponent<Torreta>().disparoMarcado && enemigo.marcado)
                     {
                         ataque.fuerza *= 0.2f;
                     }
-                    enemigo.RecibirAtaque(ataque);
+                    enemigo.RecibeAtaque(ataque);
                 }
                 ExplosionAtaque(ataque);
             }

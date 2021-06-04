@@ -22,6 +22,8 @@ public class EnemigoControlador : MonoBehaviour
     EnemigoVida vida;
     EnemigoMovimiento movimiento;
 
+    [HideInInspector]
+    public bool marcado;
     bool pausa;
     #endregion
 
@@ -57,6 +59,11 @@ public class EnemigoControlador : MonoBehaviour
     public void Disparar()
     {
         animacion.Dispara();
+    }
+
+    public void Explotar()
+    {
+        ataque.Explotar();
     }
 
     public void Potenciado(bool estado, GameObject potenciador)
