@@ -27,6 +27,14 @@ public class EnemigoControlador : MonoBehaviour
     bool pausa;
     #endregion
 
+    private void Awake()
+    {
+        animacion = GetComponent<EnemigoAnimacion>();
+        ataque = GetComponent<EnemigoAtaque>();
+        vida = GetComponent<EnemigoVida>();
+        movimiento = GetComponent<EnemigoMovimiento>();
+    }
+
     public void TorretaEnRango()
     {
 
@@ -44,7 +52,7 @@ public class EnemigoControlador : MonoBehaviour
 
     public void Muerte()
     {
-
+        Destroy(gameObject);
     }
 
     public void Disparar()
@@ -68,6 +76,11 @@ public class EnemigoControlador : MonoBehaviour
     public void Reanudar()
     {
         pausa = false;
+    }
+
+    public void AsignarBases(Base b1, Base b2, Base b3)
+    {
+        movimiento.AsignarBases(b1, b2, b3);
     }
 
 }

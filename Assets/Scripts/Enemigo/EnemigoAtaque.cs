@@ -8,13 +8,13 @@ using UnityEngine;
 // DESCRIPTION: En este script se determinan los objetivos que busca un enemigo capaz de disparar
 //
 // AUTHOR: Pau
-// FEATURES ADDED: Primera versi�n del codigo(dronAtaque): A�adidas las estadisticas, la seleccion del objetivo a disparar y la funcion de disparar
+// FEATURES ADDED: Primera version del codigo(dronAtaque): estadisticas, la seleccion del objetivo a disparar y la funcion de disparar
 // 
 // AUTHOR: Jorge Grau
 // FEATURES ADDED: Todo el codigo actualizado para que funcione para todos los enemigos independientemente de su tipo, el codigo ahora usa las variables del SO de enemigo y busca objetivos de una forma m�s eficiente y limpia. A�adida la comprobaci�n de objetiivo invisible. A�adido el da�o y el rango de la explosion en la creaci�n del objeto ataque. Los enemigos atacan al jugador o a las torretas si "pueden". Sabemos la direcci�n del ataque.
 //
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: optimizado en el nuevo script
+// FEATURES ADDED: optimizado en el nuevo script, unificacion con el bomba, tanque y todos los enemigos
 //
 // AUTHOR: Adrian Maldonado
 // FEATURES ADDED: Comprobacion de tener una torreta delante
@@ -27,18 +27,26 @@ public class EnemigoAtaque : MonoBehaviour
     // Cooldown de disparo
     float timerDisparo = 0;
     // Fuerza de ataque total
+    [HideInInspector]
     public float fuerza;
     // Particulas de la explosion
+    [Header("Bomba")]
     public GameObject explosion;
     List<GameObject> potenciadores;
-    #endregion
-
-    [Header("Partes")]
     private Vector3 objetivoADisparar;
+
+    [Header("Con Disparo")]
     public Transform parteQueRota;
     public GameObject balaObjeto;
     public GameObject spawnerBalas;
+    #endregion
 
+    private void Start()
+    {
+        controlador = GetComponent<EnemigoControlador>();
+        // Fuerza base
+        fuerza = controlador.stats.ataque;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -224,17 +232,19 @@ public class EnemigoAtaque : MonoBehaviour
         bala.ataque = ataqueObjeto;
     }
 
-    // Para el bomba
+    // Para el bomba cuando toca a un objetivo explota
     private void OnTriggerEnter(Collider other)
     {
         if(controlador.stats.tipoAtaque == EnemigoBasico.Tipo.bomba)
-        // Cuando choca contra una base, torreta o personaje se autodestruye
-        if (other.gameObject.GetComponent<Base>() != null || other.gameObject.GetComponent<Torreta>() != null || other.gameObject.GetComponent<Personaje>())
         {
+            // Cuando choca contra una base, torreta o personaje se autodestruye
+            if (other.gameObject.GetComponent<Base>() != null || other.gameObject.GetComponent<Torreta>() != null || other.gameObject.GetComponent<Personaje>())
+            {
                 Explotar();
+            }
         }
     }
-
+    // Para el bomba principalmente
     public void Explotar()
     {
         // Particulas explosion
@@ -266,8 +276,8 @@ public class EnemigoAtaque : MonoBehaviour
 
             else if (colliders[i].CompareTag("Enemigo"))
             {
-                Enemigo otroEnemigo = colliders[i].gameObject.GetComponent<Enemigo>();
-                otroEnemigo.RecibirAtaque(ataqueObjeto);
+                EnemigoControlador otroEnemigo = colliders[i].gameObject.GetComponent<EnemigoControlador>();
+                otroEnemigo.RecibeAtaque(ataqueObjeto);
             }
 
             else if (colliders[i].CompareTag("Player"))
@@ -276,8 +286,10 @@ public class EnemigoAtaque : MonoBehaviour
                 personaje.RecibirAtaque(ataqueObjeto);
             }
         }
-    }
 
+        controlador.Muerte();
+    }
+    // Devuelve si puedes ver al objetivo
     bool ComprobarVision(GameObject objetivo)
     {
         // Comprobamos que no hayan obstaculos desde nuestra posici�n a la del objetivo
@@ -291,7 +303,7 @@ public class EnemigoAtaque : MonoBehaviour
         }
         return false;
     }
-
+    // Controla el ataque cuando esta siendo potenciado
     public void Potenciado(bool estado, GameObject potenciador)
     {
         // Poner un potenciador nuevo
@@ -321,5 +333,23 @@ public class EnemigoAtaque : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Muestra el rango de explosion para los enemigos explosivos
+        if(controlador.stats.tipoAtaque == EnemigoBasico.Tipo.bomba)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, controlador.stats.rangoExplosion);
+        }
+        // Muestra el rango de disparo para los enemigos de rango
+        if(controlador.stats.tipoAtaque == EnemigoBasico.Tipo.disparo ||
+           controlador.stats.tipoAtaque == EnemigoBasico.Tipo.potenciador)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, controlador.stats.rangoDisparo);
+        }
+
     }
 }

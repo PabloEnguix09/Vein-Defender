@@ -13,20 +13,23 @@ MonoBehaviour:
   m_Name: Bomba
   m_EditorClassIdentifier: 
   ataque: 2
-  ataqueTemporal: 0
-  ataqueFinal: 2
   ataqueExplosion: 0
-  rangoExplosion: 0
+  rangoExplosion: 2
   velocidadDisparo: 0
-  vidaActual: 0
-  vidaMaxima: 4
-  velocidadInicial: 2
-  velocidadActual: 0
   velocidadDeRotacion: 0
   rango: 2
   rangoDisparo: 0
+  atacaJugador: 1
+  atacaTorretas: 1
+  tipoAtaque: 1
+  vidaMaxima: 4
   invisibilidad: 0
   subterraneo: 0
   vuela: 0
-  atacaJugador: 1
-  atacaTorretas: 1
+  velocidadMaxima: 5
+  movimiento: 0
+  vidaActual: 0
+  velocidadInicial: 0
+  velocidadActual: 0
+  ataqueFinal: 0
+  ataqueTemporal: 0

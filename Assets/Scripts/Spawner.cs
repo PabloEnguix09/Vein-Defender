@@ -44,9 +44,6 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        // La posicion a la que se deben dirigir los Enemigo
-        Enemigo.final = gameObject.transform;
-
         //StartCoroutine(Aparicion());
         //StartCoroutine(AparicionBombas());
     }
@@ -66,7 +63,7 @@ public class Spawner : MonoBehaviour
             
             // Se crea el enemigo y se le asignan las bases
             GameObject dron =  Instantiate(primerTipoDeEnemigo, new Vector3(xPos, 1, zPos), Quaternion.identity);
-            Enemigo enemigo = dron.GetComponent<Enemigo>();
+            EnemigoControlador enemigo = dron.GetComponent<EnemigoControlador>();
             enemigo.AsignarBases(primeraBase, segundaBase, terceraBase);
 
             yield return new WaitForSeconds(tiempoAparicionPrimerEnemigo);
@@ -87,7 +84,7 @@ public class Spawner : MonoBehaviour
 
             // Se crea el enemigo y se le asignan las bases
             GameObject bomba  = Instantiate(segundoTipoDeEnemigo, new Vector3(xPos, 1, zPos), Quaternion.identity);
-            Enemigo enemigo = bomba.GetComponent<Enemigo>();
+            EnemigoControlador enemigo = bomba.GetComponent<EnemigoControlador>();
             enemigo.AsignarBases(primeraBase, segundaBase, terceraBase);
 
             yield return new WaitForSeconds(tiempoAparicionSegundoEnemigo);

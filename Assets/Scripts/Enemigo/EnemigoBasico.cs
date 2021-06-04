@@ -18,24 +18,27 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Enemigo", menuName = "Objetos/Enemigo", order = 1)]
 public class EnemigoBasico : ScriptableObject
 {
+    [Header("Ataque")]
     public float ataque;
     public float ataqueExplosion;
     public float rangoExplosion;
     public float velocidadDisparo;
-    public float vidaMaxima;
-    public float velocidadMaxima;
     public float velocidadDeRotacion;
     public float rango;
     public float rangoDisparo;
+    public bool atacaJugador;
+    public bool atacaTorretas;
+    public Tipo tipoAtaque;
+    [Header("Vida")]
+    public float vidaMaxima;
+    [Header("Movimiento")]
     public bool invisibilidad;
     public bool subterraneo;
     public bool vuela;
-    public bool atacaJugador;
-    public bool atacaTorretas;
+    public float velocidadMaxima;
     public Movimiento movimiento;
-    public Tipo tipoAtaque;
 
-    // Eliminar
+    [Header("Eliminar proximamente")]
     public float vidaActual;
     public float velocidadInicial;
     public float velocidadActual;

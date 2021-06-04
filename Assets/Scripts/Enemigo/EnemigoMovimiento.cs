@@ -42,35 +42,17 @@ public class EnemigoMovimiento : MonoBehaviour
     {
         #region Componentes y variables
         agente = GetComponent<NavMeshAgent>();
-        #endregion
-
-        #region Comprueba vida de las bases
-        // El enemigo busca a que base dirigirse, si todas estan destruidas va donde a aparecido
-        if (base1.Salud > 0)
-        {
-            agente.destination = base1.transform.position;
-        }
-
-        else if (base2.Salud > 0)
-        {
-            agente.destination = base2.transform.position;
-        }
-
-        else if (base3.Salud > 0)
-        {
-            agente.destination = base3.transform.position;
-        }
-
-        else
-        {
-            agente.destination = final.transform.position;
-        }
+        controlador = GetComponent<EnemigoControlador>();
         #endregion
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(base1 != null)
+        {
+            ComprobarBases();
+        }
         #region Ralentizado y su timer
         // reduce el tiempo del timer ralentizado
         if (timerRalentizado > 0)
@@ -82,6 +64,29 @@ public class EnemigoMovimiento : MonoBehaviour
         {
             // Si no esta ralentizado la velocidad es normal
             velocidad = controlador.stats.velocidadMaxima;
+        }
+        #endregion
+    }
+
+    public void ComprobarBases()
+    {
+        #region Comprueba vida de las bases
+        // El enemigo busca a que base dirigirse, si todas estan destruidas va donde a aparecido
+        if (base1.Salud > 0)
+        {
+            agente.destination = base1.transform.position;
+        }
+        else if (base2.Salud > 0)
+        {
+            agente.destination = base2.transform.position;
+        }
+        else if (base3.Salud > 0)
+        {
+            agente.destination = base3.transform.position;
+        }
+        else
+        {
+            agente.destination = final.transform.position;
         }
         #endregion
     }

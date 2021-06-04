@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4821090250797695093}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!20 &690215919
 Camera:
@@ -117,7 +117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4821090250797695093}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1253159932
 MeshFilter:
@@ -302,6 +302,8 @@ GameObject:
   - component: {fileID: 4665636364903637774}
   - component: {fileID: 1231788366}
   - component: {fileID: 1231788374}
+  - component: {fileID: 423261857478481919}
+  - component: {fileID: 4512034556239639186}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -321,9 +323,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4821090251707822498}
-  - {fileID: 4596862946440850532}
   - {fileID: 1253159929}
   - {fileID: 690215920}
+  - {fileID: 4596862946440850532}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -494,8 +496,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidos: []
-  mixer: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
 --- !u!114 &1231788374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821090250797695092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 548df7046b93d7b4395147ee145072da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &423261857478481919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821090250797695092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidos: []
+  mixer: {fileID: 0}
+--- !u!114 &4512034556239639186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -532,7 +560,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4821090251707822497}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.71, z: 0}
+  m_LocalPosition: {x: 0.8, y: 2, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4821090250400367774}
@@ -564,7 +592,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
       propertyPath: m_LocalScale.x
@@ -596,15 +624,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -793,6 +821,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
       propertyPath: m_Name
       value: t-byte04
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1835815523219924161, guid: 9d448cc6eb86c3149ab2839947797525, type: 3}
       propertyPath: m_LocalPosition.x

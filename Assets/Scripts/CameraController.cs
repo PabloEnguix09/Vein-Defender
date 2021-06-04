@@ -55,7 +55,10 @@ public class CameraController : MonoBehaviour
         // Detecta colisiones de la cámara y la acerca al personaje
         if(Physics.Linecast(transform.position, transform.position + transform.localRotation * offset, out impacto))
         {
-            camara.localPosition = new Vector3(0, 0, -Vector3.Distance(transform.position, impacto.point));
+            if(impacto.transform.gameObject.tag != "Player")
+            {
+                camara.localPosition = new Vector3(0, 0, -Vector3.Distance(transform.position, impacto.point));
+            }
         }
         else
         {
