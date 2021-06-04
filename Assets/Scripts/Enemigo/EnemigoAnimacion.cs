@@ -15,11 +15,33 @@ using UnityEngine;
 public class EnemigoAnimacion : MonoBehaviour
 {
     Animator animator;
+    EnemigoControlador controlador;
+
+    [Header("Explosivos")]
+    public float explosionTimeOffset;
+    public GameObject explosion;
+
+    bool destruido = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        controlador = GetComponent<EnemigoControlador>();
         animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if(destruido)
+        {
+            explosionTimeOffset -= Time.deltaTime;
+            // El enemigo bomba instancia unas particulas de explosion
+            if(explosionTimeOffset <= 0 && controlador.stats.tipoAtaque == EnemigoBasico.Tipo.bomba)
+            {
+                // Particulas explosion
+                Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+            }
+        }
     }
 
     public void Bloqueado(bool estado)
@@ -35,5 +57,6 @@ public class EnemigoAnimacion : MonoBehaviour
     public void Destruido()
     {
         animator.SetBool("Destruido", true);
+        destruido = true;
     }
 }

@@ -37,7 +37,7 @@ public class EnemigoControlador : MonoBehaviour
 
     public void TorretaEnRango()
     {
-
+        animacion.Bloqueado(true);
     }
 
     public void RecibeAtaque(Ataque ataque)
@@ -47,17 +47,18 @@ public class EnemigoControlador : MonoBehaviour
 
     public void Caminar()
     {
-
+        animacion.Bloqueado(false);
     }
 
     public void Muerte()
     {
-        Destroy(gameObject);
+        animacion.Destruido();
+        Destroy(gameObject, 0.5f);
     }
 
     public void Disparar()
     {
-
+        animacion.Dispara();
     }
 
     public void Potenciado(bool estado, GameObject potenciador)

@@ -231,7 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuerza: 0
-  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
   parteQueRota: {fileID: 0}
   balaObjeto: {fileID: 0}
   spawnerBalas: {fileID: 0}
@@ -259,6 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4537d98f7e11c5419eac610f1b56a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionTimeOffset: 0.5
+  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
 --- !u!1001 &1775343691
 PrefabInstance:
   m_ObjectHideFlags: 0

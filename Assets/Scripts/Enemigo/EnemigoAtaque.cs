@@ -29,9 +29,6 @@ public class EnemigoAtaque : MonoBehaviour
     // Fuerza de ataque total
     [HideInInspector]
     public float fuerza;
-    // Particulas de la explosion
-    [Header("Bomba")]
-    public GameObject explosion;
     List<GameObject> potenciadores;
     private Vector3 objetivoADisparar;
 
@@ -217,7 +214,10 @@ public class EnemigoAtaque : MonoBehaviour
 
     public void Disparar()
     {
-        Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+        controlador.Disparar();
+
+        Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+
         // Parametros del ataque
         ataqueObjeto.fuerza = fuerza;
         ataqueObjeto.fuerzaExplosion = controlador.stats.ataqueExplosion;
@@ -247,8 +247,6 @@ public class EnemigoAtaque : MonoBehaviour
     // Para el bomba principalmente
     public void Explotar()
     {
-        // Particulas explosion
-        Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
         // Impacto de explosion y objetivos afectados
         Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, controlador.stats.rangoExplosion);
 
