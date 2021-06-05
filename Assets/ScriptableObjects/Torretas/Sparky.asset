@@ -15,19 +15,20 @@ MonoBehaviour:
   nombre: Sparky
   energia: 1
   energiaAlt: 1
-  vidaMaxima: 5
+  vidaMaxima: 10
   escudoMaximo: 0
   escudoRegen: 0
   ataque: 1
-  cadenciaDisparo: 1
+  cadenciaDisparo: 0.5
   escudoActual: 0
   tipoDisparo: 1
   anguloDisparo: {x: 0, y: 0, z: 0, w: 1}
   velocidadRotacion: 20
-  distanciaDisparo: 30
-  antiaerea: 0
+  distanciaDisparo: 20
+  antiaerea: 1
   invisibilidad: 0
-  "reducirDa\xF1o": 0
+  regeneracion: 0
+  reducirDanyo: 0
   frente: 0
   espalda: 0
   lados: 0

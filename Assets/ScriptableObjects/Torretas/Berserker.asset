@@ -24,10 +24,11 @@ MonoBehaviour:
   tipoDisparo: 1
   anguloDisparo: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
   velocidadRotacion: 20
-  distanciaDisparo: 100
+  distanciaDisparo: 20
   antiaerea: 1
   invisibilidad: 0
-  "reducirDa\xF1o": 0
+  regeneracion: 0
+  reducirDanyo: 0
   frente: 0
   espalda: 0
   lados: 0

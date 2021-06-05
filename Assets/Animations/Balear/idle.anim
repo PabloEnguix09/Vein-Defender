@@ -47,7 +47,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: "Cilindro.003/ca\xF1on"
+    path: "Parte que rota/Cilindro.003/ca\xF1on"
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -60,7 +60,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 4054687334
+      path: 425113602
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -113,7 +113,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: "Cilindro.003/ca\xF1on"
+    path: "Parte que rota/Cilindro.003/ca\xF1on"
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -141,7 +141,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: "Cilindro.003/ca\xF1on"
+    path: "Parte que rota/Cilindro.003/ca\xF1on"
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -178,7 +178,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: "Cilindro.003/ca\xF1on"
+    path: "Parte que rota/Cilindro.003/ca\xF1on"
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -189,7 +189,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: "Cilindro.003/ca\xF1on"
+    path: "Parte que rota/Cilindro.003/ca\xF1on"
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -199,7 +199,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: "Cilindro.003/ca\xF1on"
+    path: "Parte que rota/Cilindro.003/ca\xF1on"
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -209,7 +209,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: "Cilindro.003/ca\xF1on"
+    path: "Parte que rota/Cilindro.003/ca\xF1on"
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

@@ -18,13 +18,13 @@ MonoBehaviour:
   vidaMaxima: 15
   escudoMaximo: 0
   escudoRegen: 0
-  ataque: 1
-  cadenciaDisparo: 10
+  ataque: 10
+  cadenciaDisparo: 4
   escudoActual: 0
-  tipoDisparo: 1
+  tipoDisparo: 2
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   velocidadRotacion: 20
-  distanciaDisparo: 30
+  distanciaDisparo: 50
   antiaerea: 0
   invisibilidad: 0
   regeneracion: 0
