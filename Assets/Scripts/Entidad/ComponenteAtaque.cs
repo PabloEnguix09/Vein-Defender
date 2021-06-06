@@ -47,10 +47,10 @@ public class ComponenteAtaque : MonoBehaviour
         fuerza = controlador.stats.ataqueDisparo;
 
         // Crea un el controlador de ataque de la entidad si no tiene uno creado ya
-        if(controlador.stats.tipoAtaque == EntidadSO.Tipo.laser && !disparadorSO) disparadorSO = new DisparadorSO();
-        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.balas && !disparadorSO) disparadorSO = new DisparadorSO();
-        if (controlador.stats.explosivo && !explosivoSO) explosivoSO = new ExplosivoSO();
-        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.potenciador && !potenciadorSO) potenciadorSO = new PotenciadorSO();
+        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.laser && !disparadorSO) disparadorSO = ScriptableObject.CreateInstance<DisparadorSO>();
+        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.balas && !disparadorSO) disparadorSO = ScriptableObject.CreateInstance<DisparadorSO>();
+        if (controlador.stats.explosivo && !explosivoSO) explosivoSO = ScriptableObject.CreateInstance<ExplosivoSO>();
+        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.potenciador && !potenciadorSO) potenciadorSO = ScriptableObject.CreateInstance<PotenciadorSO>();
     }
     // Update is called once per frame
     void Update()
