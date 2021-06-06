@@ -152,14 +152,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1864468986288190464}
-  - component: {fileID: -7733375198551782634}
-  - component: {fileID: 9092519302909956658}
   - component: {fileID: 4623521371561484417}
   - component: {fileID: 2189903771728022069}
   - component: {fileID: 17284705694387960}
   - component: {fileID: 8739878863374643262}
-  - component: {fileID: 10055317896636346}
-  - component: {fileID: -1267185730286431465}
+  - component: {fileID: 628287280742724515}
+  - component: {fileID: 4763910541637606438}
+  - component: {fileID: 8107476943046206219}
+  - component: {fileID: 3077051837749421643}
+  - component: {fileID: 2031600736245412525}
   m_Layer: 10
   m_Name: dron
   m_TagString: Enemigo
@@ -183,44 +184,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7733375198551782634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3671158431268791085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f60e28c8b1f17e74cb9137f343f5cf6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agente: {fileID: 2189903771728022069}
-  vidaActual: 0
-  enemigo: {fileID: 11400000, guid: a4b93a0647b52104fb708494839de417, type: 2}
-  marcado: 0
-  invisibilidad: 0
-  subterraneo: 0
-  vuela: 0
-  ralentizado: 0
---- !u!114 &9092519302909956658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3671158431268791085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cabdb0cee9e7504687909436318a0ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigoBasico: {fileID: 11400000, guid: a4b93a0647b52104fb708494839de417, type: 2}
-  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
-  velocidadDeRotacion: 20
-  parteQueRota: {fileID: 3963209385025984642}
-  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
-  spawnerBalas: {fileID: 1177128191745919905}
 --- !u!65 &4623521371561484417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -291,7 +254,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &10055317896636346
+--- !u!114 &628287280742724515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,11 +263,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3671158431268791085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Script: {fileID: 11500000, guid: e4537d98f7e11c5419eac610f1b56a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonidos: []
---- !u!114 &-1267185730286431465
+  explosionTimeOffset: 0
+  explosion: {fileID: 0}
+--- !u!114 &4763910541637606438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -313,9 +277,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 3671158431268791085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde42e682ff35144bb0af4cc20507488, type: 3}
+  m_Script: {fileID: 11500000, guid: 58ef06145d949dd4b8c16bcbc58ba959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuerza: 0
+  disparadorSO: {fileID: 0}
+  explosivoSO: {fileID: 0}
+  potenciadorSO: {fileID: 0}
+--- !u!114 &8107476943046206219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671158431268791085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fcaab2c32af4342a84432acba6e368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausado: 0
+--- !u!114 &3077051837749421643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671158431268791085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d220f4a68c23544bac46cc80a4ec45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2031600736245412525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671158431268791085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3842b08b10b554046b032ade81ef29f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: a4b93a0647b52104fb708494839de417, type: 2}
+  spawnerBalas: {fileID: 4888983860427133026}
+  balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
+  parteQueRota: {fileID: 3963209385025984642}
+  marcado: 0
 --- !u!1001 &6108801798674725638
 PrefabInstance:
   m_ObjectHideFlags: 0

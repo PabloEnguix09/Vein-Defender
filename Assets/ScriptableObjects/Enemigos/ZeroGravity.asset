@@ -12,21 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93603653f7a616749a7ca32af164ca30, type: 3}
   m_Name: ZeroGravity
   m_EditorClassIdentifier: 
-  ataque: 2
-  ataqueTemporal: 0
-  ataqueFinal: 2
-  ataqueExplosion: 0
-  rangoExplosion: 0
-  velocidadDisparo: 1
-  vidaActual: 5
-  vidaMaxima: 5
-  velocidadInicial: 3
-  velocidadActual: 3
-  velocidadDeRotacion: 20
-  rango: 50
-  rangoDisparo: 20
-  invisibilidad: 0
-  subterraneo: 0
-  vuela: 1
+  rangoDeteccion: 20
   atacaJugador: 1
   atacaTorretas: 1
+  tipoAtaque: 2
+  vidaMaxima: 5
+  escudoMaximo: 0
+  escudoRegen: 0
+  timerEscudo: 0
+  invisibilidad: 0
+  subterraneo: 0
+  reduccionAtaque: 0
+  vuela: 1
+  velocidadMaxima: 5
+  movimiento: 1
+  ataqueDisparo: 0
+  velocidadRotacion: 0
+  rangoDisparo: 20
+  velocidadDisparo: 1
+  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
+  explosivo: 0
+  rangoExplosion: 0
+  ataqueExplosion: 0

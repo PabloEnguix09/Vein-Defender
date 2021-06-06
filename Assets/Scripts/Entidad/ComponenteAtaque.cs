@@ -27,9 +27,8 @@ public class ComponenteAtaque : MonoBehaviour
     // Cooldown de disparo
     float timerDisparo = 0;
     // Fuerza de ataque total
-    [HideInInspector]
     public float fuerza;
-    List<GameObject> potenciadores;
+    List<GameObject> potenciadores = new List<GameObject>();
     private Vector3 objetivoADisparar;
     float timerDebilitacion = 0;
     float cantidadDebilitacion = 1;
@@ -55,7 +54,6 @@ public class ComponenteAtaque : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if(potenciadorSO)
         {
             potenciadorSO.Potenciar(controlador, this.gameObject);
@@ -124,10 +122,13 @@ public class ComponenteAtaque : MonoBehaviour
         // Poner un potenciador nuevo
         if(estado)
         {
-            potenciadores.Add(potenciador);
-            CalcularFuerzaTotal();
+            if(!potenciadores.Contains(potenciador))
+            {
+                potenciadores.Add(potenciador);
+                CalcularFuerzaTotal();
+            }
         }
-        // Quita un ptenciador existente en la lista
+        // Quita un potenciador existente en la lista
         if (!estado)
         {
             if (potenciadores.Contains(potenciador))
