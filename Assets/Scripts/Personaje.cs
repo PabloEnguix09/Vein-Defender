@@ -188,22 +188,19 @@ public class Personaje : MonoBehaviour
     // Marca enemigos con raycast directamente
     public void DispararDardo()
     {
-        /*GameObject dardoLocalizadorObjeto = Instantiate(dardoLocalizador);
-        dardoLocalizadorObjeto.transform.position = camaraJugador.transform.position;
-        dardoLocalizadorObjeto.transform.forward = camaraJugador.transform.forward;
-        */
-
         RaycastHit punto;
         // Comprueba que este apuntando a un item en el Layer Enemigo
         if (Physics.Raycast(camaraJugador.transform.position, camaraJugador.transform.forward, out punto, alcance, LayerMask.GetMask("Enemigo")))
         {
             Debug.Log(punto.transform.gameObject.name);
             // Comprueba que sea un enemigo y recoge su script Enemigo
-            if (punto.transform.gameObject.TryGetComponent<Enemigo>(out Enemigo enemigo))
+            if (punto.transform.gameObject.TryGetComponent<ControladorEntidad>(out ControladorEntidad enemigo))
             {
                 if(sistemaMejoras.mejoraDebilitante)
                 {
-                    enemigo.enemigo.ataque -= enemigo.enemigo.ataque * 0.5f;
+                    Ataque ataque = new Ataque();
+                    ataque.debilitacion = 0.5f;
+                    enemigo.RecibeAtaque(ataque);
                 }
                 enemigo.Marcar();
             }

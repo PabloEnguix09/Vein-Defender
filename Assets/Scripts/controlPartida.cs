@@ -37,7 +37,7 @@ public class controlPartida : MonoBehaviour
     private bool todosSpawneados;
     private int ronda;
 
-    Enemigo[] Enemigo;
+    ControladorEntidad[] enemigos;
 
     GameManager gameManager;
 
@@ -69,7 +69,7 @@ public class controlPartida : MonoBehaviour
 
         finDeRonda = false;
         todosSpawneados = false;
-        Enemigo = (Enemigo[])GameObject.FindObjectsOfType(typeof(Enemigo));
+        enemigos = (ControladorEntidad[])GameObject.FindObjectsOfType(typeof(ControladorEntidad));
 
         //comprobar si han spawneado todos los Enemigo
         foreach (Spawner s in spawners)
@@ -81,7 +81,7 @@ public class controlPartida : MonoBehaviour
         }
 
         //si han aparecido todos los Enemigo y est�n todos muertos se acaba la ronda
-        if (todosSpawneados && Enemigo.Length == 0)
+        if (todosSpawneados && enemigos.Length == 0)
         {
             finDeRonda = true;
         }

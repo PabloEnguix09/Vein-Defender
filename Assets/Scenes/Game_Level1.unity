@@ -927,7 +927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 82f403abb5a44ae47a66f9d5457cf4e4, type: 3}
       propertyPath: m_CastShadows
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 82f403abb5a44ae47a66f9d5457cf4e4, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1151,7 +1151,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 549240591}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1719,7 +1719,7 @@ PrefabInstance:
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: primerTipoDeEnemigo
       value: 
-      objectReference: {fileID: 3671158431268791085, guid: 146c3484969542e4cbf96fc36ef21119, type: 3}
+      objectReference: {fileID: 2821222062212735831, guid: c0e6714474d46cc4ca9ce410a930d174, type: 3}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: limiteSegundoEnemigo
       value: 1
@@ -1727,7 +1727,7 @@ PrefabInstance:
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: segundoTipoDeEnemigo
       value: 
-      objectReference: {fileID: 1018791793810155938, guid: 592e17a9058fdf64bb1a8100f1bed7ff, type: 3}
+      objectReference: {fileID: 6736823799646264108, guid: b467945d7ac668649b7be25e8f19193f, type: 3}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: tiempoAparicionPrimerEnemigo
       value: 30
@@ -3179,30 +3179,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: mixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: sonidos.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: sonidos.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 129fde4a095e69e4bb4f3550349b2886, type: 3}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: sonidos.Array.data[0].tono
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: sonidos.Array.data[0].nombre
-      value: Prueba
-      objectReference: {fileID: 0}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: sonidos.Array.data[0].volumen
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695092, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: m_Name
       value: Jugador
@@ -3217,7 +3193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695093, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 149.21
+      value: 146.1
       objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695093, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3297,11 +3273,6 @@ PrefabInstance:
       objectReference: {fileID: 412003846}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
---- !u!20 &549240591 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 4821090250400367773, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-  m_PrefabInstance: {fileID: 549240590}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &552850325 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5298045702813974149, guid: ce8af6bb1541c2a479225311bba6048e, type: 3}
@@ -3627,7 +3598,7 @@ PrefabInstance:
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: segundoTipoDeEnemigo
       value: 
-      objectReference: {fileID: 6127863220233718541, guid: 65d106b27194819418c22277f02889a9, type: 3}
+      objectReference: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: tiempoAparicionPrimerEnemigo
       value: 3
@@ -6482,32 +6453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b23707c9a04644a0ca91d9a4fc708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1231788366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231788363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sonidos: []
-  mixer: {fileID: 0}
---- !u!114 &1231788374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231788363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 548df7046b93d7b4395147ee145072da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1232856595
 GameObject:
   m_ObjectHideFlags: 0
@@ -9140,6 +9085,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 48c06a83d46b60042ab2a002cded8db8, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 48c06a83d46b60042ab2a002cded8db8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 965692ee8e115f34b8045a529e6fe62b, type: 2}
@@ -9400,7 +9349,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 549240591}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -11119,7 +11068,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 549240591}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

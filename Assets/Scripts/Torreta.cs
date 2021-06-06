@@ -11,19 +11,19 @@ public class Torreta : MonoBehaviour
     // DESCRIPTION: Modelo base para las Torreta
     //
     // AUTHOR: Adrian
-    // FEATURES ADDED: La torreta apunta al enemigo mas cercano en un rango
+    // FEATURES ADDED: La torreta apunta al EnemigoControlador.stats mas cercano en un rango
     //
     // AUTHOR: Luis Belloch
-    // FEATURES ADDED: TorretaDestruida, ScriptableObjects, apuntado de Enemigo rehecho
+    // FEATURES ADDED: TorretaDestruida, ScriptableObjects, apuntado de EnemigoControlador.stats rehecho
     //
     // AUTHOR: Pau Blanes
     //FEATURES ADDED: regenreacion de escudo y rango de vision
     //
     // AUTHOR: Jorge Grau
-    //FEATURES ADDED: comprobaci�n de que la torreta es antiaerea (puede atacar enemigos voladores), enemigo subterraneo y estado de invisibilidad(los enemigos invisibles no pueden ser atacados a menos que pierdan la ivisibilidad), a�adido tambien la variable energiaEnUso, que guarda el total de energia que consume una torreta en el momento que esta siendo usada, ej: la fantasma gasta 3 si esta invisible gasta 6. Las torretas pueden reducir el da�o y sabemos la direccion del ataque.
+    //FEATURES ADDED: comprobaci�n de que la torreta es antiaerea (puede atacar enemigos voladores), EnemigoControlador.stats subterraneo y estado de invisibilidad(los enemigos invisibles no pueden ser atacados a menos que pierdan la ivisibilidad), a�adido tambien la variable energiaEnUso, que guarda el total de energia que consume una torreta en el momento que esta siendo usada, ej: la fantasma gasta 3 si esta invisible gasta 6. Las torretas pueden reducir el da�o y sabemos la direccion del ataque.
     //
     //AUTHOR: Juan Ferrera Sala
-    //FEATURES ADDED:Si el enemigo es visible esta marcado le esta disparndo una Mohawk
+    //FEATURES ADDED:Si el EnemigoControlador.stats es visible esta marcado le esta disparndo una Mohawk
     // ---------------------------------------------------
 
     public TorretaBasica torretaBasica;
@@ -147,7 +147,7 @@ public class Torreta : MonoBehaviour
             // Solo si la torreta tiene ataque
             if (ataque > 0)
             {
-                //busca al enemigo mas cercano
+                //busca al EnemigoControlador.stats mas cercano
                 enemigoApuntando = BuscarEnemigo();
 
                 //tiempo para la velocidad de ataque
@@ -156,7 +156,7 @@ public class Torreta : MonoBehaviour
                 //si apunta a alguien
                 if (enemigoApuntando != null)
                 {
-                    //rota la torreta en direccion al enemigo apuntado
+                    //rota la torreta en direccion al EnemigoControlador.stats apuntado
                     Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
                     Quaternion VisionRotacion = Quaternion.LookRotation(dir);
                     //rotacion suave
@@ -255,47 +255,47 @@ public class Torreta : MonoBehaviour
         bala.ataque = ataqueObjeto;
     }
 
-    //Funcion de busqueda de enemigo
+    //Funcion de busqueda de EnemigoControlador.stats
     GameObject BuscarEnemigo()
     {
-        // Recogemos todos los Enemigo de la zona
+        // Recogemos todos los EnemigoControlador.stats de la zona
         GameObject[] enemigosEnRango = GameObject.FindGameObjectsWithTag("Enemigo");
 
         GameObject masCercano = null;
 
-        // Encontramos el enemigo mas cercano
+        // Encontramos el EnemigoControlador.stats mas cercano
         if (enemigosEnRango.Length >= 1)
         {
             for (int i = 0; i < enemigosEnRango.Length; i++)
             {
-                // Comprobamos si el enemigo vuela
-                if (enemigosEnRango[i].GetComponent<Enemigo>().vuela)
+                // Comprobamos si el EnemigoControlador.stats vuela
+                if (enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.vuela)
                 {
                     // Si vuela y soy una torreta antiaerea
                     if (antiaerea)
                     {
-                        // Si el enemigo es visible esta marcado le esta disparndo una Mohawk
-                        if (!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<Enemigo>().marcado)
+                        // Si el EnemigoControlador.stats es visible esta marcado le esta disparndo una Mohawk
+                        if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<ControladorEntidad>().marcado)
                         {
-                            // Si aun no ha encontrado ningun enemigo
+                            // Si aun no ha encontrado ningun EnemigoControlador.stats
                             if (masCercano == null)
                             {
-                                // Comprueba que tenga vision del enemigo
+                                // Comprueba que tenga vision del EnemigoControlador.stats
                                 if (ComprobarVision(enemigosEnRango[i]))
                                 {
                                     masCercano = enemigosEnRango[i];
                                 }
                             }
-                            // Si ya tiene un enemigo asignado
+                            // Si ya tiene un EnemigoControlador.stats asignado
                             else if (masCercano != null)
                             {
                                 // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
                                 if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
                                 {
                                     //Comprobamos que no este marcado
-                                    if (masCercano.GetComponent<Enemigo>().marcado == false)
+                                    if (masCercano.GetComponent<ControladorEntidad>().marcado == false)
                                     {
-                                        // Comprueba que tenga vision del enemigo
+                                        // Comprueba que tenga vision del EnemigoControlador.stats
                                         if (ComprobarVision(enemigosEnRango[i]))
                                         {
                                             masCercano = enemigosEnRango[i];
@@ -307,18 +307,18 @@ public class Torreta : MonoBehaviour
                         }
                     }
                 }
-                // Si el enemigo no vuela
+                // Si el EnemigoControlador.stats no vuela
                 else
                 {
-                    // Si el enemigo no es subterraneo
-                    if (!enemigosEnRango[i].GetComponent<Enemigo>().subterraneo)
+                    // Si el EnemigoControlador.stats no es subterraneo
+                    if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.subterraneo)
                     {
-                        //Si el enemigo es visible esta marcado le esta disparndo una Mohawk
-                        if (!enemigosEnRango[i].GetComponent<Enemigo>().invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<Enemigo>().marcado)
-                            // Si aun no ha encontrado ningun enemigo
+                        //Si el EnemigoControlador.stats es visible esta marcado le esta disparndo una Mohawk
+                        if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<ControladorEntidad>().marcado)
+                            // Si aun no ha encontrado ningun EnemigoControlador.stats
                             if (masCercano == null)
                             {
-                                // Comprueba que tenga vision del enemigo
+                                // Comprueba que tenga vision del EnemigoControlador.stats
                                 if (ComprobarVision(enemigosEnRango[i]))
                                 {
 
@@ -331,16 +331,16 @@ public class Torreta : MonoBehaviour
                                     */
                                 }
                             }
-                            // Si ya tiene un enemigo asignado
+                            // Si ya tiene un EnemigoControlador.stats asignado
                             else if (masCercano != null)
                             {
                                 // Si la distancia del actual es menor que la asignada, se asigna el actual como masCercano
                                 if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
                                 {
                                     //Comprobamos que no este marcado
-                                    if (masCercano.GetComponent<Enemigo>().marcado == false)
+                                    if (masCercano.GetComponent<ControladorEntidad>().marcado == false)
                                     {
-                                        // Comprueba que tenga vision del enemigo
+                                        // Comprueba que tenga vision del EnemigoControlador.stats
                                         if (ComprobarVision(enemigosEnRango[i]))
                                         {
                                             masCercano = enemigosEnRango[i];
@@ -359,7 +359,7 @@ public class Torreta : MonoBehaviour
             }
         }
 
-        // Comprueba que existe un enemigo visible
+        // Comprueba que existe un EnemigoControlador.stats visible
         if (masCercano != null)
         {
             // Ahora que tenemos la torreta mas cercana devolvemos el GameObject si esta dentro del rango de disparo
@@ -372,12 +372,12 @@ public class Torreta : MonoBehaviour
         return null;
     }
 
-    // Comprueba que el enemigo apuntado no tenga ninguna pared entre la torreta y el
+    // Comprueba que el EnemigoControlador.stats apuntado no tenga ninguna pared entre la torreta y el
     bool ComprobarVision(GameObject objetivo)
     {
-        // Comprobamos que no tenga terreno entre la torreta y el enemigo
+        // Comprobamos que no tenga terreno entre la torreta y el EnemigoControlador.stats
         RaycastHit hit;
-        // no existe un collider entre el enemigo y la torreta
+        // no existe un collider entre el EnemigoControlador.stats y la torreta
         Physics.Raycast(parteQueRota.position, Vector3.Normalize(objetivo.transform.position - parteQueRota.position), out hit, Vector3.Distance(parteQueRota.position, objetivo.transform.position), LayerMask.GetMask("Terreno"));
 
         if (hit.collider == null)
@@ -392,7 +392,7 @@ public class Torreta : MonoBehaviour
         //en caso de ser 0 es decir 360
         if (anguloDisparo.eulerAngles.y != 0)
         {
-            //Calculo cual es el vector necesario para apuntar al enemigo
+            //Calculo cual es el vector necesario para apuntar al EnemigoControlador.stats
             Vector3 vistaRelativa = objetivo.transform.position - parteQueRota.position;
 
             //guardo el quaternion que necesita para apuntar
@@ -401,7 +401,7 @@ public class Torreta : MonoBehaviour
             //divido el angulo que puede apuntar entre 2 porque apunta en +0 y -0
             float rangoEnY = anguloDisparo.eulerAngles.y / 2;
 
-            //calculo el angulo para apuntar hacia el enemigo
+            //calculo el angulo para apuntar hacia el EnemigoControlador.stats
             float rotacionNecesaria = VisionRotacion.eulerAngles.y - transform.rotation.eulerAngles.y;
 
             //si es negativo lo devulevo a positivo

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3301309046507491922}
   m_Layer: 0
   m_Name: Bala
-  m_TagString: Untagged
+  m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +132,8 @@ MonoBehaviour:
   velocidad: 0
   explosion: {fileID: 239686495835347244, guid: 6e76efe3252ce944bb3354ca2b34d17d, type: 3}
   ataque: {fileID: 0}
+  enemigosPerforados: 0
+  perseguir: {fileID: 0}
 --- !u!108 &3301309046507491922
 Light:
   m_ObjectHideFlags: 0

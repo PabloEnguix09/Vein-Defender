@@ -32,11 +32,11 @@ GameObject:
   - component: {fileID: 6529423665181432400}
   - component: {fileID: 1265962699685526191}
   - component: {fileID: 6729775243189927474}
-  - component: {fileID: 3484943578025535532}
-  - component: {fileID: 5073029413346863240}
-  - component: {fileID: 5569949343252198124}
-  - component: {fileID: 7640765716017636398}
-  - component: {fileID: 5565838951572313480}
+  - component: {fileID: 6828903304543680406}
+  - component: {fileID: 4227782841038443227}
+  - component: {fileID: 7835864425356747435}
+  - component: {fileID: 7432298217394116012}
+  - component: {fileID: 5801874840423879148}
   m_Layer: 10
   m_Name: Electro
   m_TagString: Enemigo
@@ -130,7 +130,7 @@ NavMeshAgent:
   m_BaseOffset: 3
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3484943578025535532
+--- !u!114 &6828903304543680406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,11 +139,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1018791793810155938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Script: {fileID: 11500000, guid: e4537d98f7e11c5419eac610f1b56a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonidos: []
---- !u!114 &5073029413346863240
+  explosionTimeOffset: 0
+  explosion: {fileID: 0}
+--- !u!114 &4227782841038443227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,12 +153,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1018791793810155938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e413779390a8b3242858db8477830ca5, type: 3}
+  m_Script: {fileID: 11500000, guid: 58ef06145d949dd4b8c16bcbc58ba959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigo: {fileID: 11400000, guid: ea5630ade9a77fc4b94a4cea2c3baa3c, type: 2}
-  explosion: {fileID: 8728271712439789301, guid: 60f085c6c8b43d445bd11a28b5b18dcc, type: 3}
---- !u!114 &5569949343252198124
+  fuerza: 0
+  disparadorSO: {fileID: 0}
+  explosivoSO: {fileID: 0}
+  potenciadorSO: {fileID: 0}
+--- !u!114 &7835864425356747435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,47 +169,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1018791793810155938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cabdb0cee9e7504687909436318a0ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 41fcaab2c32af4342a84432acba6e368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigoBasico: {fileID: 11400000, guid: ea5630ade9a77fc4b94a4cea2c3baa3c, type: 2}
-  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
-  velocidadDeRotacion: 0
+  pausado: 0
+--- !u!114 &7432298217394116012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018791793810155938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d220f4a68c23544bac46cc80a4ec45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5801874840423879148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018791793810155938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3842b08b10b554046b032ade81ef29f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: ea5630ade9a77fc4b94a4cea2c3baa3c, type: 2}
+  spawnerBalas: {fileID: 5416788497592383350}
+  balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
   parteQueRota: {fileID: 1569366510716514403}
-  balaObjeto: {fileID: 1620851414836905604, guid: 7d66bcdabc8823b4a8266d4e6d414e4e, type: 3}
-  spawnerBalas: {fileID: 4107912613315855605}
---- !u!114 &7640765716017636398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018791793810155938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f60e28c8b1f17e74cb9137f343f5cf6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agente: {fileID: 6729775243189927474}
-  vidaActual: 0
-  enemigo: {fileID: 11400000, guid: ea5630ade9a77fc4b94a4cea2c3baa3c, type: 2}
   marcado: 0
-  invisibilidad: 0
-  subterraneo: 0
-  vuela: 0
-  ralentizado: 0
---- !u!114 &5565838951572313480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018791793810155938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde42e682ff35144bb0af4cc20507488, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4107912613315855605
 GameObject:
   m_ObjectHideFlags: 0

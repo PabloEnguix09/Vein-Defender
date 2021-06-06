@@ -1,0 +1,112 @@
+﻿using UnityEngine;
+
+// ---------------------------------------------------
+// NAME: EnemigoControlador.cs
+// STATUS: WIP
+// GAMEOBJECT: Enemigo
+// DESCRIPTION: centro de control de todos los comandos del enemigo
+//
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: centro de control de todos los comandos del enemigo
+// ---------------------------------------------------
+
+public class ControladorEntidad : MonoBehaviour
+{
+    #region Variables
+    // Objeto enemigo
+    public EntidadSO stats;
+
+    // Componentes del enemigo
+    ComponenteAnimacion animacion;
+    ComponenteAtaque ataque;
+    ComponenteVida vida;
+    ComponenteMovimiento movimiento;
+
+    [Header("Componentes disparo")]
+    public Transform spawnerBalas;
+    public GameObject balaObjeto;
+    public Transform parteQueRota;
+
+    [HideInInspector]
+    public bool marcado;
+    bool pausa;
+    #endregion
+
+    private void Awake()
+    {
+        animacion = GetComponent<ComponenteAnimacion>();
+        ataque = GetComponent<ComponenteAtaque>();
+        vida = GetComponent<ComponenteVida>();
+        movimiento = GetComponent<ComponenteMovimiento>();
+    }
+
+    public void ObjetivoEnRango()
+    {
+        animacion.Bloqueado(true);
+    }
+
+    public void RecibeAtaque(Ataque ataque)
+    {
+        vida.RecibirAtaque(ataque);
+    }
+
+    public void Ralentizado(float cantidad, float tiempo)
+    {
+        movimiento.Ralentizado(cantidad, tiempo);
+    }
+
+    public void Debilitado(float cantidad, float tiempo)
+    {
+        ataque.Debilitado(cantidad, tiempo);
+    }
+
+    public void Caminar()
+    {
+        animacion.Bloqueado(false);
+    }
+
+    public void Muerte()
+    {
+        animacion.Destruido();
+        Destroy(gameObject, 0.5f);
+    }
+
+    public void Disparar()
+    {
+        animacion.Dispara();
+    }
+
+    public void Explotar()
+    {
+        ataque.Explotar();
+    }
+
+    public void Marcar()
+    {
+        marcado = true;
+    }
+
+    public void Potenciado(bool estado, GameObject potenciador)
+    {
+        if(stats.tipoAtaque != EntidadSO.Tipo.potenciador)
+        {
+            ataque.Potenciado(estado, potenciador);
+        }
+    }
+
+    public void Pausa()
+    {
+        pausa = true;
+    }
+
+    public void Reanudar()
+    {
+        pausa = false;
+    }
+
+    public void AsignarBases(Base b1, Base b2, Base b3)
+    {
+        movimiento.AsignarBases(b1, b2, b3);
+    }
+
+}
