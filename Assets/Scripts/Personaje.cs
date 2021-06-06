@@ -62,9 +62,7 @@ public class Personaje : MonoBehaviour
         {
             // comprueba que el valor est� dentro de los posibles
             value = Mathf.Clamp(value, 0, saludMaxima);
-            salud = value;
-            
-            barraVida.controlVida(salud);
+            salud = value;
             // establece el maximo de vida en la barra
             barraVida.maximaVida(saludMaxima);
 
@@ -78,7 +76,7 @@ public class Personaje : MonoBehaviour
                         camaraMejora.GetComponentInChildren<Camera>().enabled = false;
                         camara.camara.GetComponent<Camera>().enabled = true;
                         camaraSecundariaActivada = false;
-                    }
+                    }
                 }
                 animTByte.Muerte();
                 controlPartida.GameOver();

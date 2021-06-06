@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Scutum
   m_EditorClassIdentifier: 
   nombre: Scutum
-  energia: 1
+  energia: 2
   energiaAlt: 1
-  vidaMaxima: 5
+  vidaMaxima: 20
   escudoMaximo: 0
   escudoRegen: 0
   ataque: 0
