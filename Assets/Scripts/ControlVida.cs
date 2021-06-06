@@ -16,6 +16,7 @@ public class ControlVida : MonoBehaviour
     // ---------------------------------------------------
 
     public Slider sliderVida;
+    public Text texto;
 
     Personaje personaje;
 
@@ -28,15 +29,13 @@ public class ControlVida : MonoBehaviour
     {
         sliderVida.maxValue = vida;
         sliderVida.value = vida;
+        texto.text = (vida*10f).ToString();
     }
-    // En desuso
-    public void controlVida(float vida)
-    {
 
-    }
 
     private void Update()
     {
         sliderVida.value = personaje.Salud;
+        texto.text = (personaje.Salud * 10f).ToString();
     }
 }

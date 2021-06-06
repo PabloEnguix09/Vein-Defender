@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Base : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class Base : MonoBehaviour
     public float salud = 1;
 
     public GameObject modelo;
+    public Image romboActual;
+    public Sprite romboAtaque;
+    Sprite romboSeguro;
+    private float timer;
+    private bool atacado;
 
     public float Salud
     {
@@ -38,14 +44,33 @@ public class Base : MonoBehaviour
     private void Start()
     {
         modelo.SetActive(true);
+        romboSeguro = romboActual.sprite;
+        timer = 0;
+    }
+
+    private void Update()
+    {
+        if(atacado)
+        {
+            timer += Time.deltaTime;
+        }
+        if(timer >= 2)
+        {
+            atacado = false;
+            romboActual.sprite = romboSeguro;
+            timer = 0;
+        }
     }
 
     public void RecibirAtaque(Ataque ataque)
     {
         salud -= ataque.fuerza;
+        romboActual.sprite = romboAtaque;
+        atacado = true;
         if(salud <= 0)
         {
             Destroy(gameObject);
+            Destroy(romboActual.gameObject);
         }
     }
 }

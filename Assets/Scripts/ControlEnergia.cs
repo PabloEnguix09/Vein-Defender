@@ -20,6 +20,7 @@ public class ControlEnergia : MonoBehaviour
     public Slider sliderEnergia;
     public Gradient gradienteEnergia;
     public Image imagen;
+    public Text texto;
 
     Personaje personaje;
 
@@ -34,6 +35,7 @@ public class ControlEnergia : MonoBehaviour
         energiaMax = energia;
         sliderEnergia.maxValue = energia;
         sliderEnergia.value = energiaMax - energia;
+        texto.text = (energiaMax - energia).ToString() + "%"; 
         
         imagen.color = gradienteEnergia.Evaluate(1f);
     }
@@ -42,5 +44,6 @@ public class ControlEnergia : MonoBehaviour
     {
         sliderEnergia.value = energiaMax - personaje.Energia;
         imagen.color = gradienteEnergia.Evaluate(sliderEnergia.normalizedValue);
+        texto.text = ((energiaMax - personaje.Energia)*10).ToString() + "%";
     }
 }
