@@ -20,10 +20,15 @@ public class Ataque : ScriptableObject
     public GameObject origen;
     public Tipo tipo;
     public float direccion;
+    public float duracion;
+    public float ralentizacion;
+    public float debilitacion;
     public enum Tipo
     {
         laser = 1,
-        balas = 2
+        balas = 2, 
+        pem = 3,
+        debilitante = 4
     }
     public float radioExplosion;
     public float fuerzaExplosion;

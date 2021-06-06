@@ -112,7 +112,7 @@ public class Bala : MonoBehaviour
         {
             if (!ataque.origen.CompareTag("Enemigo"))
             {
-                EnemigoControlador enemigo = collision.gameObject.GetComponent<EnemigoControlador>();
+                ControladorEntidad enemigo = collision.gameObject.GetComponent<ControladorEntidad>();
                 if (!enemigo.stats.subterraneo)
                 {
                     if (ataque.origen.GetComponent<Torreta>().balaObjeto.name == "Bala" && ataque.origen.GetComponent<Torreta>().disparoPEM)
@@ -164,8 +164,8 @@ public class Bala : MonoBehaviour
 
                 if (colliders[i].CompareTag("Enemigo"))
                 {
-                    Enemigo otroEnemigo = colliders[i].gameObject.GetComponent<Enemigo>();
-                    otroEnemigo.RecibirAtaque(ataque);
+                    ControladorEntidad otroEnemigo = colliders[i].gameObject.GetComponent<ControladorEntidad>();
+                    otroEnemigo.RecibeAtaque(ataque);
                 }
 
                 if (colliders[i].CompareTag("Player"))

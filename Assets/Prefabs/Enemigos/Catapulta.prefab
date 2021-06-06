@@ -193,11 +193,12 @@ GameObject:
   - component: {fileID: 507606836049445750}
   - component: {fileID: 6176714819729252058}
   - component: {fileID: 927055265786152762}
-  - component: {fileID: 5397759642853415283}
-  - component: {fileID: 5978804169573019884}
-  - component: {fileID: 5995447842906270357}
+  - component: {fileID: 7782291024467494355}
+  - component: {fileID: 4501797184704242562}
   - component: {fileID: 4529090333741287606}
-  - component: {fileID: 67536834152370007}
+  - component: {fileID: 8343907536829527557}
+  - component: {fileID: 1270893330900145413}
+  - component: {fileID: 1211071730905106128}
   m_Layer: 10
   m_Name: Catapulta
   m_TagString: Enemigo
@@ -272,7 +273,7 @@ NavMeshAgent:
   m_BaseOffset: 5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5397759642853415283
+--- !u!114 &7782291024467494355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,36 +282,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6736823799646264108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cabdb0cee9e7504687909436318a0ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 3842b08b10b554046b032ade81ef29f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigoBasico: {fileID: 11400000, guid: 21bab4d317d07ec4a90963660aa5982b, type: 2}
-  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
-  velocidadDeRotacion: 0
+  stats: {fileID: 11400000, guid: 21bab4d317d07ec4a90963660aa5982b, type: 2}
+  spawnerBalas: {fileID: 205828881556554561}
+  balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
   parteQueRota: {fileID: 4063584591335282109}
-  balaObjeto: {fileID: 1620851414836905604, guid: 7d66bcdabc8823b4a8266d4e6d414e4e, type: 3}
-  spawnerBalas: {fileID: 602561743683549298}
---- !u!114 &5978804169573019884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6736823799646264108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f60e28c8b1f17e74cb9137f343f5cf6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agente: {fileID: 927055265786152762}
-  vidaActual: 0
-  enemigo: {fileID: 11400000, guid: 21bab4d317d07ec4a90963660aa5982b, type: 2}
   marcado: 0
-  invisibilidad: 0
-  subterraneo: 0
-  vuela: 0
-  ralentizado: 0
---- !u!114 &5995447842906270357
+--- !u!114 &4501797184704242562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,10 +299,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6736823799646264108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Script: {fileID: 11500000, guid: 71d220f4a68c23544bac46cc80a4ec45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonidos: []
 --- !u!95 &4529090333741287606
 Animator:
   serializedVersion: 3
@@ -342,7 +321,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &67536834152370007
+--- !u!114 &8343907536829527557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -351,9 +330,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 6736823799646264108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde42e682ff35144bb0af4cc20507488, type: 3}
+  m_Script: {fileID: 11500000, guid: 41fcaab2c32af4342a84432acba6e368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausado: 0
+--- !u!114 &1270893330900145413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736823799646264108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4537d98f7e11c5419eac610f1b56a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionTimeOffset: 0
+  explosion: {fileID: 0}
+--- !u!114 &1211071730905106128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736823799646264108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ef06145d949dd4b8c16bcbc58ba959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuerza: 0
+  disparadorSO: {fileID: 0}
+  explosivoSO: {fileID: 0}
+  potenciadorSO: {fileID: 0}
 --- !u!1 &7271913133916485821
 GameObject:
   m_ObjectHideFlags: 0

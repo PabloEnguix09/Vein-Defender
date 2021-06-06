@@ -12,24 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93603653f7a616749a7ca32af164ca30, type: 3}
   m_Name: Bomba
   m_EditorClassIdentifier: 
-  ataque: 2
-  ataqueExplosion: 0
-  rangoExplosion: 2
-  velocidadDisparo: 0
-  velocidadDeRotacion: 0
-  rango: 2
-  rangoDisparo: 0
+  rangoDeteccion: 2
   atacaJugador: 1
   atacaTorretas: 1
-  tipoAtaque: 1
+  tipoAtaque: 3
   vidaMaxima: 4
+  escudoMaximo: 0
+  escudoRegen: 0
+  timerEscudo: 0
   invisibilidad: 0
   subterraneo: 0
+  reduccionAtaque: 0
   vuela: 0
   velocidadMaxima: 5
   movimiento: 0
-  vidaActual: 0
-  velocidadInicial: 0
-  velocidadActual: 0
-  ataqueFinal: 0
-  ataqueTemporal: 0
+  ataque: 0
+  velocidadRotacion: 0
+  rangoDisparo: 0
+  velocidadDisparo: 0
+  spawnerBalas: {fileID: 0}
+  balaObjeto: {fileID: 0}
+  parteQueRota: {fileID: 0}
+  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
+  explosivo: 1
+  ataqueExplosion: 2
+  rangoExplosion: 2

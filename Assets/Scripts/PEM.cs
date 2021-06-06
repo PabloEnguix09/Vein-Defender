@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PEM : MonoBehaviour
 {
-    public SphereCollider collider;
+    public float tiempoRalentizacion;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,10 @@ public class PEM : MonoBehaviour
         }
         if(other.gameObject.CompareTag("Enemigo"))
         {
-            other.gameObject.GetComponent<Enemigo>().Ralentizar();
+            Ataque ataque = new Ataque();
+            ataque.tipo = Ataque.Tipo.pem;
+            ataque.ralentizacion = tiempoRalentizacion;
+            other.gameObject.GetComponent<ControladorEntidad>().RecibeAtaque(ataque);
         }
     }
 }

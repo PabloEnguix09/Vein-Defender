@@ -269,13 +269,13 @@ public class Torreta : MonoBehaviour
             for (int i = 0; i < enemigosEnRango.Length; i++)
             {
                 // Comprobamos si el EnemigoControlador.stats vuela
-                if (enemigosEnRango[i].GetComponent<EnemigoControlador>().stats.vuela)
+                if (enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.vuela)
                 {
                     // Si vuela y soy una torreta antiaerea
                     if (antiaerea)
                     {
                         // Si el EnemigoControlador.stats es visible esta marcado le esta disparndo una Mohawk
-                        if (!enemigosEnRango[i].GetComponent<EnemigoControlador>().stats.invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<EnemigoControlador>().marcado)
+                        if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<ControladorEntidad>().marcado)
                         {
                             // Si aun no ha encontrado ningun EnemigoControlador.stats
                             if (masCercano == null)
@@ -293,7 +293,7 @@ public class Torreta : MonoBehaviour
                                 if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
                                 {
                                     //Comprobamos que no este marcado
-                                    if (masCercano.GetComponent<EnemigoControlador>().marcado == false)
+                                    if (masCercano.GetComponent<ControladorEntidad>().marcado == false)
                                     {
                                         // Comprueba que tenga vision del EnemigoControlador.stats
                                         if (ComprobarVision(enemigosEnRango[i]))
@@ -311,10 +311,10 @@ public class Torreta : MonoBehaviour
                 else
                 {
                     // Si el EnemigoControlador.stats no es subterraneo
-                    if (!enemigosEnRango[i].GetComponent<EnemigoControlador>().stats.subterraneo)
+                    if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.subterraneo)
                     {
                         //Si el EnemigoControlador.stats es visible esta marcado le esta disparndo una Mohawk
-                        if (!enemigosEnRango[i].GetComponent<EnemigoControlador>().stats.invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<EnemigoControlador>().marcado)
+                        if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<ControladorEntidad>().marcado)
                             // Si aun no ha encontrado ningun EnemigoControlador.stats
                             if (masCercano == null)
                             {
@@ -338,7 +338,7 @@ public class Torreta : MonoBehaviour
                                 if (Vector3.Distance(parteQueRota.position, masCercano.transform.position) > Vector3.Distance(parteQueRota.position, enemigosEnRango[i].transform.position))
                                 {
                                     //Comprobamos que no este marcado
-                                    if (masCercano.GetComponent<EnemigoControlador>().marcado == false)
+                                    if (masCercano.GetComponent<ControladorEntidad>().marcado == false)
                                     {
                                         // Comprueba que tenga vision del EnemigoControlador.stats
                                         if (ComprobarVision(enemigosEnRango[i]))

@@ -63,7 +63,7 @@ public class Spawner : MonoBehaviour
             
             // Se crea el enemigo y se le asignan las bases
             GameObject dron =  Instantiate(primerTipoDeEnemigo, new Vector3(xPos, 1, zPos), Quaternion.identity);
-            EnemigoControlador enemigo = dron.GetComponent<EnemigoControlador>();
+            ControladorEntidad enemigo = dron.GetComponent<ControladorEntidad>();
             enemigo.AsignarBases(primeraBase, segundaBase, terceraBase);
 
             yield return new WaitForSeconds(tiempoAparicionPrimerEnemigo);
@@ -84,7 +84,7 @@ public class Spawner : MonoBehaviour
 
             // Se crea el enemigo y se le asignan las bases
             GameObject bomba  = Instantiate(segundoTipoDeEnemigo, new Vector3(xPos, 1, zPos), Quaternion.identity);
-            EnemigoControlador enemigo = bomba.GetComponent<EnemigoControlador>();
+            ControladorEntidad enemigo = bomba.GetComponent<ControladorEntidad>();
             enemigo.AsignarBases(primeraBase, segundaBase, terceraBase);
 
             yield return new WaitForSeconds(tiempoAparicionSegundoEnemigo);

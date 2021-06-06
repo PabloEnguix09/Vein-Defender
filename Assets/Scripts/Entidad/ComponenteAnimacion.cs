@@ -10,10 +10,10 @@ using UnityEngine;
 // FEATURES ADDED: Idle, Disparo, Bloquear en el sitio
 // ---------------------------------------------------
 
-public class EnemigoAnimacion : MonoBehaviour
+public class ComponenteAnimacion : MonoBehaviour
 {
     Animator animator;
-    EnemigoControlador controlador;
+    ControladorEntidad controlador;
 
     [Header("Explosivos")]
     public float explosionTimeOffset;
@@ -24,7 +24,7 @@ public class EnemigoAnimacion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controlador = GetComponent<EnemigoControlador>();
+        controlador = GetComponent<ControladorEntidad>();
         animator = GetComponent<Animator>();
     }
 
@@ -34,7 +34,7 @@ public class EnemigoAnimacion : MonoBehaviour
         {
             explosionTimeOffset -= Time.deltaTime;
             // El enemigo bomba instancia unas particulas de explosion
-            if(explosionTimeOffset <= 0 && controlador.stats.tipoAtaque == EnemigoBasico.Tipo.bomba)
+            if(explosionTimeOffset <= 0 && controlador.stats.explosivo)
             {
                 // Particulas explosion
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);

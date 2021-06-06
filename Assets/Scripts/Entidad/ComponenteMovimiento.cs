@@ -17,11 +17,11 @@ using UnityEngine.AI;
 // FEATURES ADDED: Optimizado en el nuevo Script
 // ---------------------------------------------------
 
-public class EnemigoMovimiento : MonoBehaviour
+public class ComponenteMovimiento : MonoBehaviour
 {
     #region Variables
     // Controlador enemigo
-    EnemigoControlador controlador;
+    ControladorEntidad controlador;
 
     private Base base1;
     private Base base2;
@@ -42,7 +42,7 @@ public class EnemigoMovimiento : MonoBehaviour
     {
         #region Componentes y variables
         agente = GetComponent<NavMeshAgent>();
-        controlador = GetComponent<EnemigoControlador>();
+        controlador = GetComponent<ControladorEntidad>();
         #endregion
     }
 
@@ -58,8 +58,6 @@ public class EnemigoMovimiento : MonoBehaviour
         if (timerRalentizado > 0)
         {
             timerRalentizado -= Time.deltaTime;
-            // La velocidad se reduce a la mitad
-            velocidad = controlador.stats.velocidadMaxima / 2;
         } else
         {
             // Si no esta ralentizado la velocidad es normal
@@ -96,9 +94,10 @@ public class EnemigoMovimiento : MonoBehaviour
         agente.speed = 0f;
     }
 
-    public void Ralentizado(float tiempo)
+    public void Ralentizado(float cantidad, float tiempo)
     {
         tiempo = timerRalentizado;
+        velocidad *= cantidad;
     }
 
     public void Caminar()

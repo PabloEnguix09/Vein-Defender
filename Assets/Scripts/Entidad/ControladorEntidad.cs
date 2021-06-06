@@ -10,17 +10,22 @@
 // FEATURES ADDED: centro de control de todos los comandos del enemigo
 // ---------------------------------------------------
 
-public class EnemigoControlador : MonoBehaviour
+public class ControladorEntidad : MonoBehaviour
 {
     #region Variables
     // Objeto enemigo
-    public EnemigoBasico stats;
+    public EntidadSO stats;
 
     // Componentes del enemigo
-    EnemigoAnimacion animacion;
-    EnemigoAtaque ataque;
-    EnemigoVida vida;
-    EnemigoMovimiento movimiento;
+    ComponenteAnimacion animacion;
+    ComponenteAtaque ataque;
+    ComponenteVida vida;
+    ComponenteMovimiento movimiento;
+
+    [Header("Componentes disparo")]
+    public Transform spawnerBalas;
+    public GameObject balaObjeto;
+    public Transform parteQueRota;
 
     [HideInInspector]
     public bool marcado;
@@ -29,13 +34,13 @@ public class EnemigoControlador : MonoBehaviour
 
     private void Awake()
     {
-        animacion = GetComponent<EnemigoAnimacion>();
-        ataque = GetComponent<EnemigoAtaque>();
-        vida = GetComponent<EnemigoVida>();
-        movimiento = GetComponent<EnemigoMovimiento>();
+        animacion = GetComponent<ComponenteAnimacion>();
+        ataque = GetComponent<ComponenteAtaque>();
+        vida = GetComponent<ComponenteVida>();
+        movimiento = GetComponent<ComponenteMovimiento>();
     }
 
-    public void TorretaEnRango()
+    public void ObjetivoEnRango()
     {
         animacion.Bloqueado(true);
     }
@@ -43,6 +48,16 @@ public class EnemigoControlador : MonoBehaviour
     public void RecibeAtaque(Ataque ataque)
     {
         vida.RecibirAtaque(ataque);
+    }
+
+    public void Ralentizado(float cantidad, float tiempo)
+    {
+        movimiento.Ralentizado(cantidad, tiempo);
+    }
+
+    public void Debilitado(float cantidad, float tiempo)
+    {
+        ataque.Debilitado(cantidad, tiempo);
     }
 
     public void Caminar()
@@ -66,9 +81,14 @@ public class EnemigoControlador : MonoBehaviour
         ataque.Explotar();
     }
 
+    public void Marcar()
+    {
+        marcado = true;
+    }
+
     public void Potenciado(bool estado, GameObject potenciador)
     {
-        if(stats.tipoAtaque != EnemigoBasico.Tipo.potenciador)
+        if(stats.tipoAtaque != EntidadSO.Tipo.potenciador)
         {
             ataque.Potenciado(estado, potenciador);
         }

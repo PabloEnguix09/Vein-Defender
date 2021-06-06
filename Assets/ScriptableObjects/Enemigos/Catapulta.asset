@@ -12,21 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93603653f7a616749a7ca32af164ca30, type: 3}
   m_Name: Catapulta
   m_EditorClassIdentifier: 
-  ataque: 5
-  ataqueTemporal: 0
-  ataqueFinal: 5
-  ataqueExplosion: 5
-  rangoExplosion: 5
-  velocidadDisparo: 1
-  vidaActual: 10
-  vidaMaxima: 10
-  velocidadInicial: 6
-  velocidadActual: 6
-  velocidadDeRotacion: 10
-  rango: 100
-  rangoDisparo: 50
-  invisibilidad: 0
-  subterraneo: 0
-  vuela: 0
+  rangoDeteccion: 50
   atacaJugador: 0
   atacaTorretas: 1
+  tipoAtaque: 1
+  vidaMaxima: 10
+  escudoMaximo: 0
+  escudoRegen: 0
+  timerEscudo: 0
+  invisibilidad: 0
+  subterraneo: 0
+  reduccionAtaque: 0
+  vuela: 0
+  velocidadMaxima: 5
+  movimiento: 0
+  ataqueDisparo: 5
+  velocidadRotacion: 0
+  rangoDisparo: 50
+  velocidadDisparo: 1
+  anguloDisparo: {x: 0, y: 0, z: 0, w: 1}
+  explosivo: 0
+  rangoExplosion: 5
+  ataqueExplosion: 5
