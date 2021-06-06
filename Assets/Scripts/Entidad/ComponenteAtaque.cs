@@ -54,6 +54,8 @@ public class ComponenteAtaque : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CalcularFuerzaTotal();
+
         if(potenciadorSO)
         {
             potenciadorSO.Potenciar(controlador, this.gameObject);
@@ -146,11 +148,24 @@ public class ComponenteAtaque : MonoBehaviour
         // Sumamos cada uno de los potenciadores
         for (int i = 0; i < potenciadores.Count; i++)
         {
+            // Comprueba que no este destruido el objeto o este demasiado lejos del objeto actual
+            if(potenciadores[i] == null)
+            {
+                potenciadores.RemoveAt(i);
+                continue;
+            }
+            if(Vector3.Distance(potenciadores[i].transform.position, this.transform.position) 
+                > potenciadores[i].GetComponent<ControladorEntidad>().stats.rangoDisparo)
+            {
+                potenciadores.RemoveAt(i);
+                continue;
+            }
             fuerza += potenciadores[i].GetComponent<ControladorEntidad>().stats.ataqueDisparo;
         }
 
         fuerza *= cantidadDebilitacion;
     }
+
     // La debilitacion es un factor entre 0 y 1
     public void Debilitado(float cantidad, float tiempo)
     {
