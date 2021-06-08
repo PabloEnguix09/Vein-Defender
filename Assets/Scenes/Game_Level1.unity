@@ -9587,49 +9587,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torretasTotales:
-  - {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
-  - {fileID: 4904404024952468192, guid: 7f9fa124546ddbf4db14ed5589ad5cdd, type: 3}
-  - {fileID: 1231341178963932024, guid: 17d98708454cac2459db11cb57c79a37, type: 3}
-  - {fileID: 3914336763499236850, guid: 6310dd6746b85d74cbcf98a3ff63e080, type: 3}
-  - {fileID: 3550871163448655305, guid: 171e963a627ee5f49b1e8601ce7c1684, type: 3}
-  - {fileID: 6130392994418107086, guid: 6006fd67c0e211144954615e31d3a5bd, type: 3}
-  - {fileID: 2367610572343465110, guid: dee58b4aca1e9c9488207c6357db1623, type: 3}
-  - {fileID: 3538574186344979504, guid: da76c3948654711419c8fea39c651dac, type: 3}
-  - {fileID: 5793717610974240696, guid: 0f908c6aa6bcf7a4ba4d5dfd7e60dd3a, type: 3}
-  - {fileID: 6852972916270784210, guid: d6332eb3884027b4c9d610506a533c13, type: 3}
-  - {fileID: 4790520329091994478, guid: 8e7379a4a6fa3cd4ea20f7405e402398, type: 3}
-  - {fileID: 2701942105262497851, guid: 43c9607093080434f9a9be5627b950d0, type: 3}
-  previewsTotales:
-  - {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
-  - {fileID: 4904404024952468192, guid: 44f8f863ecb24b8468d9041fc7a1e88f, type: 3}
-  - {fileID: 76888622306272304, guid: 1e580df65c2942a4dbc23c032ea85fd0, type: 3}
-  - {fileID: 3914336763499236850, guid: 7b5b7fe473602374fa1c05d4fa7f8045, type: 3}
-  - {fileID: 8332529569172267353, guid: 5acf723585b763244988b5d1ee09c9e1, type: 3}
-  - {fileID: 6130392994418107086, guid: 8f13178a4b1a9264a90c93f549f3a457, type: 3}
-  - {fileID: 4754753394101615371, guid: a00bd684017cb114cb7af675317f3331, type: 3}
-  - {fileID: 4369632575579838537, guid: 480a9dcaec3ea7e4e9c79b62f23ddd6d, type: 3}
-  - {fileID: 927891262645525017, guid: 5cef0fbc75fc81246823ad4268e70995, type: 3}
-  - {fileID: 7367301097023792239, guid: 123779e7fea31db45aea24c81a741ebd, type: 3}
-  - {fileID: 616425019594749641, guid: c9b6d86c2ccb0b04c910382fb66f5c43, type: 3}
-  - {fileID: 2653102639585883610, guid: 7e5bccaf8233eeb419516507f28fa65d, type: 3}
-  imagenesTotales:
-  - {fileID: 21300000, guid: 9a32e7bad8a9b3c4da3bd72659df0a91, type: 3}
-  - {fileID: 21300000, guid: f86a4d701fe124741a348d23c7de62e4, type: 3}
-  - {fileID: 21300000, guid: 7bb127f78ae6fef4b8c9b552da7133eb, type: 3}
-  - {fileID: 21300000, guid: 2f0b9c861349a204b9bfc6b90439f3da, type: 3}
-  - {fileID: 21300000, guid: 327ce9d25d5caaf4988fd4546a6e2413, type: 3}
-  - {fileID: 21300000, guid: 67cf08803ac18b841a71a92bd0ee3d18, type: 3}
-  - {fileID: 21300000, guid: a3c0cafdd96896841b5cf640b0eb8f4e, type: 3}
-  - {fileID: 21300000, guid: 97142ec8b3479e64994cd157bb074e0c, type: 3}
-  - {fileID: 21300000, guid: 6c03776f298762c43b60626a05d6c2de, type: 3}
-  - {fileID: 21300000, guid: f86a4d701fe124741a348d23c7de62e4, type: 3}
-  - {fileID: 21300000, guid: 01a0283a62b2ded4abbbe0cfcbb89896, type: 3}
-  - {fileID: 21300000, guid: ec474f9c3adece048b54efc8beefb2a9, type: 3}
+  - {fileID: 11400000, guid: eeb85cd2e40166d45a37bff512706d03, type: 2}
+  - {fileID: 11400000, guid: 484fe70af7e23ac4a975dc13a69478d5, type: 2}
+  - {fileID: 11400000, guid: ea7c3fd39941e7447803df69a9cf3dad, type: 2}
+  - {fileID: 11400000, guid: 7cbf5b8606404c440a2f159e07749816, type: 2}
+  - {fileID: 11400000, guid: f47988f8c6dedd34386ee1be6f961f01, type: 2}
+  - {fileID: 11400000, guid: 897d499691df4484ab13a6d4e76ef3e2, type: 2}
+  - {fileID: 11400000, guid: bac693ab41cd0734d87c7474325e0337, type: 2}
+  - {fileID: 11400000, guid: 423a2a351aaeefc4197a2ab4d475ee85, type: 2}
+  - {fileID: 11400000, guid: 6a4e358bafcc8fb40ab53d51c987e1c5, type: 2}
+  - {fileID: 11400000, guid: 6a4e358bafcc8fb40ab53d51c987e1c5, type: 2}
+  - {fileID: 11400000, guid: 6a4e358bafcc8fb40ab53d51c987e1c5, type: 2}
+  - {fileID: 11400000, guid: 6a4e358bafcc8fb40ab53d51c987e1c5, type: 2}
   torretasDisponibles: []
-  previewsDisponibles: []
   torretasUso: []
-  previewsUso: []
-  imagenesUso: []
   invocarTorreta: {fileID: 1231788365}
   hud: {fileID: 0}
 --- !u!82 &1594907902
@@ -12283,7 +12254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2087454945
 MonoBehaviour:
   m_ObjectHideFlags: 0

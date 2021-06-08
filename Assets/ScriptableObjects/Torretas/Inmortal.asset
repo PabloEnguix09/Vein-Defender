@@ -12,25 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
   m_Name: Inmortal
   m_EditorClassIdentifier: 
-  nombre: Inmortal
   energia: 3
   energiaAlt: 3
   vidaMaxima: 10
-  escudoMaximo: 10
-  escudoRegen: 0.5
   ataque: 5
   cadenciaDisparo: 1.5
-  escudoActual: 0
   tipoDisparo: 2
   anguloDisparo: {x: 0, y: 90, z: 0, w: 0}
   velocidadRotacion: 2
   distanciaDisparo: 100
-  antiaerea: 0
-  invisibilidad: 0
-  "reducirDa\xF1o": 0
-  frente: 0
-  espalda: 0
-  lados: 0
-  reduccion: 1
   radioExplosion: 1
   danyoExplosion: 5
+  visual:
+    nombre: Inmortal
+    imagen: {fileID: 21300000, guid: 327ce9d25d5caaf4988fd4546a6e2413, type: 3}
+    prefab: {fileID: 3550871163448655305, guid: 171e963a627ee5f49b1e8601ce7c1684, type: 3}
+    previewPrefab: {fileID: 8332529569172267353, guid: 5acf723585b763244988b5d1ee09c9e1, type: 3}
+  variantes:
+    antiaerea: 0
+    invisibilidad: 0
+    regeneracion: 0
+  reduceDanyo:
+    reducirDanyo: 0
+    frente: 0
+    espalda: 0
+    lados: 0
+    reduccion: 0
+  escudo:
+    escudoMaximo: 0
+    escudoRegen: 0
