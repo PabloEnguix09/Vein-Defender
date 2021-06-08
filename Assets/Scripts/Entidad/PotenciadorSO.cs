@@ -9,8 +9,8 @@ using UnityEngine;
 // FEATURES ADDED: Traspaso del código y cambios básicos en la implementación
 // ---------------------------------------------------
 
-[CreateAssetMenu(fileName = "PotenciadorSO", menuName = "Componentes/PotenciadorSO")]
-public class PotenciadorSO : ScriptableObject
+
+public class PotenciadorSO
 {
     public void Potenciar(ControladorEntidad controlador, GameObject gameObject)
     {

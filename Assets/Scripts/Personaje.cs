@@ -36,9 +36,12 @@ public class Personaje : MonoBehaviour
 
     public GameObject camaraMejora;
 
-    public float saludMaxima = 10;
-    public bool camaraSecundariaActivada = false;
-    [SerializeField]
+    public float saludMaxima = 10;
+
+    public bool camaraSecundariaActivada = false;
+
+    [SerializeField]
+
     float salud = 10;
 
     public GameObject dardoLocalizador;
@@ -62,8 +65,10 @@ public class Personaje : MonoBehaviour
         {
             // comprueba que el valor est� dentro de los posibles
             value = Mathf.Clamp(value, 0, saludMaxima);
-            salud = value;
-            // establece el maximo de vida en la barra
+            salud = value;
+
+            // establece el maximo de vida en la barra
+
             barraVida.maximaVida(saludMaxima);
 
             if (salud <= 0)
@@ -72,10 +77,14 @@ public class Personaje : MonoBehaviour
                 if (camaraMejora != null)
                 {
                     if (camaraMejora.GetComponentInChildren<Camera>().enabled)
-                    {
-                        camaraMejora.GetComponentInChildren<Camera>().enabled = false;
-                        camara.camara.GetComponent<Camera>().enabled = true;
-                        camaraSecundariaActivada = false;
+                    {
+
+                        camaraMejora.GetComponentInChildren<Camera>().enabled = false;
+
+                        camara.camara.GetComponent<Camera>().enabled = true;
+
+                        camaraSecundariaActivada = false;
+
                     }
                 }
                 animTByte.Muerte();
@@ -94,9 +103,12 @@ public class Personaje : MonoBehaviour
         get { return energia; }
 
         set 
-        {
-            value = Mathf.Clamp(value, 0, energiaMaxima);
-            // establece el maximo de energia en la barra
+        {
+
+            value = Mathf.Clamp(value, 0, energiaMaxima);
+
+            // establece el maximo de energia en la barra
+
             barraEnergia.maximaEnergia(energiaMaxima);
             energia = value;
         }
@@ -148,7 +160,8 @@ public class Personaje : MonoBehaviour
     {
         // reinicia la energia y la vida actuales
         Salud = saludMaxima;
-        Energia = energiaMaxima;
+        Energia = energiaMaxima;
+
         Escudo = escudoMaximo;
     }
 
@@ -156,8 +169,10 @@ public class Personaje : MonoBehaviour
     {
         // Regenerar el escudo
         if (Escudo < escudoMaximo)
-        {            Escudo += escudoPorSegundo * Time.deltaTime;
-        }
+        {
+            Escudo += escudoPorSegundo * Time.deltaTime;
+        }
+
         // Si en algun momento la camara es destruida, vuelve la vista al jugador
         if(camaraMejora == null && camaraSecundariaActivada)
         {
@@ -265,11 +280,16 @@ public class Personaje : MonoBehaviour
     {
         if (Escudo > 0)
         {
-            // Restamos la fuerza al escudo y el escudo a la fuerza
-            float auxFuerza = ataque.fuerza;
-            ataque.fuerza -= Escudo;
-            Escudo -= auxFuerza;
-        }
+            // Restamos la fuerza al escudo y el escudo a la fuerza
+
+            float auxFuerza = ataque.fuerza;
+
+            ataque.fuerza -= Escudo;
+
+            Escudo -= auxFuerza;
+
+        }
+
         // Despues restamos la fuerza que quede a la salud
         if (ataque.fuerza > 0)
         {
@@ -279,7 +299,8 @@ public class Personaje : MonoBehaviour
 
     // Cambia a la camara secundaria o la primaria
     public void CambiarCamara()
-    {
+    {
+
         if(camaraMejora != null)
         {
             if(camaraMejora.GetComponentInChildren<Camera>().enabled)

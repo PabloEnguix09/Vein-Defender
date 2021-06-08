@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ExplosivoSO", menuName = "Componentes/ExplosivoSO")]
-public class ExplosivoSO : ScriptableObject
+public class ExplosivoSO
 {
     public void Explotar(ControladorEntidad controlador, float fuerza, GameObject gameObject)
     {
