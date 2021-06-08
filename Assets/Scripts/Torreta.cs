@@ -436,8 +436,9 @@ public class Torreta : MonoBehaviour
             // Ajusta el animador a destruir
             animator.SetBool("Destruir", true);
             // Destruye la torreta y devuelve la energia al jugador
-            personaje.Energia += energiaEnUso;
+            
             Destroy(gameObject, 0.5f);
+            
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -516,5 +517,9 @@ public class Torreta : MonoBehaviour
     public GameObject GetEnemigoApuntado()
     {
         return enemigoApuntando;
+    }
+    public void OnDestroy()
+    {
+        personaje.Energia += energiaEnUso;
     }
 }
