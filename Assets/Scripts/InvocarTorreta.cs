@@ -145,13 +145,14 @@ public class InvocarTorreta : MonoBehaviour
         GameObject aux;
 
         Vector3 nave = new Vector3(18.6f, 135, -17.4f);
-        Vector3 impulso = new Vector3(torreta.position.x - nave.x, 0, torreta.position.z - nave.z);
 
         aux = Instantiate(caja.gameObject, nave, torreta.rotation);
         if (aux.GetComponent<CajaDrop>())
         {
 
-            aux.GetComponent<Rigidbody>().AddForce(impulso.x, 0, impulso.z, ForceMode.VelocityChange);
+            aux.GetComponent<CajaDrop>().inicio = nave;
+            aux.GetComponent<CajaDrop>().final = torreta.position;
+
             animTByte.InvocarTorreta();
             aux.GetComponent<CajaDrop>().torreta = torreta.gameObject;
         }

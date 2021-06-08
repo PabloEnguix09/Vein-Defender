@@ -10,6 +10,9 @@ using UnityEngine;
 //
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: invocacion de torreta y disolver la caja
+//
+// AUTHOR: Adrian
+// FEATURES ADDED: parabola al invocar
 // ---------------------------------------------------
 public class CajaDrop : MonoBehaviour
 {
@@ -18,11 +21,29 @@ public class CajaDrop : MonoBehaviour
     Animator animator;
     Rigidbody rb;
 
+    public AnimationCurve curve;
+    [Range(0,1)]
+    public float velocidadCaida;
+    public Vector3 final;
+    public Vector3 inicio;
+    float time;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        time = 0;
+    }
+
+    void Update()
+    {
+        //el multiplicador es para la velocidad de caida
+        time += Time.deltaTime* velocidadCaida;
+        Vector3 pos = Vector3.Lerp(inicio, final, time);
+        //cambia la altitud en relación a la curva
+        pos.y = inicio.y + ((final.y - inicio.y) * curve.Evaluate(time));
+        transform.position = pos;
     }
 
     private void OnCollisionEnter(Collision collision)
