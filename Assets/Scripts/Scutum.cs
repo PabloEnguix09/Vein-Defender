@@ -21,6 +21,9 @@ public class Scutum : MonoBehaviour
     public int regeneracion;
     public float timerRegenerativo;
     Rigidbody rb;
+
+    // Usado para parar las funciones de la scutum y que la secuencia de eliminacion se ejecute solo una vez
+    public bool desconexion;
     // Update is called once per frame
 
     private void Start()
@@ -28,27 +31,34 @@ public class Scutum : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         timerRegenerativo = 0;
         regeneracion = 2;
+        desconexion = false;
     }
     void Update()
     {
-        for (int i = 0; i < murosConectados.Count; i++)
+        if (!desconexion)
         {
-            // Si la vida de uno de los muros es < 0 desactivamos el objeto
-            if (murosConectados[i].gameObject.GetComponent<Torreta>().vidaActual <= 0)
+            for (int i = 0; i < murosConectados.Count; i++)
             {
-                murosConectados[i].SetActive(false);
-                timerRegenerativo += Time.deltaTime;
-                // Cuando ha pasado el tiempo de regeneración lo activamos
-                if (timerRegenerativo > regeneracion)
+                // Si la vida de uno de los muros es < 0 desactivamos el objeto
+                if (murosConectados[i].gameObject.GetComponent<Torreta>().vidaActual <= 0)
                 {
-                    murosConectados[i].gameObject.GetComponent<Torreta>().vidaActual = murosConectados[i].gameObject.GetComponent<Torreta>().vidaMaxima;
-                    murosConectados[i].SetActive(true);
-                    timerRegenerativo = 0;
+                    murosConectados[i].SetActive(false);
+                    timerRegenerativo += Time.deltaTime;
+                    // Cuando ha pasado el tiempo de regeneración lo activamos
+                    if (timerRegenerativo > regeneracion)
+                    {
+                        murosConectados[i].gameObject.GetComponent<Torreta>().vidaActual = murosConectados[i].gameObject.GetComponent<Torreta>().vidaMaxima;
+                        murosConectados[i].SetActive(true);
+                        timerRegenerativo = 0;
+                    }
                 }
             }
+
+            if (conexiones != murosConectados.Count)
+            {
+                conexiones = murosConectados.Count;
+            }
         }
-
-
     }
 
     void BuscarScutum()
@@ -134,7 +144,7 @@ public class Scutum : MonoBehaviour
                         murosConectados.Add(muroObjeto);
                         scutumEnRango[i].GetComponent<Scutum>().conexiones++;
                         scutumEnRango[i].GetComponent<Scutum>().scutumConectadas.Add(gameObject);
-                        murosConectados.Add(muroObjeto);
+                        scutumEnRango[i].GetComponent<Scutum>().murosConectados.Add(muroObjeto);
                     }
                 }
             }
@@ -154,6 +164,38 @@ public class Scutum : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void DestruirScutum()
+    {
+
+        if(desconexion == false)
+        {
+            desconexion = true;
+
+            // Comprobamos si la scutum a destruir tiene conexiones
+            if(conexiones > 0)
+            {
+                for(int i = 0; i < conexiones; i++){
+                    for(int j = 0; j < scutumConectadas[i].GetComponent<Scutum>().conexiones; j++)
+                    {
+                        // Buscamos en las scutums conectadas la scutum que estamos destruyendo, osea nosotros
+                        if (scutumConectadas[i].GetComponent<Scutum>().scutumConectadas[j] == gameObject)
+                        {
+                            // Eliminamos la referencia del muro y de la scutum
+                            scutumConectadas[i].GetComponent<Scutum>().scutumConectadas.RemoveAt(j);
+                            scutumConectadas[i].GetComponent<Scutum>().murosConectados.RemoveAt(j);
+
+                            // Destruimos el muro
+                            murosConectados[i].GetComponent<Torreta>().DestruirTorreta();
+
+                        }
+                    }
+                }
+            }
+            // Nos destruimos
+            Destroy(gameObject, 0.5f);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

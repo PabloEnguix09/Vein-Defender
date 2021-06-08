@@ -169,13 +169,31 @@ public class InvocarTorreta : MonoBehaviour
     public void EliminarTorreta()
     {
         RaycastHit punto;
-        // Comprueba que este apuntando a una torreta en el Layer Torreta
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Torreta"))) {
+
+        // Comprueba que este apuntando a una torreta en el Layer Scutum
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Scutum")))
+        {
             // Toma la torreta del RaycastHit
             GameObject torretaMarcada = punto.transform.gameObject;
             // Destruye la torreta
-            torretaMarcada.GetComponent<Torreta>().DestruirTorreta();
+            torretaMarcada.GetComponent<Scutum>().DestruirScutum();
         }
+
+        // Comprueba que este apuntando a una torreta en el Layer Torreta
+        else if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Torreta"))) {
+            // Toma la torreta del RaycastHit
+            GameObject torretaMarcada = punto.transform.gameObject;
+
+            //Si es un muro de energia no lo destruye
+            if (!torretaMarcada.GetComponent<Torreta>().nombre.Equals("Scutum"))
+            {
+                // Destruye la torreta
+                torretaMarcada.GetComponent<Torreta>().DestruirTorreta();
+
+            }
+        }
+
+
     }
 
     public void AlternarMenuRadial(bool activar)

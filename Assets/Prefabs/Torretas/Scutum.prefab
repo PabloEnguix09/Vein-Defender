@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4033247051020612411}
   - component: {fileID: 410828492240004157}
   - component: {fileID: 2579217227110655022}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scutum
   m_TagString: Scutum
   m_Icon: {fileID: 0}
@@ -28,8 +28,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2367610572343465110}
-  m_LocalRotation: {x: 0, y: 0.7815221, z: 0, w: -0.6238776}
-  m_LocalPosition: {x: 171.35173, y: 26.205973, z: 15.642725}
+  m_LocalRotation: {x: 0, y: 0.7581286, z: 0, w: -0.6521051}
+  m_LocalPosition: {x: 49.99071, y: 21.270903, z: -120.59858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7801578928648885495}
@@ -56,6 +56,7 @@ MonoBehaviour:
   scutum: {fileID: 11400000, guid: 7cbf5b8606404c440a2f159e07749816, type: 2}
   regeneracion: 0
   timerRegenerativo: 0
+  descoexion: 0
 --- !u!114 &3641176969169683407
 MonoBehaviour:
   m_ObjectHideFlags: 0

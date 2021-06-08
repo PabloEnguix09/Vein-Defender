@@ -433,11 +433,11 @@ public class Torreta : MonoBehaviour
     // Llamado desde InvocarTorretas.cs EliminarTorreta()
     public void DestruirTorreta()
     {
-        // Ajusta el animador a destruir
-        animator.SetBool("Destruir", true);
-        // Destruye la torreta y devuelve la energia al jugador
-        personaje.Energia += energiaEnUso;
-        Destroy(gameObject, 0.5f);
+            // Ajusta el animador a destruir
+            animator.SetBool("Destruir", true);
+            // Destruye la torreta y devuelve la energia al jugador
+            personaje.Energia += energiaEnUso;
+            Destroy(gameObject, 0.5f);
     }
 
     private void OnCollisionEnter(Collision collision)
