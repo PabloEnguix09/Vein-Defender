@@ -17,7 +17,7 @@ public class Scutum : MonoBehaviour
     public GameObject muro;
     public List<GameObject> scutumConectadas;
     public List<GameObject> murosConectados;
-    public TorretaBasica scutum;
+    public TorretaSO scutum;
     public int regeneracion;
     public float timerRegenerativo;
     Rigidbody rb;

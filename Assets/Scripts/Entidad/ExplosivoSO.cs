@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosivoSO
+public class ExplosivoSO : MonoBehaviour
 {
     public void Explotar(ControladorEntidad controlador, float fuerza, GameObject gameObject)
     {

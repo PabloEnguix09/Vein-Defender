@@ -12,26 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
   m_Name: Sparky
   m_EditorClassIdentifier: 
-  nombre: Sparky
   energia: 1
   energiaAlt: 1
   vidaMaxima: 10
-  escudoMaximo: 0
-  escudoRegen: 0
   ataque: 1
   cadenciaDisparo: 0.5
-  escudoActual: 0
   tipoDisparo: 1
   anguloDisparo: {x: 0, y: 0, z: 0, w: 1}
   velocidadRotacion: 20
   distanciaDisparo: 20
-  antiaerea: 1
-  invisibilidad: 0
-  regeneracion: 0
-  reducirDanyo: 0
-  frente: 0
-  espalda: 0
-  lados: 0
-  reduccion: 1
   radioExplosion: 0
   danyoExplosion: 0
+  visual:
+    nombre: Sparky
+    imagen: {fileID: 0}
+    prefab: {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+    previewPrefab: {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
+  variantes:
+    antiaerea: 0
+    invisibilidad: 0
+    regeneracion: 0
+  reduceDanyo:
+    reducirDanyo: 0
+    frente: 0
+    espalda: 0
+    lados: 0
+    reduccion: 0
+  escudo:
+    escudoMaximo: 0
+    escudoRegen: 0

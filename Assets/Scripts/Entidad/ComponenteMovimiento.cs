@@ -43,7 +43,10 @@ public class ComponenteMovimiento : MonoBehaviour
         #region Componentes y variables
         agente = GetComponent<NavMeshAgent>();
         controlador = GetComponent<ControladorEntidad>();
+        velocidad = controlador.stats.velocidadMaxima;
         #endregion
+
+        Caminar();
     }
 
     // Update is called once per frame

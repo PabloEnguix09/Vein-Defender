@@ -11,7 +11,7 @@ using UnityEngine;
 // FEATURES ADDED: Traspaso del código y cambios básicos en la implementación
 // ---------------------------------------------------
 
-public class DisparadorSO
+public class DisparadorSO : MonoBehaviour
 {
     public Vector3 BuscarObjetivo(ControladorEntidad controlador)
     {

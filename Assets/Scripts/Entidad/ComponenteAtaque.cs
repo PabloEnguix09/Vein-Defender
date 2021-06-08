@@ -33,10 +33,9 @@ public class ComponenteAtaque : MonoBehaviour
     float timerDebilitacion = 0;
     float cantidadDebilitacion = 1;
 
-    [Header("Componentes de ataque ¡Tocar solo si sabes lo que haces!")]
-    public DisparadorSO disparadorSO;
-    public ExplosivoSO explosivoSO;
-    public PotenciadorSO potenciadorSO;
+    DisparadorSO disparadorSO;
+    ExplosivoSO explosivoSO;
+    PotenciadorSO potenciadorSO;
     #endregion
 
     private void Start()
@@ -46,10 +45,10 @@ public class ComponenteAtaque : MonoBehaviour
         fuerza = controlador.stats.ataqueDisparo;
 
         // Crea un el controlador de ataque de la entidad si no tiene uno creado ya
-        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.laser && disparadorSO != null) disparadorSO = new DisparadorSO();
-        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.balas && disparadorSO != null) disparadorSO = new DisparadorSO();
-        if (controlador.stats.explosivo && explosivoSO != null) explosivoSO = new ExplosivoSO();
-        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.potenciador && potenciadorSO != null) potenciadorSO = new PotenciadorSO();
+        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.laser) disparadorSO = gameObject.AddComponent(typeof(DisparadorSO)) as DisparadorSO;
+        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.balas) disparadorSO = gameObject.AddComponent(typeof(DisparadorSO)) as DisparadorSO;
+        if (controlador.stats.explosivo) explosivoSO = gameObject.AddComponent(typeof(ExplosivoSO)) as ExplosivoSO;
+        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.potenciador) potenciadorSO = new PotenciadorSO();
     }
     // Update is called once per frame
     void Update()

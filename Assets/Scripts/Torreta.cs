@@ -26,7 +26,7 @@ public class Torreta : MonoBehaviour
     //FEATURES ADDED:Si el EnemigoControlador.stats es visible esta marcado le esta disparndo una Mohawk
     // ---------------------------------------------------
 
-    public TorretaBasica torretaBasica;
+    public TorretaSO torretaBasica;
 
     [Header("Stats")]
     public string nombre;
@@ -88,15 +88,15 @@ public class Torreta : MonoBehaviour
         energiaEnUso = torretaBasica.energia;
         vidaActual = torretaBasica.vidaMaxima;
         vidaMaxima = torretaBasica.vidaMaxima;
-        escudoMaximo = torretaBasica.escudoMaximo;
-        escudoActual = torretaBasica.escudoActual;
-        escudoRegen = torretaBasica.escudoRegen;
+        escudoMaximo = torretaBasica.escudo.escudoMaximo;
+        escudoActual = escudoMaximo;
+        escudoRegen = torretaBasica.escudo.escudoRegen;
         ataque = torretaBasica.ataque;
         cadenciaDisparo = torretaBasica.cadenciaDisparo;
         velocidadRotacion = torretaBasica.velocidadRotacion;
         distanciaDisparo = torretaBasica.distanciaDisparo;
-        antiaerea = torretaBasica.antiaerea;
-        invisibilidad = torretaBasica.invisibilidad;
+        antiaerea = torretaBasica.variantes.antiaerea;
+        invisibilidad = torretaBasica.variantes.invisibilidad;
         anguloDisparo = torretaBasica.anguloDisparo;
         radioExplosion = torretaBasica.radioExplosion;
         danyoExplosion = torretaBasica.danyoExplosion;
@@ -177,7 +177,7 @@ public class Torreta : MonoBehaviour
             // Torreta destruida
             if (vidaActual <= 0)
             {
-                if (!torretaBasica.regeneracion)
+                if (!torretaBasica.variantes.regeneracion)
                 {
                     DestruirTorreta();
                 }
@@ -229,14 +229,14 @@ public class Torreta : MonoBehaviour
     public void Disparar()
     {
         // Animacion de disparo si lanza balas
-        if (torretaBasica.tipoDisparo == TorretaBasica.TipoDisparo.balas)
+        if (torretaBasica.tipoDisparo == TorretaSO.TipoDisparo.balas)
         {
             animator.SetTrigger("Disparo");
         }
         // sonido disparar
         // audioHandler.Play(0);
         // Crea las particulas del disparo si el tipo es de balas
-        if (torretaBasica.tipoDisparo == TorretaBasica.TipoDisparo.balas)
+        if (torretaBasica.tipoDisparo == TorretaSO.TipoDisparo.balas)
         {
             Destroy(Instantiate(explosionBala, spawnerBalas.transform.position, spawnerBalas.transform.rotation), 1f);
         }
@@ -275,7 +275,7 @@ public class Torreta : MonoBehaviour
                     if (antiaerea)
                     {
                         // Si el EnemigoControlador.stats es visible esta marcado le esta disparndo una Mohawk
-                        if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<ControladorEntidad>().marcado)
+                        if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.invisibilidad || torretaBasica.visual.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<ControladorEntidad>().marcado)
                         {
                             // Si aun no ha encontrado ningun EnemigoControlador.stats
                             if (masCercano == null)
@@ -314,7 +314,7 @@ public class Torreta : MonoBehaviour
                     if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.subterraneo)
                     {
                         //Si el EnemigoControlador.stats es visible esta marcado le esta disparndo una Mohawk
-                        if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.invisibilidad || torretaBasica.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<ControladorEntidad>().marcado)
+                        if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.invisibilidad || torretaBasica.visual.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<ControladorEntidad>().marcado)
                             // Si aun no ha encontrado ningun EnemigoControlador.stats
                             if (masCercano == null)
                             {
@@ -453,20 +453,20 @@ public class Torreta : MonoBehaviour
     public void RecibirAtaque(Ataque ataque)
     {
         // Comprobamos si puede reducir da�o
-        if (torretaBasica.reducirDanyo)
+        if (torretaBasica.reduceDanyo.reducirDanyo)
         {
             // Comprobamos desde donde golpea y si reduce el da�o
-            if (ataque.direccion > 0 && torretaBasica.frente)
+            if (ataque.direccion > 0 && torretaBasica.reduceDanyo.frente)
             {
-                ataque.fuerza = ataque.fuerza * torretaBasica.reduccion;
+                ataque.fuerza = ataque.fuerza * torretaBasica.reduceDanyo.reduccion;
             }
-            if (ataque.direccion < 0 && torretaBasica.espalda)
+            if (ataque.direccion < 0 && torretaBasica.reduceDanyo.espalda)
             {
-                ataque.fuerza = ataque.fuerza * torretaBasica.reduccion;
+                ataque.fuerza = ataque.fuerza * torretaBasica.reduceDanyo.reduccion;
             }
-            if (ataque.direccion == 0 && torretaBasica.lados)
+            if (ataque.direccion == 0 && torretaBasica.reduceDanyo.lados)
             {
-                ataque.fuerza = ataque.fuerza * torretaBasica.reduccion;
+                ataque.fuerza = ataque.fuerza * torretaBasica.reduceDanyo.reduccion;
             }
         }
         // Se reinicia el timer de regeneracion del escudo
