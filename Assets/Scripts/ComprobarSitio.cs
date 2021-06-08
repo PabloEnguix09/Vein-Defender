@@ -21,7 +21,7 @@ public class ComprobarSitio : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Torreta" || collision.gameObject.tag == "Prop" || collision.gameObject.tag == "Escudo")
+        if(collision.gameObject.tag == "Torreta" || collision.gameObject.tag == "Prop" || collision.gameObject.tag == "Escudo" || collision.gameObject.tag == "Base")
         {
             //Debug.Log("Hay colisión con una torreta");
             colliders.Add(collision);
@@ -31,7 +31,7 @@ public class ComprobarSitio : MonoBehaviour
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.collider.gameObject.tag == "Torreta" && collision.gameObject.tag == "Torreta") 
+        if (colliders.Contains(collision)) 
         {
             //Debug.Log("Ya no hay colisión");
             colliders.Remove(collision);

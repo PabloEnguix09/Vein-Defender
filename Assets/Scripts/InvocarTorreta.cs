@@ -41,8 +41,14 @@ public class InvocarTorreta : MonoBehaviour
     ComprobarSitio sitio;
     public int torretaPreviewIndex = 0;
 
+    public AudioSource SonidoInvocarTorreta;
+    public AudioSource SonidoErrorInvocarTorreta;
+
     [Header("Areas Menu Radial")]
     public float[] areasMenuRadial;
+
+    
+
 
     AnimTByte animTByte;
     public bool GetColocada()
@@ -99,6 +105,7 @@ public class InvocarTorreta : MonoBehaviour
                     // Datos para la nueva torreta invocada
                     torreta = null;
                     SpawnTorreta(torretaSpawn);
+                    SonidoInvocarTorreta.Play();
                 }
             }
 
@@ -110,6 +117,15 @@ public class InvocarTorreta : MonoBehaviour
                 SetColocada(true);
                 return;
             }
+        }else if (torreta != null)
+        {
+            torreta.transform.position = Vector3.zero;
+            
+            if (Input.GetAxisRaw("Fire1") > 0)
+            {
+                
+                SonidoErrorInvocarTorreta.Play();
+            }
         }
     }
 
@@ -117,7 +133,7 @@ public class InvocarTorreta : MonoBehaviour
     {
         //Comprobar que no se esta invocando una torreta en esa posicion
         RaycastHit hit;
-        Physics.Raycast(torreta.transform.position, torreta.transform.up, out hit, Mathf.Infinity);
+        Physics.Raycast(torreta.transform.position, torreta.transform.up, out hit, Mathf.Infinity, LayerMask.GetMask("Torreta"));
         
         if (hit.collider != null)
         {
