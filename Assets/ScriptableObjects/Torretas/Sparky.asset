@@ -25,7 +25,7 @@ MonoBehaviour:
   danyoExplosion: 0
   visual:
     nombre: Sparky
-    imagen: {fileID: 0}
+    imagen: {fileID: 21300000, guid: 9a32e7bad8a9b3c4da3bd72659df0a91, type: 3}
     prefab: {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
     previewPrefab: {fileID: 950718628760754752, guid: 6112eb040ea7f81478a0c4a366e73b0d, type: 3}
   variantes:

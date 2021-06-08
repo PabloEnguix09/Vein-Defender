@@ -27,9 +27,7 @@ public class ControladorEntidad : MonoBehaviour
     public GameObject balaObjeto;
     public Transform parteQueRota;
 
-    [HideInInspector]
     public bool marcado;
-    bool pausa;
     #endregion
 
     private void Awake()
@@ -92,16 +90,6 @@ public class ControladorEntidad : MonoBehaviour
         {
             ataque.Potenciado(estado, potenciador);
         }
-    }
-
-    public void Pausa()
-    {
-        pausa = true;
-    }
-
-    public void Reanudar()
-    {
-        pausa = false;
     }
 
     public void AsignarBases(Base b1, Base b2, Base b3)
