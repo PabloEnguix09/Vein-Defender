@@ -12,26 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
   m_Name: Hoplita
   m_EditorClassIdentifier: 
-  nombre: Hoplita
   energia: 2
   energiaAlt: 2
   vidaMaxima: 10
-  escudoMaximo: 0
-  escudoRegen: 0
   ataque: 3
   cadenciaDisparo: 1
-  escudoActual: 0
   tipoDisparo: 1
   anguloDisparo: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   velocidadRotacion: 20
   distanciaDisparo: 40
-  antiaerea: 0
-  invisibilidad: 0
-  regeneracion: 0
-  reducirDanyo: 1
-  frente: 1
-  espalda: 0
-  lados: 0
-  reduccion: 0.5
   radioExplosion: 0
   danyoExplosion: 0
+  visual:
+    nombre: Hoplita
+    imagen: {fileID: 0}
+    prefab: {fileID: 1231341178963932024, guid: 17d98708454cac2459db11cb57c79a37, type: 3}
+    previewPrefab: {fileID: 76888622306272304, guid: 1e580df65c2942a4dbc23c032ea85fd0, type: 3}
+  variantes:
+    antiaerea: 0
+    invisibilidad: 0
+    regeneracion: 0
+  reduceDanyo:
+    reducirDanyo: 0
+    frente: 0
+    espalda: 0
+    lados: 0
+    reduccion: 0
+  escudo:
+    escudoMaximo: 0
+    escudoRegen: 0
