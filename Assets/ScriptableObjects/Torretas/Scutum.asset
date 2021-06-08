@@ -12,26 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
   m_Name: Scutum
   m_EditorClassIdentifier: 
-  nombre: Scutum
   energia: 2
   energiaAlt: 1
   vidaMaxima: 20
-  escudoMaximo: 0
-  escudoRegen: 0
   ataque: 0
   cadenciaDisparo: 0
-  escudoActual: 0
   tipoDisparo: 1
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   velocidadRotacion: 0
   distanciaDisparo: 10
-  antiaerea: 0
-  invisibilidad: 0
-  regeneracion: 1
-  reducirDanyo: 0
-  frente: 0
-  espalda: 0
-  lados: 0
-  reduccion: 0
   radioExplosion: 0
   danyoExplosion: 0
+  visual:
+    nombre: Scutum
+    imagen: {fileID: 21300000, guid: a3c0cafdd96896841b5cf640b0eb8f4e, type: 3}
+    prefab: {fileID: 2367610572343465110, guid: dee58b4aca1e9c9488207c6357db1623, type: 3}
+    previewPrefab: {fileID: 4754753394101615371, guid: a00bd684017cb114cb7af675317f3331, type: 3}
+  variantes:
+    antiaerea: 0
+    invisibilidad: 0
+    regeneracion: 0
+  reduceDanyo:
+    reducirDanyo: 0
+    frente: 0
+    espalda: 0
+    lados: 0
+    reduccion: 0
+  escudo:
+    escudoMaximo: 0
+    escudoRegen: 0

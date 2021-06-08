@@ -12,26 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
   m_Name: Fantasma
   m_EditorClassIdentifier: 
-  nombre: Fantasma
   energia: 3
   energiaAlt: 6
   vidaMaxima: 10
-  escudoMaximo: 0
-  escudoRegen: 0
   ataque: 10
   cadenciaDisparo: 1
-  escudoActual: 0
   tipoDisparo: 0
   anguloDisparo: {x: 0, y: 0, z: 0, w: 1}
   velocidadRotacion: 20
   distanciaDisparo: 30
-  antiaerea: 1
-  invisibilidad: 0
-  regeneracion: 0
-  reducirDanyo: 0
-  frente: 0
-  espalda: 0
-  lados: 0
-  reduccion: 1
   radioExplosion: 0
   danyoExplosion: 0
+  visual:
+    nombre: Fantasma
+    imagen: {fileID: 21300000, guid: 67cf08803ac18b841a71a92bd0ee3d18, type: 3}
+    prefab: {fileID: 6130392994418107086, guid: 6006fd67c0e211144954615e31d3a5bd, type: 3}
+    previewPrefab: {fileID: 6130392994418107086, guid: 8f13178a4b1a9264a90c93f549f3a457, type: 3}
+  variantes:
+    antiaerea: 0
+    invisibilidad: 0
+    regeneracion: 0
+  reduceDanyo:
+    reducirDanyo: 0
+    frente: 0
+    espalda: 0
+    lados: 0
+    reduccion: 0
+  escudo:
+    escudoMaximo: 0
+    escudoRegen: 0

@@ -12,25 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
   m_Name: Mohawk
   m_EditorClassIdentifier: 
-  nombre: Mohawk
   energia: 4
   energiaAlt: 4
   vidaMaxima: 15
-  escudoMaximo: 0
-  escudoRegen: 0
   ataque: 10
   cadenciaDisparo: 2
-  escudoActual: 0
   tipoDisparo: 1
   anguloDisparo: {x: 0, y: 0, z: 0, w: 1}
   velocidadRotacion: 5
   distanciaDisparo: 50
-  antiaerea: 1
-  invisibilidad: 0
-  "reducirDa\xF1o": 0
-  frente: 0
-  espalda: 0
-  lados: 0
-  reduccion: 1
   radioExplosion: 0
   danyoExplosion: 0
+  visual:
+    nombre: Mohawk
+    imagen: {fileID: 21300000, guid: 2f0b9c861349a204b9bfc6b90439f3da, type: 3}
+    prefab: {fileID: 3914336763499236850, guid: 6310dd6746b85d74cbcf98a3ff63e080, type: 3}
+    previewPrefab: {fileID: 3914336763499236850, guid: 7b5b7fe473602374fa1c05d4fa7f8045, type: 3}
+  variantes:
+    antiaerea: 0
+    invisibilidad: 0
+    regeneracion: 0
+  reduceDanyo:
+    reducirDanyo: 0
+    frente: 0
+    espalda: 0
+    lados: 0
+    reduccion: 0
+  escudo:
+    escudoMaximo: 0
+    escudoRegen: 0

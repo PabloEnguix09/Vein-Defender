@@ -12,26 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b44d274cbbb34d8eb1e906b6fc89d, type: 3}
   m_Name: Balear
   m_EditorClassIdentifier: 
-  nombre: Balear
   energia: 4
   energiaAlt: 4
   vidaMaxima: 15
-  escudoMaximo: 0
-  escudoRegen: 0
   ataque: 10
   cadenciaDisparo: 4
-  escudoActual: 0
   tipoDisparo: 2
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   velocidadRotacion: 20
   distanciaDisparo: 50
-  antiaerea: 0
-  invisibilidad: 0
-  regeneracion: 0
-  reducirDanyo: 0
-  frente: 0
-  espalda: 0
-  lados: 0
-  reduccion: 1
   radioExplosion: 5
   danyoExplosion: 1
+  visual:
+    nombre: Balear
+    imagen: {fileID: 21300000, guid: 6c03776f298762c43b60626a05d6c2de, type: 3}
+    prefab: {fileID: 5793717610974240696, guid: 0f908c6aa6bcf7a4ba4d5dfd7e60dd3a, type: 3}
+    previewPrefab: {fileID: 927891262645525017, guid: 5cef0fbc75fc81246823ad4268e70995, type: 3}
+  variantes:
+    antiaerea: 0
+    invisibilidad: 0
+    regeneracion: 0
+  reduceDanyo:
+    reducirDanyo: 0
+    frente: 0
+    espalda: 0
+    lados: 0
+    reduccion: 0
+  escudo:
+    escudoMaximo: 0
+    escudoRegen: 0
