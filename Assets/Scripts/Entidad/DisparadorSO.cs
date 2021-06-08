@@ -11,8 +11,7 @@ using UnityEngine;
 // FEATURES ADDED: Traspaso del código y cambios básicos en la implementación
 // ---------------------------------------------------
 
-[CreateAssetMenu(fileName ="DisparadorSO", menuName = "Componentes/DisparadorSO")]
-public class DisparadorSO : ScriptableObject
+public class DisparadorSO : MonoBehaviour
 {
     public Vector3 BuscarObjetivo(ControladorEntidad controlador)
     {
@@ -20,13 +19,15 @@ public class DisparadorSO : ScriptableObject
         // Recogemos todas torretas de la zona
         if (controlador.stats.atacaTorretas)
         {
-            GameObject[] torretas = GameObject.FindGameObjectsWithTag("Torreta");
+            GameObject[] torretas = GameObject.FindGameObjectsWithTag("Torreta");
+
             objetivosEnRango.AddRange(torretas);
         }
         // Pone al jugador en la lista de posibles objetivos
         if (controlador.stats.atacaJugador)
         {
-            GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+            GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+
             objetivosEnRango.AddRange(player);
         }
         // Pone las bases 
@@ -103,8 +104,10 @@ public class DisparadorSO : ScriptableObject
         if (masCercano != null)
         {
             // Comprueba que delante tenga una torreta
-            RaycastHit hit;
-            Physics.Raycast(controlador.parteQueRota.position, controlador.parteQueRota.forward, out hit, controlador.stats.rangoDeteccion, LayerMask.GetMask("Torreta"));
+            RaycastHit hit;
+
+            Physics.Raycast(controlador.parteQueRota.position, controlador.parteQueRota.forward, out hit, controlador.stats.rangoDeteccion, LayerMask.GetMask("Torreta"));
+
             if (hit.collider != null)
             {
                 //En caso de tener delante una torreta
@@ -135,25 +138,5 @@ public class DisparadorSO : ScriptableObject
             return true;
         }
         return false;
-    }
-
-    public void Disparar(ControladorEntidad controlador, float fuerza, GameObject gameObject, Vector3 objetivo)
-    {
-        controlador.Disparar();
-
-        Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
-
-        // Parametros del ataque
-        ataqueObjeto.fuerza = fuerza;
-        ataqueObjeto.fuerzaExplosion = controlador.stats.ataqueExplosion;
-        ataqueObjeto.radioExplosion = controlador.stats.rangoExplosion;
-        ataqueObjeto.tipo = Ataque.Tipo.laser;
-        ataqueObjeto.origen = gameObject;
-
-        // Se busca la direccion desde donde esta atacando al objetivo
-        Vector3 direccion = gameObject.transform.position - objetivo;        ataqueObjeto.direccion = Vector3.Dot(gameObject.transform.forward, direccion);
-        // Instancia el disparo
-        Bala bala = Instantiate(controlador.balaObjeto, controlador.spawnerBalas.transform.position, controlador.spawnerBalas.transform.rotation).GetComponent<Bala>();
-        bala.ataque = ataqueObjeto;
     }
 }

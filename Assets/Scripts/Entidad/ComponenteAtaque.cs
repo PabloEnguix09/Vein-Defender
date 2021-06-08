@@ -33,10 +33,9 @@ public class ComponenteAtaque : MonoBehaviour
     float timerDebilitacion = 0;
     float cantidadDebilitacion = 1;
 
-    [Header("Componentes de ataque ¡Tocar solo si sabes lo que haces!")]
-    public DisparadorSO disparadorSO;
-    public ExplosivoSO explosivoSO;
-    public PotenciadorSO potenciadorSO;
+    DisparadorSO disparadorSO;
+    ExplosivoSO explosivoSO;
+    PotenciadorSO potenciadorSO;
     #endregion
 
     private void Start()
@@ -46,22 +45,22 @@ public class ComponenteAtaque : MonoBehaviour
         fuerza = controlador.stats.ataqueDisparo;
 
         // Crea un el controlador de ataque de la entidad si no tiene uno creado ya
-        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.laser && !disparadorSO) disparadorSO = ScriptableObject.CreateInstance<DisparadorSO>();
-        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.balas && !disparadorSO) disparadorSO = ScriptableObject.CreateInstance<DisparadorSO>();
-        if (controlador.stats.explosivo && !explosivoSO) explosivoSO = ScriptableObject.CreateInstance<ExplosivoSO>();
-        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.potenciador && !potenciadorSO) potenciadorSO = ScriptableObject.CreateInstance<PotenciadorSO>();
+        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.laser) disparadorSO = gameObject.AddComponent(typeof(DisparadorSO)) as DisparadorSO;
+        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.balas) disparadorSO = gameObject.AddComponent(typeof(DisparadorSO)) as DisparadorSO;
+        if (controlador.stats.explosivo) explosivoSO = gameObject.AddComponent(typeof(ExplosivoSO)) as ExplosivoSO;
+        if (controlador.stats.tipoAtaque == EntidadSO.Tipo.potenciador) potenciadorSO = new PotenciadorSO();
     }
     // Update is called once per frame
     void Update()
     {
         CalcularFuerzaTotal();
 
-        if(potenciadorSO)
+        if(potenciadorSO != null)
         {
             potenciadorSO.Potenciar(controlador, this.gameObject);
         }
         // Si la entidad dispara
-        if(disparadorSO)
+        if(disparadorSO != null)
         {
 
             //busca al objetivo mas cercano
@@ -84,7 +83,7 @@ public class ComponenteAtaque : MonoBehaviour
                 if (timerDisparo >= controlador.stats.velocidadDisparo)
                 {
                     timerDisparo = 0;
-                    disparadorSO.Disparar(controlador, fuerza, this.gameObject, objetivoADisparar);
+                    Disparar();
                 }
             }
             else
@@ -108,7 +107,7 @@ public class ComponenteAtaque : MonoBehaviour
     // Para el bomba cuando toca a un objetivo explota
     private void OnTriggerEnter(Collider other)
     {
-        if(explosivoSO)
+        if(explosivoSO != null)
         {
             // Cuando choca contra una base, torreta o personaje se autodestruye
             if (other.gameObject.GetComponent<Base>() != null || other.gameObject.GetComponent<Torreta>() != null || other.gameObject.GetComponent<Personaje>())
@@ -175,23 +174,45 @@ public class ComponenteAtaque : MonoBehaviour
     // Se llama desde el controlador cuando el objeto tiene 0 de vida
     public void Explotar()
     {
-        if(explosivoSO)
+        if(explosivoSO != null)
         {
             explosivoSO.Explotar(controlador, fuerza, this.gameObject);
         }
     }
 
+    public void Disparar()
+    {
+        controlador.Disparar();
+
+        Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+
+        // Parametros del ataque
+        ataqueObjeto.fuerza = fuerza;
+        ataqueObjeto.fuerzaExplosion = controlador.stats.ataqueExplosion;
+        ataqueObjeto.radioExplosion = controlador.stats.rangoExplosion;
+        ataqueObjeto.tipo = Ataque.Tipo.laser;
+        ataqueObjeto.origen = gameObject;
+
+        // Se busca la direccion desde donde esta atacando al objetivo
+        Vector3 direccion = gameObject.transform.position - objetivoADisparar;
+        ataqueObjeto.direccion = Vector3.Dot(gameObject.transform.forward, direccion);
+
+        // Instancia el disparo
+        Bala bala = Instantiate(controlador.balaObjeto, controlador.spawnerBalas.transform.position, controlador.spawnerBalas.transform.rotation).GetComponent<Bala>();
+        bala.ataque = ataqueObjeto;
+    }
+
     private void OnDrawGizmosSelected()
     {
         // Muestra el rango de explosion para los enemigos explosivos
-        if(explosivoSO)
+        if(explosivoSO != null)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, controlador.stats.rangoExplosion);
         }
         // Muestra el rango de disparo para los enemigos de rango
-        if(disparadorSO ||
-           potenciadorSO)
+        if(disparadorSO != null ||
+           potenciadorSO != null)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, controlador.stats.rangoDisparo);
