@@ -28,6 +28,8 @@ MonoBehaviour:
     imagen: {fileID: 21300000, guid: 02a345bafc553334ab067b67f77193a2, type: 3}
     prefab: {fileID: 3914336763499236850, guid: 6310dd6746b85d74cbcf98a3ff63e080, type: 3}
     previewPrefab: {fileID: 3914336763499236850, guid: 7b5b7fe473602374fa1c05d4fa7f8045, type: 3}
+    descripcion: "Gran visi\xF3n y capacidad para ver unidades camufladas, aunque
+      son lentas al disparar.  Funcionan bien como francotiradores y vig\xEDas"
   variantes:
     antiaerea: 0
     invisibilidad: 0

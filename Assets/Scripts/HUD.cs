@@ -50,7 +50,6 @@ public class HUD : MonoBehaviour
 
     public void OnClickCerrar()
     {
-        Debug.Log("Cierra");
         personaje.CerrarInteraccion();
     }
 }

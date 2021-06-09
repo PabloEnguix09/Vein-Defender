@@ -28,6 +28,9 @@ MonoBehaviour:
     imagen: {fileID: 21300000, guid: fcbcc1610546d134292965f37a926b82, type: 3}
     prefab: {fileID: 3538574186344979504, guid: da76c3948654711419c8fea39c651dac, type: 3}
     previewPrefab: {fileID: 4369632575579838537, guid: 480a9dcaec3ea7e4e9c79b62f23ddd6d, type: 3}
+    descripcion: "Una gran cadencia de fuego y mucha vida pero con much\xEDsimo coste
+      energ\xE9tico y poca  velocidad de rotaci\xF3n. Tarda 2 segundos en empezar
+      a disparar cuando rota m\xE1s de 20\xBA"
   variantes:
     antiaerea: 0
     invisibilidad: 0

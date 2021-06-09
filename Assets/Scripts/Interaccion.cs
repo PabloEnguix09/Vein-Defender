@@ -10,9 +10,8 @@
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: Interaccion con el HUD
 // ---------------------------------------------------
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interaccion : MonoBehaviour
 {
@@ -24,6 +23,9 @@ public class Interaccion : MonoBehaviour
     Animator animator;
     public GameObject nave;
     CameraController cameraController;
+
+    public GameObject gui;
+    public Image mira;
     public enum TipoItem
     {
         pcTorretas = 1
@@ -47,6 +49,7 @@ public class Interaccion : MonoBehaviour
         {
             // Abre el menu
             hud.SetActive(true);
+            gui.SetActive(false);
             // Cuando el HUD esta activado queremos tener la camara bloqueada
             cameraController.BloquearCamara(true);
             

@@ -42,6 +42,8 @@ public class controlPartida : MonoBehaviour
     GameManager gameManager;
 
     private Camino camino;
+
+    private string ultimoTexto;
     void Start()
     {
         bases = (Base[])GameObject.FindObjectsOfType(typeof(Base));
@@ -52,6 +54,7 @@ public class controlPartida : MonoBehaviour
         ronda = 1;
 
         gameManager = FindObjectOfType<GameManager>();
+        ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
     }
 
     void Update()
@@ -100,6 +103,7 @@ public class controlPartida : MonoBehaviour
                         s.limitePrimerEnemigo = 10;
                         s.limiteSegundoEnemigo = 10;
                         textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 2";
+                        ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
                         textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 2";
                     }
                     break;
@@ -112,6 +116,7 @@ public class controlPartida : MonoBehaviour
                         s.limitePrimerEnemigo = 15;
                         s.limiteSegundoEnemigo = 15;
                         textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 3";
+                        ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
                         textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 3";
                     }
                     break;
@@ -145,6 +150,7 @@ public class controlPartida : MonoBehaviour
                 StartCoroutine(s.Aparicion());
                 StartCoroutine(s.AparicionBombas());
                 textoEstado.GetComponent<UnityEngine.UI.Text>().text = "";
+                ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
             }
             
         }
@@ -178,5 +184,18 @@ public class controlPartida : MonoBehaviour
         }
         //Texto de la ui
         textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Has perdido, pulsa la tecla <R> para volver a empezar";
+        ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+    }
+
+    public void Interactuar(bool interactuar)
+    {
+        if(interactuar)
+        {
+            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa <RMB> para interactuar";
+        }
+        else
+        {
+            textoEstado.GetComponent<UnityEngine.UI.Text>().text = ultimoTexto;
+        }
     }
 }
