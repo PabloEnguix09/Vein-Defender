@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 // ---------------------------------------------------
 // NAME: DragDrop.cs
 // STATUS: DONE
@@ -31,7 +30,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvas = transform.GetComponentInParent<Canvas>();
 
         // Pone el sprite
-        gameObject.GetComponent<SpriteRenderer>().sprite = torretasDisponibles.torretasTotales[indiceTorreta].visual.imagen;
+        gameObject.GetComponent<Image>().sprite = torretasDisponibles.torretasTotales[indiceTorreta].visual.imagen;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

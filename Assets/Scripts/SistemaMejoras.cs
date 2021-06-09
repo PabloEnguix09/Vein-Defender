@@ -99,11 +99,6 @@ public class SistemaMejoras : MonoBehaviour
         {
             personaje.energiaMaxima += 5;
         }
-        if(explosionPEM)
-        {
-            iconos[11].SetActive(true);
-            indice.Add(11);
-        }
 
         personaje.Setup();
     }
