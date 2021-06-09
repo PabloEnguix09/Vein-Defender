@@ -69,9 +69,17 @@ public class InvocarTorreta : MonoBehaviour
         // Se asignan las imagenes al menu radial
         for (int i = 0; i < torretasUso.Count; i++)
         {
-            torretas.Add(torretasUso[i].visual.prefab);
-            previews.Add(torretasUso[i].visual.previewPrefab);
-            imagenesMenuRadial[i].sprite = torretasUso[i].visual.imagen;
+            if(torretas.Count < 8)
+            {
+                torretas.Add(torretasUso[i].visual.prefab);
+                previews.Add(torretasUso[i].visual.previewPrefab);
+                imagenesMenuRadial[i].sprite = torretasUso[i].visual.imagen;
+            } else
+            {
+                torretas[i] = torretasUso[i].visual.prefab;
+                previews[i] = torretas[i] = torretasUso[i].visual.previewPrefab;
+                imagenesMenuRadial[i].sprite = torretasUso[i].visual.imagen;
+            }
         }
     }
 
