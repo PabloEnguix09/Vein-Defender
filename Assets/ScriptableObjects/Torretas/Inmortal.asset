@@ -28,6 +28,8 @@ MonoBehaviour:
     imagen: {fileID: 21300000, guid: cb9bd31d38b31c4499d5b6c6986fcf08, type: 3}
     prefab: {fileID: 3550871163448655305, guid: 171e963a627ee5f49b1e8601ce7c1684, type: 3}
     previewPrefab: {fileID: 8332529569172267353, guid: 5acf723585b763244988b5d1ee09c9e1, type: 3}
+    descripcion: "Con visi\xF3n de 180\xBA y un escudo que se regenera con el tiempo.
+      Golpea fuerte con disparos  explosivos pero consume mucha energ\xEDa"
   variantes:
     antiaerea: 0
     invisibilidad: 0

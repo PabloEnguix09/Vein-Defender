@@ -72,4 +72,5 @@ public class Visual
     public Sprite imagen;
     public GameObject prefab;
     public GameObject previewPrefab;
+    public string descripcion;
 }

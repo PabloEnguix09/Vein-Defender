@@ -28,6 +28,9 @@ MonoBehaviour:
     imagen: {fileID: 21300000, guid: d648af7a72f1f394cb522835f4feb364, type: 3}
     prefab: {fileID: 5793717610974240696, guid: 0f908c6aa6bcf7a4ba4d5dfd7e60dd3a, type: 3}
     previewPrefab: {fileID: 927891262645525017, guid: 5cef0fbc75fc81246823ad4268e70995, type: 3}
+    descripcion: "Gran alcance y da\xF1o con disparos lentos pero teledirijidos hacia
+      sus objetivos. Disparan  bombas en un arco as\xED que no son capaces de acertar
+      unidades a\xE9reas"
   variantes:
     antiaerea: 0
     invisibilidad: 0

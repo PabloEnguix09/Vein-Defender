@@ -28,6 +28,8 @@ MonoBehaviour:
     imagen: {fileID: 21300000, guid: 09ce024ba06d9d5499c98f31fda36460, type: 3}
     prefab: {fileID: 1231341178963932024, guid: 17d98708454cac2459db11cb57c79a37, type: 3}
     previewPrefab: {fileID: 76888622306272304, guid: 1e580df65c2942a4dbc23c032ea85fd0, type: 3}
+    descripcion: "Con visi\xF3n de 180\xBA, un escudo frontal que reduce el da\xF1o
+      que reciben por ese lado y una gran  capacidad de ataque a larga distancia"
   variantes:
     antiaerea: 0
     invisibilidad: 0
