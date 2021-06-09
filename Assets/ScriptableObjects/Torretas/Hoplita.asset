@@ -25,7 +25,7 @@ MonoBehaviour:
   danyoExplosion: 0
   visual:
     nombre: Hoplita
-    imagen: {fileID: 0}
+    imagen: {fileID: 21300000, guid: 7bb127f78ae6fef4b8c9b552da7133eb, type: 3}
     prefab: {fileID: 1231341178963932024, guid: 17d98708454cac2459db11cb57c79a37, type: 3}
     previewPrefab: {fileID: 76888622306272304, guid: 1e580df65c2942a4dbc23c032ea85fd0, type: 3}
   variantes:

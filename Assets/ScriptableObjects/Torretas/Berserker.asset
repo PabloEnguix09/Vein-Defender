@@ -24,7 +24,7 @@ MonoBehaviour:
   radioExplosion: 0
   danyoExplosion: 0
   visual:
-    nombre: Berserkr
+    nombre: Berserker
     imagen: {fileID: 21300000, guid: 97142ec8b3479e64994cd157bb074e0c, type: 3}
     prefab: {fileID: 3538574186344979504, guid: da76c3948654711419c8fea39c651dac, type: 3}
     previewPrefab: {fileID: 4369632575579838537, guid: 480a9dcaec3ea7e4e9c79b62f23ddd6d, type: 3}
