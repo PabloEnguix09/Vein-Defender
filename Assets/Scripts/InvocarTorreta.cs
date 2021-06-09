@@ -77,7 +77,7 @@ public class InvocarTorreta : MonoBehaviour
             } else
             {
                 torretas[i] = torretasUso[i].visual.prefab;
-                previews[i] = torretas[i] = torretasUso[i].visual.previewPrefab;
+                previews[i] = torretasUso[i].visual.previewPrefab;
                 imagenesMenuRadial[i].sprite = torretasUso[i].visual.imagen;
             }
         }
