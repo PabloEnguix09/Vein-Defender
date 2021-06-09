@@ -10,9 +10,8 @@
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: Interaccion con el HUD
 // ---------------------------------------------------
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interaccion : MonoBehaviour
 {
@@ -26,6 +25,7 @@ public class Interaccion : MonoBehaviour
     CameraController cameraController;
 
     public GameObject gui;
+    public Image mira;
     public enum TipoItem
     {
         pcTorretas = 1

@@ -20,6 +20,7 @@ public class Base : MonoBehaviour
 
     public GameObject modelo;
     public Image romboActual;
+    public GameObject marcador;
     public Sprite romboAtaque;
     Sprite romboSeguro;
     private float timer;
@@ -71,6 +72,7 @@ public class Base : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(romboActual.gameObject);
+            Destroy(marcador);
         }
     }
 }

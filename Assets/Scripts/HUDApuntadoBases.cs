@@ -27,7 +27,6 @@ public class HUDApuntadoBases : MonoBehaviour
     void SetPos()
     {
         Vector3 pos = camara.WorldToScreenPoint(objetivo.transform.position);
-
         if(pos.z >= 0 && pos.x <= canvasRect.rect.width * canvasRect.localScale.x && pos.y <= canvasRect.rect.height * canvasRect.localScale.x && pos.x >= 0f && pos.y >= 0f)
         {
             pos.z = 0f;
