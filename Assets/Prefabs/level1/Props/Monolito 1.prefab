@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2131113544011013150}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 72.8661}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9003350922802791453}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9c13a2c2e70341f580833791747be863, type: 2}
+  - {fileID: 2100000, guid: 965692ee8e115f34b8045a529e6fe62b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9003350922802791453}
-  - component: {fileID: 8408762573012813474}
+  - component: {fileID: 1119244250771858557}
   m_Layer: 6
   m_Name: Monolito 1
   m_TagString: Terreno
@@ -113,8 +113,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &8408762573012813474
-MeshCollider:
+--- !u!65 &1119244250771858557
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,7 +123,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1843689209865246678, guid: 9b59484a5112809488415892f43d4b6e, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.24936599, y: 1.3765175, z: 0.27266967}
+  m_Center: {x: 0.013114244, y: 0.56328857, z: -0.01136452}
