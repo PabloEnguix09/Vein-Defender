@@ -61,7 +61,7 @@ MonoBehaviour:
   salud: 10
   modelo: {fileID: 7236007918572350042}
   romboActual: {fileID: 0}
-  romboAtaque: {fileID: 0}
+  romboAtaque: {fileID: 21300000, guid: e3d668ab5b40c6d448abceeb3a3c3f1d, type: 3}
 --- !u!1 &2773453619326748831
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cbb0216fc0fa08a478d4dbe52277e0b5, type: 2}
+  - {fileID: 2100000, guid: 728a9acd7a7e2b44ea7466f4f53cb2bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
