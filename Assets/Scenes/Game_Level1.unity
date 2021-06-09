@@ -942,12 +942,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1647269033}
-  - {fileID: 1603763732}
+  - {fileID: 1010415693}
   - {fileID: 113839998}
   - {fileID: 1438681474}
   - {fileID: 202400143}
   - {fileID: 1263458128}
-  - {fileID: 1672611807}
+  - {fileID: 1603763732}
+  - {fileID: 1747614169}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4148,6 +4149,7 @@ RectTransform:
   - {fileID: 911597922}
   - {fileID: 349550609}
   - {fileID: 1614406247}
+  - {fileID: 1908954070}
   m_Father: {fileID: 2087454948}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7490,7 +7492,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 84236411}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1010415694
 BoxCollider:
@@ -11392,7 +11394,7 @@ Transform:
   - {fileID: 242765559}
   - {fileID: 543450653148560345}
   m_Father: {fileID: 84236411}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614406246
 GameObject:
@@ -12397,7 +12399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 84236411}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1747614170
 BoxCollider:
@@ -13012,7 +13014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6999520a2f4db440848f91559229ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 2087454947}
   indiceTorreta: 11
 --- !u!114 &1908954073
 MonoBehaviour:

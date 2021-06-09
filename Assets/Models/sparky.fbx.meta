@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: 4d56aafc09eb6f945923a1df5c18309f
+guid: 768c4d343d60b0d40a9e3e1b7a2adb8c
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 5127486254644862050
+    second: "Esfera geod\xE9sica|Esfera geod\xE9sicaAction"
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -34,7 +37,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 500
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -85,7 +88,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
