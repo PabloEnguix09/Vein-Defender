@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 // ---------------------------------------------------
 // NAME: ItemSlot.cs
 // STATUS: DONE
@@ -14,11 +15,14 @@ using UnityEngine.EventSystems;
 // AUTHOR: Luis Belloch
 // FEATURES ADDED: propiedades base
 // ---------------------------------------------------
-public class ItemSlot : MonoBehaviour, IDropHandler
+public class ItemSlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public HUD hud;
     public int posicion;
     public int indiceTorretaActual;
+    public Image imagen;
+    public Sprite cuadrado;
+    public Sprite cuadradoEncima;
 
     private void Start()
     {
@@ -30,5 +34,15 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             indiceTorretaActual = eventData.pointerDrag.GetComponent<DragDrop>().indiceTorreta;
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        imagen.sprite = cuadradoEncima;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        imagen.sprite = cuadrado;
     }
 }

@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 // ---------------------------------------------------
 // NAME: HUD.cs
 // STATUS: WIP
@@ -26,6 +24,8 @@ public class HUD : MonoBehaviour
     ItemSlot[] itemSlots;
     TorretasDisponibles torretasDisponibles;
 
+    public Personaje personaje;
+
     private void Start()
     {
         // Encuentra todos los ItemSlot
@@ -46,5 +46,11 @@ public class HUD : MonoBehaviour
         }
         // Se envian los indices del menu a las torretas disponibles
         torretasDisponibles.actualizarTorretasElegidas(indicesElegidos);
+    }
+
+    public void OnClickCerrar()
+    {
+        Debug.Log("Cierra");
+        personaje.CerrarInteraccion();
     }
 }
