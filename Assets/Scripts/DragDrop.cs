@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 // ---------------------------------------------------
 // NAME: DragDrop.cs
 // STATUS: DONE
@@ -12,21 +11,26 @@ using UnityEngine.EventSystems;
 // FEATURES ADDED: propiedades base
 //
 // AUTHOR: Luis Belloch
-// FEATURES ADDED: toma del indice de la torreta
+// FEATURES ADDED: toma del indice de la torreta, se pone el sprite de la torreta
 // ---------------------------------------------------
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler {
 
-    [SerializeField] private Canvas canvas;
-    private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
+    Canvas canvas;
+    RectTransform rectTransform;
+    CanvasGroup canvasGroup;
+    TorretasDisponibles torretasDisponibles;
 
     public int indiceTorreta;
 
     private void Awake()
     {
+        torretasDisponibles = FindObjectOfType<TorretasDisponibles>();
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = transform.GetComponentInParent<Canvas>();
+
+        // Pone el sprite
+        gameObject.GetComponent<Image>().sprite = torretasDisponibles.torretasTotales[indiceTorreta].visual.imagen;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

@@ -25,7 +25,7 @@ MonoBehaviour:
   danyoExplosion: 0
   visual:
     nombre: Fantasma
-    imagen: {fileID: 21300000, guid: 67cf08803ac18b841a71a92bd0ee3d18, type: 3}
+    imagen: {fileID: 21300000, guid: 2a65cef1735e49949835ecc1540a193d, type: 3}
     prefab: {fileID: 6130392994418107086, guid: 6006fd67c0e211144954615e31d3a5bd, type: 3}
     previewPrefab: {fileID: 6130392994418107086, guid: 8f13178a4b1a9264a90c93f549f3a457, type: 3}
   variantes:

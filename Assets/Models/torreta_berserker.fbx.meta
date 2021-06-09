@@ -20,7 +20,7 @@ ModelImporter:
       name: Negro
     second: {fileID: 2100000, guid: 1aff5d0b206321d4d8abf23d0e591724, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1

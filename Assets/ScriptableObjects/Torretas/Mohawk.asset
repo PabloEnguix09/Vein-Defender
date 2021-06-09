@@ -25,7 +25,7 @@ MonoBehaviour:
   danyoExplosion: 0
   visual:
     nombre: Mohawk
-    imagen: {fileID: 21300000, guid: 2f0b9c861349a204b9bfc6b90439f3da, type: 3}
+    imagen: {fileID: 21300000, guid: 02a345bafc553334ab067b67f77193a2, type: 3}
     prefab: {fileID: 3914336763499236850, guid: 6310dd6746b85d74cbcf98a3ff63e080, type: 3}
     previewPrefab: {fileID: 3914336763499236850, guid: 7b5b7fe473602374fa1c05d4fa7f8045, type: 3}
   variantes:
