@@ -138,6 +138,7 @@ public class Personaje : MonoBehaviour
     public MovimientoPersonaje movimientoPersonaje;
     SistemaMejoras sistemaMejoras;
 
+    public GameObject gui;
     private void Start()
     {
         // Busca componentes internos
@@ -194,6 +195,7 @@ public class Personaje : MonoBehaviour
         // Cierra el menu actual
         if(Input.GetButtonDown("Cancelar"))
         {
+            gui.SetActive(true);
             CerrarInteraccion();
         }
     }

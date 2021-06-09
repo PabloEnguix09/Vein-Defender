@@ -24,6 +24,8 @@ public class Interaccion : MonoBehaviour
     Animator animator;
     public GameObject nave;
     CameraController cameraController;
+
+    public GameObject gui;
     public enum TipoItem
     {
         pcTorretas = 1
@@ -47,6 +49,7 @@ public class Interaccion : MonoBehaviour
         {
             // Abre el menu
             hud.SetActive(true);
+            gui.SetActive(false);
             // Cuando el HUD esta activado queremos tener la camara bloqueada
             cameraController.BloquearCamara(true);
             
