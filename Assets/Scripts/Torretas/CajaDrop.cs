@@ -57,8 +57,6 @@ public class CajaDrop : MonoBehaviour
             animator.SetBool("Disolver", true);
             // Se invoca la torreta correspondiente en el sitio
             GameObject aux = Instantiate(torreta.gameObject, centro.position, transform.rotation);
-            // Congelamos la torreta
-            aux.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             // Activa la torreta
             if (aux.GetComponent<Torreta>())
             {

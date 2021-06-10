@@ -61,7 +61,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 94a37d9193349d9449c297f3d18d08f8, type: 2}
   - {fileID: 2100000, guid: 728a9acd7a7e2b44ea7466f4f53cb2bd, type: 2}
-  - {fileID: 1385766919465373484, guid: 4107a125c45efba41b24741375e63c09, type: 3}
+  - {fileID: 2100000, guid: 94a37d9193349d9449c297f3d18d08f8, type: 2}
   - {fileID: 2100000, guid: 1aff5d0b206321d4d8abf23d0e591724, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -112,8 +112,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550871163448655305}
-  m_LocalRotation: {x: 0, y: 0.026612867, z: 0, w: -0.9996458}
-  m_LocalPosition: {x: 46.043457, y: 23.404984, z: 61.064293}
+  m_LocalRotation: {x: 0, y: 0.19509102, z: 0, w: -0.9807852}
+  m_LocalPosition: {x: 30.136412, y: 23.923477, z: 93.10165}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 6392596038898667606}
@@ -149,7 +149,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &1020778570645358884
 MonoBehaviour:
@@ -515,7 +515,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4874126678125670354, guid: 4107a125c45efba41b24741375e63c09, type: 3}
+  - {fileID: 2100000, guid: 728a9acd7a7e2b44ea7466f4f53cb2bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
