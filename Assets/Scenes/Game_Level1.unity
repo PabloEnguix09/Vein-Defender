@@ -2297,6 +2297,7 @@ MonoBehaviour:
   tipoItem: 1
   nave: {fileID: 1603763728}
   gui: {fileID: 164474553}
+  mira: {fileID: 0}
 --- !u!23 &242765561
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2316,7 +2317,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 728a9acd7a7e2b44ea7466f4f53cb2bd, type: 2}
+  - {fileID: 2100000, guid: 94a37d9193349d9449c297f3d18d08f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4785,38 +4786,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 690215917, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 690215919, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 320
-      objectReference: {fileID: 0}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: mixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: sonidos.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: sonidos.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 129fde4a095e69e4bb4f3550349b2886, type: 3}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: sonidos.Array.data[0].tono
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: sonidos.Array.data[0].nombre
-      value: Prueba
-      objectReference: {fileID: 0}
-    - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: sonidos.Array.data[0].volumen
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695092, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: m_Name
       value: Jugador
@@ -4865,10 +4834,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: GUI
-      value: 
-      objectReference: {fileID: 164474553}
     - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: gui
       value: 
@@ -10389,6 +10354,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 84236411}
     m_Modifications:
+    - target: {fileID: -5100020566389463321, guid: 0078cdf7aa9429e438007c926b40a1fd, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 473933535261195723, guid: 0078cdf7aa9429e438007c926b40a1fd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -11232,43 +11201,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503187764}
   m_CullTransparentMesh: 1
---- !u!1 &1505568802 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 690215917, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-  m_PrefabInstance: {fileID: 549240590}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1505568804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505568802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 1
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
 --- !u!1 &1518711523
 GameObject:
   m_ObjectHideFlags: 0
@@ -12053,7 +11985,7 @@ MonoBehaviour:
   laserPerseguidor: 1
   balaPEM: 1
   mejoraCamara: 1
-  mejoraCaminos: 1
+  mejoraCaminos: 0
   escudoDefensor: 1
   torretasDisponibles: {fileID: 1594907901}
   camino:
