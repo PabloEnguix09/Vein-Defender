@@ -15,13 +15,11 @@ public class CamaraMinimapa : MonoBehaviour
 {
 
     Transform camara;
-    CameraClearFlags flags;
 
     // Start is called before the first frame update
     void Start()
     {
         camara = Camera.main.transform;
-        flags = CameraClearFlags.Depth;
     }
 
     // Update is called once per frame
