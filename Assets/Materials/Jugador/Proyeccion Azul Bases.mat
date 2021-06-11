@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tierra_Arena
-  m_Shader: {fileID: -6465566751694194690, guid: cb7e3933590a07d40a4677d2b9008d96, type: 3}
+  m_Name: Proyeccion Azul Bases
+  m_Shader: {fileID: -6465566751694194690, guid: bbff75a07eb3a0b4fafc540d2259c587, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -63,14 +63,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_b01f2b07eb41435f999974ec2f5ec81e_Out_0:
-        m_Texture: {fileID: 2800000, guid: 431e41c5b9c5914499e117afa8126a42, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_db6e1af3934246b78d586db1dcccb65c_Out_0:
-        m_Texture: {fileID: 2800000, guid: 431e41c5b9c5914499e117afa8126a42, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -84,13 +76,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_3ad488f2d4e84c20b97f7466978283b7: 6.35
-    - Vector1_5c7b1f1ce5ba4e9ca97fe844a9d00dd7: 0.3
-    - Vector1_903bd04ceede4c69a7919a195c7f6531: 3.08
-    - Vector1_949fbef780064e67978a2b5ca1f15682: 8.67
-    - Vector1_95a8a550f275453d87f0128739507ae6: 8.54
-    - Vector1_d178ba60d83441cd9e6061c95f6cd43a: -0.99
-    - Vector1_f1cfcb7053c044e6a4f9f2da9a3d265e: 0.86
+    - Vector1_014aa1aefbad4d8395e056aacc0ae540: 0
+    - Vector1_4b9350599c2440b6895d38432cc9a272: 0
+    - Vector1_a03c374b38a6451a9a4e13c49f5201b9: 0.51
+    - Vector1_db0990940fed40c08aea12a6d9552622: 1.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -118,15 +107,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_aaa6a4f7ba4247999c6a0c586cebf852: {r: 0.4056604, g: 0.116996385, b: 0.047837302, a: 1}
-    - Color_f1ea24065a4843bbb3dc5776cc0a00fc: {r: 0.5283019, g: 0.1929908, b: 0.09718762, a: 1}
-    - Vector2_6f5439596b5a4c02892247d222a8628a: {r: -0.78, g: -3.38, b: 0, a: 0}
+    - Color_4de7d5f77c9f42e58295d45fa58f9b93: {r: 0.1135636, g: 0.2754302, b: 0.8301887, a: 1}
+    - Color_80848e9588734d49b7c0587843afc239: {r: 0.5333334, g: 2.086275, b: 2.996078, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &5871222333214319878
+--- !u!114 &5470326962937515765
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

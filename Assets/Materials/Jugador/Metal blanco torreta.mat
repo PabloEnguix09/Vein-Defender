@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8783139407314237133
+--- !u!114 &-4583746216521466291
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,14 +20,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Metal azul toreta
-  m_Shader: {fileID: -6465566751694194690, guid: bbff75a07eb3a0b4fafc540d2259c587, type: 3}
+  m_Name: Metal blanco torreta
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -89,12 +90,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_0ea3a3057f5b4e33a56b3da493f812b8: 2
-    - Vector1_5ee3a882ca19460cb6a2583a856d0fb5: 1
-    - Vector1_a533f8921cfe42b7808902b7b95dd80e: 1
-    - Vector1_c51cac3352e8445b8befa96598ae3f5e: 0.7
-    - Vector1_db0990940fed40c08aea12a6d9552622: 0.8
-    - Vector1_f6c69bfcbeb84ff7aa73d1cc362d8feb: 1.21
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -109,12 +104,12 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Metallic: 0.58
+    - _Metallic: 0.3
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.74
+    - _Smoothness: 0.3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -122,11 +117,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_4de7d5f77c9f42e58295d45fa58f9b93: {r: 0.1135636, g: 0.2754302, b: 0.8301887, a: 0}
-    - Color_80848e9588734d49b7c0587843afc239: {r: 0.5333334, g: 2.086275, b: 2.996078, a: 1}
-    - Color_d395ab370ae04983b89fdec233d35b7f: {r: 0.6157441, g: 0.7481246, b: 0.9528302, a: 0}
-    - Color_d7c02e4ed4774a86a15ec7f9bad78cbf: {r: 0.04552332, g: 0.4402432, b: 0.8773585, a: 1}
-    - _BaseColor: {r: 0.02087896, g: 0.011764729, b: 0.98039216, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
