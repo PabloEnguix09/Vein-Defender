@@ -21,6 +21,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     TorretasDisponibles torretasDisponibles;
 
     public int indiceTorreta;
+    public GameObject datos;
 
     private void Awake()
     {
@@ -34,12 +35,15 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = .6f;
-        canvasGroup.blocksRaycasts = false;
+            canvasGroup.alpha = .6f;
+            canvasGroup.blocksRaycasts = false;
     }
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if(!datos.activeSelf)
+        {
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
     }
     public void OnEndDrag(PointerEventData eventData)
     {

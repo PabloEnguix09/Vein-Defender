@@ -139,6 +139,8 @@ public class Personaje : MonoBehaviour
     SistemaMejoras sistemaMejoras;
 
     public GameObject gui;
+    public GameObject menu;
+
     private void Start()
     {
         // Busca componentes internos
@@ -354,6 +356,21 @@ public class Personaje : MonoBehaviour
         }
         interaccionActual = null;
         paralizado = false;
+    }
+    public void PausarPartida()
+    {
+        if (!menu.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            camara.BloquearCamara(true);
+            menu.SetActive(true);
+        }
+        else if (menu.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            camara.BloquearCamara(false);
+            menu.SetActive(false);
+        }
     }
 
     // SOLO PARA LAS ESCENAS: Muestra el rayo de apuntado
