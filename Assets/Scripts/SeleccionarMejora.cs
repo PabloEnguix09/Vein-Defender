@@ -9,26 +9,30 @@ public class SeleccionarMejora : MonoBehaviour
     public SistemaMejoras mejoras;
     public MejoraItem[] listaMejoras;
 
-    private MejoraSlot[] mejoraSlots;
-    private List<Text> textos;
+    public MejoraSlot[] mejoraSlots;
+    public List<Text> textos;
 
     // Start is called before the first frame update
     private void Start()
     {
-        mejoraSlots = FindObjectsOfType<MejoraSlot>();
-        textos = new List<Text>(GetComponentsInChildren<Text>());
-        for(int j = 0; j < textos.Count; j++)
+        MostrarMejoras();
+    }
+    public void ClearMejoras()
+    {
+        for(int i = 0; i < mejoraSlots.Length; i++)
         {
-            if (!textos[j].name.Contains("Text"))
-            {
-                textos.RemoveAt(j);
-            }
+            mejoraSlots[i].Clear();
+            textos[i].text = "";
         }
+    }
+    public void MostrarMejoras()
+    {
+        ClearMejoras();
         int i = 0;
-        while(i < mejoraSlots.Length)
+        while (i < mejoraSlots.Length)
         {
             int aleatorizador = Random.Range(0, listaMejoras.Length - 1);
-            for(int j = 0; j < listaMejoras.Length; j++)
+            for (int j = 0; j < listaMejoras.Length; j++)
             {
                 // Mejoras Personaje
                 ComprobarActivada(ref mejoraSlots[i], textos[i], listaMejoras[aleatorizador], nameof(mejoras.vidaTbyte), ref mejoras.vidaTbyte);
@@ -65,7 +69,7 @@ public class SeleccionarMejora : MonoBehaviour
                 ComprobarActivada(ref mejoraSlots[i], textos[i], listaMejoras[aleatorizador], nameof(mejoras.mejoraCaminos), ref mejoras.mejoraCaminos);
                 ComprobarActivada(ref mejoraSlots[i], textos[i], listaMejoras[aleatorizador], nameof(mejoras.escudoDefensor), ref mejoras.escudoDefensor);
             }
-            if(textos[i].text != "New Text")
+            if (textos[i].text != "")
             {
                 i++;
             }
@@ -76,16 +80,10 @@ public class SeleccionarMejora : MonoBehaviour
     {
         if(slot.nombre == "")
         {
-            Debug.Log(nombreMejora + "/" + item.nombreMejora);
             if (nombreMejora.Equals(item.nombreMejora) && !mejora)
             {
-                Debug.Log("Aquí estamos");
-
                 if (!mejoraSlots[0].nombreMejora.Equals(nombreMejora) && !mejoraSlots[1].nombreMejora.Equals(nombreMejora) && !mejoraSlots[2].nombreMejora.Equals(nombreMejora))
                 {
-                    Debug.Log("mejoraSlots[0] = " + mejoraSlots[0].nombreMejora);
-                    Debug.Log("mejoraSlots[1] = " + mejoraSlots[1].nombreMejora);
-                    Debug.Log("mejoraSlots[2] = " + mejoraSlots[2].nombreMejora);
                     item.transform.position = slot.transform.position;
                     
                     //item.gameObject.SetActive(true);

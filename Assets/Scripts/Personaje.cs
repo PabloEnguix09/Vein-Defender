@@ -168,6 +168,13 @@ public class Personaje : MonoBehaviour
         Escudo = escudoMaximo;
     }
 
+
+
+
+
+    //todo: qUITAR EStO
+    public GameObject mejoraHUD;
+
     private void Update()
     {
         // Regenerar el escudo
@@ -199,6 +206,12 @@ public class Personaje : MonoBehaviour
         {
             gui.SetActive(true);
             CerrarInteraccion();
+        }
+        
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            camara.BloquearCamara(true);
+            mejoraHUD.SetActive(true);
         }
     }
 
