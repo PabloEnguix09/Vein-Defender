@@ -45,7 +45,7 @@ public class Personaje : MonoBehaviour
     float salud = 10;
 
     public GameObject dardoLocalizador;
-    public Camera camaraJugador;
+    public GameObject camaraJugador;
 
     private CameraController controladorCamara;
 

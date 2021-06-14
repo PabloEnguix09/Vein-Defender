@@ -31,6 +31,7 @@ public class InvocarTorreta : MonoBehaviour
     public float alturaSpawn = 50.0f;
 
     public GameObject torreta;
+    public GameObject camara;
     public GameObject caja;
     Rigidbody rb;
     bool colocada = true;
@@ -89,11 +90,11 @@ public class InvocarTorreta : MonoBehaviour
         RaycastHit punto;
 
         // Si existe torreta y está en el rango de colocación
-        if (torreta != null && (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, alcance, LayerMask.GetMask("Terreno"))))
+        if (torreta != null && (Physics.Raycast(camara.transform.position, camara.transform.forward, out punto, alcance, LayerMask.GetMask("Terreno"))))
         {
             // Posicion y rotacion de la preview
             torreta.transform.position = new Vector3(punto.point.x, punto.point.y, punto.point.z);
-            torreta.transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
+            torreta.transform.rotation = Quaternion.Euler(0, camara.transform.rotation.eulerAngles.y, 0);
 
             // Si pulsa clic izquierdo se "destruye" la torreta de previsualización y spawnea la otra más arriba
             if (Input.GetAxisRaw("Fire1") > 0)
