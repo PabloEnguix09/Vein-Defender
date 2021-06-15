@@ -9,7 +9,9 @@ using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    public Text audioTexto;
+    public Text audioGeneral;
+    public Text audioEfectos;
+    public Text audioMusica;
     Resolution[] resoluciones;
     public Dropdown resolucionDropdown;
     private void Start()
@@ -23,10 +25,21 @@ public class Settings : MonoBehaviour
         resolucionDropdown.value = i;
         resolucionDropdown.RefreshShownValue();
     }
-    public void SetVolumen (float volumen)
+    public void SetVolumenGeneral (float volumen)
     {
         audioMixer.SetFloat("volumen", volumen);
-        audioTexto.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
+        audioGeneral.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
+    }
+
+    public void SetVolumenEfectos(float volumen)
+    {
+        audioMixer.SetFloat("efectos", volumen);
+        audioEfectos.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
+    }
+    public void SetVolumenMusica(float volumen)
+    {
+        audioMixer.SetFloat("musica", volumen);
+        audioMusica.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
     }
 
     public void SetCalidad(int index)
