@@ -204,7 +204,7 @@ public class Personaje : MonoBehaviour
         // Cierra el menu actual
         if(Input.GetButtonDown("Cancelar"))
         {
-            gui.SetActive(true);
+            
             CerrarInteraccion();
         }
         
