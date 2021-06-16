@@ -85,8 +85,8 @@ public class MovimientoPersonaje : MonoBehaviour
         if(!volando)
         {
             rb.AddForce(Vector3.up * fuerzaSalto);
-            // Sonido del salto
-            // audioHandler.Play(0);
+            audioHandler.Play(4);
+
         }
     }
 
@@ -96,6 +96,7 @@ public class MovimientoPersonaje : MonoBehaviour
             collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.layer == 6)
         {
             volando = false;
+            audioHandler.Play(5);
         }
     }
     private void OnCollisionExit(Collision collision)
