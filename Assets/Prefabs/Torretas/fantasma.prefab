@@ -519,7 +519,7 @@ MonoBehaviour:
   danyoExplosion: 0
   torretaInhabilitada: 0
   parteQueRota: {fileID: 4361495345647431503}
-  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
+  balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
   spawnerBalas: {fileID: 660270741642782306}
   escudoObjeto: {fileID: 0}
   explosionElectrica: {fileID: 442871650001608145, guid: 11e22b382ecf84f45814bc83db35ce21, type: 3}

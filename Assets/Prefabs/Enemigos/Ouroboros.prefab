@@ -790,7 +790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: a2411b431505f5c4193f0b9370b67f70, type: 2}
   spawnerBalas: {fileID: 8117577643642498450}
-  balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
+  balaObjeto: {fileID: 359144644986097494, guid: 1d3e76fc0819f574585ca161d1614a7c, type: 3}
   parteQueRota: {fileID: 3541479366865799255}
   marcado: 0
 --- !u!114 &4503075357642713142

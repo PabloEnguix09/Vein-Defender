@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 8ae0e4c029cc0774fbac852a192b5595, type: 2}
   spawnerBalas: {fileID: 5753763042076639277}
-  balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
+  balaObjeto: {fileID: 359144644986097494, guid: 1d3e76fc0819f574585ca161d1614a7c, type: 3}
   parteQueRota: {fileID: 4122194809181225948}
   marcado: 0
 --- !u!114 &-4888898969836290369

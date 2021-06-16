@@ -252,9 +252,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuerza: 0
-  disparadorSO: {fileID: 0}
-  explosivoSO: {fileID: 0}
-  potenciadorSO: {fileID: 0}
 --- !u!114 &4463849795826808052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 0e3a6e9b407edcf488a817e12a786417, type: 2}
   spawnerBalas: {fileID: 1075940804398548172}
-  balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
+  balaObjeto: {fileID: 359144644986097494, guid: 1d3e76fc0819f574585ca161d1614a7c, type: 3}
   parteQueRota: {fileID: 3607602540176023739}
   marcado: 0
 --- !u!1 &3523981651138109368
