@@ -136,6 +136,8 @@ public class Torreta : MonoBehaviour
 
         timerDisparo = 0;
         timerActivacion = 0;
+
+        audioHandler.Play(0);
     }
 
     // Update is called once per frame
@@ -256,6 +258,8 @@ public class Torreta : MonoBehaviour
             Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
 
             bala.ataque = ataqueObjeto;
+
+            audioHandler.Play(1);
         }
         primerDisparo = true;
     }
@@ -438,11 +442,13 @@ public class Torreta : MonoBehaviour
     // Llamado desde InvocarTorretas.cs EliminarTorreta()
     public void DestruirTorreta()
     {
-            // Ajusta el animador a destruir
-            animator.SetBool("Destruir", true);
-            // Destruye la torreta y devuelve la energia al jugador
-            
-            Destroy(gameObject, 0.5f);
+        // Ajusta el animador a destruir
+        animator.SetBool("Destruir", true);
+        // Destruye la torreta y devuelve la energia al jugador
+
+        audioHandler.Play(3);
+
+        Destroy(gameObject, 0.5f);
             
     }
 
@@ -497,6 +503,9 @@ public class Torreta : MonoBehaviour
         else
         {
             vidaActual -= ataque.fuerza;
+
+            audioHandler.Play(2);
+
             ParticleSystem ps = explosionElectrica.GetComponentInChildren<ParticleSystem>();
             Instantiate(ps, transform.position, transform.rotation);
         }

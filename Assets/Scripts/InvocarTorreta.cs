@@ -61,7 +61,7 @@ public class InvocarTorreta : MonoBehaviour
         // Script de control de las animaciones
         animTByte = GetComponent<AnimTByte>();
 
-        audioHandler.GetComponent<AudioHandler>();
+        audioHandler = GetComponent<AudioHandler>();
     }
     // Se llama cuando se actualiza el menu HUD de seleccion de torretas antes de empezar a jugar
     // Asigna las torretas en uso al menu radial
@@ -110,6 +110,9 @@ public class InvocarTorreta : MonoBehaviour
                     torreta = null;
                     SpawnTorreta(torretaSpawn);
                     audioHandler.Play(0);
+                } else
+                {
+                    audioHandler.Play(1);
                 }
             }
 
@@ -120,15 +123,6 @@ public class InvocarTorreta : MonoBehaviour
                 torreta = null;
                 SetColocada(true);
                 return;
-            }
-        }else if (torreta != null)
-        {
-            torreta.transform.position = Vector3.zero;
-            
-            if (Input.GetAxisRaw("Fire1") > 0)
-            {
-
-                audioHandler.Play(1);
             }
         }
     }

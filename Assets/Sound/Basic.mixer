@@ -88,13 +88,7 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters:
-  - guid: ff42845637398ec488c858b810697f66
-    name: musica
-  - guid: ef17f7cd591beed4fb6ce013d5ca0e42
-    name: volumen
-  - guid: f14a6eca255f0194a864d0b91f21336c
-    name: efectos
+  m_ExposedParameters: []
   m_AudioMixerGroupViews:
   - guids:
     - e69805b636b7fa1499a6f9ce37af8d06
@@ -151,9 +145,8 @@ AudioMixerSnapshotController:
   m_SnapshotID: 207c52fa1834b3c4391406705edeb5be
   m_FloatValues:
     ff42845637398ec488c858b810697f66: -19.928473
-    f14a6eca255f0194a864d0b91f21336c: 0
+    f14a6eca255f0194a864d0b91f21336c: -9.833286
     a072dacbbf3b55f4d93e91e4f96fb6b3: 1
-    ef17f7cd591beed4fb6ce013d5ca0e42: 0
   m_TransitionOverrides: {}
 --- !u!243 &2469770798598495462
 AudioMixerGroupController:
@@ -161,7 +154,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SFX2
+  m_Name: Efectos
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: b9d57a99f0cfe8544ab4971518e8709e
   m_Children: []
