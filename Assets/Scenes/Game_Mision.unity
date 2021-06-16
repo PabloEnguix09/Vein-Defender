@@ -791,6 +791,8 @@ MonoBehaviour:
   velocidadEscritura: 0.02
   velocidadParpadeoCursor: 0.5
   finCinematica: 0
+  empezarAlIncio: 1
+  cinematicaIngame: 0
 --- !u!4 &2091355918
 Transform:
   m_ObjectHideFlags: 0
