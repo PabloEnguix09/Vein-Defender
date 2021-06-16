@@ -18,6 +18,8 @@ public class Sonido
     public string nombre;
     public int indice;
 
+    public Mixer mixer;
+
     [Range(0f,1f)]
     public float volumen;
     [Range(.1f, 3)]
@@ -25,4 +27,9 @@ public class Sonido
 
     [HideInInspector]
     public AudioSource origen;
+
+    public enum Mixer
+    {
+        master, sfx, ambiente, grupo, ost, efectos
+    }
 }

@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: -1160608237478097798}
   - component: {fileID: -1236091265150338304}
   - component: {fileID: 3728858351498193373}
+  - component: {fileID: 5955977171096673654}
   m_Layer: 10
   m_Name: Bomba
   m_TagString: Enemigo
@@ -205,6 +206,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: fd263d56c6e71f346bc3fd022b28834b, type: 2}
+  spawnerBalas: {fileID: 0}
+  balaObjeto: {fileID: 0}
+  parteQueRota: {fileID: 0}
+  marcado: 0
 --- !u!114 &-1073217368136597267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,9 +236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuerza: 0
-  parteQueRota: {fileID: 0}
-  balaObjeto: {fileID: 0}
-  spawnerBalas: {fileID: 0}
 --- !u!114 &-1236091265150338304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +262,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionTimeOffset: 0.5
   explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
+--- !u!114 &5955977171096673654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975631623353459767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidos:
+  - clip: {fileID: 8300000, guid: 950827becdbf5aa4f971b33241c7f816, type: 3}
+    nombre: Explosion
+    indice: 0
+    mixer: 5
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
 --- !u!1001 &1775343691
 PrefabInstance:
   m_ObjectHideFlags: 0

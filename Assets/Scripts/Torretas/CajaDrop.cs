@@ -28,12 +28,16 @@ public class CajaDrop : MonoBehaviour
     public Vector3 inicio;
     float time;
 
+    AudioHandler audioHandler;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         time = 0;
+
+        audioHandler = GetComponent<AudioHandler>();
     }
 
     void Update()
@@ -62,6 +66,8 @@ public class CajaDrop : MonoBehaviour
             {
                 aux.GetComponent<Torreta>().enabled = true;
             }
+
+            audioHandler.Play(0);
             // Se destruye en un segundo
             Destroy(gameObject, 1);
         }

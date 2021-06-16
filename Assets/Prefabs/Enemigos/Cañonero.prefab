@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2500620663094681956}
   - component: {fileID: 7431269727464984180}
   - component: {fileID: 8272339225451697678}
+  - component: {fileID: 707149833409078214}
   m_Layer: 10
   m_Name: "Ca\xF1onero"
   m_TagString: Enemigo
@@ -138,9 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuerza: 0
-  disparadorSO: {fileID: 0}
-  explosivoSO: {fileID: 0}
-  potenciadorSO: {fileID: 0}
 --- !u!114 &2500620663094681956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +181,27 @@ MonoBehaviour:
   balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
   parteQueRota: {fileID: 1356691941285870505}
   marcado: 0
+--- !u!114 &707149833409078214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203235339101626170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidos:
+  - clip: {fileID: 8300000, guid: 950827becdbf5aa4f971b33241c7f816, type: 3}
+    nombre: Disparo
+    indice: 0
+    mixer: 5
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
 --- !u!1 &714758705938925563
 GameObject:
   m_ObjectHideFlags: 0

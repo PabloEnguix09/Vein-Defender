@@ -348,7 +348,6 @@ GameObject:
   - component: {fileID: -6276786364535825722}
   - component: {fileID: 2672683354362075903}
   - component: {fileID: 6205804620449027341}
-  - component: {fileID: 5229012629665931451}
   m_Layer: 7
   m_Name: CamaraMejora
   m_TagString: Torreta
@@ -490,127 +489,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidos:
-  - clip: {fileID: 8300000, guid: 47b22091bbf72a444a1648a6873623b3, type: 3}
+  - clip: {fileID: 8300000, guid: da4ac277c19f78b47a5502267b7e51d9, type: 3}
     nombre: Montaje
     indice: 0
+    mixer: 5
     volumen: 1
     tono: 2
     origen: {fileID: 0}
   - clip: {fileID: 8300000, guid: 47b22091bbf72a444a1648a6873623b3, type: 3}
     nombre: Disparo
     indice: 1
+    mixer: 5
     volumen: 1
     tono: 1
     origen: {fileID: 0}
   - clip: {fileID: 8300000, guid: a41fb430ae59c664cb08ef813b96b160, type: 3}
     nombre: Danyo
     indice: 2
+    mixer: 5
     volumen: 1
     tono: 1
     origen: {fileID: 0}
-  - clip: {fileID: 8300000, guid: ff706d684ee8b5748a49550b656c6bcb, type: 3}
+  - clip: {fileID: 8300000, guid: dbe2eb53a9219074e9aa52fe9df30a8a, type: 3}
     nombre: Muerte
     indice: 3
+    mixer: 5
     volumen: 1
     tono: 1
     origen: {fileID: 0}
   mixer: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
---- !u!82 &5229012629665931451
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4904404024952468192}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 0
-  MinDistance: 10
-  MaxDistance: 100
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &7330321673518686141
 GameObject:
   m_ObjectHideFlags: 0
