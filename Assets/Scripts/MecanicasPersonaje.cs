@@ -102,7 +102,7 @@ public class MecanicasPersonaje : MonoBehaviour
             personaje.CerrarInteraccion();
         }
         // Cae mas rapido
-        if (Input.GetButtonDown(caer))
+        if (Input.GetAxisRaw(caer) > 0)
         {
             personaje.Caer();
         }
