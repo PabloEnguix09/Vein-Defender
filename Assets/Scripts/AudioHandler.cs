@@ -31,10 +31,7 @@ public class AudioHandler : MonoBehaviour
 
         foreach (Sonido s in sonidos)
         {
-            s.origen = gameObject.AddComponent<AudioSource>();
-            s.origen.clip = s.clip;
-            s.origen.volume = s.volumen;
-            s.origen.pitch = s.tono;
+            s.origen = gameObject.GetComponent<AudioSource>();
             s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master/SFX/Efectos")[0];
         }
     }
@@ -44,6 +41,10 @@ public class AudioHandler : MonoBehaviour
         if (timer <= 0)
         {
             Sonido s = Array.Find(sonidos, sonido => sonido.indice == indice);
+
+            s.origen.clip = s.clip;
+            s.origen.volume = s.volumen;
+            s.origen.pitch = s.tono;
             s.origen.Play();
             timer = maxTimer;
         }
