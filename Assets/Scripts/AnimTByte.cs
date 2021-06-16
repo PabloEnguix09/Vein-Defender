@@ -22,7 +22,15 @@ public class AnimTByte : MonoBehaviour
 
     public void SeleccionDeTorreta(bool estado)
     {
-        animator.SetBool("SeleccionDeTorreta",estado);
+        if(estado)
+        {
+            animator.SetBool("SeleccionDeTorreta", estado);
+        }
+        else
+        {
+            animator.SetBool("SeleccionDeTorreta", estado);
+            animator.SetTrigger("SoltarSeleccion");
+        }
     }
 
     public void InvocarTorreta()
