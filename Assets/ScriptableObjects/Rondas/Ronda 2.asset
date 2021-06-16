@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1557faed24b3a5049804c1a67a6ec679, type: 3}
+  m_Name: Ronda 2
+  m_EditorClassIdentifier: 
+  radioSpawn: 3
+  limitePrimerEnemigo: 10
+  tiempoAparicionPrimerEnemigo: 0.5
+  primerTipoDeEnemigo: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
+  limiteSegundoEnemigo: 6
+  tiempoAparicionSegundoEnemigo: 3
+  segundoTipoDeEnemigo: {fileID: 1018791793810155938, guid: 592e17a9058fdf64bb1a8100f1bed7ff, type: 3}
+  limiteTercerEnemigo: 10
+  tiempoAparicionTercerEnemigo: 1
+  tercerTipoDeEnemigo: {fileID: 3671158431268791085, guid: 146c3484969542e4cbf96fc36ef21119, type: 3}

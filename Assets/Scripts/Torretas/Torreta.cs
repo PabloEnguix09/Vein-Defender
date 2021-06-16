@@ -77,6 +77,7 @@ public class Torreta : MonoBehaviour
     public GameObject explosionElectrica;
     public ParticleSystem explosionBala;
     Animator animator;
+    bool primerDisparo = false;
 
     // Start is called before the first frame update
     void Start()
@@ -167,7 +168,7 @@ public class Torreta : MonoBehaviour
                     if (timerDisparo > cadenciaDisparo)
                     {
                         timerDisparo = 0;
-                        Disparar();
+                        Disparar(enemigoApuntando);
                     }
                 }
             }
@@ -226,33 +227,37 @@ public class Torreta : MonoBehaviour
         }
     }
 
-    public void Disparar()
+    public void Disparar(GameObject objetivo)
     {
-        // Animacion de disparo si lanza balas
-        if (torretaBasica.tipoDisparo == TorretaSO.TipoDisparo.balas)
+        if (primerDisparo)
         {
-            animator.SetTrigger("Disparo");
+            // Animacion de disparo si lanza balas
+            if (torretaBasica.tipoDisparo == TorretaSO.TipoDisparo.balas)
+            {
+                animator.SetTrigger("Disparo");
+            }
+            // sonido disparar
+            // audioHandler.Play(0);
+            // Crea las particulas del disparo si el tipo es de balas
+            if (torretaBasica.tipoDisparo == TorretaSO.TipoDisparo.balas)
+            {
+                Destroy(Instantiate(explosionBala, spawnerBalas.transform.position, spawnerBalas.transform.rotation), 1f);
+            }
+
+            Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
+
+            ataqueObjeto.fuerza = ataque;
+            ataqueObjeto.tipo = Ataque.Tipo.laser;
+            ataqueObjeto.origen = gameObject;
+            ataqueObjeto.fuerzaExplosion = danyoExplosion;
+            ataqueObjeto.radioExplosion = radioExplosion;
+
+
+            Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
+
+            bala.ataque = ataqueObjeto;
         }
-        // sonido disparar
-        // audioHandler.Play(0);
-        // Crea las particulas del disparo si el tipo es de balas
-        if (torretaBasica.tipoDisparo == TorretaSO.TipoDisparo.balas)
-        {
-            Destroy(Instantiate(explosionBala, spawnerBalas.transform.position, spawnerBalas.transform.rotation), 1f);
-        }
-
-        Ataque ataqueObjeto = ScriptableObject.CreateInstance<Ataque>();
-
-        ataqueObjeto.fuerza = ataque;
-        ataqueObjeto.tipo = Ataque.Tipo.laser;
-        ataqueObjeto.origen = gameObject;
-        ataqueObjeto.fuerzaExplosion = danyoExplosion;
-        ataqueObjeto.radioExplosion = radioExplosion;
-
-
-        Bala bala = Instantiate(balaObjeto, spawnerBalas.transform.position, spawnerBalas.transform.rotation).GetComponent<Bala>();
-
-        bala.ataque = ataqueObjeto;
+        primerDisparo = true;
     }
 
     //Funcion de busqueda de EnemigoControlador.stats

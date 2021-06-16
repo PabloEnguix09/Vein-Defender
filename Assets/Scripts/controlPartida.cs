@@ -32,6 +32,9 @@ public class controlPartida : MonoBehaviour
 
     public GameObject mejora;
 
+    public float tiempoEntreRondas;
+    private float timer;
+
     private bool finDePartida;
     private bool finDeRonda;
     private bool todosSpawneados;
@@ -77,7 +80,7 @@ public class controlPartida : MonoBehaviour
         //comprobar si han spawneado todos los Enemigo
         foreach (Spawner s in spawners)
         {
-            if(s.conteo == s.limitePrimerEnemigo && s.conteo2 == s.limiteSegundoEnemigo)
+            if(s.contador == s.limitePrimerEnemigo && s.contador2 == s.limiteSegundoEnemigo && s.contador3 == s.limiteTercerEnemigo)
             {
                 todosSpawneados = true;
             }
@@ -89,52 +92,80 @@ public class controlPartida : MonoBehaviour
             finDeRonda = true;
         }
 
+        // Empieza la nueva ronda
         if (finDeRonda)
         {
-            ronda++;
-            switch (ronda)
+            timer += Time.deltaTime;
+            if(timer > tiempoEntreRondas)
             {
-                case 2:
-                    foreach (Spawner s in spawners)
-                    {
-                        //inicio ronda 2
-                        s.conteo = 0;
-                        s.conteo2 = 0;
-                        s.limitePrimerEnemigo = 10;
-                        s.limiteSegundoEnemigo = 10;
-                        textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 2";
-                        ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
-                        textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 2";
-                    }
-                    break;
-                case 3:
-                    foreach (Spawner s in spawners)
-                    {
-                        //inicio ronda 3
-                        s.conteo = 0;
-                        s.conteo2 = 0;
-                        s.limitePrimerEnemigo = 15;
-                        s.limiteSegundoEnemigo = 15;
-                        textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 3";
-                        ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
-                        textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 3";
-                    }
-                    break;
-                case 4:
-                    //ronda 4 o en este caso fin de la zona
-                    foreach (Spawner s in spawners)
-                    {
-                        int misionesCompletadas = PlayerPrefs.GetInt("misiones_completadas");
-                        PlayerPrefs.SetInt("misiones_completadas", misionesCompletadas + 1);
-                        Cursor.lockState = CursorLockMode.None;
-                        mejora.SetActive(true);
-                        //SceneManager.LoadScene(SceneManager.GetSceneAt(1).ToString());
-                    }
-                    break;
-                default:
+                ronda++;
+                timer = 0;
 
-                    break;
+                switch (ronda)
+                {
+                    case 2:
+                        foreach (Spawner s in spawners)
+                        {
+                            //inicio ronda 2
+                            s.contador = 0;
+                            s.contador2 = 0;
+                            s.contador3 = 0;
+                            s.limitePrimerEnemigo += 5;
+                            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 2";
+                            ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+                            s.SetRonda(ronda);
+                            textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 2";
+                        }
+                        break;
+                    case 3:
+                        foreach (Spawner s in spawners)
+                        {
+                            //inicio ronda 3
+                            s.contador = 0;
+                            s.contador2 = 0;
+                            s.contador3 = 0;
+                            s.limitePrimerEnemigo = s.limitePrimerEnemigo * 2;
+                            s.limiteSegundoEnemigo += 5;
+                            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 3";
+                            ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+                            s.SetRonda(ronda);
+                            textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 3";
+                        }
+                        break;
+                    case 4:
+                        foreach (Spawner s in spawners)
+                        {
+                            //inicio ronda 4
+                            s.contador = 0;
+                            s.contador2 = 0;
+                            s.contador3 = 0;
+                            s.limitePrimerEnemigo += 10;
+                            s.limiteSegundoEnemigo = s.limiteSegundoEnemigo * 2;
+                            s.limiteTercerEnemigo += 5;
+                            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 3";
+                            ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+                            s.SetRonda(ronda);
+                            textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 4";
+                        }
+                        break;
+                    case 5:
+                        //ronda 4 o en este caso fin de la zona
+                        foreach (Spawner s in spawners)
+                        {
+                            int misionesCompletadas = PlayerPrefs.GetInt("misiones_completadas");
+                            PlayerPrefs.SetInt("misiones_completadas", misionesCompletadas + 1);
+                            Cursor.lockState = CursorLockMode.None;
+                            mejora.SetActive(true);
+                            //SceneManager.LoadScene(SceneManager.GetSceneAt(1).ToString());
+                        }
+                        break;
+                    default:
+
+                        break;
+                }
             }
+
+
         }
 
         if (finDePartida)
@@ -143,12 +174,11 @@ public class controlPartida : MonoBehaviour
         }
 
         //Pulsar la <k> para empezar rondas/partida
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && ronda == 1)
         {
             foreach(Spawner s in spawners)
             {
-                StartCoroutine(s.Aparicion());
-                StartCoroutine(s.AparicionBombas());
+                s.SetRonda(ronda);
                 textoEstado.GetComponent<UnityEngine.UI.Text>().text = "";
                 ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
             }

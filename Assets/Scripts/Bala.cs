@@ -128,9 +128,9 @@ public class Bala : MonoBehaviour
                 ExplosionAtaque(ataque);
             }
         } 
-        if(collision.gameObject.CompareTag("Terreno"))
-        {
-            ExplosionAtaque(ataque);
+        if(collision.gameObject.CompareTag("Terreno"))
+        {
+            ExplosionAtaque(ataque);            //Destroy(gameObject);
         }
     }
     // Busca objetivos cerca del punto de impacto
