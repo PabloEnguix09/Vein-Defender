@@ -110,7 +110,6 @@ public class InvocarTorreta : MonoBehaviour
                     Transform torretaSpawn = torretas[torretaPreviewIndex].transform;
                     torretaSpawn.position = torreta.transform.position;
                     torretaSpawn.rotation = torreta.transform.rotation;
-                    print(torretaSpawn.gameObject.name);
                     if (personaje.Energia - torretaSpawn.gameObject.GetComponent<Torreta>().torretaBasica.energia >= 0)
                     {
 
@@ -184,7 +183,7 @@ public class InvocarTorreta : MonoBehaviour
 
                 animTByte.InvocarTorreta();
                 aux.GetComponent<CajaDrop>().torreta = torreta.gameObject;
-                print(torreta.gameObject.GetComponent<Torreta>().torretaBasica.energia);
+
             }
 
         
