@@ -149,6 +149,7 @@ public class Personaje : MonoBehaviour
         sistemaMejoras = FindObjectOfType<SistemaMejoras>();
         movimientoPersonaje = gameObject.GetComponent<MovimientoPersonaje>();
         controladorCamara = transform.GetComponentInChildren<CameraController>();
+        audioHandler = gameObject.GetComponent<AudioHandler>();
         // Script de control de las animaciones
         animTByte = GetComponent<AnimTByte>();
         // Activa el sistema de mejoras y las aplica al personaje
@@ -156,8 +157,6 @@ public class Personaje : MonoBehaviour
         sistemaMejoras.DesbloquearTorreta();
         sistemaMejoras.MejorasUtilidades();
         sistemaMejoras.lladamaProvisonalTorretas();
-
-        audioHandler = GetComponent<AudioHandler>();
 
     }
 

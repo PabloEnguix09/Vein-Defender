@@ -35,7 +35,7 @@ public class AudioHandler : MonoBehaviour
             s.origen.clip = s.clip;
             s.origen.volume = s.volumen;
             s.origen.pitch = s.tono;
-            s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master/SFX")[0];
+            s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master/SFX/Efectos")[0];
         }
     }
 
