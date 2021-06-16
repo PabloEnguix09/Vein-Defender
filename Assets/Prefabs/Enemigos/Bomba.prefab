@@ -381,7 +381,11 @@ PrefabInstance:
     - target: {fileID: -4683669308469848369, guid: 2200ea751877fe3498e65db49d11e390, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f55d3fc172a02ab48abb5428cb0e02d4, type: 2}
+      objectReference: {fileID: 2100000, guid: bf6e3852a93043e47b0155b148f62101, type: 2}
+    - target: {fileID: -4587302668392987624, guid: 2200ea751877fe3498e65db49d11e390, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 26bf5d3c1f237c143b975513da002983, type: 2}
     - target: {fileID: -3542852092398272455, guid: 2200ea751877fe3498e65db49d11e390, type: 3}
       propertyPath: m_LocalScale.x
       value: 35.50037
@@ -446,6 +450,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2571118854743697038, guid: 2200ea751877fe3498e65db49d11e390, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1aff5d0b206321d4d8abf23d0e591724, type: 2}
     - target: {fileID: -1255605710908113952, guid: 2200ea751877fe3498e65db49d11e390, type: 3}
       propertyPath: m_LocalScale.x
       value: 35.50037
@@ -485,11 +493,11 @@ PrefabInstance:
     - target: {fileID: -804731622281664130, guid: 2200ea751877fe3498e65db49d11e390, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f55d3fc172a02ab48abb5428cb0e02d4, type: 2}
+      objectReference: {fileID: 2100000, guid: bf6e3852a93043e47b0155b148f62101, type: 2}
     - target: {fileID: -678588488315902003, guid: 2200ea751877fe3498e65db49d11e390, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f55d3fc172a02ab48abb5428cb0e02d4, type: 2}
+      objectReference: {fileID: 2100000, guid: bf6e3852a93043e47b0155b148f62101, type: 2}
     - target: {fileID: 919132149155446097, guid: 2200ea751877fe3498e65db49d11e390, type: 3}
       propertyPath: m_Name
       value: Enemigo_bomba
