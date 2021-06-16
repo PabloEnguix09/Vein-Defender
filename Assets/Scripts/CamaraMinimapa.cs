@@ -16,6 +16,8 @@ public class CamaraMinimapa : MonoBehaviour
 
     Transform camara;
 
+    public Transform marcadorPersonaje;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +28,7 @@ public class CamaraMinimapa : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.Euler(90, camara.rotation.eulerAngles.y, 0);
+
+        marcadorPersonaje.rotation = Quaternion.Euler(0, 180 + camara.rotation.eulerAngles.y, 0);
     }
 }

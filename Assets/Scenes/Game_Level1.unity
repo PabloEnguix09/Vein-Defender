@@ -256,7 +256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &18584086
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4585,7 +4585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &552588687
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11882,6 +11882,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1515222255 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1253159929, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+  m_PrefabInstance: {fileID: 6328634591610334700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1518711523
 GameObject:
   m_ObjectHideFlags: 0
@@ -16927,6 +16932,10 @@ PrefabInstance:
       propertyPath: m_CollideAgainst.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 6328634591501453580, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: marcadorPersonaje
+      value: 
+      objectReference: {fileID: 1515222255}
     - target: {fileID: 7245097352200548779, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: m_Volume
       value: 1
