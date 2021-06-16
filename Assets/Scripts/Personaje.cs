@@ -76,12 +76,12 @@ public class Personaje : MonoBehaviour
                 // Vuelve la camara al jugador si esta la secundaria activada
                 if (camaraMejora != null)
                 {
-                    if (camaraMejora.GetComponentInChildren<Camera>().enabled)
+                    if (camaraMejora.GetComponent<CamaraMejora>().camara.activeSelf)
                     {
 
-                        camaraMejora.GetComponentInChildren<Camera>().enabled = false;
+                        camaraMejora.GetComponent<CamaraMejora>().camara.SetActive(false);
 
-                        camara.camara.GetComponent<Camera>().enabled = true;
+                        camaraJugador.SetActive(true);
 
                         camaraSecundariaActivada = false;
 
@@ -186,7 +186,7 @@ public class Personaje : MonoBehaviour
         // Si en algun momento la camara es destruida, vuelve la vista al jugador
         if(camaraMejora == null && camaraSecundariaActivada)
         {
-            camara.camara.GetComponent<Camera>().enabled = true;
+            camaraJugador.SetActive(true);
             camaraSecundariaActivada = false;
         }
 
@@ -204,7 +204,7 @@ public class Personaje : MonoBehaviour
         // Cierra el menu actual
         if(Input.GetButtonDown("Cancelar"))
         {
-            gui.SetActive(true);
+            
             CerrarInteraccion();
         }
         
@@ -320,16 +320,16 @@ public class Personaje : MonoBehaviour
 
         if(camaraMejora != null)
         {
-            if(camaraMejora.GetComponentInChildren<Camera>().enabled)
+            if(camaraMejora.GetComponent<CamaraMejora>().camara.activeSelf)
             {
-                camaraMejora.GetComponentInChildren<Camera>().enabled = false;
-                camara.camara.GetComponent<Camera>().enabled = true;
+                camaraMejora.GetComponent<CamaraMejora>().camara.SetActive(false);
+                camaraJugador.SetActive(true);
                 camaraSecundariaActivada = false;
             } 
             else
             {
-                camara.camara.GetComponent<Camera>().enabled = false;
-                camaraMejora.GetComponentInChildren<Camera>().enabled = true;
+                camaraMejora.GetComponent<CamaraMejora>().camara.SetActive(true);
+                camaraJugador.SetActive(false);
                 camaraSecundariaActivada = true;
             }
         }
