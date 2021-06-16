@@ -19,17 +19,23 @@ public class MecanicasPersonaje : MonoBehaviour
     private Personaje personaje;
     private InvocarTorreta invocar;
     CameraController cameraController;
+    bool EstasEnLaNave;
 
     public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara, pausa, disparar, interactuar, cerrarInteraccion, caer;
 
     private void Start()
     {
+        EstasEnLaNave = true;
         personaje = GetComponent<Personaje>();
         invocar = GetComponent<InvocarTorreta>();
         cameraController = FindObjectOfType<CameraController>();
     }
     private void Update()
     {
+        if(personaje.gameObject.transform.position.y < 100)
+        {
+            EstasEnLaNave = false;
+        }
         // Si el jugador no esta paralizado
         if(!personaje.paralizado)
         {
@@ -53,20 +59,24 @@ public class MecanicasPersonaje : MonoBehaviour
         // No pueden usarse con la camara secundaria
         if (!personaje.camaraSecundariaActivada)
         {
-            if (invocar.GetColocada())
+            if (!EstasEnLaNave)
             {
-                // No puede abrirse si ya hay otro abierto
-                if (Input.GetAxisRaw(menuRadial) > 0 && !invocar.menuRadial.activeSelf)
+                if (invocar.GetColocada())
                 {
-                    cameraController.BloquearCamara(true);
-                    invocar.AlternarMenuRadial(true);
-                }
-                else if (Input.GetAxisRaw(menuRadial) <= 0 && invocar.menuRadial.activeSelf)
-                {
-                    cameraController.BloquearCamara(false);
-                    invocar.AlternarMenuRadial(false);
+                    // No puede abrirse si ya hay otro abierto
+                    if (Input.GetAxisRaw(menuRadial) > 0 && !invocar.menuRadial.activeSelf)
+                    {
+                        cameraController.BloquearCamara(true);
+                        invocar.AlternarMenuRadial(true);
+                    }
+                    else if (Input.GetAxisRaw(menuRadial) <= 0 && invocar.menuRadial.activeSelf)
+                    {
+                        cameraController.BloquearCamara(false);
+                        invocar.AlternarMenuRadial(false);
+                    }
                 }
             }
+            
 
             if (Input.GetAxisRaw(eliminarTorreta) > 0)
             {

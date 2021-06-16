@@ -136,6 +136,15 @@ public class InvocarTorreta : MonoBehaviour
                 SetColocada(true);
                 return;
             }
+        }else if(torreta != null)
+        {
+            torreta.transform.position = Vector3.zero;
+            if (Input.GetAxisRaw("Fire1") > 0)
+            {
+                audioHandler.Play(1);
+            }
+             
+            
         }
     }
 

@@ -160,12 +160,13 @@ public class Interaccion : MonoBehaviour
         camaraTByte.SetActive(true);
         camaraSelector.SetActive(false);
         camaraPuerta.SetActive(false);
-        luz.SetActive(false);
+        
 
         //esperar al cambio de cámara
         yield return new WaitForSeconds(2);
 
         //regresar el control al usuario
+        luz.SetActive(false);
         gui.SetActive(true);
         cameraController.BloquearCamara(false);
 
