@@ -264,8 +264,6 @@ public class Personaje : MonoBehaviour
     public void Saltar()
     {
         movimientoPersonaje.Saltar();
-        animTByte.Salto();
-
     }
 
     public void Caer()

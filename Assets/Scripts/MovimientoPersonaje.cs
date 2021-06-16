@@ -31,6 +31,7 @@ public class MovimientoPersonaje : MonoBehaviour
     private Movimientos tipos;
 
     AudioHandler audioHandler;
+    AnimTByte animTByte;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class MovimientoPersonaje : MonoBehaviour
         maximaVelocidad = velocidadCaminar;
 
         audioHandler = gameObject.GetComponent<AudioHandler>();
+        animTByte = GetComponent<AnimTByte>();
     }
 
     // Update is called once per frame
@@ -80,6 +82,7 @@ public class MovimientoPersonaje : MonoBehaviour
         {
             rb.AddForce(Vector3.up * fuerzaSalto);
             audioHandler.Play(4);
+            animTByte.Salto();
         }
     }
 

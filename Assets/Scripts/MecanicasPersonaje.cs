@@ -83,10 +83,9 @@ public class MecanicasPersonaje : MonoBehaviour
             personaje.PausarPartida();
         }
         //Disparo de dardo localizador
-        if (Input.GetButtonDown(disparar))
+        if (Input.GetButtonDown(disparar) && invocar.GetColocada())
         {
             personaje.DispararDardo();
-
         }
         // Interactua con un objeto
         if (Input.GetButtonDown(interactuar))
