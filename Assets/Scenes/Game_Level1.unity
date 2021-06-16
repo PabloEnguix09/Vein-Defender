@@ -16686,7 +16686,7 @@ PrefabInstance:
     - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: sonidos.Array.data[4].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 47b22091bbf72a444a1648a6873623b3, type: 3}
+      objectReference: {fileID: 8300000, guid: b4897e8898a6b7f4e85aff18d2a7659f, type: 3}
     - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: sonidos.Array.data[4].tono
       value: 1
@@ -16694,7 +16694,7 @@ PrefabInstance:
     - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: sonidos.Array.data[5].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 47b22091bbf72a444a1648a6873623b3, type: 3}
+      objectReference: {fileID: 8300000, guid: 0576eaa6e2fbf83489a303daf0090eb4, type: 3}
     - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: sonidos.Array.data[5].tono
       value: 1
@@ -16761,7 +16761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: sonidos.Array.data[4].volumen
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1231788366, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: sonidos.Array.data[5].volumen
@@ -16814,6 +16814,26 @@ PrefabInstance:
     - target: {fileID: 4821090250797695093, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695094, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: caer
+      value: Caer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695094, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: disparar
+      value: Fire1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695094, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: interactuar
+      value: Fire2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695094, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: cerrarInteraccion
+      value: Cancelar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695095, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: gui

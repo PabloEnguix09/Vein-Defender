@@ -21,7 +21,7 @@ public class MecanicasPersonaje : MonoBehaviour
     CameraController cameraController;
     AnimTByte animTByte;
 
-    public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara, pausa;
+    public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara, pausa, disparar, interactuar, cerrarInteraccion, caer;
 
     private void Start()
     {
@@ -84,6 +84,27 @@ public class MecanicasPersonaje : MonoBehaviour
         if(Input.GetButtonDown(pausa))
         {
             personaje.PausarPartida();
+        }
+        //Disparo de dardo localizador
+        if (Input.GetButtonDown(disparar))
+        {
+            personaje.DispararDardo();
+
+        }
+        // Interactua con un objeto
+        if (Input.GetButtonDown(interactuar))
+        {
+            personaje.Interactuar();
+        }
+        // Cierra el menu actual
+        if (Input.GetButtonDown(cerrarInteraccion))
+        {
+            personaje.CerrarInteraccion();
+        }
+        // Cae mas rapido
+        if (Input.GetButtonDown(caer))
+        {
+            personaje.Caer();
         }
     }
 }
