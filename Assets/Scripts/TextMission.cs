@@ -28,15 +28,27 @@ public class TextMission : MonoBehaviour
 
     //fin de la cinematica
     public bool finCinematica;
+    public bool empezarAlIncio;
+    public bool cinematicaIngame;
+
+
+    Coroutine textoChachi;
+    Coroutine cursorChachi;
+
 
     void Start()
     {
         //vaciar el texto
         texto.text = "";
-        //empezar a escribir
-        StartCoroutine(Escribir());
-        //parpadeo del cursor
-        StartCoroutine(ParpadeoCursor());
+
+        if (empezarAlIncio)
+        {
+            //empezar a escribir
+            textoChachi = StartCoroutine(Escribir());
+            //parpadeo del cursor
+            cursorChachi = StartCoroutine(ParpadeoCursor());
+        }
+        
         
 
     }
@@ -51,12 +63,34 @@ public class TextMission : MonoBehaviour
         {
             //mostrar el texto de abajo
             textoFin.SetActive(true);
-            if (Input.anyKeyDown)
+
+            if (!cinematicaIngame)
             {
-                //al pulsar cualquier tecla carga la siguiente escena
-                SceneManager.LoadScene(GameScene);
+                if (Input.anyKeyDown)
+                {
+                    //al pulsar cualquier tecla carga la siguiente escena
+                    SceneManager.LoadScene(GameScene);
+                }
             }
+            
         }
+    }
+
+    public void EmpezarCinematica()
+    {
+        if (textoChachi != null && cursorChachi!=null)
+        {
+            StopCoroutine(textoChachi);
+            StopCoroutine(cursorChachi);
+        }
+        
+
+        textoBuffer = "";
+        texto.text = "";
+        //empezar a escribir
+        textoChachi = StartCoroutine(Escribir());
+        //parpadeo del cursor
+        cursorChachi = StartCoroutine(ParpadeoCursor());
     }
 
     IEnumerator Escribir()

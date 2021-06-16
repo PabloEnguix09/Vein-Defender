@@ -28,13 +28,16 @@ public class Interaccion : MonoBehaviour
     public GameObject camaraSelector;
     public GameObject camaraPuerta;
 
+    public GameObject postProcesado;
+
     CameraController cameraController;
 
     public GameObject gui;
     public Image mira;
     public enum TipoItem
     {
-        pcTorretas = 1
+        pcTorretas = 1,
+        mapaMision = 2
     }
 
     // Start is called before the first frame update
@@ -70,6 +73,21 @@ public class Interaccion : MonoBehaviour
             
             return this;
         }
+
+        if(tipoItem == TipoItem.mapaMision)
+        {
+            postProcesado.SetActive(true);
+            GetComponentInChildren<TextMission>().EmpezarCinematica();
+
+            camaraSelector.SetActive(true);
+            camaraTByte.SetActive(false);
+
+            hud.SetActive(true);
+            gui.SetActive(false);
+
+            cameraController.BloquearCamara(true);
+            return this;
+        }
         
         return null;
     }
@@ -103,6 +121,21 @@ public class Interaccion : MonoBehaviour
             
             
         }
+
+        if (tipoItem == TipoItem.mapaMision)
+        {
+            postProcesado.SetActive(false);
+            camaraTByte.SetActive(true);
+            camaraSelector.SetActive(false);
+
+            hud.SetActive(false);
+            gui.SetActive(true);
+
+            cameraController.BloquearCamara(false);
+
+        }
+
+
     }
 
     public void abrirPuerta()

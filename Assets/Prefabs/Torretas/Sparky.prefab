@@ -1357,8 +1357,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807558183801602318}
-  m_LocalRotation: {x: 0, y: 0.77577144, z: 0, w: -0.631014}
-  m_LocalPosition: {x: -4.7080727, y: 23.347322, z: 50.029224}
+  m_LocalRotation: {x: 0, y: 0.16632661, z: 0, w: -0.98607075}
+  m_LocalPosition: {x: -71.96582, y: 1.9934626, z: 118.241135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2666752234006740351}
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   danyoExplosion: 0
   torretaInhabilitada: 0
   parteQueRota: {fileID: 6562513235513097709}
-  balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
+  balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
   spawnerBalas: {fileID: 2485099149355150768}
   escudoObjeto: {fileID: 3758823761721074484, guid: a3335bcd79ee8e54d9011103c0010362, type: 3}
   explosionElectrica: {fileID: 442871650001608145, guid: 11e22b382ecf84f45814bc83db35ce21, type: 3}
