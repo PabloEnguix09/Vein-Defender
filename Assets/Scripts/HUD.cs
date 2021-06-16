@@ -35,6 +35,8 @@ public class HUD : MonoBehaviour
 
         // se llama la primera vez para no tener un array vacio en InvocarTorreta.cs
         actualizarTorretasUso();
+
+        personaje = GameObject.Find("Jugador").GetComponent<Personaje>();
     }
 
     public void actualizarTorretasUso()
@@ -51,5 +53,6 @@ public class HUD : MonoBehaviour
     public void OnClickCerrar()
     {
         personaje.CerrarInteraccion();
+
     }
 }

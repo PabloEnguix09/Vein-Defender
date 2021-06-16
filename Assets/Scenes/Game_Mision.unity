@@ -602,7 +602,7 @@ MonoBehaviour:
 '
   - segundosEspera: 2
     "limpiarP\xE1gina": 0
-    texto: "--Informac\xEDon-------------------"
+    texto: "--Informaci\xF3n-------------------"
   - segundosEspera: 0
     "limpiarP\xE1gina": 0
     texto: Ayax Federation S.L.
@@ -788,7 +788,7 @@ MonoBehaviour:
   textoFin: {fileID: 1971600588}
   buffer: {fileID: 1447934770}
   GameScene: 2
-  velocidadEscritura: 0.03
+  velocidadEscritura: 0.02
   velocidadParpadeoCursor: 0.5
   finCinematica: 0
 --- !u!4 &2091355918
