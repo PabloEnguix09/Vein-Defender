@@ -36,11 +36,13 @@ public class ComponenteAtaque : MonoBehaviour
     DisparadorSO disparadorSO;
     ExplosivoSO explosivoSO;
     PotenciadorSO potenciadorSO;
+    AudioHandler audioHandler;
     #endregion
 
     private void Start()
     {
         controlador = GetComponent<ControladorEntidad>();
+        audioHandler = GetComponent<AudioHandler>();
         // Fuerza base
         fuerza = controlador.stats.ataqueDisparo;
 
@@ -113,6 +115,7 @@ public class ComponenteAtaque : MonoBehaviour
             if (other.gameObject.GetComponent<Base>() != null || other.gameObject.GetComponent<Torreta>() != null || other.gameObject.GetComponent<Personaje>())
             {
                 explosivoSO.Explotar(controlador, controlador.stats.ataqueExplosion, this.gameObject);
+                audioHandler.Play(0);
             }
         }
     }
@@ -177,6 +180,7 @@ public class ComponenteAtaque : MonoBehaviour
         if(explosivoSO != null)
         {
             explosivoSO.Explotar(controlador, fuerza, this.gameObject);
+            audioHandler.Play(0);
         }
     }
 
@@ -200,6 +204,8 @@ public class ComponenteAtaque : MonoBehaviour
         // Instancia el disparo
         Bala bala = Instantiate(controlador.balaObjeto, controlador.spawnerBalas.transform.position, controlador.spawnerBalas.transform.rotation).GetComponent<Bala>();
         bala.ataque = ataqueObjeto;
+
+        audioHandler.Play(0);
     }
 
     private void OnDrawGizmosSelected()

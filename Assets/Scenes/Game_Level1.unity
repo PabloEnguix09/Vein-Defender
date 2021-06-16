@@ -12427,102 +12427,41 @@ MonoBehaviour:
   torretasUso: []
   invocarTorreta: {fileID: 4821090250251698037}
   hud: {fileID: 0}
---- !u!82 &1594907902
-AudioSource:
+--- !u!114 &1594907902
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594907897}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -4982975341170281460, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3a02a0cbdaa2b754c972c8444b0ed544, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 1
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.002
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1.002004
-      outSlope: -1.002004
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidos:
+  - clip: {fileID: 8300000, guid: 3a02a0cbdaa2b754c972c8444b0ed544, type: 3}
+    nombre: Nave
+    indice: 0
+    mixer: 4
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  - clip: {fileID: 8300000, guid: da4ac277c19f78b47a5502267b7e51d9, type: 3}
+    nombre: Ruido
+    indice: 1
+    mixer: 4
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  - clip: {fileID: 8300000, guid: c0a80a5bc9c0d8a458efb69a2a20e000, type: 3}
+    nombre: Combate Final
+    indice: 2
+    mixer: 4
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
 --- !u!1 &1620630084
 GameObject:
   m_ObjectHideFlags: 0

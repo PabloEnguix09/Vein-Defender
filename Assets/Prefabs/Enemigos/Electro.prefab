@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 7835864425356747435}
   - component: {fileID: 7432298217394116012}
   - component: {fileID: 5801874840423879148}
+  - component: {fileID: -519987372389012054}
   m_Layer: 10
   m_Name: Electro
   m_TagString: Enemigo
@@ -157,9 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuerza: 0
-  disparadorSO: {fileID: 0}
-  explosivoSO: {fileID: 0}
-  potenciadorSO: {fileID: 0}
 --- !u!114 &7835864425356747435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +200,27 @@ MonoBehaviour:
   balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
   parteQueRota: {fileID: 1569366510716514403}
   marcado: 0
+--- !u!114 &-519987372389012054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018791793810155938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidos:
+  - clip: {fileID: 8300000, guid: ff38590bebbd3794d90027965ea6bb65, type: 3}
+    nombre: Disparo
+    indice: 0
+    mixer: 5
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
 --- !u!1 &4107912613315855605
 GameObject:
   m_ObjectHideFlags: 0

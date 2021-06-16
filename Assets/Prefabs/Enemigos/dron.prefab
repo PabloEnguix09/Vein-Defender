@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 8107476943046206219}
   - component: {fileID: 3077051837749421643}
   - component: {fileID: 2031600736245412525}
+  - component: {fileID: 6759936341453805902}
   m_Layer: 10
   m_Name: dron
   m_TagString: Enemigo
@@ -281,9 +282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuerza: 0
-  disparadorSO: {fileID: 0}
-  explosivoSO: {fileID: 0}
-  potenciadorSO: {fileID: 0}
 --- !u!114 &8107476943046206219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +324,27 @@ MonoBehaviour:
   balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
   parteQueRota: {fileID: 3963209385025984642}
   marcado: 0
+--- !u!114 &6759936341453805902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671158431268791085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidos:
+  - clip: {fileID: 8300000, guid: 950827becdbf5aa4f971b33241c7f816, type: 3}
+    nombre: Disparo
+    indice: 0
+    mixer: 5
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
 --- !u!1001 &6108801798674725638
 PrefabInstance:
   m_ObjectHideFlags: 0
