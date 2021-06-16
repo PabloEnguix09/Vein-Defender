@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 148976152428973208}
   - component: {fileID: -3920304778166982107}
   - component: {fileID: 258966532182061920}
+  - component: {fileID: 3679168090480773170}
   m_Layer: 7
   m_Name: fantasma
   m_TagString: Torreta
@@ -548,8 +549,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonidos: []
-  mixer: {fileID: 0}
+  sonidos:
+  - clip: {fileID: 8300000, guid: 47b22091bbf72a444a1648a6873623b3, type: 3}
+    nombre: Montaje
+    indice: 0
+    volumen: 1
+    tono: 2
+    origen: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 47b22091bbf72a444a1648a6873623b3, type: 3}
+    nombre: Disparo
+    indice: 1
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a41fb430ae59c664cb08ef813b96b160, type: 3}
+    nombre: Danyo
+    indice: 2
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  - clip: {fileID: 8300000, guid: ff706d684ee8b5748a49550b656c6bcb, type: 3}
+    nombre: Muerte
+    indice: 3
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
 --- !u!95 &258966532182061920
 Animator:
   serializedVersion: 3
@@ -569,6 +594,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &3679168090480773170
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130392994418107086}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 2469770798598495462, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 10
+  MaxDistance: 100
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6201440751395349183
 GameObject:
   m_ObjectHideFlags: 0
