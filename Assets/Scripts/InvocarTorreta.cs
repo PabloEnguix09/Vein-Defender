@@ -41,13 +41,11 @@ public class InvocarTorreta : MonoBehaviour
     ComprobarSitio sitio;
     public int torretaPreviewIndex = 0;
 
-    public AudioSource SonidoInvocarTorreta;
-    public AudioSource SonidoErrorInvocarTorreta;
-
     [Header("Areas Menu Radial")]
     public float[] areasMenuRadial;
 
     AnimTByte animTByte;
+    AudioHandler audioHandler;
     public bool GetColocada()
     {
         return colocada;
@@ -62,6 +60,8 @@ public class InvocarTorreta : MonoBehaviour
     {
         // Script de control de las animaciones
         animTByte = GetComponent<AnimTByte>();
+
+        audioHandler.GetComponent<AudioHandler>();
     }
     // Se llama cuando se actualiza el menu HUD de seleccion de torretas antes de empezar a jugar
     // Asigna las torretas en uso al menu radial
@@ -109,7 +109,7 @@ public class InvocarTorreta : MonoBehaviour
                     // Datos para la nueva torreta invocada
                     torreta = null;
                     SpawnTorreta(torretaSpawn);
-                    SonidoInvocarTorreta.Play();
+                    audioHandler.Play(0);
                 }
             }
 
@@ -127,8 +127,8 @@ public class InvocarTorreta : MonoBehaviour
             
             if (Input.GetAxisRaw("Fire1") > 0)
             {
-                
-                SonidoErrorInvocarTorreta.Play();
+
+                audioHandler.Play(1);
             }
         }
     }

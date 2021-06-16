@@ -56,6 +56,7 @@ public class Personaje : MonoBehaviour
     public float alcance;
 
     AnimTByte animTByte;
+    AudioHandler audioHandler;
 
     public float Salud
     {
@@ -156,6 +157,8 @@ public class Personaje : MonoBehaviour
         sistemaMejoras.MejorasUtilidades();
         sistemaMejoras.lladamaProvisonalTorretas();
 
+        audioHandler = GetComponent<AudioHandler>();
+
     }
 
     // Reasigna los valores del personaje
@@ -167,10 +170,6 @@ public class Personaje : MonoBehaviour
 
         Escudo = escudoMaximo;
     }
-
-
-
-
 
     //todo: qUITAR EStO
     public GameObject mejoraHUD;
@@ -206,12 +205,6 @@ public class Personaje : MonoBehaviour
         {
             
             CerrarInteraccion();
-        }
-        
-        if(Input.GetKeyDown(KeyCode.M))
-        {
-            camara.BloquearCamara(true);
-            mejoraHUD.SetActive(true);
         }
     }
 
@@ -295,6 +288,8 @@ public class Personaje : MonoBehaviour
 
     public void RecibirAtaque(Ataque ataque)
     {
+        audioHandler.Play(2);
+
         if (Escudo > 0)
         {
             // Restamos la fuerza al escudo y el escudo a la fuerza
@@ -322,15 +317,19 @@ public class Personaje : MonoBehaviour
         {
             if(camaraMejora.GetComponent<CamaraMejora>().camara.activeSelf)
             {
+                // Vuelve a la camara del jugador
                 camaraMejora.GetComponent<CamaraMejora>().camara.SetActive(false);
                 camaraJugador.SetActive(true);
                 camaraSecundariaActivada = false;
+                audioHandler.Play(3);
             } 
             else
             {
+                // Cambia de camara
                 camaraMejora.GetComponent<CamaraMejora>().camara.SetActive(true);
                 camaraJugador.SetActive(false);
                 camaraSecundariaActivada = true;
+                audioHandler.Play(3);
             }
         }
     }
@@ -356,6 +355,7 @@ public class Personaje : MonoBehaviour
                     // Abrimos menu
                     interaccionActual = interaccion.Interactuar();
                     paralizado = true;
+                    audioHandler.Play(3);
                 }
             }
         }
@@ -377,12 +377,14 @@ public class Personaje : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             camara.BloquearCamara(true);
             menu.SetActive(true);
+            audioHandler.Play(3);
         }
         else if (menu.activeSelf)
         {
             Cursor.lockState = CursorLockMode.Locked;
             camara.BloquearCamara(false);
             menu.SetActive(false);
+            audioHandler.Play(3);
         }
     }
 
