@@ -33,6 +33,9 @@ public class InvocarTorreta : MonoBehaviour
     public GameObject torreta;
     public GameObject camara;
     public GameObject caja;
+
+    Personaje personaje;
+
     Rigidbody rb;
     bool colocada = true;
 
@@ -62,6 +65,8 @@ public class InvocarTorreta : MonoBehaviour
         animTByte = GetComponent<AnimTByte>();
 
         audioHandler = GetComponent<AudioHandler>();
+
+        personaje = GetComponentInParent<Personaje>();
     }
     // Se llama cuando se actualiza el menu HUD de seleccion de torretas antes de empezar a jugar
     // Asigna las torretas en uso al menu radial
@@ -105,12 +110,20 @@ public class InvocarTorreta : MonoBehaviour
                     Transform torretaSpawn = torretas[torretaPreviewIndex].transform;
                     torretaSpawn.position = torreta.transform.position;
                     torretaSpawn.rotation = torreta.transform.rotation;
-                    Destroy(torreta);
-                    // Datos para la nueva torreta invocada
-                    torreta = null;
-                    SpawnTorreta(torretaSpawn);
-                    audioHandler.Play(0);
-                } else
+                    print(torretaSpawn.gameObject.name);
+                    if (personaje.Energia - torretaSpawn.gameObject.GetComponent<Torreta>().torretaBasica.energia >= 0)
+                    {
+
+                        personaje.Energia -= torretaSpawn.gameObject.GetComponent<Torreta>().torretaBasica.energia;
+
+                        Destroy(torreta);
+                        // Datos para la nueva torreta invocada
+                        torreta = null;
+                        SpawnTorreta(torretaSpawn);
+                        audioHandler.Play(0);
+                    }
+                    
+                }else
                 {
                     audioHandler.Play(1);
                 }
@@ -151,33 +164,31 @@ public class InvocarTorreta : MonoBehaviour
         rb.mass = 0f;
     }
 
-    // Crea la torreta invocada a una altura alturaSpawn
+    // Crea la torreta invocada
     public void SpawnTorreta(Transform torreta)
     {
-        SetColocada(true);
-        // Invocamos una caja con los datos de la torreta dentro
-        GameObject aux;
 
-        Vector3 nave = new Vector3(18.6f, 135, -17.4f);
+        
+            SetColocada(true);
+            // Invocamos una caja con los datos de la torreta dentro
+            GameObject aux;
 
-        aux = Instantiate(caja.gameObject, nave, torreta.rotation);
-        if (aux.GetComponent<CajaDrop>())
-        {
+            Vector3 nave = new Vector3(18.6f, 135, -17.4f);
 
-            aux.GetComponent<CajaDrop>().inicio = nave;
-            aux.GetComponent<CajaDrop>().final = torreta.position;
+            aux = Instantiate(caja.gameObject, nave, torreta.rotation);
+            if (aux.GetComponent<CajaDrop>())
+            {
 
-            animTByte.InvocarTorreta();
-            aux.GetComponent<CajaDrop>().torreta = torreta.gameObject;
-        }
-        /*
-        GameObject aux;
-        aux = Instantiate(torreta.gameObject, new Vector3(torreta.position.x, torreta.position.y + alturaSpawn, torreta.position.z), torreta.rotation);
-        if(aux.GetComponent<Torreta>())
-        {
-            aux.GetComponent<Torreta>().enabled = true;
-        }
-        */
+                aux.GetComponent<CajaDrop>().inicio = nave;
+                aux.GetComponent<CajaDrop>().final = torreta.position;
+
+                animTByte.InvocarTorreta();
+                aux.GetComponent<CajaDrop>().torreta = torreta.gameObject;
+                print(torreta.gameObject.GetComponent<Torreta>().torretaBasica.energia);
+            }
+
+        
+        
     }
 
     // Llamado desde MecanicasPersonaje.cs

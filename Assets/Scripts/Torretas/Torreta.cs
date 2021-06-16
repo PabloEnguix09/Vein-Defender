@@ -121,15 +121,6 @@ public class Torreta : MonoBehaviour
         // Busca el AudioHandler
         audioHandler = gameObject.GetComponent<AudioHandler>();
 
-        // Reduce la energia del jugador
-        if (personaje.Energia - energiaEnUso < 0)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            personaje.Energia -= energiaEnUso;
-        }
 
         //No apuntar a nadie
         enemigoApuntando = null;
@@ -532,8 +523,10 @@ public class Torreta : MonoBehaviour
     {
         return enemigoApuntando;
     }
+
     public void OnDestroy()
     {
         personaje.Energia += energiaEnUso;
+        
     }
 }
