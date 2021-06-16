@@ -18,6 +18,8 @@ public class AudioHandler : MonoBehaviour
     float timer = 0;
     float maxTimer = 0.2f;
 
+    AudioSource master, sfx, ambiente, grupo, ost, efectos;
+
     private void Update()
     {
         if(timer > 0)
@@ -31,8 +33,79 @@ public class AudioHandler : MonoBehaviour
 
         foreach (Sonido s in sonidos)
         {
-            s.origen = gameObject.GetComponent<AudioSource>();
-            s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master/SFX/Efectos")[0];
+
+            switch (s.mixer)
+            {
+                // En caso de no haber un audio source para el tipo de audio, se crea uno nuevo en el game object
+                case Sonido.Mixer.master:
+                    if(master == null)
+                    {
+                        s.origen = gameObject.AddComponent<AudioSource>();
+                    } else
+                    {
+                        s.origen = master;
+                    }
+                    s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[0];
+                    break;
+                case Sonido.Mixer.sfx:
+                    if (sfx == null)
+                    {
+                        s.origen = gameObject.AddComponent<AudioSource>();
+                    }
+                    else
+                    {
+                        s.origen = sfx;
+                    }
+                    s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master/SFX")[0];
+                    break;
+                case Sonido.Mixer.ambiente:
+                    if (ambiente == null)
+                    {
+                        s.origen = gameObject.AddComponent<AudioSource>();
+                    }
+                    else
+                    {
+                        s.origen = ambiente;
+                    }
+                    s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master/SFX/Ambiente")[0];
+                    break;
+                case Sonido.Mixer.grupo:
+                    if (grupo == null)
+                    {
+                        s.origen = gameObject.AddComponent<AudioSource>();
+                    }
+                    else
+                    {
+                        s.origen = grupo;
+                    }
+                    s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master/SFX/Grupal")[0];
+                    break;
+                case Sonido.Mixer.ost:
+                    if (ost == null)
+                    {
+                        s.origen = gameObject.AddComponent<AudioSource>();
+                    }
+                    else
+                    {
+                        s.origen = ost;
+                    }
+                    s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master/OST")[0];
+                    break;
+                case Sonido.Mixer.efectos:
+                    if (efectos == null)
+                    {
+                        s.origen = gameObject.AddComponent<AudioSource>();
+                    }
+                    else
+                    {
+                        s.origen = efectos;
+                    }
+                    s.origen.outputAudioMixerGroup = mixer.FindMatchingGroups("Master/SFX/Efectos")[0];
+                    break;
+                default:
+                    break;
+            }
+
         }
     }
 
