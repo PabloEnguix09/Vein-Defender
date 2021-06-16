@@ -24,7 +24,7 @@ public class Interaccion : MonoBehaviour
     Animator animatorNave;
     public GameObject nave;
 
-    public GameObject camaraTByte;
+    GameObject camaraTByte;
     public GameObject camaraSelector;
     public GameObject camaraPuerta;
 
@@ -47,6 +47,9 @@ public class Interaccion : MonoBehaviour
         hud.SetActive(false);
 
         animatorNave = nave.GetComponent<Animator>();
+
+        camaraTByte = GameObject.Find("CamaraTByte");
+        gui = GameObject.Find("HUD_Canvas");
 
     }
 
