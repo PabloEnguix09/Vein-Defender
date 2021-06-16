@@ -21,7 +21,7 @@ public class MecanicasPersonaje : MonoBehaviour
     CameraController cameraController;
     AnimTByte animTByte;
 
-    public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara;
+    public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara, pausa;
 
     private void Start()
     {
@@ -80,6 +80,10 @@ public class MecanicasPersonaje : MonoBehaviour
         if(Input.GetButtonDown(cambiarCamara))
         {
             personaje.CambiarCamara();
+        }
+        if(Input.GetButtonDown(pausa))
+        {
+            personaje.PausarPartida();
         }
     }
 }

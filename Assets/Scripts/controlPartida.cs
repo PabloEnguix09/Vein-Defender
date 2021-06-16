@@ -25,7 +25,7 @@ public class controlPartida : MonoBehaviour
     Spawner[] spawners;
     public GameObject jugador;
     Personaje personaje;
-    public Camera CamaraSecundaria;
+    public GameObject CamaraSecundaria;
 
     public GameObject textoEstado;
     public GameObject textoRonda;
@@ -49,7 +49,7 @@ public class controlPartida : MonoBehaviour
         bases = (Base[])GameObject.FindObjectsOfType(typeof(Base));
         spawners = (Spawner[])GameObject.FindObjectsOfType(typeof(Spawner));
         personaje = jugador.GetComponent<Personaje>();
-        CamaraSecundaria.gameObject.SetActive(false);
+        CamaraSecundaria.SetActive(false);
         mejora.SetActive(false);
         ronda = 1;
 
@@ -169,10 +169,10 @@ public class controlPartida : MonoBehaviour
 
     public void GameOver()
     {
-        if (!CamaraSecundaria.isActiveAndEnabled)
+        if (!CamaraSecundaria.activeSelf)
         {
             //la camara se situa en el cielo.
-            CamaraSecundaria.gameObject.SetActive(!CamaraSecundaria.gameObject.activeSelf);
+            CamaraSecundaria.SetActive(!CamaraSecundaria.activeSelf);
             Cursor.lockState = CursorLockMode.None;
         }
 

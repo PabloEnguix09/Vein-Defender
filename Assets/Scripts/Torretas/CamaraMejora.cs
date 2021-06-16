@@ -15,6 +15,7 @@ using UnityEngine;
 
 public class CamaraMejora : MonoBehaviour
 {
+    public GameObject camara;
     // Start is called before the first frame update
     void Start()
     {

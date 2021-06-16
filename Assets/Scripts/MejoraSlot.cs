@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,10 @@ public class MejoraSlot : MonoBehaviour, IPointerClickHandler
     public string nombreMejora;
     public SistemaMejoras mejoras;
     public Canvas canvas;
+    public CameraController camara;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(nombreMejora);
 
         //Mejoras personaje
         Activar(nameof(mejoras.vidaTbyte), ref mejoras.vidaTbyte);
@@ -50,12 +51,19 @@ public class MejoraSlot : MonoBehaviour, IPointerClickHandler
         Activar(nameof(mejoras.escudoDefensor), ref mejoras.escudoDefensor);
     }
 
+    internal void Clear()
+    {
+        nombre = "";
+        nombreMejora = "";
+    }
+
     public void Activar(string mejoraNombre, ref bool mejora)
     {
         if (nombreMejora.Equals(mejoraNombre))
         {
             mejora = true;
             canvas.gameObject.SetActive(false);
+            camara.BloquearCamara(false);
         }
     }
 }

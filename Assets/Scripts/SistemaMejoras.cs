@@ -67,6 +67,8 @@ public class SistemaMejoras : MonoBehaviour
     public Camino[] camino;
     public GameObject[] iconos;
 
+    public GameObject hud;
+
     public void MejorasPersonaje(Personaje personaje)
     {
 
@@ -86,6 +88,11 @@ public class SistemaMejoras : MonoBehaviour
         if(mejoraMinimapa)
         {
             personaje.minimapa.SetActive(true);
+            GameObject[] minimapa = GameObject.FindGameObjectsWithTag("Minimapa");
+            foreach(GameObject mapa in minimapa)
+            {
+                mapa.SetActive(true);
+            }
         }
         if(mejoraMagnetismo)
         {

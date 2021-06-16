@@ -45,7 +45,7 @@ public class Personaje : MonoBehaviour
     float salud = 10;
 
     public GameObject dardoLocalizador;
-    public Camera camaraJugador;
+    public GameObject camaraJugador;
 
     private CameraController controladorCamara;
 
@@ -76,12 +76,12 @@ public class Personaje : MonoBehaviour
                 // Vuelve la camara al jugador si esta la secundaria activada
                 if (camaraMejora != null)
                 {
-                    if (camaraMejora.GetComponentInChildren<Camera>().enabled)
+                    if (camaraMejora.GetComponent<CamaraMejora>().camara.activeSelf)
                     {
 
-                        camaraMejora.GetComponentInChildren<Camera>().enabled = false;
+                        camaraMejora.GetComponent<CamaraMejora>().camara.SetActive(false);
 
-                        camara.camara.GetComponent<Camera>().enabled = true;
+                        camaraJugador.SetActive(true);
 
                         camaraSecundariaActivada = false;
 
@@ -139,6 +139,8 @@ public class Personaje : MonoBehaviour
     SistemaMejoras sistemaMejoras;
 
     public GameObject gui;
+    public GameObject menu;
+
     private void Start()
     {
         // Busca componentes internos
@@ -166,6 +168,13 @@ public class Personaje : MonoBehaviour
         Escudo = escudoMaximo;
     }
 
+
+
+
+
+    //todo: qUITAR EStO
+    public GameObject mejoraHUD;
+
     private void Update()
     {
         // Regenerar el escudo
@@ -177,7 +186,7 @@ public class Personaje : MonoBehaviour
         // Si en algun momento la camara es destruida, vuelve la vista al jugador
         if(camaraMejora == null && camaraSecundariaActivada)
         {
-            camara.camara.GetComponent<Camera>().enabled = true;
+            camaraJugador.SetActive(true);
             camaraSecundariaActivada = false;
         }
 
@@ -195,8 +204,14 @@ public class Personaje : MonoBehaviour
         // Cierra el menu actual
         if(Input.GetButtonDown("Cancelar"))
         {
-            gui.SetActive(true);
+            
             CerrarInteraccion();
+        }
+        
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            camara.BloquearCamara(true);
+            mejoraHUD.SetActive(true);
         }
     }
 
@@ -305,16 +320,16 @@ public class Personaje : MonoBehaviour
 
         if(camaraMejora != null)
         {
-            if(camaraMejora.GetComponentInChildren<Camera>().enabled)
+            if(camaraMejora.GetComponent<CamaraMejora>().camara.activeSelf)
             {
-                camaraMejora.GetComponentInChildren<Camera>().enabled = false;
-                camara.camara.GetComponent<Camera>().enabled = true;
+                camaraMejora.GetComponent<CamaraMejora>().camara.SetActive(false);
+                camaraJugador.SetActive(true);
                 camaraSecundariaActivada = false;
             } 
             else
             {
-                camara.camara.GetComponent<Camera>().enabled = false;
-                camaraMejora.GetComponentInChildren<Camera>().enabled = true;
+                camaraMejora.GetComponent<CamaraMejora>().camara.SetActive(true);
+                camaraJugador.SetActive(false);
                 camaraSecundariaActivada = true;
             }
         }
@@ -354,6 +369,21 @@ public class Personaje : MonoBehaviour
         }
         interaccionActual = null;
         paralizado = false;
+    }
+    public void PausarPartida()
+    {
+        if (!menu.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            camara.BloquearCamara(true);
+            menu.SetActive(true);
+        }
+        else if (menu.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            camara.BloquearCamara(false);
+            menu.SetActive(false);
+        }
     }
 
     // SOLO PARA LAS ESCENAS: Muestra el rayo de apuntado
