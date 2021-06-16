@@ -188,29 +188,12 @@ public class Personaje : MonoBehaviour
             camaraJugador.SetActive(true);
             camaraSecundariaActivada = false;
         }
-
-        //Disparo de dardo localizador
-        if (Input.GetButtonDown("Fire1"))
-        {
-            DispararDardo();
-            animTByte.LanzarDardo();
-        }
-        // Interactua con un objeto
-        if (Input.GetButtonDown("Fire2"))
-        {
-            Interactuar();
-        }
-        // Cierra el menu actual
-        if(Input.GetButtonDown("Cancelar"))
-        {
-            
-            CerrarInteraccion();
-        }
     }
 
     // Marca enemigos con raycast directamente
     public void DispararDardo()
     {
+        animTByte.LanzarDardo();
         RaycastHit punto;
         // Comprueba que este apuntando a un item en el Layer Enemigo
         if (Physics.Raycast(camaraJugador.transform.position, camaraJugador.transform.forward, out punto, alcance, LayerMask.GetMask("Enemigo")))
@@ -284,6 +267,11 @@ public class Personaje : MonoBehaviour
         movimientoPersonaje.Saltar();
         animTByte.Salto();
 
+    }
+
+    public void Caer()
+    {
+        movimientoPersonaje.Caer();
     }
 
     public void RecibirAtaque(Ataque ataque)

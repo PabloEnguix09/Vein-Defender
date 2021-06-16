@@ -15,6 +15,16 @@ public class AudioHandler : MonoBehaviour
 
     public Sonido[] sonidos;
     public AudioMixer mixer;
+    float timer = 0;
+    float maxTimer = 0.2f;
+
+    private void Update()
+    {
+        if(timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+    }
 
     private void Awake()
     {
@@ -31,7 +41,11 @@ public class AudioHandler : MonoBehaviour
 
     public void Play(int indice)
     {
-        Sonido s = Array.Find(sonidos, sonido => sonido.indice == indice);
-        s.origen.Play();
+        if (timer <= 0)
+        {
+            Sonido s = Array.Find(sonidos, sonido => sonido.indice == indice);
+            s.origen.Play();
+            timer = maxTimer;
+        }
     }
 }

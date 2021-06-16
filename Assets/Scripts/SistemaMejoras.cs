@@ -100,7 +100,7 @@ public class SistemaMejoras : MonoBehaviour
         }
         if(mejoraImpulso)
         {
-            personaje.movimientoPersonaje.maximaVelocidadSalto += personaje.movimientoPersonaje.maximaVelocidadSalto * 0.3f;
+            personaje.movimientoPersonaje.fuerzaSalto += personaje.movimientoPersonaje.fuerzaSalto * 0.3f;
         }
         if(mejoraEnergia)
         {
@@ -109,9 +109,10 @@ public class SistemaMejoras : MonoBehaviour
 
         personaje.Setup();
     }
-
+    
     public void MejorasTorreta(Torreta torreta)
     {
+        /*
         if (mejoraMarcador)
         {
             torreta.disparoMarcado = true;
@@ -198,6 +199,7 @@ public class SistemaMejoras : MonoBehaviour
                 torreta.disparoPEM = true;
             }
         }
+        */
     }
 
     public void DesbloquearTorreta()
