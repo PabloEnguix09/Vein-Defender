@@ -25,7 +25,7 @@ MonoBehaviour:
   danyoExplosion: 0
   visual:
     nombre: Berserkr
-    imagen: {fileID: 21300000, guid: fcbcc1610546d134292965f37a926b82, type: 3}
+    imagen: {fileID: 21300000, guid: 9af8a363c6b2b8b429a4ed03c04119a9, type: 3}
     prefab: {fileID: 3538574186344979504, guid: da76c3948654711419c8fea39c651dac, type: 3}
     previewPrefab: {fileID: 4369632575579838537, guid: 480a9dcaec3ea7e4e9c79b62f23ddd6d, type: 3}
     descripcion: "Una gran cadencia de fuego y mucha vida pero con much\xEDsimo coste

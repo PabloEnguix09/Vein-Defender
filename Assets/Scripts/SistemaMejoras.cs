@@ -11,9 +11,11 @@
 // FEATURES ADDED: Se han introducido las mejoras de Camara,inmortal,fantasma,mejoraMinimapa
 // ---------------------------------------------------
 
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SistemaMejoras : MonoBehaviour
 {
@@ -65,13 +67,17 @@ public class SistemaMejoras : MonoBehaviour
 
     public TorretasDisponibles torretasDisponibles;
     public Camino[] camino;
-    public GameObject[] iconos;
+    public DragDrop[] iconos;
 
     public GameObject hud;
 
+    private void Start()
+    {
+        GameObject objetos = SceneManager.GetSceneByName("Nave").GetRootGameObjects()[1].GetComponentInChildren<Interaccion>().GetComponentInChildren<CinemachineVirtualCamera>(true).GetComponentInChildren<HUD>(true).gameObject;
+        iconos = objetos.GetComponentsInChildren<DragDrop>();
+    }
     public void MejorasPersonaje(Personaje personaje)
     {
-
         // Sube la vida de T-Byte un 35%
         if(vidaTbyte)
         {
@@ -207,31 +213,31 @@ public class SistemaMejoras : MonoBehaviour
         // Añade al indice la id de la torreta holpita y mohawk
         if (hoplitaMohawk)
         {
-            iconos[2].SetActive(true);
+            iconos[2].gameObject.SetActive(true);
             indice.Add(2);
-            iconos[3].SetActive(true);
+            iconos[3].gameObject.SetActive(true);
             indice.Add(3);
         }
         // Añade al indice la id de la torreta inmortal y la fantasma
         if(inmortalFantasma)
         {
-            iconos[4].SetActive(true);
+            iconos[4].gameObject.SetActive(true);
             indice.Add(4);
-            iconos[5].SetActive(true);
+            iconos[5].gameObject.SetActive(true);
             indice.Add(5);
         }
         if (scutumBerserker)
         {
-            iconos[6].SetActive(true);
+            iconos[6].gameObject.SetActive(true);
             indice.Add(6);
-            iconos[7].SetActive(true);
+            iconos[7].gameObject.SetActive(true);
             indice.Add(7);
         }
         if (balearTrampa)
         {
-            iconos[8].SetActive(true);
+            iconos[8].gameObject.SetActive(true);
             indice.Add(8);
-            iconos[9].SetActive(true);
+            iconos[9].gameObject.SetActive(true);
             indice.Add(9);
         }
     }
@@ -240,7 +246,7 @@ public class SistemaMejoras : MonoBehaviour
     {
         if (mejoraCamara)
         {
-            iconos[1].SetActive(true);
+            iconos[1].gameObject.SetActive(true);
             indice.Add(1);
         }
         if (!mejoraCaminos)
@@ -252,7 +258,7 @@ public class SistemaMejoras : MonoBehaviour
         }
         if (escudoDefensor)
         {
-            iconos[10].SetActive(true);
+            iconos[10].gameObject.SetActive(true);
             indice.Add(10);
         }
     }

@@ -25,7 +25,7 @@ MonoBehaviour:
   danyoExplosion: 0
   visual:
     nombre: Camara
-    imagen: {fileID: 21300000, guid: f1438c6e685ef0e4084c7d51c0e7403e, type: 3}
+    imagen: {fileID: 21300000, guid: a6ad5e5b65aec7d44ba0fdc57f0762bc, type: 3}
     prefab: {fileID: 4904404024952468192, guid: 7f9fa124546ddbf4db14ed5589ad5cdd, type: 3}
     previewPrefab: {fileID: 4904404024952468192, guid: 44f8f863ecb24b8468d9041fc7a1e88f, type: 3}
     descripcion: "C\xE1mara con visi\xF3n 360\xBA que puede ser colocada en cualquier
