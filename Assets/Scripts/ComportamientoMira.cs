@@ -17,15 +17,26 @@ public class ComportamientoMira : MonoBehaviour
     {
         RaycastHit punto;
 
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, 1000, LayerMask.GetMask("Interactuable")))
+        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out punto, 50, LayerMask.GetMask("Interactuable")))
         {
+            
+            Quaternion VisionRotacion = Quaternion.Euler(0, 0, 45);
+            //rotacion suave
+            Vector3 rotacion = Quaternion.Lerp(transform.rotation, VisionRotacion, Time.deltaTime * 10).eulerAngles;
+            transform.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
+            GetComponent<Image>().color = new Color(0, 170, 236, 126);
+
             controlPartida.Interactuar(true);
-            transform.rotation = Quaternion.Euler(0,0,45);
         }
         else
         {
+            Quaternion VisionRotacion = Quaternion.Euler(0, 0, 0);
+            //rotacion suave
+            Vector3 rotacion = Quaternion.Lerp(transform.rotation, VisionRotacion, Time.deltaTime * 10).eulerAngles;
+            GetComponent<Image>().color = new Color(255, 255, 255, 126); ;
+
+            transform.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);
             controlPartida.Interactuar(false);
-            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }
