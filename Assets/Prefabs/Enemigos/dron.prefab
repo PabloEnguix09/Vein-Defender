@@ -396,6 +396,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4020924224465817570, guid: f6d995e4297b4974c88ed1bf545253fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf6e3852a93043e47b0155b148f62101, type: 2}
+    - target: {fileID: -1418168387022425682, guid: f6d995e4297b4974c88ed1bf545253fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf6e3852a93043e47b0155b148f62101, type: 2}
+    - target: {fileID: -992238102200694341, guid: f6d995e4297b4974c88ed1bf545253fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf6e3852a93043e47b0155b148f62101, type: 2}
+    - target: {fileID: -83665950244040663, guid: f6d995e4297b4974c88ed1bf545253fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf6e3852a93043e47b0155b148f62101, type: 2}
     - target: {fileID: 919132149155446097, guid: f6d995e4297b4974c88ed1bf545253fe, type: 3}
       propertyPath: m_Name
       value: dron
@@ -404,6 +420,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5597706578905395980, guid: f6d995e4297b4974c88ed1bf545253fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1aff5d0b206321d4d8abf23d0e591724, type: 2}
+    - target: {fileID: 8459587734464355695, guid: f6d995e4297b4974c88ed1bf545253fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1aff5d0b206321d4d8abf23d0e591724, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d995e4297b4974c88ed1bf545253fe, type: 3}
 --- !u!4 &6002290754489900269 stripped
