@@ -27,6 +27,7 @@ public class Interaccion : MonoBehaviour
     GameObject camaraTByte;
     public GameObject camaraSelector;
     public GameObject camaraPuerta;
+    public GameObject luz;
 
     public GameObject postProcesado;
 
@@ -150,6 +151,7 @@ public class Interaccion : MonoBehaviour
         camaraPuerta.SetActive(true);
         camaraTByte.SetActive(false);
         camaraSelector.SetActive(false);
+        luz.SetActive(true);
 
         //esperar a la animación
         yield return new WaitForSeconds(4);
@@ -158,6 +160,7 @@ public class Interaccion : MonoBehaviour
         camaraTByte.SetActive(true);
         camaraSelector.SetActive(false);
         camaraPuerta.SetActive(false);
+        luz.SetActive(false);
 
         //esperar al cambio de cámara
         yield return new WaitForSeconds(2);

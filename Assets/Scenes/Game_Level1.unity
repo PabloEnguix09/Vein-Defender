@@ -723,6 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlPartida: {fileID: 1594907898}
+  camara: {fileID: 1845568903}
 --- !u!1 &80841260
 GameObject:
   m_ObjectHideFlags: 0
@@ -16188,6 +16189,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831357458}
   m_CullTransparentMesh: 1
+--- !u!1 &1845568903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6328634591451811988, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+  m_PrefabInstance: {fileID: 6328634591610334700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1866272501
 GameObject:
   m_ObjectHideFlags: 0
