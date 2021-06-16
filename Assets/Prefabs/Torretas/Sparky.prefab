@@ -1453,7 +1453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidos:
-  - clip: {fileID: 8300000, guid: b4897e8898a6b7f4e85aff18d2a7659f, type: 3}
+  - clip: {fileID: 8300000, guid: da4ac277c19f78b47a5502267b7e51d9, type: 3}
     nombre: Montaje
     indice: 0
     mixer: 5

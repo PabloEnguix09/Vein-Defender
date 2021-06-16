@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: -7657168198775961563}
   - component: {fileID: 4107199997271308240}
   - component: {fileID: 3707201776414761668}
+  - component: {fileID: 8745625770586161252}
   m_Layer: 0
   m_Name: Caja Drop
   m_TagString: Untagged
@@ -156,6 +157,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1884918, y: 2.1816459, z: 2.1307364}
   m_Center: {x: 0, y: 0.9567124, z: -0.012103558}
+--- !u!114 &8745625770586161252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656894044295091893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f84042677ed43b4798a1e3713ed9b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidos:
+  - clip: {fileID: 8300000, guid: 0576eaa6e2fbf83489a303daf0090eb4, type: 3}
+    nombre: Golpe
+    indice: 0
+    mixer: 1
+    volumen: 1
+    tono: 1
+    origen: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 75b629a5b6adcdf49a46abf293a5fcba, type: 2}
 --- !u!1 &5375410692910167970
 GameObject:
   m_ObjectHideFlags: 0
