@@ -130,9 +130,11 @@ public class controlPartida : MonoBehaviour
         // Empieza la nueva ronda
         if (finDeRonda)
         {
+            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Nuevos enemigos se aproximan";
             timer += Time.deltaTime;
             if(timer > tiempoEntreRondas)
             {
+                textoEstado.GetComponent<UnityEngine.UI.Text>().text = "";
                 ronda++;
                 timer = 0;
 
@@ -145,8 +147,7 @@ public class controlPartida : MonoBehaviour
                             s.contador = 0;
                             s.contador2 = 0;
                             s.contador3 = 0;
-                            //s.limitePrimerEnemigo += 5;
-                            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 2";
+                            s.limitePrimerEnemigo += 5;
                             ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 2";
@@ -162,11 +163,8 @@ public class controlPartida : MonoBehaviour
                             s.contador = 0;
                             s.contador2 = 0;
                             s.contador3 = 0;
-                            //s.limitePrimerEnemigo = s.limitePrimerEnemigo * 2;
-                            //s.limiteSegundoEnemigo += 5;
-                            s.limiteSegundoEnemigo = 0;
-                            s.limiteTercerEnemigo = 0;
-                            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 3";
+                            s.limitePrimerEnemigo = s.limitePrimerEnemigo * 2;
+                            s.limiteSegundoEnemigo += 5;
                             ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 3";
@@ -179,10 +177,9 @@ public class controlPartida : MonoBehaviour
                             s.contador = 0;
                             s.contador2 = 0;
                             s.contador3 = 0;
-                            //s.limitePrimerEnemigo += 10;
-                            //s.limiteSegundoEnemigo = s.limiteSegundoEnemigo * 2;
-                            //s.limiteTercerEnemigo += 5;
-                            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 3";
+                            s.limitePrimerEnemigo += 10;
+                            s.limiteSegundoEnemigo = s.limiteSegundoEnemigo * 2;
+                            s.limiteTercerEnemigo += 2;
                             ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 4";

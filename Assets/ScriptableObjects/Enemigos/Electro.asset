@@ -28,8 +28,8 @@ MonoBehaviour:
   velocidadMaxima: 10
   movimiento: 0
   ataqueDisparo: 1
-  velocidadRotacion: 0
-  rangoDisparo: 6
+  velocidadRotacion: 20
+  rangoDisparo: 20
   velocidadDisparo: 1
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   explosivo: 0

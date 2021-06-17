@@ -15,7 +15,7 @@ MonoBehaviour:
   energia: 1
   energiaAlt: 1
   vidaMaxima: 10
-  ataque: 1
+  ataque: 0
   cadenciaDisparo: 0.5
   tipoDisparo: 1
   anguloDisparo: {x: 0, y: 0, z: 0, w: 1}
@@ -32,8 +32,8 @@ MonoBehaviour:
       decentes. Es la m\xE1s econ\xF3mica de  las torretas de da\xF1o"
   variantes:
     antiaerea: 1
-    invisibilidad: 1
-    regeneracion: 1
+    invisibilidad: 0
+    regeneracion: 0
   reduceDanyo:
     reducirDanyo: 0
     frente: 0
