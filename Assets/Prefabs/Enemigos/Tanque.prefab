@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 071a8886181a1f344bf96d06495ceedc, type: 2}
+  nombre: 
   spawnerBalas: {fileID: 0}
   balaObjeto: {fileID: 0}
   parteQueRota: {fileID: 0}
@@ -298,6 +299,7 @@ MonoBehaviour:
     nombre: Ruedas
     indice: 0
     mixer: 2
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}
@@ -369,6 +371,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bf6e3852a93043e47b0155b148f62101, type: 2}
+    - target: {fileID: -4683669308469848369, guid: a9f5d8b1d5bda854baf95a9ecd81ceab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1aff5d0b206321d4d8abf23d0e591724, type: 2}
     - target: {fileID: -4548692597426748202, guid: a9f5d8b1d5bda854baf95a9ecd81ceab, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
