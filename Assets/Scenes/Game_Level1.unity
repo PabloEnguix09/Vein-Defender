@@ -18651,7 +18651,7 @@ PrefabInstance:
       objectReference: {fileID: 1927525425}
     - target: {fileID: 4821090250797695098, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: fuerzaSalto
-      value: 500
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: menuRadial

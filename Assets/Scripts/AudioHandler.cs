@@ -42,6 +42,7 @@ public class AudioHandler : MonoBehaviour
                     if(master == null)
                     {
                         s.origen = gameObject.AddComponent<AudioSource>();
+                        master = s.origen;
                     } else
                     {
                         s.origen = master;
@@ -52,6 +53,7 @@ public class AudioHandler : MonoBehaviour
                     if (sfx == null)
                     {
                         s.origen = gameObject.AddComponent<AudioSource>();
+                        sfx = s.origen;
                     }
                     else
                     {
@@ -63,6 +65,7 @@ public class AudioHandler : MonoBehaviour
                     if (ambiente == null)
                     {
                         s.origen = gameObject.AddComponent<AudioSource>();
+                        ambiente = s.origen;
                     }
                     else
                     {
@@ -74,6 +77,7 @@ public class AudioHandler : MonoBehaviour
                     if (grupo == null)
                     {
                         s.origen = gameObject.AddComponent<AudioSource>();
+                        grupo = s.origen;
                     }
                     else
                     {
@@ -85,6 +89,7 @@ public class AudioHandler : MonoBehaviour
                     if (ost == null)
                     {
                         s.origen = gameObject.AddComponent<AudioSource>();
+                        ost = s.origen;
                     }
                     else
                     {
@@ -96,6 +101,7 @@ public class AudioHandler : MonoBehaviour
                     if (efectos == null)
                     {
                         s.origen = gameObject.AddComponent<AudioSource>();
+                        efectos = s.origen;
                     }
                     else
                     {
@@ -120,6 +126,18 @@ public class AudioHandler : MonoBehaviour
             s.origen.volume = s.volumen;
             s.origen.pitch = s.tono;
             s.origen.loop = s.bucle;
+
+            if (s.origen == ost)
+            {
+                s.origen.spatialBlend = 0;
+            } else
+            {
+                s.origen.spatialBlend = 1;
+                s.origen.maxDistance = 100;
+                s.origen.minDistance = 5;
+                s.origen.rolloffMode = AudioRolloffMode.Logarithmic;
+            }
+
             s.origen.Play();
             timer = maxTimer;
         }

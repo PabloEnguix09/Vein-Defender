@@ -1357,8 +1357,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807558183801602318}
-  m_LocalRotation: {x: 0, y: 0.9861412, z: 0, w: -0.16590825}
-  m_LocalPosition: {x: 26.069231, y: 23.938126, z: 96.4566}
+  m_LocalRotation: {x: 0, y: 0.027049297, z: 0, w: 0.99963415}
+  m_LocalPosition: {x: 89.00497, y: 3.2439618, z: 29.466837}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2666752234006740351}
@@ -1453,10 +1453,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidos:
-  - clip: {fileID: 8300000, guid: da4ac277c19f78b47a5502267b7e51d9, type: 3}
+  - clip: {fileID: 8300000, guid: ed97bcceeb0693145aa957275c712c59, type: 3}
     nombre: Montaje
     indice: 0
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 2
     origen: {fileID: 0}
@@ -1464,6 +1465,7 @@ MonoBehaviour:
     nombre: Disparo
     indice: 1
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}
@@ -1471,6 +1473,7 @@ MonoBehaviour:
     nombre: Danyo
     indice: 2
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}
@@ -1478,6 +1481,7 @@ MonoBehaviour:
     nombre: Muerte
     indice: 3
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}

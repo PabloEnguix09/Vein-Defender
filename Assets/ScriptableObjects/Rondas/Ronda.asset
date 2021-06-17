@@ -19,6 +19,6 @@ MonoBehaviour:
   limiteSegundoEnemigo: 0
   tiempoAparicionSegundoEnemigo: 2
   segundoTipoDeEnemigo: {fileID: 3396167871826993634, guid: 47320d75138be3c4dbea00e5345b4f0c, type: 3}
-  limiteTercerEnemigo: 0
+  limiteTercerEnemigo: 3
   tiempoAparicionTercerEnemigo: 3
   tercerTipoDeEnemigo: {fileID: 6127863220233718541, guid: 65d106b27194819418c22277f02889a9, type: 3}
