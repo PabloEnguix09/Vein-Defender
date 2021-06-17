@@ -19,6 +19,7 @@ public class Sonido
     public int indice;
 
     public Mixer mixer;
+    public bool bucle;
 
     [Range(0f,1f)]
     public float volumen;
