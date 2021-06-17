@@ -26,6 +26,10 @@ public class SistemaMejoras : MonoBehaviour
 
     public string[] nombres;
 
+    public GameObject minimapa;
+
+    public GameObject marco;
+
     [Header("Personaje")]
     // Mejoras de personaje
     public bool vidaTbyte;
@@ -73,7 +77,7 @@ public class SistemaMejoras : MonoBehaviour
 
     private void Start()
     {
-        GameObject objetos = SceneManager.GetSceneByName("Nave").GetRootGameObjects()[1].GetComponentInChildren<Interaccion>().GetComponentInChildren<CinemachineVirtualCamera>(true).GetComponentInChildren<HUD>(true).gameObject;
+        GameObject objetos = SceneManager.GetSceneByName("Nave").GetRootGameObjects()[1].GetComponentsInChildren<Interaccion>()[1].GetComponentInChildren<CinemachineVirtualCamera>(true).GetComponentInChildren<HUD>(true).gameObject;
         iconos = objetos.GetComponentsInChildren<DragDrop>();
     }
     public void MejorasPersonaje(Personaje personaje)
@@ -86,29 +90,27 @@ public class SistemaMejoras : MonoBehaviour
             // Reasigna la vida base
         }
         // Pone un escudo al jugador del 50% de su vida maxima
-        if(escudoTbyte)
+        if (escudoTbyte)
         {
             personaje.escudoMaximo = (personaje.Salud / 100) * 50;
         }
+
         // Pone un minimapa
-        if(mejoraMinimapa)
+        if (mejoraMinimapa)
         {
             personaje.minimapa.SetActive(true);
-            GameObject[] minimapa = GameObject.FindGameObjectsWithTag("Minimapa");
-            foreach(GameObject mapa in minimapa)
-            {
-                mapa.SetActive(true);
-            }
+            minimapa.SetActive(true);
+            marco.SetActive(true);
         }
-        if(mejoraMagnetismo)
+        if (mejoraMagnetismo)
         {
             personaje.movimientoPersonaje.maximaVelocidad += personaje.movimientoPersonaje.maximaVelocidad * 0.3f;
         }
-        if(mejoraImpulso)
+        if (mejoraImpulso)
         {
             personaje.movimientoPersonaje.fuerzaSalto += personaje.movimientoPersonaje.fuerzaSalto * 0.3f;
         }
-        if(mejoraEnergia)
+        if (mejoraEnergia)
         {
             personaje.energiaMaxima += 5;
         }
@@ -122,6 +124,7 @@ public class SistemaMejoras : MonoBehaviour
         if (mejoraMarcador)
         {
             torreta.disparoMarcado = true;
+            PlayerPrefs.SetInt("mejoraMarcador", 1);
         }
         // Reduce el coste de todas las Torreta -1 si son mayor de 1
         if (costeEnergia)
@@ -130,6 +133,7 @@ public class SistemaMejoras : MonoBehaviour
             {
                 torreta.energia -= 1;
             }
+            PlayerPrefs.SetInt("costeEnergia", 1);
         }
         if(balasReforzadas)
         {
@@ -137,6 +141,7 @@ public class SistemaMejoras : MonoBehaviour
             {
                 torreta.ataque += torreta.ataque * 0.2f;
             }
+            PlayerPrefs.SetInt("balasReforzadas", 1);
         }
         if(laseresMejorados)
         {
@@ -144,6 +149,7 @@ public class SistemaMejoras : MonoBehaviour
             {
                 torreta.ataque += torreta.ataque * 0.2f;
             }
+            PlayerPrefs.SetInt("laseresMejorados", 1);
         }
         if(cadenciaMejorada)
         {
@@ -151,10 +157,12 @@ public class SistemaMejoras : MonoBehaviour
             {
                 torreta.cadenciaDisparo -= 1;
             }
+            PlayerPrefs.SetInt("cadenciaMejorada", 1);
         }
         if (escanerAmenazas)
         {
             torreta.distanciaDisparo += 5;  
+            PlayerPrefs.SetInt("escanerAmenazas", 1);
         }
         if(escudoEnergia)
         {
@@ -168,6 +176,7 @@ public class SistemaMejoras : MonoBehaviour
             {
                 torreta.escudoMaximo += torreta.escudoMaximo * 0.5f;
             }
+            PlayerPrefs.SetInt("escudoEnergia", 1);
         }
         if(balaExplosiva)
         {
@@ -183,6 +192,7 @@ public class SistemaMejoras : MonoBehaviour
                     torreta.radioExplosion += 1;
                 }
             }
+            PlayerPrefs.SetInt("balaExplosiva", 1);
         }
         if(laserPerforante)
         {
@@ -190,6 +200,7 @@ public class SistemaMejoras : MonoBehaviour
             {
                 torreta.perforante = true;
             }
+            PlayerPrefs.SetInt("laserPerforante", 1);
         }
         if(laserPerseguidor)
         {
@@ -197,6 +208,7 @@ public class SistemaMejoras : MonoBehaviour
             {
                 torreta.perseguidor = true;
             }
+            PlayerPrefs.SetInt("laserPerseguidor", 1);
         }
         if(balaPEM)
         {
@@ -204,6 +216,7 @@ public class SistemaMejoras : MonoBehaviour
             {
                 torreta.disparoPEM = true;
             }
+            PlayerPrefs.SetInt("balaPEM", 1);
         }
         */
     }
@@ -211,7 +224,7 @@ public class SistemaMejoras : MonoBehaviour
     public void DesbloquearTorreta()
     {
         /*
-        // Añade al indice la id de la torreta holpita y mohawk
+        // Aï¿½ade al indice la id de la torreta holpita y mohawk
         if (hoplitaMohawk)
         {
             iconos[2].gameObject.SetActive(true);
@@ -219,7 +232,7 @@ public class SistemaMejoras : MonoBehaviour
             iconos[3].gameObject.SetActive(true);
             indice.Add(3);
         }
-        // Añade al indice la id de la torreta inmortal y la fantasma
+        // Aï¿½ade al indice la id de la torreta inmortal y la fantasma
         if(inmortalFantasma)
         {
             iconos[4].gameObject.SetActive(true);
@@ -274,5 +287,45 @@ public class SistemaMejoras : MonoBehaviour
     public void lladamaProvisonalTorretas()
     {
         torretasDisponibles.asignarTorretasDisponibles(indice);   
+    }
+
+    public void activarMejoras()
+    {
+        
+        int vTbyte = PlayerPrefs.GetInt("vidaTbyte", 0);
+        if(vTbyte == 1)
+        {
+            vidaTbyte = true;
+        }
+
+        int eTbyte = PlayerPrefs.GetInt("escudoTbyte", 0);
+        if (eTbyte == 1)
+        {
+            escudoTbyte = true;
+        }
+
+        int mMinimapa = PlayerPrefs.GetInt("mejoraMinimapa", 0);
+        if (mMinimapa == 1)
+        {
+            mejoraMinimapa = true;
+        }
+
+        int mMagnetismo = PlayerPrefs.GetInt("mejoraMagnetismo", 0);
+        if (mMagnetismo == 1)
+        {
+            mejoraMagnetismo = true;
+        }
+
+        int mImpulso = PlayerPrefs.GetInt("mejoraImpulso", 0);
+        if (mImpulso == 1)
+        {
+            mejoraImpulso = true;
+        }
+
+        int mEnergia = PlayerPrefs.GetInt("mejoraEnergia", 0);
+        if (mEnergia == 1)
+        {
+            mejoraEnergia = true;
+        }
     }
 }

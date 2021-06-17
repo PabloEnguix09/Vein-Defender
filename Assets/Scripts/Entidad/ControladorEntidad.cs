@@ -42,6 +42,7 @@ public class ControladorEntidad : MonoBehaviour
 
     public void ObjetivoEnRango()
     {
+        movimiento.Parar();
         animacion.Bloqueado(true);
     }
 
@@ -62,6 +63,7 @@ public class ControladorEntidad : MonoBehaviour
 
     public void Caminar()
     {
+        movimiento.Caminar();
         animacion.Bloqueado(false);
     }
 

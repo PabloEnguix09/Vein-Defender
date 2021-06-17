@@ -12,6 +12,8 @@ public class MejoraSlot : MonoBehaviour, IPointerClickHandler
     public Canvas canvas;
     public CameraController camara;
 
+    public controlPartida control;
+
     public void OnPointerClick(PointerEventData eventData)
     {
 
@@ -62,8 +64,14 @@ public class MejoraSlot : MonoBehaviour, IPointerClickHandler
         if (nombreMejora.Equals(mejoraNombre))
         {
             mejora = true;
+            PlayerPrefs.SetInt(mejoraNombre, 1);
             canvas.gameObject.SetActive(false);
             camara.BloquearCamara(false);
+
+            control.finMision = true;
+
         }
+
+
     }
 }

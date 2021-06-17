@@ -150,9 +150,11 @@ public class Torreta : MonoBehaviour
                 //si apunta a alguien
                 if (enemigoApuntando != null)
                 {
+                    
                     //rota la torreta en direccion al EnemigoControlador.stats apuntado
                     Vector3 dir = parteQueRota.position - enemigoApuntando.transform.position;
                     Quaternion VisionRotacion = Quaternion.LookRotation(dir);
+                    spawnerBalas.transform.rotation = Quaternion.LookRotation(enemigoApuntando.transform.position - spawnerBalas.transform.position);
                     //rotacion suave
                     Vector3 rotacion = Quaternion.Lerp(parteQueRota.rotation, VisionRotacion, Time.deltaTime * velocidadRotacion).eulerAngles;
                     parteQueRota.rotation = Quaternion.Euler(rotacion.x, rotacion.y, rotacion.z);

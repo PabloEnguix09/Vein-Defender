@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -601,7 +601,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93747188}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00009352167}
   m_LocalScale: {x: 2.383, y: 2.3830006, z: 2.3830006}
   m_Children: []
@@ -629,8 +629,8 @@ MonoBehaviour:
   posicion: 6
   indiceTorretaActual: 0
   imagen: {fileID: 93747191}
-  cuadrado: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
-  cuadradoEncima: {fileID: 21300000, guid: 99d5311ba5b7030408bff7cda7f7822b, type: 3}
+  cuadrado: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
+  cuadradoEncima: {fileID: 21300000, guid: 0368b7bdfa9ad6f468dd518cae6530f9, type: 3}
 --- !u!114 &93747191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1907,7 +1907,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410812041}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00009352167}
   m_LocalScale: {x: 2.383, y: 2.3830006, z: 2.3830006}
   m_Children: []
@@ -1935,8 +1935,8 @@ MonoBehaviour:
   posicion: 2
   indiceTorretaActual: 0
   imagen: {fileID: 410812044}
-  cuadrado: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
-  cuadradoEncima: {fileID: 21300000, guid: 99d5311ba5b7030408bff7cda7f7822b, type: 3}
+  cuadrado: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
+  cuadradoEncima: {fileID: 21300000, guid: 0368b7bdfa9ad6f468dd518cae6530f9, type: 3}
 --- !u!114 &410812044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1957,7 +1957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2537,13 +2537,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516628475}
-  m_LocalRotation: {x: 0, y: -0, z: 0.9238796, w: -0.38268325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00009352167}
   m_LocalScale: {x: 2.383, y: 2.3830006, z: 2.3830006}
   m_Children: []
   m_Father: {fileID: 2087454948}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 225}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -271, y: 97}
@@ -2565,8 +2565,8 @@ MonoBehaviour:
   posicion: 5
   indiceTorretaActual: 0
   imagen: {fileID: 516628478}
-  cuadrado: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
-  cuadradoEncima: {fileID: 21300000, guid: 99d5311ba5b7030408bff7cda7f7822b, type: 3}
+  cuadrado: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
+  cuadradoEncima: {fileID: 21300000, guid: 0368b7bdfa9ad6f468dd518cae6530f9, type: 3}
 --- !u!114 &516628478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2587,7 +2587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4777,7 +4777,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038391624}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00009352167}
   m_LocalScale: {x: 2.383, y: 2.3830006, z: 2.3830006}
   m_Children: []
@@ -4805,8 +4805,8 @@ MonoBehaviour:
   posicion: 4
   indiceTorretaActual: 0
   imagen: {fileID: 1038391627}
-  cuadrado: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
-  cuadradoEncima: {fileID: 21300000, guid: 99d5311ba5b7030408bff7cda7f7822b, type: 3}
+  cuadrado: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
+  cuadradoEncima: {fileID: 21300000, guid: 0368b7bdfa9ad6f468dd518cae6530f9, type: 3}
 --- !u!114 &1038391627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4827,7 +4827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5430,13 +5430,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367958518}
-  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00009352167}
   m_LocalScale: {x: 2.383, y: 2.3830006, z: 2.3830006}
   m_Children: []
   m_Father: {fileID: 2087454948}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -73, y: -98}
@@ -5458,8 +5458,8 @@ MonoBehaviour:
   posicion: 1
   indiceTorretaActual: 0
   imagen: {fileID: 1367958521}
-  cuadrado: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
-  cuadradoEncima: {fileID: 21300000, guid: 99d5311ba5b7030408bff7cda7f7822b, type: 3}
+  cuadrado: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
+  cuadradoEncima: {fileID: 21300000, guid: 0368b7bdfa9ad6f468dd518cae6530f9, type: 3}
 --- !u!114 &1367958521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5480,7 +5480,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6160,7 +6160,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534781955}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00009352167}
   m_LocalScale: {x: 2.383, y: 2.3830006, z: 2.3830006}
   m_Children: []
@@ -6188,8 +6188,8 @@ MonoBehaviour:
   posicion: 0
   indiceTorretaActual: 0
   imagen: {fileID: 1534781958}
-  cuadrado: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
-  cuadradoEncima: {fileID: 21300000, guid: 99d5311ba5b7030408bff7cda7f7822b, type: 3}
+  cuadrado: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
+  cuadradoEncima: {fileID: 21300000, guid: 0368b7bdfa9ad6f468dd518cae6530f9, type: 3}
 --- !u!114 &1534781958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6210,7 +6210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7453,13 +7453,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986860720}
-  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00009352167}
   m_LocalScale: {x: 2.383, y: 2.3830006, z: 2.3830006}
   m_Children: []
   m_Father: {fileID: 2087454948}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -275, y: -97}
@@ -7481,8 +7481,8 @@ MonoBehaviour:
   posicion: 7
   indiceTorretaActual: 0
   imagen: {fileID: 1986860723}
-  cuadrado: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
-  cuadradoEncima: {fileID: 21300000, guid: 99d5311ba5b7030408bff7cda7f7822b, type: 3}
+  cuadrado: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
+  cuadradoEncima: {fileID: 21300000, guid: 0368b7bdfa9ad6f468dd518cae6530f9, type: 3}
 --- !u!114 &1986860723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7503,7 +7503,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7671,13 +7671,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042972450}
-  m_LocalRotation: {x: 0, y: 0, z: 0.92387956, w: 0.38268343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00009352167}
   m_LocalScale: {x: 2.383, y: 2.3830006, z: 2.3830006}
   m_Children: []
   m_Father: {fileID: 2087454948}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -73, y: 96}
@@ -7699,8 +7699,8 @@ MonoBehaviour:
   posicion: 3
   indiceTorretaActual: 0
   imagen: {fileID: 2042972453}
-  cuadrado: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
-  cuadradoEncima: {fileID: 21300000, guid: 99d5311ba5b7030408bff7cda7f7822b, type: 3}
+  cuadrado: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
+  cuadradoEncima: {fileID: 21300000, guid: 0368b7bdfa9ad6f468dd518cae6530f9, type: 3}
 --- !u!114 &2042972453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7721,7 +7721,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7c680d5e205bcb499cb462178c97355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1d239cbcfe555941b56f296046010ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
