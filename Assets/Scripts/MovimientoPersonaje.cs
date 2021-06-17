@@ -46,7 +46,7 @@ public class MovimientoPersonaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector3(velocidad.normalized.x * maximaVelocidad, rb.velocity.y, velocidad.normalized.z * maximaVelocidad);
+        rb.velocity = new Vector3(velocidad.normalized.x * maximaVelocidad, Mathf.Clamp(rb.velocity.y, -50f, 50f), velocidad.normalized.z * maximaVelocidad);
 
         if (velocidad.magnitude > 0)
         {
