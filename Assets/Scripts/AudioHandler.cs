@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using System.Collections;
 // ---------------------------------------------------
 // NAME: AudioHandler.cs
 // STATUS: WIP
@@ -118,8 +119,53 @@ public class AudioHandler : MonoBehaviour
             s.origen.clip = s.clip;
             s.origen.volume = s.volumen;
             s.origen.pitch = s.tono;
+            s.origen.loop = s.bucle;
             s.origen.Play();
             timer = maxTimer;
+        }
+    }
+
+    public void PauseAll()
+    {
+        if(master != null)
+        {
+            FadeOut(master);
+            master.Stop();
+        }
+        if (sfx != null)
+        {
+            FadeOut(sfx);
+            sfx.Stop();
+        }
+        if (ambiente != null)
+        {
+            FadeOut(ambiente);
+            ambiente.Stop();
+        }
+        if (grupo != null)
+        {
+            FadeOut(grupo);
+            grupo.Stop();
+        }
+        if (ost != null)
+        {
+            FadeOut(ost);
+            ost.Stop();
+        }
+        if (efectos != null)
+        {
+            FadeOut(efectos);
+            efectos.Stop();
+        }
+    }
+
+    IEnumerator FadeOut(AudioSource source)
+    {
+        for (float ft = 1f; ft >= 0; ft -= 0.1f)
+        {
+            source.volume = ft;
+
+            yield return new WaitForSeconds(.1f);
         }
     }
 }

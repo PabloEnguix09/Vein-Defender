@@ -253,6 +253,7 @@ public class SistemaMejoras : MonoBehaviour
             indice.Add(1);
         }
         */
+        /*
         if (!mejoraCaminos)
         {
             foreach (Camino ruta in camino)
@@ -260,6 +261,7 @@ public class SistemaMejoras : MonoBehaviour
                 Destroy(ruta.gameObject);
             }
         }
+        */
         /*
         if (escudoDefensor)
         {
