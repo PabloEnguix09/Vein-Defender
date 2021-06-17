@@ -136,13 +136,10 @@ public class Spawner : MonoBehaviour
         {
             case 1:
                 StartCoroutine(Aparicion());
-                contador2 = limiteSegundoEnemigo;
-                contador3 = limiteTercerEnemigo;
                 break;
             case 2:
                 StartCoroutine(Aparicion());
                 StartCoroutine(Aparicion2());
-                contador3 = limiteTercerEnemigo;
                 break;
             case 3:
                 StartCoroutine(Aparicion());

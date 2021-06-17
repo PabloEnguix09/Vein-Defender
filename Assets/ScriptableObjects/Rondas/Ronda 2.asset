@@ -15,10 +15,10 @@ MonoBehaviour:
   radioSpawn: 3
   limitePrimerEnemigo: 1
   tiempoAparicionPrimerEnemigo: 0.5
-  primerTipoDeEnemigo: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
+  primerTipoDeEnemigo: {fileID: 3671158431268791085, guid: 146c3484969542e4cbf96fc36ef21119, type: 3}
   limiteSegundoEnemigo: 0
   tiempoAparicionSegundoEnemigo: 3
   segundoTipoDeEnemigo: {fileID: 1018791793810155938, guid: 592e17a9058fdf64bb1a8100f1bed7ff, type: 3}
   limiteTercerEnemigo: 0
   tiempoAparicionTercerEnemigo: 1
-  tercerTipoDeEnemigo: {fileID: 3671158431268791085, guid: 146c3484969542e4cbf96fc36ef21119, type: 3}
+  tercerTipoDeEnemigo: {fileID: 6127863220233718541, guid: 65d106b27194819418c22277f02889a9, type: 3}

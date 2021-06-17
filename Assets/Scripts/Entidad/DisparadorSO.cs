@@ -20,7 +20,6 @@ public class DisparadorSO : MonoBehaviour
         if (controlador.stats.atacaTorretas)
         {
             GameObject[] torretas = GameObject.FindGameObjectsWithTag("Torreta");
-
             objetivosEnRango.AddRange(torretas);
         }
         // Pone al jugador en la lista de posibles objetivos
@@ -28,12 +27,11 @@ public class DisparadorSO : MonoBehaviour
         {
             GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
 
-            objetivosEnRango.AddRange(player);
+            //objetivosEnRango.AddRange(player);
         }
         // Pone las bases 
         GameObject[] bases = GameObject.FindGameObjectsWithTag("Base");
-        objetivosEnRango.AddRange(bases);
-
+        //objetivosEnRango.AddRange(bases);
         Vector3 masCercano = Vector3.zero;
 
         // Encontramos el objetivo mas cercano
@@ -45,8 +43,10 @@ public class DisparadorSO : MonoBehaviour
                 // Si el enemigo es visible y es una torreta
                 if (objetivosEnRango[i].TryGetComponent(out Torreta torreta))
                 {
+
                     if (!torreta.invisibilidad)
                     {
+
                         // Si aun no ha encontrado ningun objetivo
                         if (masCercano == null)
                         {
