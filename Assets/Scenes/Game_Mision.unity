@@ -643,6 +643,9 @@ MonoBehaviour:
     texto: Pulse <Barra espaciadora> para saltar
   - segundosEspera: 1
     "limpiarP\xE1gina": 0
+    texto: F para eliminar una torreta colocada y P para pausar el juego
+  - segundosEspera: 1
+    "limpiarP\xE1gina": 0
     texto: 'Pulse <LShift> o <LControl> para descender
 
 
