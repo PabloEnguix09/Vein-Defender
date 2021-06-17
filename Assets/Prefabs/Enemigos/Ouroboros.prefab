@@ -141,7 +141,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 1aff5d0b206321d4d8abf23d0e591724, type: 2}
   - {fileID: 2100000, guid: 1aff5d0b206321d4d8abf23d0e591724, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -789,6 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: a2411b431505f5c4193f0b9370b67f70, type: 2}
+  nombre: 
   spawnerBalas: {fileID: 8117577643642498450}
   balaObjeto: {fileID: 359144644986097494, guid: 1d3e76fc0819f574585ca161d1614a7c, type: 3}
   parteQueRota: {fileID: 3541479366865799255}
@@ -810,6 +811,7 @@ MonoBehaviour:
     nombre: Disparo
     indice: 0
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}
@@ -817,6 +819,7 @@ MonoBehaviour:
     nombre: Deslizando
     indice: 1
     mixer: 2
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}

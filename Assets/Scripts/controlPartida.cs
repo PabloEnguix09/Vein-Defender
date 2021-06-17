@@ -54,6 +54,8 @@ public class controlPartida : MonoBehaviour
 
     public SistemaMejoras mejoras;
 
+    AudioHandler audioHandler;
+
     void Start()
     {
         finMision = false;
@@ -67,6 +69,11 @@ public class controlPartida : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
 
+        // Audio
+        audioHandler = GetComponent<AudioHandler>();
+        // Cancion de la nave
+        audioHandler.Play(0);
+
         mejoras.activarMejoras();
     }
 
@@ -77,6 +84,7 @@ public class controlPartida : MonoBehaviour
             timerFinMision += Time.deltaTime;
             if(timerFinMision > 2)
             {
+                // Carga del nivel 1
                 SceneManager.LoadScene(2);
                 SceneManager.LoadScene(3, LoadSceneMode.Additive);
                 SceneManager.LoadScene(4, LoadSceneMode.Additive);
@@ -94,6 +102,7 @@ public class controlPartida : MonoBehaviour
             }
         }
 
+        // Muere el jugador
         if(personaje.Salud <= 0)
         {
             finDePartida = true;
@@ -141,6 +150,9 @@ public class controlPartida : MonoBehaviour
                             ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 2";
+
+                            // Cancion de la segunda ronda
+                            audioHandler.Play(1);
                         }
                         break;
                     case 3:
@@ -174,6 +186,9 @@ public class controlPartida : MonoBehaviour
                             ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 4";
+
+                            // Cancion de la ronda final
+                            audioHandler.Play(2);
                         }
                         break;
                     case 5:
@@ -211,6 +226,9 @@ public class controlPartida : MonoBehaviour
                 textoEstado.GetComponent<UnityEngine.UI.Text>().text = "";
                 ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
             }
+
+            // termina el audio de la nave
+            audioHandler.PauseAll();
             
         }
 
