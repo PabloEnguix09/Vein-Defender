@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 84236411}
   - component: {fileID: 84236410}
   - component: {fileID: 84236409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Escenario
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -16123,7 +16123,7 @@ MonoBehaviour:
   textoEstado: {fileID: 452563728}
   textoRonda: {fileID: 1309640302}
   mejora: {fileID: 1723795975}
-  tiempoEntreRondas: 1
+  tiempoEntreRondas: 10
   finMision: 0
   timerFinMision: 0
   mejoras: {fileID: 1594907900}

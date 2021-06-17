@@ -82,7 +82,7 @@ public class controlPartida : MonoBehaviour
         if (finMision)
         {
             timerFinMision += Time.deltaTime;
-            if(timerFinMision > 2)
+            if(timerFinMision > tiempoEntreRondas)
             {
                 // Carga del nivel 1
                 SceneManager.LoadScene(2);

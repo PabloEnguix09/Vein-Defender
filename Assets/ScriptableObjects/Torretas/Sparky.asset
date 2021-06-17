@@ -15,7 +15,7 @@ MonoBehaviour:
   energia: 1
   energiaAlt: 1
   vidaMaxima: 10
-  ataque: 0
+  ataque: 1
   cadenciaDisparo: 0.5
   tipoDisparo: 1
   anguloDisparo: {x: 0, y: 0, z: 0, w: 1}
