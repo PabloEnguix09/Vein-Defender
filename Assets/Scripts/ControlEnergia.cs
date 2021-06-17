@@ -32,13 +32,22 @@ public class ControlEnergia : MonoBehaviour
     }
     public void maximaEnergia(float energia)
     {
-        energiaMax = energia;
-        sliderEnergia.maxValue = energia;
-        sliderEnergia.value = energiaMax - energia;
-        texto.text = (energiaMax - energia).ToString() + "%"; 
-        
 
-        if(imagen != null)
+        energiaMax = energia;
+       
+        if (sliderEnergia != null)
+        {
+            sliderEnergia.maxValue = energia;
+
+            sliderEnergia.value = energiaMax - energia;
+        }
+
+        if (texto != null)
+        {
+            texto.text = (energiaMax - energia).ToString() + "%";
+        }
+
+        if (imagen != null)
         {
             imagen.color = gradienteEnergia.Evaluate(1f);
         }

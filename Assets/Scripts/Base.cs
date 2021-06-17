@@ -19,6 +19,7 @@ public class Base : MonoBehaviour
     public float salud = 1;
 
     public GameObject modelo;
+    public GameObject rayo;
     public Image romboActual;
     public GameObject marcador;
     public Sprite romboAtaque;
@@ -77,7 +78,7 @@ public class Base : MonoBehaviour
             atacado = true;
             if (salud <= 0)
             {
-                //Destroy(gameObject);
+                Destroy(rayo);
                 gameObject.tag = "Untagged";
                 Destroy(romboActual.gameObject);
                 Destroy(marcador);
