@@ -60,13 +60,16 @@ public class TextMission : MonoBehaviour
 
         if (!finCinematica)
         {
-            finCinematica = true;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (!cinematicaIngame)
             {
-                //al pulsar cualquier tecla carga la siguiente escena
-                SceneManager.LoadScene(GameScene);
-                SceneManager.LoadScene(3, LoadSceneMode.Additive);
-                SceneManager.LoadScene(4, LoadSceneMode.Additive);
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    finCinematica = true;
+                    //al pulsar cualquier tecla carga la siguiente escena
+                    SceneManager.LoadScene(GameScene);
+                    SceneManager.LoadScene(3, LoadSceneMode.Additive);
+                    SceneManager.LoadScene(4, LoadSceneMode.Additive);
+                }
             }
         }
 
