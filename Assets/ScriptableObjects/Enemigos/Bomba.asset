@@ -33,5 +33,5 @@ MonoBehaviour:
   velocidadDisparo: 0
   anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
   explosivo: 1
-  rangoExplosion: 2
+  rangoExplosion: 4
   ataqueExplosion: 2

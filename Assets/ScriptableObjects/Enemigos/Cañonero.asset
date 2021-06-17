@@ -27,7 +27,7 @@ MonoBehaviour:
   vuela: 0
   velocidadMaxima: 5
   movimiento: 0
-  ataqueDisparo: 0
+  ataqueDisparo: 2
   velocidadRotacion: 0
   rangoDisparo: 30
   velocidadDisparo: 1

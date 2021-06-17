@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Ronda
   m_EditorClassIdentifier: 
   radioSpawn: 7
-  limitePrimerEnemigo: 1
+  limitePrimerEnemigo: 3
   tiempoAparicionPrimerEnemigo: 1
-  primerTipoDeEnemigo: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
+  primerTipoDeEnemigo: {fileID: 3671158431268791085, guid: 146c3484969542e4cbf96fc36ef21119, type: 3}
   limiteSegundoEnemigo: 0
   tiempoAparicionSegundoEnemigo: 2
   segundoTipoDeEnemigo: {fileID: 3396167871826993634, guid: 47320d75138be3c4dbea00e5345b4f0c, type: 3}

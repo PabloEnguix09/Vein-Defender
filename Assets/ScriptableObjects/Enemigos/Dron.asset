@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dron
   m_EditorClassIdentifier: 
   nombre: Dron
-  rangoDeteccion: 15
+  rangoDeteccion: 20
   atacaJugador: 1
   atacaTorretas: 1
   tipoAtaque: 2
