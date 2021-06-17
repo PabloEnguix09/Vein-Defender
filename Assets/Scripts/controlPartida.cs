@@ -22,6 +22,7 @@ using UnityEngine.SceneManagement;
 public class controlPartida : MonoBehaviour
 {
     Base[] bases;
+    public GameObject[] rayos;
     Spawner[] spawners;
     public GameObject jugador;
     Personaje personaje;
@@ -40,6 +41,9 @@ public class controlPartida : MonoBehaviour
     private bool todosSpawneados;
     private int ronda;
 
+    public bool finMision;
+    public float timerFinMision;
+
     ControladorEntidad[] enemigos;
 
     GameManager gameManager;
@@ -47,21 +51,38 @@ public class controlPartida : MonoBehaviour
     private Camino camino;
 
     private string ultimoTexto;
+
+    public SistemaMejoras mejoras;
+
     void Start()
     {
+        finMision = false;
+        timerFinMision = 0;
         bases = (Base[])GameObject.FindObjectsOfType(typeof(Base));
         spawners = (Spawner[])GameObject.FindObjectsOfType(typeof(Spawner));
         personaje = jugador.GetComponent<Personaje>();
         CamaraSecundaria.SetActive(false);
         mejora.SetActive(false);
         ronda = 1;
-
         gameManager = FindObjectOfType<GameManager>();
         ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+
+        mejoras.activarMejoras();
     }
 
     void Update()
     {
+        if (finMision)
+        {
+            timerFinMision += Time.deltaTime;
+            if(timerFinMision > 2)
+            {
+                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3, LoadSceneMode.Additive);
+                SceneManager.LoadScene(4, LoadSceneMode.Additive);
+            }
+        }
+
         finDePartida = true;
         //si todas las bases mueren, se acaba la partida
         foreach (Base b in bases)
@@ -71,6 +92,11 @@ public class controlPartida : MonoBehaviour
             {
                 finDePartida = false;
             }
+        }
+
+        if(personaje.Salud <= 0)
+        {
+            finDePartida = true;
         }
 
         finDeRonda = false;
@@ -110,7 +136,7 @@ public class controlPartida : MonoBehaviour
                             s.contador = 0;
                             s.contador2 = 0;
                             s.contador3 = 0;
-                            s.limitePrimerEnemigo += 5;
+                            //s.limitePrimerEnemigo += 5;
                             textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 2";
                             ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
                             s.SetRonda(ronda);
@@ -124,8 +150,10 @@ public class controlPartida : MonoBehaviour
                             s.contador = 0;
                             s.contador2 = 0;
                             s.contador3 = 0;
-                            s.limitePrimerEnemigo = s.limitePrimerEnemigo * 2;
-                            s.limiteSegundoEnemigo += 5;
+                            //s.limitePrimerEnemigo = s.limitePrimerEnemigo * 2;
+                            //s.limiteSegundoEnemigo += 5;
+                            s.limiteSegundoEnemigo = 0;
+                            s.limiteTercerEnemigo = 0;
                             textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 3";
                             ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
                             s.SetRonda(ronda);
@@ -139,9 +167,9 @@ public class controlPartida : MonoBehaviour
                             s.contador = 0;
                             s.contador2 = 0;
                             s.contador3 = 0;
-                            s.limitePrimerEnemigo += 10;
-                            s.limiteSegundoEnemigo = s.limiteSegundoEnemigo * 2;
-                            s.limiteTercerEnemigo += 5;
+                            //s.limitePrimerEnemigo += 10;
+                            //s.limiteSegundoEnemigo = s.limiteSegundoEnemigo * 2;
+                            //s.limiteTercerEnemigo += 5;
                             textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa la tecla <K> para empezar la ronda 3";
                             ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
                             s.SetRonda(ronda);
@@ -156,7 +184,6 @@ public class controlPartida : MonoBehaviour
                             PlayerPrefs.SetInt("misiones_completadas", misionesCompletadas + 1);
                             Cursor.lockState = CursorLockMode.None;
                             mejora.SetActive(true);
-                            //SceneManager.LoadScene(SceneManager.GetSceneAt(1).ToString());
                         }
                         break;
                     default:
@@ -176,6 +203,8 @@ public class controlPartida : MonoBehaviour
         //Pulsar la <k> para empezar rondas/partida
         if (Input.GetKeyDown(KeyCode.K) && ronda == 1)
         {
+
+            activarExcavadoras();
             foreach(Spawner s in spawners)
             {
                 s.SetRonda(ronda);
@@ -185,7 +214,14 @@ public class controlPartida : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        //Salir al menu
+        if (finDePartida && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        // Reinicio rapido
+        if ( finDePartida && Input.GetKeyDown(KeyCode.R))
         {
             Restart();
         }
@@ -193,12 +229,16 @@ public class controlPartida : MonoBehaviour
 
     public void Restart()
     {
-        //reiniciar la partida
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        limpiarPrefs();
+        //al pulsar cualquier tecla carga la siguiente escena
+        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3, LoadSceneMode.Additive);
+        SceneManager.LoadScene(4, LoadSceneMode.Additive);
     }
 
     public void GameOver()
     {
+        limpiarPrefs();
         if (!CamaraSecundaria.activeSelf)
         {
             //la camara se situa en el cielo.
@@ -216,6 +256,24 @@ public class controlPartida : MonoBehaviour
         textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa cualquier tecla para volver al menu";
         ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
 
+    }
+
+    public void activarExcavadoras()
+    {
+        for(int i = 0; i < rayos.Length; i++)
+        {
+            rayos[i].SetActive(true);
+        }
+    }
+
+    public void limpiarPrefs()
+    {
+        PlayerPrefs.SetInt("vidaTbyte", 0);
+        PlayerPrefs.SetInt("escudoTbyte", 0);
+        PlayerPrefs.SetInt("mejoraMinimapa", 0);
+        PlayerPrefs.SetInt("mejoraMagnetismo", 0);
+        PlayerPrefs.SetInt("mejoraImpulso", 0);
+        PlayerPrefs.SetInt("mejoraEnergia", 0);
     }
 
     public void Interactuar(bool interactuar)

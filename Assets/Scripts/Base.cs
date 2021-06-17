@@ -38,6 +38,7 @@ public class Base : MonoBehaviour
             {
                 // Debug.Log("Destruido");
                 modelo.SetActive(false);
+
             }
         }
     }
@@ -58,21 +59,29 @@ public class Base : MonoBehaviour
         if(timer >= 2)
         {
             atacado = false;
-            romboActual.sprite = romboSeguro;
+            if(salud > 0)
+            {
+                romboActual.sprite = romboSeguro;
+            }
             timer = 0;
         }
     }
 
     public void RecibirAtaque(Ataque ataque)
     {
-        salud -= ataque.fuerza;
-        romboActual.sprite = romboAtaque;
-        atacado = true;
-        if(salud <= 0)
+
+        if(salud > 0)
         {
-            Destroy(gameObject);
-            Destroy(romboActual.gameObject);
-            Destroy(marcador);
+            salud -= ataque.fuerza;
+            romboActual.sprite = romboAtaque;
+            atacado = true;
+            if (salud <= 0)
+            {
+                //Destroy(gameObject);
+                gameObject.tag = "Untagged";
+                Destroy(romboActual.gameObject);
+                Destroy(marcador);
+            }
         }
     }
 }

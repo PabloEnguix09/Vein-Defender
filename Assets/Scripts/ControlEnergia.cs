@@ -37,7 +37,11 @@ public class ControlEnergia : MonoBehaviour
         sliderEnergia.value = energiaMax - energia;
         texto.text = (energiaMax - energia).ToString() + "%"; 
         
-        imagen.color = gradienteEnergia.Evaluate(1f);
+
+        if(imagen != null)
+        {
+            imagen.color = gradienteEnergia.Evaluate(1f);
+        }
     }
 
     private void Update()

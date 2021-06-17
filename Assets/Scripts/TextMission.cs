@@ -58,6 +58,20 @@ public class TextMission : MonoBehaviour
         //actualizar el texto según el buffer y el cursor
         texto.text = textoBuffer + cursor;
 
+        if (!finCinematica)
+        {
+            finCinematica = true;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                //al pulsar cualquier tecla carga la siguiente escena
+                SceneManager.LoadScene(GameScene);
+                SceneManager.LoadScene(3, LoadSceneMode.Additive);
+                SceneManager.LoadScene(4, LoadSceneMode.Additive);
+            }
+        }
+
+
+
         //si ha terminado el texto
         if (finCinematica)
         {

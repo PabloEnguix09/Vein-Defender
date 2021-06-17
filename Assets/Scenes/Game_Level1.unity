@@ -256,7 +256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &18584086
 RectTransform:
   m_ObjectHideFlags: 0
@@ -632,7 +632,7 @@ Transform:
   - {fileID: 1510953071}
   - {fileID: 1539715744}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &70361786
 GameObject:
@@ -906,7 +906,7 @@ Transform:
   - {fileID: 113839998}
   - {fileID: 320847163}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &89798726
 GameObject:
@@ -1553,7 +1553,7 @@ RectTransform:
   - {fileID: 500354595}
   - {fileID: 697637957}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2121,7 +2121,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &225932469
 GameObject:
@@ -2650,27 +2650,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: limitePrimerEnemigo
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: primerTipoDeEnemigo
       value: 
-      objectReference: {fileID: 2821222062212735831, guid: c0e6714474d46cc4ca9ce410a930d174, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: limiteSegundoEnemigo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: segundoTipoDeEnemigo
       value: 
-      objectReference: {fileID: 6736823799646264108, guid: b467945d7ac668649b7be25e8f19193f, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: tiempoAparicionPrimerEnemigo
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: tiempoAparicionSegundoEnemigo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809943, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_Name
@@ -3699,6 +3699,11 @@ MonoBehaviour:
   nombre: Aumento de vida
   nombreMejora: vidaTbyte
   canvas: {fileID: 0}
+--- !u!1 &389117185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5664785754166046830, guid: 7a469f575895d2343a34b6816b666173, type: 3}
+  m_PrefabInstance: {fileID: 1328094745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &402671303
 GameObject:
   m_ObjectHideFlags: 0
@@ -4258,6 +4263,7 @@ MonoBehaviour:
   mejoras: {fileID: 1594907900}
   canvas: {fileID: 1723795978}
   camara: {fileID: 4821090251178512045}
+  control: {fileID: 1594907898}
 --- !u!1 &447585492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5230,7 +5236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &552588687
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5297,7 +5303,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4227345956825809941, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809941, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5361,31 +5367,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: limitePrimerEnemigo
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: primerTipoDeEnemigo
       value: 
-      objectReference: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: tercerTipoDeEnemigo
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: limiteSegundoEnemigo
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: segundoTipoDeEnemigo
       value: 
-      objectReference: {fileID: 6975631623353459767, guid: 047c393936038c44b99e2d76de457951, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: tiempoAparicionPrimerEnemigo
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809942, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: tiempoAparicionSegundoEnemigo
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227345956825809943, guid: 8145adbe1b9c8064081ca6ceb77f0e88, type: 3}
       propertyPath: m_Name
@@ -9176,6 +9182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base
       objectReference: {fileID: 0}
+    - target: {fileID: 5664785754166046830, guid: 7a469f575895d2343a34b6816b666173, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8365321854072210351, guid: 7a469f575895d2343a34b6816b666173, type: 3}
       propertyPath: rombo
       value: 
@@ -10192,6 +10202,7 @@ MonoBehaviour:
   mejoras: {fileID: 1594907900}
   canvas: {fileID: 1723795978}
   camara: {fileID: 4821090251178512045}
+  control: {fileID: 1594907898}
 --- !u!1 &1104951155
 GameObject:
   m_ObjectHideFlags: 0
@@ -11940,7 +11951,7 @@ Transform:
   - {fileID: 1328094746}
   - {fileID: 1444415387}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1309640302
 GameObject:
@@ -12151,6 +12162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5664785754166046830, guid: 7a469f575895d2343a34b6816b666173, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8365321854072210351, guid: 7a469f575895d2343a34b6816b666173, type: 3}
       propertyPath: rombo
       value: 
@@ -12290,6 +12305,11 @@ Transform:
   m_Father: {fileID: 2039741705}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1370882329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5664785754166046830, guid: 7a469f575895d2343a34b6816b666173, type: 3}
+  m_PrefabInstance: {fileID: 970087753}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1376424537
 GameObject:
   m_ObjectHideFlags: 0
@@ -12995,6 +13015,10 @@ PrefabInstance:
     - target: {fileID: 2604654016884646847, guid: 7a469f575895d2343a34b6816b666173, type: 3}
       propertyPath: m_Name
       value: Base (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664785754166046830, guid: 7a469f575895d2343a34b6816b666173, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8365321854072210351, guid: 7a469f575895d2343a34b6816b666173, type: 3}
       propertyPath: romboActual
@@ -13921,12 +13945,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68966042dbe56634fb4718d59dbe2e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayos:
+  - {fileID: 1370882329}
+  - {fileID: 389117185}
+  - {fileID: 1090377060}
   jugador: {fileID: 4821090250251698042}
   CamaraSecundaria: {fileID: 64465745}
   textoEstado: {fileID: 452563728}
   textoRonda: {fileID: 1309640302}
   mejora: {fileID: 1723795975}
-  tiempoEntreRondas: 10
+  tiempoEntreRondas: 1
+  finMision: 0
+  timerFinMision: 0
+  mejoras: {fileID: 1594907900}
 --- !u!4 &1594907899
 Transform:
   m_ObjectHideFlags: 0
@@ -13982,33 +14013,35 @@ MonoBehaviour:
   - mejoraCamara
   - mejoraCaminos
   - escudoDefensor
+  minimapa: {fileID: 18584085}
+  marco: {fileID: 552588686}
   vidaTbyte: 0
   escudoTbyte: 0
-  mejoraMinimapa: 1
+  mejoraMinimapa: 0
   mejoraMagnetismo: 0
   mejoraImpulso: 0
   mejoraEnergia: 0
   mejoraMarcador: 0
   mejoraDebilitante: 0
   mejoraSparky: 0
-  explosionPEM: 1
-  hoplitaMohawk: 1
-  inmortalFantasma: 1
-  scutumBerserker: 1
-  balearTrampa: 1
+  explosionPEM: 0
+  hoplitaMohawk: 0
+  inmortalFantasma: 0
+  scutumBerserker: 0
+  balearTrampa: 0
   costeEnergia: 0
   balasReforzadas: 0
   laseresMejorados: 0
   cadenciaMejorada: 0
   escanerAmenazas: 0
   escudoEnergia: 0
-  balaExplosiva: 1
+  balaExplosiva: 0
   laserPerforante: 0
   laserPerseguidor: 0
-  balaPEM: 1
-  mejoraCamara: 1
+  balaPEM: 0
+  mejoraCamara: 0
   mejoraCaminos: 0
-  escudoDefensor: 1
+  escudoDefensor: 0
   torretasDisponibles: {fileID: 1594907901}
   camino:
   - {fileID: 0}
@@ -14682,6 +14715,7 @@ MonoBehaviour:
   mejoras: {fileID: 1594907900}
   canvas: {fileID: 1723795978}
   camara: {fileID: 4821090251178512045}
+  control: {fileID: 1594907898}
 --- !u!114 &1653427730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15622,7 +15656,7 @@ RectTransform:
   - {fileID: 782743169}
   - {fileID: 1636481089}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17052,7 +17086,7 @@ RectTransform:
   - {fileID: 1825699926}
   - {fileID: 471218292}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17774,7 +17808,7 @@ Transform:
   - {fileID: 2129265237}
   - {fileID: 1298070437}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2055020441
 GameObject:
@@ -18073,7 +18107,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 44.649, y: -87.732, z: -0.329}
 --- !u!1 &2086576821
 GameObject:
@@ -18409,11 +18443,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4821090250942725013}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 16.349, y: 145.832, z: 5.0910006}
+  m_LocalPosition: {x: 16.349, y: 145.452, z: 5.0910006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &4821090250942725010
 AudioListener:
@@ -18552,7 +18586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695093, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 144.38
+      value: 144
       objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695093, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18646,6 +18680,10 @@ PrefabInstance:
       propertyPath: camara
       value: 
       objectReference: {fileID: 4821090250942725008}
+    - target: {fileID: 6328634591451811989, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000004172325
+      objectReference: {fileID: 0}
     - target: {fileID: 6328634591451811990, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: m_CameraRadius
       value: 0.5
