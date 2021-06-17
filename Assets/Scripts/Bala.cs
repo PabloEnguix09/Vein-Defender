@@ -74,12 +74,10 @@ public class Bala : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Base"))
         {
-
             if (!ataque.origen.CompareTag("Torreta"))
             {
                 Base estructura = collision.gameObject.gameObject.GetComponent<Base>();
                 estructura.RecibirAtaque(ataque);
-                
                 ExplosionAtaque(ataque);
             }
         }

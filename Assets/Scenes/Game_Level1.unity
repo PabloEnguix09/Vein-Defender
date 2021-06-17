@@ -11107,6 +11107,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8365321854072210351, guid: 7a469f575895d2343a34b6816b666173, type: 3}
+      propertyPath: rayo
+      value: 
+      objectReference: {fileID: 1370882329}
+    - target: {fileID: 8365321854072210351, guid: 7a469f575895d2343a34b6816b666173, type: 3}
       propertyPath: rombo
       value: 
       objectReference: {fileID: 1417824808}
@@ -14087,6 +14091,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8365321854072210351, guid: 7a469f575895d2343a34b6816b666173, type: 3}
+      propertyPath: rayo
+      value: 
+      objectReference: {fileID: 389117185}
+    - target: {fileID: 8365321854072210351, guid: 7a469f575895d2343a34b6816b666173, type: 3}
       propertyPath: rombo
       value: 
       objectReference: {fileID: 1002843275}
@@ -14940,6 +14948,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8365321854072210351, guid: 7a469f575895d2343a34b6816b666173, type: 3}
+      propertyPath: rayo
+      value: 
+      objectReference: {fileID: 1444415388}
     - target: {fileID: 8365321854072210351, guid: 7a469f575895d2343a34b6816b666173, type: 3}
       propertyPath: romboActual
       value: 
