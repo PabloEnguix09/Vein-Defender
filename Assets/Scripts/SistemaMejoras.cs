@@ -73,7 +73,7 @@ public class SistemaMejoras : MonoBehaviour
 
     private void Start()
     {
-        GameObject objetos = SceneManager.GetSceneByName("Nave").GetRootGameObjects()[1].GetComponentInChildren<Interaccion>().GetComponentInChildren<CinemachineVirtualCamera>(true).GetComponentInChildren<HUD>(true).gameObject;
+        GameObject objetos = SceneManager.GetSceneByName("Nave").GetRootGameObjects()[1].GetComponentsInChildren<Interaccion>()[1].GetComponentInChildren<CinemachineVirtualCamera>(true).GetComponentInChildren<HUD>(true).gameObject;
         iconos = objetos.GetComponentsInChildren<DragDrop>();
     }
     public void MejorasPersonaje(Personaje personaje)
