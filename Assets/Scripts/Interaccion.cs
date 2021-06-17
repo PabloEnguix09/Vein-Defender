@@ -46,9 +46,12 @@ public class Interaccion : MonoBehaviour
     {
         // Busca el camera controller
         cameraController = FindObjectOfType<CameraController>();
-
-        // Lo desactiva al principio por si acaso
         hud.SetActive(false);
+        // Lo desactiva al principio por si acaso
+        if (tipoItem == TipoItem.mapaMision)
+        {
+            hud.SetActive(true);
+        }
 
         animatorNave = nave.GetComponent<Animator>();
 
@@ -78,12 +81,17 @@ public class Interaccion : MonoBehaviour
         if(tipoItem == TipoItem.mapaMision)
         {
             postProcesado.SetActive(true);
-            GetComponentInChildren<TextMission>().EmpezarCinematica();
+
+            if (!GetComponentInChildren<TextMission>().finCinematica)
+            {
+                GetComponentInChildren<TextMission>().finCinematica = true;
+                GetComponentInChildren<TextMission>().EmpezarCinematica();
+            }
+            
 
             camaraSelector.SetActive(true);
             camaraTByte.SetActive(false);
 
-            hud.SetActive(true);
             gui.SetActive(false);
 
             cameraController.BloquearCamara(true);
@@ -129,7 +137,6 @@ public class Interaccion : MonoBehaviour
             camaraTByte.SetActive(true);
             camaraSelector.SetActive(false);
 
-            hud.SetActive(false);
             gui.SetActive(true);
 
             cameraController.BloquearCamara(false);
