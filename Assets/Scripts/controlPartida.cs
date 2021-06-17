@@ -49,7 +49,6 @@ public class controlPartida : MonoBehaviour
     private string ultimoTexto;
     void Start()
     {
-        SceneManager.LoadScene(3, LoadSceneMode.Additive);
         bases = (Base[])GameObject.FindObjectsOfType(typeof(Base));
         spawners = (Spawner[])GameObject.FindObjectsOfType(typeof(Spawner));
         personaje = jugador.GetComponent<Personaje>();

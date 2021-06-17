@@ -19,6 +19,7 @@ public class Settings : MonoBehaviour
     public GameObject aplicar;
     public GameObject ajustes;
 
+
     private int resActual;
     private float volGenActual;
     private float volEfActual;
@@ -32,26 +33,34 @@ public class Settings : MonoBehaviour
     private void Awake()
     {
         resoluciones = Screen.resolutions;
-        int i = 0;
-        while (!resoluciones[i].Equals(Screen.currentResolution))
-        {
-            i++;
-        }
-        resolucionDropdown.value = i;
-        resolucionDropdown.RefreshShownValue();
+        resolucionDropdown.options.Clear();
 
-        resActual = i;
+        int currentRes = 0;
+        for(int i = 0;i<resoluciones.Length;i++)
+        {
+            resolucionDropdown.options.Add(new Dropdown.OptionData(resoluciones[i].ToString()));
+            if(resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height && (Screen.currentResolution.refreshRate - resoluciones[i].refreshRate) < 2)
+            {
+                currentRes = i;
+            }
+        }
+
+        resolucionDropdown.value = currentRes;
+        resolucionDropdown.RefreshShownValue();
+        
+
+
         audioMixer.GetFloat("volumen", out volGenActual);
         audioMixer.GetFloat("efectos", out volEfActual);
         audioMixer.GetFloat("musica", out volMusActual);
         calActual = QualitySettings.GetQualityLevel();
         compActual = Screen.fullScreen;
-
         calidadDropdown.value = calActual;
         calidadDropdown.RefreshShownValue();
     }
     public void SetVolumenGeneral (float volumen)
     {
+
         volGen = volumen;
         audioMixer.SetFloat("volumen", volumen);
         audioGeneral.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
@@ -81,7 +90,7 @@ public class Settings : MonoBehaviour
     }
     public void SetResolucion(int resolucion)
     {
-        Screen.SetResolution(resoluciones[resolucion].width, resoluciones[resolucion].height, Screen.fullScreen);
+        Screen.SetResolution(resoluciones[resolucion].width, resoluciones[resolucion].height, Screen.fullScreen, resoluciones[resolucion].refreshRate);
     }
     public void BackMenu()
     {
@@ -92,6 +101,7 @@ public class Settings : MonoBehaviour
         PlayerPrefs.SetInt("UnityGraphicsQuality", QualitySettings.GetQualityLevel());
         PlayerPrefs.SetFloat("Screenmanager Resolution Width", Screen.currentResolution.width);
         PlayerPrefs.SetFloat("Screenmanager Resolution Height", Screen.currentResolution.height);
+        PlayerPrefs.SetFloat("Screenmanager Resolution RefreshRate", Screen.currentResolution.refreshRate);
         volGenActual = volGen;
         volMusActual = volMus;
         volEfActual = volEf;

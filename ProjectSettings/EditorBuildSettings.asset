@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nave.unity
     guid: 7b788547cbae34540a8883767464abd4
+  - enabled: 1
+    path: Assets/Scenes/Volumes.unity
+    guid: 62cb67c70b5dedf45aa55cd0d06feff1
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

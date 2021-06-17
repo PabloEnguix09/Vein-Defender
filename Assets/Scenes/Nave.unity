@@ -7622,7 +7622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textos:
-  - segundosEspera: 4
+  - segundosEspera: 2
     "limpiarP\xE1gina": 0
     texto: "--Misi\xF3n------------"
   - segundosEspera: 1
