@@ -27,11 +27,11 @@ public class DisparadorSO : MonoBehaviour
         {
             GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
 
-            //objetivosEnRango.AddRange(player);
+            objetivosEnRango.AddRange(player);
         }
         // Pone las bases 
         GameObject[] bases = GameObject.FindGameObjectsWithTag("Base");
-        //objetivosEnRango.AddRange(bases);
+        objetivosEnRango.AddRange(bases);
         Vector3 masCercano = Vector3.zero;
 
         // Encontramos el objetivo mas cercano

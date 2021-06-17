@@ -57,7 +57,6 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-
         primerTipoDeEnemigo = ronda.primerTipoDeEnemigo;
         segundoTipoDeEnemigo = ronda.segundoTipoDeEnemigo;
         tercerTipoDeEnemigo = ronda.tercerTipoDeEnemigo;
