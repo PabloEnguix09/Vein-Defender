@@ -28,6 +28,8 @@ public class CajaDrop : MonoBehaviour
     public Vector3 inicio;
     float time;
 
+    bool invocando;
+
     AudioHandler audioHandler;
 
     // Start is called before the first frame update
@@ -38,6 +40,7 @@ public class CajaDrop : MonoBehaviour
         time = 0;
 
         audioHandler = GetComponent<AudioHandler>();
+        invocando = false;
     }
 
     void Update()
@@ -54,22 +57,32 @@ public class CajaDrop : MonoBehaviour
     {
         if(collision.gameObject.tag == "Terreno")
         {
-            // Se paraliza la caja
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-            rb.detectCollisions = false;
-            // Se pone la variable en el animator para disolver la caja
-            animator.SetBool("Disolver", true);
-            // Se invoca la torreta correspondiente en el sitio
-            GameObject aux = Instantiate(torreta.gameObject, centro.position, transform.rotation);
-            // Activa la torreta
-            if (aux.GetComponent<Torreta>())
+            if (!invocando)
             {
-                aux.GetComponent<Torreta>().enabled = true;
-            }
+                invocando = true;
+                // Se paraliza la caja
+                rb.constraints = RigidbodyConstraints.FreezeAll;
+                rb.detectCollisions = false;
+                // Se pone la variable en el animator para disolver la caja
+                animator.SetBool("Disolver", true);
+                // Se invoca la torreta correspondiente en el sitio
+                GameObject aux = Instantiate(torreta.gameObject, centro.position, transform.rotation);
+                // Activa la torreta
+                if (aux.GetComponent<Torreta>())
+                {
+                    aux.GetComponent<Torreta>().enabled = true;
+                }
 
-            audioHandler.Play(0);
-            // Se destruye en un segundo
-            Destroy(gameObject, 1);
+                audioHandler.Play(0);
+                // Se destruye en un segundo
+                Destroy(gameObject, 1);
+            }
+            
         }
+
+        
     }
+
+    
+
 }
