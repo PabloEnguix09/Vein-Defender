@@ -70,6 +70,8 @@ public class TextMission : MonoBehaviour
                 {
                     //al pulsar cualquier tecla carga la siguiente escena
                     SceneManager.LoadScene(GameScene);
+                    SceneManager.LoadScene(3,LoadSceneMode.Additive);
+                    SceneManager.LoadScene(4, LoadSceneMode.Additive);
                 }
             }
             
