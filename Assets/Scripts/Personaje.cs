@@ -170,9 +170,6 @@ public class Personaje : MonoBehaviour
         Escudo = escudoMaximo;
     }
 
-    //todo: qUITAR EStO
-    public GameObject mejoraHUD;
-
     private void Update()
     {
         // Regenerar el escudo
@@ -217,7 +214,7 @@ public class Personaje : MonoBehaviour
             // Comprueba que sea un enemigo y recoge su script Enemigo
             if (punto.transform.gameObject.TryGetComponent<Torreta>(out Torreta torreta))
             {
-                if(torreta.gameObject.name == "torretaBasica(Clone)")
+                if(torreta.gameObject.name == "Sparky(Clone)")
                 {
                     if (sistemaMejoras.mejoraSparky)
                     {

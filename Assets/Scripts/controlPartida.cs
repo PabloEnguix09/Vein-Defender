@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // ---------------------------------------------------
 // NAME: controlPartida.cs
@@ -28,7 +29,7 @@ public class controlPartida : MonoBehaviour
     Personaje personaje;
     public GameObject CamaraSecundaria;
 
-    public GameObject textoEstado;
+    public Text textoEstado;
     public GameObject textoRonda;
 
     public GameObject mejora;
@@ -67,7 +68,8 @@ public class controlPartida : MonoBehaviour
         mejora.SetActive(false);
         ronda = 1;
         gameManager = FindObjectOfType<GameManager>();
-        ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+        textoEstado.text = "pulsa <k> para empezar";
+        ultimoTexto = textoEstado.text;
 
         // Audio
         audioHandler = GetComponent<AudioHandler>();
@@ -148,7 +150,8 @@ public class controlPartida : MonoBehaviour
                             s.contador2 = 0;
                             s.contador3 = 0;
                             s.limitePrimerEnemigo += 5;
-                            ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+                            textoEstado.text = "Pulsa la tecla <K> para empezar la ronda 2";
+                            ultimoTexto = textoEstado.text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 2";
 
@@ -165,7 +168,8 @@ public class controlPartida : MonoBehaviour
                             s.contador3 = 0;
                             s.limitePrimerEnemigo = s.limitePrimerEnemigo * 2;
                             s.limiteSegundoEnemigo += 5;
-                            ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+                            textoEstado.text = "Pulsa la tecla <K> para empezar la ronda 3";
+                            ultimoTexto = textoEstado.text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 3";
                         }
@@ -180,7 +184,8 @@ public class controlPartida : MonoBehaviour
                             s.limitePrimerEnemigo += 10;
                             s.limiteSegundoEnemigo = s.limiteSegundoEnemigo * 2;
                             s.limiteTercerEnemigo += 2;
-                            ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+                            textoEstado.text = "Pulsa la tecla <K> para empezar la ronda 3";
+                            ultimoTexto = textoEstado.text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 4";
 
@@ -199,12 +204,9 @@ public class controlPartida : MonoBehaviour
                         }
                         break;
                     default:
-
                         break;
                 }
             }
-
-
         }
 
         if (finDePartida)
@@ -220,8 +222,8 @@ public class controlPartida : MonoBehaviour
             foreach(Spawner s in spawners)
             {
                 s.SetRonda(ronda);
-                textoEstado.GetComponent<UnityEngine.UI.Text>().text = "";
-                ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+                textoEstado.text = "";
+                ultimoTexto = textoEstado.text;
             }
 
             // termina el audio de la nave
@@ -268,8 +270,8 @@ public class controlPartida : MonoBehaviour
             Destroy(t);
         }
         //Texto de la ui
-        textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa cualquier tecla para volver al menu";
-        ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+        textoEstado.text = "Pulsa <Barra espaciadora> para volver al menú o <R> para reiniciar";
+        ultimoTexto = textoEstado.text;
 
     }
 
@@ -293,13 +295,25 @@ public class controlPartida : MonoBehaviour
 
     public void Interactuar(bool interactuar)
     {
-        if(interactuar)
+        if (interactuar)
         {
-            textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa <RMB> para interactuar";
+            textoEstado.text = "Pulsa <RMB> para interactuar";
         }
-        else
+        else if (textoEstado.text.Equals("Pulsa <RMB> para interactuar"))
         {
-            textoEstado.GetComponent<UnityEngine.UI.Text>().text = ultimoTexto;
+            textoEstado.text = ultimoTexto;
+        }
+    }
+
+    public void TextoPreview(bool preview)
+    {
+        if (preview)
+        {
+            textoEstado.text = "Pulsa <LMB> para colocar, <C> para cancelar";
+        }
+        else if(textoEstado.text.Equals("Pulsa <LMB> para colocar, <C> para cancelar"))
+        {
+            textoEstado.text = ultimoTexto;
         }
     }
 }

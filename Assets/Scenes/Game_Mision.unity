@@ -628,6 +628,27 @@ MonoBehaviour:
     texto: "Cada torreta tiene sus propias caracter\xEDsticas"
   - segundosEspera: 1
     "limpiarP\xE1gina": 0
+    texto: --Controles-------------------
+  - segundosEspera: 1
+    "limpiarP\xE1gina": 0
+    texto: Pulse <WASD> para moverse
+  - segundosEspera: 0
+    "limpiarP\xE1gina": 0
+    texto: Mantenga <Q> para abrir el selector de torretas
+  - segundosEspera: 1
+    "limpiarP\xE1gina": 0
+    texto: mueva el cursor hasta la torreta deseada y suelte <Q>
+  - segundosEspera: 0
+    "limpiarP\xE1gina": 0
+    texto: Pulse <Barra espaciadora> para saltar
+  - segundosEspera: 1
+    "limpiarP\xE1gina": 0
+    texto: 'Pulse <LShift> o <LControl> para descender
+
+
+'
+  - segundosEspera: 1
+    "limpiarP\xE1gina": 0
     texto: Acceda al terminal para equiparse
   - segundosEspera: 1
     "limpiarP\xE1gina": 0

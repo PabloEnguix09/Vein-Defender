@@ -15067,7 +15067,7 @@ MonoBehaviour:
   - {fileID: 1444415388}
   jugador: {fileID: 4821090250251698042}
   CamaraSecundaria: {fileID: 64465745}
-  textoEstado: {fileID: 452563728}
+  textoEstado: {fileID: 452563730}
   textoRonda: {fileID: 1309640302}
   mejora: {fileID: 1723795975}
   tiempoEntreRondas: 10
@@ -22065,6 +22065,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695094, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: control
+      value: 
+      objectReference: {fileID: 1594907898}
     - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: gui
       value: 
@@ -22089,6 +22093,10 @@ PrefabInstance:
       propertyPath: fuerzaSalto
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: control
+      value: 
+      objectReference: {fileID: 1594907898}
     - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: menuRadial
       value: 

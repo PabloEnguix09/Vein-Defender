@@ -49,6 +49,8 @@ public class InvocarTorreta : MonoBehaviour
 
     AnimTByte animTByte;
     AudioHandler audioHandler;
+    public controlPartida control;
+
     public bool GetColocada()
     {
         return colocada;
@@ -100,7 +102,7 @@ public class InvocarTorreta : MonoBehaviour
             // Posicion y rotacion de la preview
             torreta.transform.position = new Vector3(punto.point.x, punto.point.y, punto.point.z);
             torreta.transform.rotation = Quaternion.Euler(0, camara.transform.rotation.eulerAngles.y, 0);
-
+            control.TextoPreview(true);
             // Si pulsa clic izquierdo se "destruye" la torreta de previsualización y spawnea la otra más arriba
             if (Input.GetAxisRaw("Fire1") > 0)
             {
@@ -112,17 +114,17 @@ public class InvocarTorreta : MonoBehaviour
                     torretaSpawn.rotation = torreta.transform.rotation;
                     if (personaje.Energia - torretaSpawn.gameObject.GetComponent<Torreta>().torretaBasica.energia >= 0)
                     {
-
                         personaje.Energia -= torretaSpawn.gameObject.GetComponent<Torreta>().torretaBasica.energia;
 
                         Destroy(torreta);
                         // Datos para la nueva torreta invocada
                         torreta = null;
+                        control.TextoPreview(false);
                         SpawnTorreta(torretaSpawn);
                         audioHandler.Play(0);
                     }
-                    
-                }else
+                }
+                else
                 {
                     audioHandler.Play(1);
                 }
@@ -143,8 +145,6 @@ public class InvocarTorreta : MonoBehaviour
             {
                 audioHandler.Play(1);
             }
-             
-            
         }
     }
 
@@ -175,9 +175,7 @@ public class InvocarTorreta : MonoBehaviour
     // Crea la torreta invocada
     public void SpawnTorreta(Transform torreta)
     {
-
-        
-            SetColocada(true);
+        SetColocada(true);
             // Invocamos una caja con los datos de la torreta dentro
             GameObject aux;
 
@@ -194,9 +192,6 @@ public class InvocarTorreta : MonoBehaviour
                 aux.GetComponent<CajaDrop>().torreta = torreta.gameObject;
 
             }
-
-        
-        
     }
 
     // Llamado desde MecanicasPersonaje.cs
@@ -226,8 +221,6 @@ public class InvocarTorreta : MonoBehaviour
 
             }
         }
-
-
     }
 
     public void AlternarMenuRadial(bool activar)

@@ -20,6 +20,7 @@ public class MecanicasPersonaje : MonoBehaviour
     private InvocarTorreta invocar;
     CameraController cameraController;
     bool EstasEnLaNave;
+    public controlPartida control;
 
     public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara, pausa, disparar, interactuar, cerrarInteraccion, caer;
 
