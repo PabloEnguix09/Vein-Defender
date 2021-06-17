@@ -210,6 +210,7 @@ public class SistemaMejoras : MonoBehaviour
 
     public void DesbloquearTorreta()
     {
+        /*
         // Añade al indice la id de la torreta holpita y mohawk
         if (hoplitaMohawk)
         {
@@ -240,15 +241,18 @@ public class SistemaMejoras : MonoBehaviour
             iconos[9].gameObject.SetActive(true);
             indice.Add(9);
         }
+        */
     }
 
     public void MejorasUtilidades()
     {
+        /*
         if (mejoraCamara)
         {
             iconos[1].gameObject.SetActive(true);
             indice.Add(1);
         }
+        */
         if (!mejoraCaminos)
         {
             foreach (Camino ruta in camino)
@@ -256,11 +260,13 @@ public class SistemaMejoras : MonoBehaviour
                 Destroy(ruta.gameObject);
             }
         }
+        /*
         if (escudoDefensor)
         {
             iconos[10].gameObject.SetActive(true);
             indice.Add(10);
         }
+        */
     }
 
     public void lladamaProvisonalTorretas()

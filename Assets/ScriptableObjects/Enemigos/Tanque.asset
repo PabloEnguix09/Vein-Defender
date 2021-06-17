@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93603653f7a616749a7ca32af164ca30, type: 3}
   m_Name: Tanque
   m_EditorClassIdentifier: 
+  nombre: Tanque
   rangoDeteccion: 0
   atacaJugador: 1
   atacaTorretas: 1

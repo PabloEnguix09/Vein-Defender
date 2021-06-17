@@ -214,8 +214,9 @@ public class controlPartida : MonoBehaviour
             Destroy(t);
         }
         //Texto de la ui
-        textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Has perdido, pulsa la tecla <R> para volver a empezar";
+        textoEstado.GetComponent<UnityEngine.UI.Text>().text = "Pulsa cualquier tecla para volver al menu";
         ultimoTexto = textoEstado.GetComponent<UnityEngine.UI.Text>().text;
+
     }
 
     public void Interactuar(bool interactuar)

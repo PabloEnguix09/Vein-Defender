@@ -17,6 +17,7 @@ public class ControladorEntidad : MonoBehaviour
     public EntidadSO stats;
 
     // Componentes del enemigo
+    public string nombre;
     ComponenteAnimacion animacion;
     ComponenteAtaque ataque;
     ComponenteVida vida;
@@ -32,6 +33,7 @@ public class ControladorEntidad : MonoBehaviour
 
     private void Awake()
     {
+        nombre = stats.nombre;
         animacion = GetComponent<ComponenteAnimacion>();
         ataque = GetComponent<ComponenteAtaque>();
         vida = GetComponent<ComponenteVida>();

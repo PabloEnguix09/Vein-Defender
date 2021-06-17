@@ -18,6 +18,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Entidad", menuName = "Objetos/Entidad", order = 1)]
 public class EntidadSO : ScriptableObject
 {
+    public string nombre;
+
     [Header("Ataque General")]
     public float rangoDeteccion;
     public bool atacaJugador;

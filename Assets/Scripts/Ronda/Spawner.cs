@@ -90,9 +90,10 @@ public class Spawner : MonoBehaviour
             
             // Se crea el enemigo y se le asignan las bases
             GameObject entidad =  Instantiate(primerTipoDeEnemigo, new Vector3(xPos, 1, zPos), Quaternion.identity);
-            entidad.transform.parent = GameObject.Find("Enemigos").transform;
             ControladorEntidad enemigo = entidad.GetComponent<ControladorEntidad>();
             enemigo.AsignarBases(primeraBase, segundaBase, terceraBase);
+            // Se agrupa en el gameObject vacio
+            entidad.transform.parent = GameObject.Find(enemigo.nombre).transform;
             contador += 1;
         }
     }
@@ -105,10 +106,10 @@ public class Spawner : MonoBehaviour
 
             // Se crea el enemigo y se le asignan las bases
             GameObject entidad = Instantiate(segundoTipoDeEnemigo, new Vector3(xPos, 1, zPos), Quaternion.identity);
-            entidad.transform.parent = GameObject.Find("Enemigos").transform;
             ControladorEntidad enemigo = entidad.GetComponent<ControladorEntidad>();
             enemigo.AsignarBases(primeraBase, segundaBase, terceraBase);
 
+            entidad.transform.parent = GameObject.Find(enemigo.nombre).transform;
             contador2 += 1;
         }
     }
@@ -121,10 +122,10 @@ public class Spawner : MonoBehaviour
 
             // Se crea el enemigo y se le asignan las bases
             GameObject entidad = Instantiate(tercerTipoDeEnemigo, new Vector3(xPos, 1, zPos), Quaternion.identity);
-            entidad.transform.parent = GameObject.Find("Enemigos").transform;
             ControladorEntidad enemigo = entidad.GetComponent<ControladorEntidad>();
             enemigo.AsignarBases(primeraBase, segundaBase, terceraBase);
 
+            entidad.transform.parent = GameObject.Find(enemigo.nombre).transform;
             contador3 += 1;
         }
     }
