@@ -112,8 +112,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550871163448655305}
-  m_LocalRotation: {x: 0, y: 0.023561288, z: 0, w: 0.9997224}
-  m_LocalPosition: {x: -82.738625, y: 3.7639387, z: 131.87175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 6392596038898667606}
@@ -212,6 +212,7 @@ MonoBehaviour:
     nombre: Montaje
     indice: 0
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 2
     origen: {fileID: 0}
@@ -219,6 +220,7 @@ MonoBehaviour:
     nombre: Disparo
     indice: 1
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}
@@ -226,6 +228,7 @@ MonoBehaviour:
     nombre: Danyo
     indice: 2
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}
@@ -233,6 +236,7 @@ MonoBehaviour:
     nombre: Muerte
     indice: 3
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}
