@@ -22,7 +22,9 @@ public class Base : MonoBehaviour
     public GameObject rayo;
     public Image romboActual;
     public GameObject marcador;
+    public Transform letra;
     public Sprite romboAtaque;
+    public Transform camaraJugador;
     Sprite romboSeguro;
     private float timer;
     private bool atacado;
@@ -49,6 +51,8 @@ public class Base : MonoBehaviour
         modelo.SetActive(true);
         romboSeguro = romboActual.sprite;
         timer = 0;
+
+        camaraJugador = FindObjectOfType<CameraController>().transform;
     }
 
     private void Update()
@@ -66,6 +70,8 @@ public class Base : MonoBehaviour
             }
             timer = 0;
         }
+
+        letra.LookAt(camaraJugador);
     }
 
     public void RecibirAtaque(Ataque ataque)
@@ -82,6 +88,7 @@ public class Base : MonoBehaviour
                 gameObject.tag = "Untagged";
                 Destroy(romboActual.gameObject);
                 Destroy(marcador);
+                Destroy(letra);
             }
         }
     }

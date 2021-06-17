@@ -60,9 +60,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   salud: 10
   modelo: {fileID: 7236007918572350042}
+  rayo: {fileID: 5664785754166046830}
   romboActual: {fileID: 0}
-  marcador: {fileID: 0}
-  romboAtaque: {fileID: 21300000, guid: e3d668ab5b40c6d448abceeb3a3c3f1d, type: 3}
+  marcador: {fileID: 2773453619326748831}
+  romboAtaque: {fileID: 21300000, guid: 692d086288145e641ae0c5f745dbe99f, type: 3}
 --- !u!1 &2773453619326748831
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7640035961995284533
 Transform:
   m_ObjectHideFlags: 0
@@ -287,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ea9fa75d77c312409cd1cabe628d6d9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.33332443
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ea9fa75d77c312409cd1cabe628d6d9, type: 3}
       propertyPath: m_LocalPosition.z
