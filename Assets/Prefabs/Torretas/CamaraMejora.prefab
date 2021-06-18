@@ -451,7 +451,7 @@ MonoBehaviour:
   radioExplosion: 0
   danyoExplosion: 0
   torretaInhabilitada: 0
-  parteQueRota: {fileID: 0}
+  parteQueRota: {fileID: 7994267664901850375}
   balaObjeto: {fileID: 359144644986097494, guid: b71b8663a13e77c4e99310762b4dc39f, type: 3}
   spawnerBalas: {fileID: 0}
   escudoObjeto: {fileID: 0}
@@ -489,10 +489,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidos:
-  - clip: {fileID: 8300000, guid: da4ac277c19f78b47a5502267b7e51d9, type: 3}
+  - clip: {fileID: 8300000, guid: ed97bcceeb0693145aa957275c712c59, type: 3}
     nombre: Montaje
     indice: 0
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 2
     origen: {fileID: 0}
@@ -500,6 +501,7 @@ MonoBehaviour:
     nombre: Disparo
     indice: 1
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}
@@ -507,6 +509,7 @@ MonoBehaviour:
     nombre: Danyo
     indice: 2
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}
@@ -514,6 +517,7 @@ MonoBehaviour:
     nombre: Muerte
     indice: 3
     mixer: 5
+    bucle: 0
     volumen: 1
     tono: 1
     origen: {fileID: 0}
