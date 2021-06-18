@@ -127,7 +127,7 @@ public class TextMission : MonoBehaviour
             }
 
             //añadimos un salto de linea
-            textoBuffer += "\r\n";
+            textoBuffer += "\n";
             //esperamos el tiempo que cada linea dicte
             yield return new WaitForSeconds(buffer.textos[i].segundosEspera);
 

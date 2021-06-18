@@ -29,7 +29,6 @@ public class Interaccion : MonoBehaviour
     public GameObject camaraPuerta;
     public GameObject luz;
 
-    public GameObject postProcesado;
 
     CameraController cameraController;
 
@@ -80,7 +79,6 @@ public class Interaccion : MonoBehaviour
 
         if(tipoItem == TipoItem.mapaMision)
         {
-            postProcesado.SetActive(true);
 
             if (!GetComponentInChildren<TextMission>().finCinematica)
             {
@@ -133,7 +131,6 @@ public class Interaccion : MonoBehaviour
 
         if (tipoItem == TipoItem.mapaMision)
         {
-            postProcesado.SetActive(false);
             camaraTByte.SetActive(true);
             camaraSelector.SetActive(false);
 
