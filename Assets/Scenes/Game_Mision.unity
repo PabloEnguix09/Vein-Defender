@@ -13139,7 +13139,7 @@ MonoBehaviour:
   - segundosEspera: 1
     "limpiarP\xE1gina": 0
     texto: "<Epacio> lo har\xEDa saltar"
-  - segundosEspera: 1
+  - segundosEspera: 3
     "limpiarP\xE1gina": 1
     texto: <Shift> para aumentar su densidad
   - segundosEspera: 1
@@ -13148,7 +13148,7 @@ MonoBehaviour:
   - segundosEspera: 1
     "limpiarP\xE1gina": 0
     texto: <F> para replegarla
-  - segundosEspera: 1
+  - segundosEspera: 3
     "limpiarP\xE1gina": 1
     texto: <C> para cancelar
   - segundosEspera: 1
