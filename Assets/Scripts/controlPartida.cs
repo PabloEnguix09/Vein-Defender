@@ -57,6 +57,8 @@ public class controlPartida : MonoBehaviour
 
     AudioHandler audioHandler;
 
+    public GameObject victoryCanvas;
+
     void Start()
     {
         finMision = false;
@@ -70,7 +72,7 @@ public class controlPartida : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         textoEstado.text = "pulsa <k> para empezar";
         ultimoTexto = textoEstado.text;
-
+        victoryCanvas.SetActive(false);
         // Audio
         audioHandler = GetComponent<AudioHandler>();
         // Cancion de la nave
@@ -84,7 +86,14 @@ public class controlPartida : MonoBehaviour
         if (finMision)
         {
             timerFinMision += Time.deltaTime;
-            if(timerFinMision > tiempoEntreRondas)
+            if (!victoryCanvas.activeSelf)
+            {
+                //la camara se situa en el cielo.
+                victoryCanvas.SetActive(!victoryCanvas.activeSelf);
+                textoEstado.text = "Volviendo a la nave en 10 segundos";
+                ultimoTexto = textoEstado.text;
+            }
+            if (timerFinMision > tiempoEntreRondas)
             {
                 // Carga del nivel 1
                 SceneManager.LoadScene(2);
@@ -149,8 +158,7 @@ public class controlPartida : MonoBehaviour
                             s.contador = 0;
                             s.contador2 = 0;
                             s.contador3 = 0;
-                            s.limitePrimerEnemigo += 5;
-                            textoEstado.text = "Pulsa la tecla <K> para empezar la ronda 2";
+                            s.limitePrimerEnemigo += 5;                    
                             ultimoTexto = textoEstado.text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 2";
@@ -168,7 +176,6 @@ public class controlPartida : MonoBehaviour
                             s.contador3 = 0;
                             s.limitePrimerEnemigo = s.limitePrimerEnemigo * 2;
                             s.limiteSegundoEnemigo += 5;
-                            textoEstado.text = "Pulsa la tecla <K> para empezar la ronda 3";
                             ultimoTexto = textoEstado.text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 3";
@@ -184,7 +191,6 @@ public class controlPartida : MonoBehaviour
                             s.limitePrimerEnemigo += 10;
                             s.limiteSegundoEnemigo = s.limiteSegundoEnemigo * 2;
                             s.limiteTercerEnemigo += 2;
-                            textoEstado.text = "Pulsa la tecla <K> para empezar la ronda 3";
                             ultimoTexto = textoEstado.text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 4";
