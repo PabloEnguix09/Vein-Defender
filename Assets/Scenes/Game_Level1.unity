@@ -15936,7 +15936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidos:
-  - clip: {fileID: 8300000, guid: 3a02a0cbdaa2b754c972c8444b0ed544, type: 3}
+  - clip: {fileID: 8300000, guid: c3f57675729873e4bbc61fbd0da90fb1, type: 3}
     nombre: Nave
     indice: 0
     mixer: 4
@@ -15944,7 +15944,7 @@ MonoBehaviour:
     volumen: 1
     tono: 1
     origen: {fileID: 0}
-  - clip: {fileID: 8300000, guid: da4ac277c19f78b47a5502267b7e51d9, type: 3}
+  - clip: {fileID: 8300000, guid: 10f33eca6fdaa974aaaae41fd5105bf1, type: 3}
     nombre: Ruido
     indice: 1
     mixer: 4
@@ -15952,7 +15952,7 @@ MonoBehaviour:
     volumen: 1
     tono: 1
     origen: {fileID: 0}
-  - clip: {fileID: 8300000, guid: c0a80a5bc9c0d8a458efb69a2a20e000, type: 3}
+  - clip: {fileID: 8300000, guid: e0281bdf3722f4948991699dea8cd32a, type: 3}
     nombre: Combate Final
     indice: 2
     mixer: 4
