@@ -356,7 +356,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -9868,7 +9868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1125704010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15603,6 +15603,8 @@ PlayableDirector:
     value: {fileID: 1979623629}
   - key: {fileID: 3655123819281921134, guid: 8285550957672e643a07c6aac73b1cb4, type: 2}
     value: {fileID: 8129342}
+  - key: {fileID: -2543378672542348964, guid: 8285550957672e643a07c6aac73b1cb4, type: 2}
+    value: {fileID: 5664785754478266524}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1705227668
@@ -20834,6 +20836,7 @@ GameObject:
   - component: {fileID: 7640035962708043975}
   - component: {fileID: 3867588220429107479}
   - component: {fileID: 3570808481276557419}
+  - component: {fileID: 5664785754478266525}
   m_Layer: 0
   m_Name: Rayo
   m_TagString: Untagged
@@ -20841,6 +20844,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &5664785754478266525
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5664785754478266524}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dec74e510c2181845a378e4dc7afeef3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &5729911795502573151
 Transform:
   m_ObjectHideFlags: 0
@@ -21136,8 +21158,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5664785754478266524}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.018, y: 220.02, z: -0.239}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.018, y: -225.5, z: -0.239}
   m_LocalScale: {x: 0.8929, y: 220.01727, z: 0.8929}
   m_Children: []
   m_Father: {fileID: 5729911795502573151}
