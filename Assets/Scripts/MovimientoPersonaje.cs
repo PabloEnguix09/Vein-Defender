@@ -23,6 +23,7 @@ public class MovimientoPersonaje : MonoBehaviour
     public float velocidadCaminar, velocidadCorrer;
     public float fuerzaSalto = 300f;
     public bool volando = true;
+    public int[] layersSuelo;
     public Vector3 Velocidad { get => velocidad; set => velocidad = value; }
 
     public Transform personaje;
@@ -96,19 +97,27 @@ public class MovimientoPersonaje : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Player" &&
-            collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.layer == 6)
+        if (collision.GetContact(collision.contactCount - 1).thisCollider.gameObject.tag == "Player")
         {
-            volando = false;
+            for (int i = 0; i < layersSuelo.Length; i++)
+            {
+                if (collision.GetContact(collision.contactCount - 1).otherCollider.gameObject.layer == layersSuelo[i])
+                {
+                    volando = false;
 
-            audioHandler.Play(5);
+                    audioHandler.Play(5);
+                }
+            }
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.collider.gameObject.layer == 6)
+        for (int i = 0; i < layersSuelo.Length; i++)
         {
-            volando = true;
+            if (collision.collider.gameObject.layer == layersSuelo[i])
+            {
+                volando = true;
+            }
         }
     }
 }

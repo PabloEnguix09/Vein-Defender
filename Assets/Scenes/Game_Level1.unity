@@ -243,6 +243,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9467341}
   m_CullTransparentMesh: 1
+--- !u!1 &14633611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 14633612}
+  m_Layer: 0
+  m_Name: Nivel 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &14633612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14633611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -62.370197, y: 21.165825, z: 95.86085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 543450653594511505}
+  - {fileID: 84236411}
+  - {fileID: 320847163}
+  - {fileID: 2085461062}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &18584085
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +838,7 @@ Transform:
   - {fileID: 1510953071}
   - {fileID: 1539715744}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &67673578
 GameObject:
@@ -817,7 +851,7 @@ GameObject:
   - component: {fileID: 67673579}
   - component: {fileID: 67673581}
   - component: {fileID: 67673580}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Muro (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1092,9 +1126,9 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.5
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 4516ca74565b85f42945f2f8b6677680, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d7e1bd14cba378c46878b47c01ab3b9a, type: 2}
 --- !u!114 &84236410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,7 +1157,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 09499f2f763c3f6459ac3bf113998081, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 5748685416c54544d91aea26cb1adcc9, type: 2}
 --- !u!4 &84236411
 Transform:
   m_ObjectHideFlags: 0
@@ -1131,15 +1165,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84236408}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.299896, y: 2.4777498, z: 99.21333}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 121.67009, y: -18.688076, z: 3.3524857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 543450652052960078}
-  - {fileID: 543450653594511505}
-  - {fileID: 320847163}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 14633612}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &84500174
 GameObject:
@@ -1152,7 +1184,7 @@ GameObject:
   - component: {fileID: 84500175}
   - component: {fileID: 84500176}
   - component: {fileID: 84500177}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Muro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2554,7 +2586,7 @@ RectTransform:
   - {fileID: 500354595}
   - {fileID: 697637957}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3043,7 +3075,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &225932469
 GameObject:
@@ -4047,8 +4079,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320847162}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 121.67009, y: -18.688076, z: 3.3524857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1438681474}
@@ -4071,7 +4103,7 @@ Transform:
   - {fileID: 1681059756}
   - {fileID: 600246645}
   - {fileID: 6870939}
-  m_Father: {fileID: 84236411}
+  m_Father: {fileID: 14633612}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &324661494
@@ -5539,7 +5571,7 @@ GameObject:
   - component: {fileID: 457213186}
   - component: {fileID: 457213188}
   - component: {fileID: 457213187}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Muro (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12039,7 +12071,7 @@ RectTransform:
   m_Children:
   - {fileID: 1106699389}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13608,7 +13640,7 @@ Transform:
   - {fileID: 1328094746}
   - {fileID: 1444415387}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1309640302
 GameObject:
@@ -17525,7 +17557,7 @@ RectTransform:
   - {fileID: 782743169}
   - {fileID: 1636481089}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -18611,7 +18643,7 @@ GameObject:
   - component: {fileID: 1919703505}
   - component: {fileID: 1919703507}
   - component: {fileID: 1919703506}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Muro (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19156,7 +19188,7 @@ RectTransform:
   - {fileID: 1825699926}
   - {fileID: 471218292}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -19878,7 +19910,7 @@ Transform:
   - {fileID: 2129265237}
   - {fileID: 1298070437}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2055020441
 GameObject:
@@ -20114,14 +20146,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.97002095, b: 0.9386792, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.5
@@ -20152,12 +20184,12 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 759
+    m_Bits: 8951
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.3
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -20172,12 +20204,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085461060}
-  m_LocalRotation: {x: 0.27569947, y: -0.6402449, z: 0.2613104, w: 0.6676775}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.27569947, y: -0.64024484, z: 0.2613104, w: 0.66767746}
+  m_LocalPosition: {x: 62.370197, y: -21.165825, z: -95.86085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 14633612}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 44.649, y: -87.732, z: -0.329}
 --- !u!1 &2086576821
 GameObject:
@@ -20675,7 +20707,7 @@ GameObject:
   - component: {fileID: 784942864280334890}
   - component: {fileID: 113840058}
   - component: {fileID: 113840057}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.013
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -20861,7 +20893,7 @@ GameObject:
   - component: {fileID: 9042676926674620116}
   - component: {fileID: 113840066}
   - component: {fileID: 113840065}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.009
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -20890,7 +20922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147579775476}
   m_LocalRotation: {x: -0.7071068, y: 0.000000015454312, z: 0.000000015454312, w: 0.7071068}
-  m_LocalPosition: {x: -59.299896, y: -0.47774982, z: -99.21333}
+  m_LocalPosition: {x: -59.299896, y: -0.47774887, z: -99.21333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4931218027900547217}
@@ -20911,8 +20943,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149133881899}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -49.299896, y: -175.47775, z: -102.21333}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 72.37019, y: -194.16583, z: -98.86085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7580996220765224041}
@@ -20947,8 +20979,8 @@ Transform:
   - {fileID: 457213186}
   - {fileID: 1919703505}
   - {fileID: 67673579}
-  m_Father: {fileID: 84236411}
-  m_RootOrder: 1
+  m_Father: {fileID: 14633612}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &623588352974270860
 GameObject:
@@ -20963,7 +20995,7 @@ GameObject:
   - component: {fileID: 3850697596713357354}
   - component: {fileID: 113840048}
   - component: {fileID: 113840047}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.018
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -20983,7 +21015,7 @@ GameObject:
   - component: {fileID: 3587952943371394171}
   - component: {fileID: 113840054}
   - component: {fileID: 113840053}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.015
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21074,7 +21106,7 @@ GameObject:
   - component: {fileID: 5870110253307312453}
   - component: {fileID: 113840030}
   - component: {fileID: 113840029}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.027
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21148,7 +21180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450653594511505}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: ayax_level1_borde
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21217,7 +21249,7 @@ GameObject:
   - component: {fileID: 8155901242436876855}
   - component: {fileID: 113840036}
   - component: {fileID: 113840035}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.024
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21251,7 +21283,7 @@ GameObject:
   - component: {fileID: 166288001580518646}
   - component: {fileID: 113840070}
   - component: {fileID: 113840069}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.007
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21313,7 +21345,7 @@ GameObject:
   - component: {fileID: 384423281930918895}
   - component: {fileID: 113840060}
   - component: {fileID: 113840059}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.012
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21333,7 +21365,7 @@ GameObject:
   - component: {fileID: 2898017870143014395}
   - component: {fileID: 113840044}
   - component: {fileID: 113840043}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.020
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21353,7 +21385,7 @@ GameObject:
   - component: {fileID: 2760321849500256926}
   - component: {fileID: 113840074}
   - component: {fileID: 113840073}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.005
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21387,7 +21419,7 @@ GameObject:
   - component: {fileID: 2298488538498514347}
   - component: {fileID: 113840072}
   - component: {fileID: 113840071}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.006
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21421,7 +21453,7 @@ GameObject:
   - component: {fileID: 1615579167075593670}
   - component: {fileID: 113840034}
   - component: {fileID: 113840033}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.025
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21587,7 +21619,7 @@ GameObject:
   - component: {fileID: 6457350993923992665}
   - component: {fileID: 113840042}
   - component: {fileID: 113840041}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.021
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21621,7 +21653,7 @@ GameObject:
   - component: {fileID: 6286175813526593031}
   - component: {fileID: 113840064}
   - component: {fileID: 113840063}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.010
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -21873,7 +21905,7 @@ GameObject:
   - component: {fileID: 8464272513639901212}
   - component: {fileID: 113840076}
   - component: {fileID: 113840075}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.004
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -22061,7 +22093,7 @@ GameObject:
   - component: {fileID: 1816494965542327655}
   - component: {fileID: 113840062}
   - component: {fileID: 113840061}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.011
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -22089,7 +22121,7 @@ GameObject:
   - component: {fileID: 6450015667402253484}
   - component: {fileID: 113840082}
   - component: {fileID: 113840081}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.001
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -22383,7 +22415,7 @@ GameObject:
   - component: {fileID: 3895307250484416011}
   - component: {fileID: 113840038}
   - component: {fileID: 113840037}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.023
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -22403,7 +22435,7 @@ GameObject:
   - component: {fileID: 6781673105695505601}
   - component: {fileID: 113840046}
   - component: {fileID: 113840045}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.019
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -22584,7 +22616,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1783
+    m_Bits: 9975
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -22766,7 +22798,7 @@ GameObject:
   - component: {fileID: 6945559815419635821}
   - component: {fileID: 113840080}
   - component: {fileID: 113840079}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.002
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -22849,7 +22881,7 @@ GameObject:
   - component: {fileID: 7018041072323684951}
   - component: {fileID: 113840026}
   - component: {fileID: 113840025}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.029
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -23032,17 +23064,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1981455382}
     - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: mejoraHUD
-      value: 
-      objectReference: {fileID: 1723795975}
-    - target: {fileID: 4821090250797695097, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: barraEnergia
       value: 
       objectReference: {fileID: 1927525425}
-    - target: {fileID: 4821090250797695098, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: fuerzaSalto
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 4821090250797695099, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: control
       value: 
@@ -23083,34 +23107,10 @@ PrefabInstance:
       propertyPath: imagenesMenuRadial.Array.data[7]
       value: 
       objectReference: {fileID: 412003846}
-    - target: {fileID: 4821090251707822498, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821090251707822498, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 4821090251707822499, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
       propertyPath: camara
       value: 
       objectReference: {fileID: 4821090250942725008}
-    - target: {fileID: 6328634591451811989, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.00000020861626
-      objectReference: {fileID: 0}
-    - target: {fileID: 6328634591451811989, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7700001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6328634591451811989, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.570003
-      objectReference: {fileID: 0}
-    - target: {fileID: 6328634591451811990, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
-      propertyPath: m_CameraRadius
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
 --- !u!1 &6349135960536605879
@@ -23126,7 +23126,7 @@ GameObject:
   - component: {fileID: 6037595217107533362}
   - component: {fileID: 113840050}
   - component: {fileID: 113840049}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.017
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -23236,7 +23236,7 @@ GameObject:
   - component: {fileID: 8863215621900889502}
   - component: {fileID: 113840040}
   - component: {fileID: 113840039}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.022
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -23473,7 +23473,7 @@ GameObject:
   - component: {fileID: 938368399945200785}
   - component: {fileID: 113840068}
   - component: {fileID: 113840067}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.008
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -23737,7 +23737,7 @@ GameObject:
   - component: {fileID: 3875870021587971900}
   - component: {fileID: 113840078}
   - component: {fileID: 113840077}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.003
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -23834,7 +23834,7 @@ GameObject:
   - component: {fileID: 2313042078371666270}
   - component: {fileID: 113840028}
   - component: {fileID: 113840027}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.028
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -23868,7 +23868,7 @@ GameObject:
   - component: {fileID: 500388418915366970}
   - component: {fileID: 113840032}
   - component: {fileID: 113840031}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.026
   m_TagString: Terreno
   m_Icon: {fileID: 0}
@@ -24052,7 +24052,7 @@ GameObject:
   - component: {fileID: 7401948853564193980}
   - component: {fileID: 113840052}
   - component: {fileID: 113840051}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Landscape.016
   m_TagString: Terreno
   m_Icon: {fileID: 0}

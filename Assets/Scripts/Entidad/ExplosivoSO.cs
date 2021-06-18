@@ -11,7 +11,7 @@ public class ExplosivoSO : MonoBehaviour
 
         ataqueObjeto.fuerza = fuerza;
         ataqueObjeto.tipo = Ataque.Tipo.balas;
-        ataqueObjeto.origen = gameObject;
+        ataqueObjeto.origenTag = gameObject.tag;
 
         // Hace un ataque contra todos los objetivos dentro del rango
         for (int i = 0; i < colliders.Length; i++)

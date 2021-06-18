@@ -243,7 +243,7 @@ public class Torreta : MonoBehaviour
 
             ataqueObjeto.fuerza = ataque;
             ataqueObjeto.tipo = Ataque.Tipo.laser;
-            ataqueObjeto.origen = gameObject;
+            ataqueObjeto.origenTag = gameObject.tag;
             ataqueObjeto.fuerzaExplosion = danyoExplosion;
             ataqueObjeto.radioExplosion = radioExplosion;
 

@@ -17,7 +17,7 @@ using UnityEngine;
 public class Ataque : ScriptableObject
 {
     public float fuerza;
-    public GameObject origen;
+    public string origenTag;
     public Tipo tipo;
     public float direccion;
     public float duracion;

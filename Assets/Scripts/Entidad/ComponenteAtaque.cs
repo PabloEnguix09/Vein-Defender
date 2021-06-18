@@ -195,7 +195,7 @@ public class ComponenteAtaque : MonoBehaviour
         ataqueObjeto.fuerzaExplosion = controlador.stats.ataqueExplosion;
         ataqueObjeto.radioExplosion = controlador.stats.rangoExplosion;
         ataqueObjeto.tipo = Ataque.Tipo.laser;
-        ataqueObjeto.origen = gameObject;
+        ataqueObjeto.origenTag = gameObject.tag;
 
         // Se busca la direccion desde donde esta atacando al objetivo
         Vector3 direccion = gameObject.transform.position - objetivoADisparar;
