@@ -68,9 +68,9 @@ public class controlPartida : MonoBehaviour
         personaje = jugador.GetComponent<Personaje>();
         CamaraSecundaria.SetActive(false);
         mejora.SetActive(false);
-        ronda = 1;
+        ronda = 0;
         gameManager = FindObjectOfType<GameManager>();
-        textoEstado.text = "pulsa <k> para empezar";
+        textoEstado.text = "";
         ultimoTexto = textoEstado.text;
         victoryCanvas.SetActive(false);
         // Audio
@@ -117,6 +117,12 @@ public class controlPartida : MonoBehaviour
         if(personaje.Salud <= 0)
         {
             finDePartida = true;
+        }
+
+        // Jugador cae al suelo
+        if(!personaje.movimientoPersonaje.volando && ronda == 0)
+        {
+            textoEstado.text = "Pulsa <k> para empezar";
         }
 
         finDeRonda = false;
@@ -221,9 +227,9 @@ public class controlPartida : MonoBehaviour
         }
 
         //Pulsar la <k> para empezar rondas/partida
-        if (Input.GetKeyDown(KeyCode.K) && ronda == 1)
+        if (Input.GetKeyDown(KeyCode.K) && ronda == 0)
         {
-
+            ronda = 1;
             activarExcavadoras();
             foreach(Spawner s in spawners)
             {
