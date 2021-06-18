@@ -158,7 +158,7 @@ public class controlPartida : MonoBehaviour
                             s.contador = 0;
                             s.contador2 = 0;
                             s.contador3 = 0;
-                            s.limitePrimerEnemigo += 5;                    
+                            s.limitePrimerEnemigo += 2;                    
                             ultimoTexto = textoEstado.text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 2";
@@ -175,7 +175,7 @@ public class controlPartida : MonoBehaviour
                             s.contador2 = 0;
                             s.contador3 = 0;
                             s.limitePrimerEnemigo = s.limitePrimerEnemigo * 2;
-                            s.limiteSegundoEnemigo += 5;
+                            s.limiteSegundoEnemigo += 3;
                             ultimoTexto = textoEstado.text;
                             s.SetRonda(ronda);
                             textoRonda.GetComponent<UnityEngine.UI.Text>().text = "Ronda 3";
@@ -188,7 +188,7 @@ public class controlPartida : MonoBehaviour
                             s.contador = 0;
                             s.contador2 = 0;
                             s.contador3 = 0;
-                            s.limitePrimerEnemigo += 10;
+                            s.limitePrimerEnemigo += 5;
                             s.limiteSegundoEnemigo = s.limiteSegundoEnemigo * 2;
                             s.limiteTercerEnemigo += 2;
                             ultimoTexto = textoEstado.text;
