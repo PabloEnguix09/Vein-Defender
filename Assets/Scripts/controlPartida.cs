@@ -59,6 +59,8 @@ public class controlPartida : MonoBehaviour
 
     public GameObject victoryCanvas;
 
+    public GameObject HudCanvas;
+
     void Start()
     {
         finMision = false;
@@ -223,7 +225,8 @@ public class controlPartida : MonoBehaviour
 
         if (finDePartida)
         {
-            GameOver();
+            HudCanvas.SetActive(false);
+            GameOver();  
         }
 
         //Pulsar la <k> para empezar rondas/partida
@@ -246,6 +249,7 @@ public class controlPartida : MonoBehaviour
         //Salir al menu
         if (finDePartida && Input.GetKeyDown(KeyCode.Space))
         {
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene(0);
         }
 
