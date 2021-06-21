@@ -15806,6 +15806,7 @@ MonoBehaviour:
   timerFinMision: 0
   mejoras: {fileID: 1594907900}
   victoryCanvas: {fileID: 1140854525}
+  HudCanvas: {fileID: 164474553}
 --- !u!4 &1594907899
 Transform:
   m_ObjectHideFlags: 0
