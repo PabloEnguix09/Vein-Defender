@@ -42,7 +42,7 @@ public class controlPartida : MonoBehaviour
     private bool finDeRonda;
     private bool todosSpawneados;
     private int ronda;
-
+    public GameObject pulsaQ;
     public bool finMision;
     public float timerFinMision;
 
@@ -162,6 +162,7 @@ public class controlPartida : MonoBehaviour
                 switch (ronda)
                 {
                     case 2:
+                        pulsaQ.SetActive(false);
                         foreach (Spawner s in spawners)
                         {
                             //inicio ronda 2
