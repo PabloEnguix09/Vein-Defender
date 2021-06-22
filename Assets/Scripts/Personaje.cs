@@ -141,6 +141,7 @@ public class Personaje : MonoBehaviour
 
     public GameObject gui;
     public GameObject menu;
+    public GameObject settingsMenu;
 
     private void Start()
     {
@@ -359,13 +360,15 @@ public class Personaje : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             camara.BloquearCamara(true);
             menu.SetActive(true);
+            gui.SetActive(false);
             audioHandler.Play(3);
         }
-        else if (menu.activeSelf)
+        else if (menu.activeSelf && !settingsMenu.activeSelf)
         {
             Cursor.lockState = CursorLockMode.Locked;
             camara.BloquearCamara(false);
             menu.SetActive(false);
+            gui.SetActive(true);
             audioHandler.Play(3);
         }
     }

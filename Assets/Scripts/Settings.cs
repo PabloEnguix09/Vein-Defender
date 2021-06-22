@@ -24,9 +24,6 @@ public class Settings : MonoBehaviour
     public Text audioEfectos;
     public Text audioMusica;
     public Text audioAmbiente;
-    Resolution[] resoluciones;
-    public Dropdown resolucionDropdown;
-    public Dropdown calidadDropdown;
 
     [Header("Sliders volumen")]
     public Slider masterSlider;
@@ -36,38 +33,13 @@ public class Settings : MonoBehaviour
 
     public AudioSource ostSource, sfxSource, masterSource, ambienteSource;
 
-    private int resActual;
     private float currVolMaster;
     private float currVolSfx;
     private float currVolOst;
     float currVolAmbiente;
-    private int calActual;
-    private bool compActual;
 
     private void Start()
     {
-        resoluciones = Screen.resolutions;
-        resolucionDropdown.options.Clear();
-
-        int currentRes = 0;
-        for(int i = 0;i<resoluciones.Length;i++)
-        {
-            resolucionDropdown.options.Add(new Dropdown.OptionData(resoluciones[i].ToString()));
-            if(resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height && (Screen.currentResolution.refreshRate - resoluciones[i].refreshRate) < 2)
-            {
-                currentRes = i;
-            }
-        }
-
-        resolucionDropdown.value = currentRes;
-        resolucionDropdown.RefreshShownValue();
-
-        // Calidad de la pantalla
-        calActual = QualitySettings.GetQualityLevel();
-        compActual = Screen.fullScreen;
-        calidadDropdown.value = calActual;
-        calidadDropdown.RefreshShownValue();
-
         // Recoge los valores del player prefs para el volumen
         masterSlider.value = PlayerPrefs.GetFloat("Volumen Master", 0.75f);
         sfxSlider.value = PlayerPrefs.GetFloat("Volumen Ost", 0.75f);
@@ -128,30 +100,12 @@ public class Settings : MonoBehaviour
     }
     #endregion 
 
-    public void SetCalidad(int index)
-    {
-        QualitySettings.SetQualityLevel(index);
-    }
-
-    public void SetPantallaCompleta(bool completa)
-    {
-        Screen.fullScreen = completa;
-    }
-    public void SetResolucion(int resolucion)
-    {
-        Screen.SetResolution(resoluciones[resolucion].width, resoluciones[resolucion].height, Screen.fullScreen, resoluciones[resolucion].refreshRate);
-    }
     public void BackMenu()
     {
         SceneManager.LoadScene(0);
     }
     public void ApplyChanges()
     {
-        PlayerPrefs.SetInt("UnityGraphicsQuality", QualitySettings.GetQualityLevel());
-        PlayerPrefs.SetFloat("Screenmanager Resolution Width", Screen.currentResolution.width);
-        PlayerPrefs.SetFloat("Screenmanager Resolution Height", Screen.currentResolution.height);
-        PlayerPrefs.SetFloat("Screenmanager Resolution RefreshRate", Screen.currentResolution.refreshRate);
-
         // Guarda los valores en los playerPrefs
         currVolSfx = sfxSlider.value;
         currVolOst = ostSlider.value;
@@ -170,15 +124,7 @@ public class Settings : MonoBehaviour
         SetVolumenGeneral(currVolMaster);
         SetVolumenEfectos(currVolSfx);
         SetVolumenMusica(currVolOst);
-        SetResolucion(resActual);
-
-        resolucionDropdown.value = resActual;
-        resolucionDropdown.RefreshShownValue();
-
-        SetCalidad(calActual);
-        calidadDropdown.value = calActual;
-        calidadDropdown.RefreshShownValue();
-        SetPantallaCompleta(compActual);
+        
         ApplyChanges();
     }
 }
