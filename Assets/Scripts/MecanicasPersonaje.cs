@@ -21,7 +21,7 @@ public class MecanicasPersonaje : MonoBehaviour
     CameraController cameraController;
     bool EstasEnLaNave;
     public controlPartida control;
-
+    public GameObject prescindible;
     public string correr, menuRadial, saltar, eliminarTorreta, cambiarCamara, pausa, disparar, interactuar, cerrarInteraccion, caer;
 
     private void Start()
@@ -62,6 +62,7 @@ public class MecanicasPersonaje : MonoBehaviour
         {
             if (!EstasEnLaNave)
             {
+                prescindible.SetActive(true);
                 if (invocar.GetColocada())
                 {
                     // No puede abrirse si ya hay otro abierto

@@ -31,6 +31,7 @@ public class controlPartida : MonoBehaviour
 
     public Text textoEstado;
     public GameObject textoRonda;
+    public GameObject textoMenu;
 
     public GameObject mejora;
 
@@ -125,6 +126,7 @@ public class controlPartida : MonoBehaviour
         if(!personaje.movimientoPersonaje.volando && ronda == 0)
         {
             textoEstado.text = "Pulsa <k> para empezar";
+            
         }
 
         finDeRonda = false;
@@ -313,9 +315,9 @@ public class controlPartida : MonoBehaviour
     {
         if (interactuar)
         {
-            textoEstado.text = "Pulsa <RMB> para interactuar";
+            textoEstado.text = "Pulsa <Click derecho> para interactuar";
         }
-        else if (textoEstado.text.Equals("Pulsa <RMB> para interactuar"))
+        else if (textoEstado.text.Equals("Pulsa <Click derecho> para interactuar"))
         {
             textoEstado.text = ultimoTexto;
         }
@@ -325,9 +327,9 @@ public class controlPartida : MonoBehaviour
     {
         if (preview)
         {
-            textoEstado.text = "Pulsa <LMB> para colocar, <C> para cancelar";
+            textoEstado.text = "Pulsa <Click izquierdo> para colocar, <C> para cancelar";
         }
-        else if(textoEstado.text.Equals("Pulsa <LMB> para colocar, <C> para cancelar"))
+        else if(textoEstado.text.Equals("Pulsa <Click izquierdo> para colocar, <C> para cancelar"))
         {
             textoEstado.text = ultimoTexto;
         }

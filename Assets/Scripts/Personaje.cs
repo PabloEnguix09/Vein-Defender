@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // ---------------------------------------------------
 // NAME: Personaje.cs
@@ -46,6 +47,8 @@ public class Personaje : MonoBehaviour
 
     public GameObject dardoLocalizador;
     public GameObject camaraJugador;
+
+    public GameObject effctoDelDaño;
 
     private CameraController controladorCamara;
 
@@ -103,7 +106,7 @@ public class Personaje : MonoBehaviour
     {
         get { return energia; }
 
-        set 
+        set
         {
 
             value = Mathf.Clamp(value, 0, energiaMaxima);
@@ -141,7 +144,10 @@ public class Personaje : MonoBehaviour
 
     public GameObject gui;
     public GameObject menu;
-    public GameObject settingsMenu;
+
+    Coroutine c1;
+    Coroutine c2;
+    Vector3 posicionBase;
 
     private void Start()
     {
@@ -158,6 +164,8 @@ public class Personaje : MonoBehaviour
         sistemaMejoras.DesbloquearTorreta();
         sistemaMejoras.MejorasUtilidades();
         sistemaMejoras.lladamaProvisonalTorretas();
+
+        posicionBase = camaraJugador.transform.localPosition;
 
     }
 
@@ -180,7 +188,7 @@ public class Personaje : MonoBehaviour
         }
 
         // Si en algun momento la camara es destruida, vuelve la vista al jugador
-        if(camaraMejora == null && camaraSecundariaActivada)
+        if (camaraMejora == null && camaraSecundariaActivada)
         {
             camaraJugador.SetActive(true);
             camaraSecundariaActivada = false;
@@ -199,7 +207,7 @@ public class Personaje : MonoBehaviour
             // Comprueba que sea un enemigo y recoge su script Enemigo
             if (punto.transform.gameObject.TryGetComponent<ControladorEntidad>(out ControladorEntidad enemigo))
             {
-                if(sistemaMejoras.mejoraDebilitante)
+                if (sistemaMejoras.mejoraDebilitante)
                 {
                     Ataque ataque = new Ataque();
                     ataque.debilitacion = 0.5f;
@@ -215,12 +223,12 @@ public class Personaje : MonoBehaviour
             // Comprueba que sea un enemigo y recoge su script Enemigo
             if (punto.transform.gameObject.TryGetComponent<Torreta>(out Torreta torreta))
             {
-                if(torreta.gameObject.name == "Sparky(Clone)")
+                if (torreta.gameObject.name == "Sparky(Clone)")
                 {
                     if (sistemaMejoras.mejoraSparky)
                     {
                         torreta.ataque += torreta.ataque * 0.5f;
-                        torreta.radioExplosion +=  torreta.radioExplosion * 0.5f;
+                        torreta.radioExplosion += torreta.radioExplosion * 0.5f;
                         torreta.vidaMaxima += torreta.vidaMaxima * 0.5f;
                         torreta.cadenciaDisparo += torreta.cadenciaDisparo * 0.5f;
                     }
@@ -272,6 +280,19 @@ public class Personaje : MonoBehaviour
     public void RecibirAtaque(Ataque ataque)
     {
         audioHandler.Play(2);
+        if (c1 != null)
+        {
+            StopCoroutine(c1);
+        }
+        if (c2 != null)
+        {
+            StopCoroutine(c2);
+        }
+        c1 = StartCoroutine("DanyoEffect");
+        c2 = StartCoroutine("ShakeCamarita");
+
+
+
 
         if (Escudo > 0)
         {
@@ -292,20 +313,49 @@ public class Personaje : MonoBehaviour
         }
     }
 
+
+    IEnumerator DanyoEffect()
+    {
+        RawImage rw = effctoDelDaño.GetComponent<RawImage>();
+
+        effctoDelDaño.SetActive(true);
+        for (float f = 1; f > 0; f -= 0.02F)
+        {
+            rw.color = new Color(255, 255, 255, f);
+            yield return new WaitForSeconds(0.03F);
+        }
+
+        effctoDelDaño.SetActive(false);
+    }
+
+    IEnumerator ShakeCamarita()
+    {
+
+        Vector3 posicion = posicionBase;
+
+        for (float f = 1; f > 0; f -= 0.1F)
+        {
+            posicion = posicionBase + new Vector3(Random.Range(0F, 0.1F), 0, Random.Range(0F, 0.1F));
+            camaraJugador.transform.localPosition = posicion;
+            yield return new WaitForSeconds(0.03F);
+        }
+        camaraJugador.transform.localPosition = posicionBase;
+    }
+
     // Cambia a la camara secundaria o la primaria
     public void CambiarCamara()
     {
 
-        if(camaraMejora != null)
+        if (camaraMejora != null)
         {
-            if(camaraMejora.GetComponent<CamaraMejora>().camara.activeSelf)
+            if (camaraMejora.GetComponent<CamaraMejora>().camara.activeSelf)
             {
                 // Vuelve a la camara del jugador
                 camaraMejora.GetComponent<CamaraMejora>().camara.SetActive(false);
                 camaraJugador.SetActive(true);
                 camaraSecundariaActivada = false;
                 audioHandler.Play(3);
-            } 
+            }
             else
             {
                 // Cambia de camara
@@ -322,7 +372,7 @@ public class Personaje : MonoBehaviour
         RaycastHit punto;
 
         // No puedes interactuar con cosas cuando estas usando la camara secundaria
-        if(!camaraSecundariaActivada)
+        if (!camaraSecundariaActivada)
         {
             // Comprueba que este apuntando a un item en el Layer Torreta
             if (Physics.Raycast(camaraJugador.transform.position, camaraJugador.transform.forward, out punto, alcance, LayerMask.GetMask("Interactuable")))
@@ -346,7 +396,7 @@ public class Personaje : MonoBehaviour
 
     public void CerrarInteraccion()
     {
-        if(interaccionActual != null)
+        if (interaccionActual != null)
         {
             interaccionActual.Cerrar();
         }
@@ -360,15 +410,13 @@ public class Personaje : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             camara.BloquearCamara(true);
             menu.SetActive(true);
-            gui.SetActive(false);
             audioHandler.Play(3);
         }
-        else if (menu.activeSelf && !settingsMenu.activeSelf)
+        else if (menu.activeSelf)
         {
             Cursor.lockState = CursorLockMode.Locked;
             camara.BloquearCamara(false);
             menu.SetActive(false);
-            gui.SetActive(true);
             audioHandler.Play(3);
         }
     }
