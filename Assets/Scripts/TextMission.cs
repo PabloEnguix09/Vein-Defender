@@ -31,6 +31,8 @@ public class TextMission : MonoBehaviour
     public bool empezarAlIncio;
     public bool cinematicaIngame;
 
+    AudioSource audio;
+
 
     Coroutine textoChachi;
     Coroutine cursorChachi;
@@ -40,6 +42,8 @@ public class TextMission : MonoBehaviour
     {
         //vaciar el texto
         texto.text = "";
+
+        audio = GetComponent<AudioSource>();
 
         if (empezarAlIncio)
         {
@@ -120,12 +124,18 @@ public class TextMission : MonoBehaviour
             //recorre cada letra del string
             for (int j = 0; j < buffer.textos[i].texto.Length; j++)
             {
+                if (!audio.isPlaying)
+                {
+                    audio.Play();
+                }
+                
                 //añade la letra
                 textoBuffer += buffer.textos[i].texto[j];
                 //se espera según la velocidad de escritura
                 yield return new WaitForSeconds(velocidadEscritura);
+                
             }
-
+            
             //añadimos un salto de linea
             textoBuffer += "\n";
             //esperamos el tiempo que cada linea dicte

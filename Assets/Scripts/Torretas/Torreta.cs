@@ -528,7 +528,11 @@ public class Torreta : MonoBehaviour
 
     public void OnDestroy()
     {
-        personaje.Energia += energiaEnUso;
+        if (personaje != null)
+        {
+            personaje.Energia += energiaEnUso;
+        }
+     
         
     }
 }
