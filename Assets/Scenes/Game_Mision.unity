@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 102acb03cb4e3b445acb2b24091d041e, type: 2}
+  m_Texture: {fileID: 8400000, guid: 3b1f46ccf33d72549be22a17a60f2bc5, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -756,7 +756,6 @@ GameObject:
   - component: {fileID: 59102582}
   - component: {fileID: 59102586}
   - component: {fileID: 59102585}
-  - component: {fileID: 59102584}
   - component: {fileID: 59102583}
   m_Layer: 5
   m_Name: 1 (3)
@@ -797,20 +796,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &59102584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59102581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6999520a2f4db440848f91559229ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indiceTorreta: 3
-  datos: {fileID: 1981450581}
 --- !u!114 &59102585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,6 +1291,7 @@ GameObject:
   - component: {fileID: 121788461}
   - component: {fileID: 121788460}
   - component: {fileID: 121788459}
+  - component: {fileID: 121788462}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1361,6 +1347,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &121788462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121788458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcca676d9652b844f84a2352c69145d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indice: 
+  nombres: []
+  minimapa: {fileID: 0}
+  marco: {fileID: 0}
+  vidaTbyte: 0
+  escudoTbyte: 0
+  mejoraMinimapa: 0
+  mejoraMagnetismo: 0
+  mejoraImpulso: 0
+  mejoraEnergia: 0
+  mejoraMarcador: 0
+  mejoraDebilitante: 0
+  mejoraSparky: 0
+  explosionPEM: 0
+  hoplitaMohawk: 0
+  inmortalFantasma: 0
+  scutumBerserker: 0
+  balearTrampa: 0
+  costeEnergia: 0
+  balasReforzadas: 0
+  laseresMejorados: 0
+  cadenciaMejorada: 0
+  escanerAmenazas: 0
+  escudoEnergia: 0
+  balaExplosiva: 0
+  laserPerforante: 0
+  laserPerseguidor: 0
+  balaPEM: 0
+  mejoraCamara: 0
+  mejoraCaminos: 0
+  escudoDefensor: 0
+  torretasDisponibles: {fileID: 0}
+  camino: []
+  iconos: []
+  hud: {fileID: 0}
 --- !u!1 &124898640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,7 +1768,6 @@ GameObject:
   - component: {fileID: 163389125}
   - component: {fileID: 163389129}
   - component: {fileID: 163389128}
-  - component: {fileID: 163389127}
   - component: {fileID: 163389126}
   m_Layer: 5
   m_Name: 1 (4)
@@ -1776,20 +1808,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &163389127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163389124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6999520a2f4db440848f91559229ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indiceTorreta: 4
-  datos: {fileID: 1981450581}
 --- !u!114 &163389128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2357,7 +2375,7 @@ Canvas:
   m_GameObject: {fileID: 246756730}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 2095838612}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -3362,6 +3380,11 @@ RectTransform:
   m_AnchoredPosition: {x: -9, y: 873.00006}
   m_SizeDelta: {x: 1800, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &335575841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8807558183801602318, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+  m_PrefabInstance: {fileID: 366639473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &336181238
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,6 +4078,22 @@ PrefabInstance:
       propertyPath: torretaBasica
       value: 
       objectReference: {fileID: 11400000, guid: 7cbf5b8606404c440a2f159e07749816, type: 2}
+    - target: {fileID: 1117359788060623733, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+      propertyPath: m_Size.x
+      value: 2.1424983
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117359788060623733, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+      propertyPath: m_Size.z
+      value: 1.161765
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117359788060623733, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+      propertyPath: m_Center.x
+      value: 1.009016
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117359788060623733, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+      propertyPath: m_Center.z
+      value: -1.8602656
+      objectReference: {fileID: 0}
     - target: {fileID: 7343534034232113234, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -4123,8 +4162,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sparky
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5577780551445057842, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2530d26c9737ecd48948c7cf24bca9cc, type: 3}
 --- !u!1 &380197774
 GameObject:
@@ -4209,7 +4247,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 102acb03cb4e3b445acb2b24091d041e, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 3b1f46ccf33d72549be22a17a60f2bc5, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -5243,7 +5281,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 102acb03cb4e3b445acb2b24091d041e, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 3b1f46ccf33d72549be22a17a60f2bc5, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -6286,7 +6324,6 @@ GameObject:
   - component: {fileID: 640688822}
   - component: {fileID: 640688826}
   - component: {fileID: 640688825}
-  - component: {fileID: 640688824}
   - component: {fileID: 640688823}
   m_Layer: 5
   m_Name: 1 (2)
@@ -6327,20 +6364,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &640688824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640688821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6999520a2f4db440848f91559229ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indiceTorreta: 2
-  datos: {fileID: 1981450581}
 --- !u!114 &640688825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6428,9 +6451,9 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.5
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 4516ca74565b85f42945f2f8b6677680, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 375000f864cee574d9b522b6942a7ae3, type: 2}
 --- !u!114 &664357884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6459,7 +6482,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 09499f2f763c3f6459ac3bf113998081, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ad5bc97467fa9a44092f6c8a8e0dfdfe, type: 2}
 --- !u!4 &664357885
 Transform:
   m_ObjectHideFlags: 0
@@ -12196,7 +12219,6 @@ GameObject:
   - component: {fileID: 1367612970}
   - component: {fileID: 1367612974}
   - component: {fileID: 1367612973}
-  - component: {fileID: 1367612972}
   - component: {fileID: 1367612971}
   m_Layer: 5
   m_Name: 1 (5)
@@ -12237,20 +12259,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1367612972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367612969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6999520a2f4db440848f91559229ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indiceTorreta: 5
-  datos: {fileID: 1981450581}
 --- !u!114 &1367612973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13911,7 +13919,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1545030644}
   - component: {fileID: 1545030643}
-  - component: {fileID: 1545030642}
   - component: {fileID: 1545030641}
   m_Layer: 0
   m_Name: Camera (1)
@@ -13952,14 +13959,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &1545030642
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545030640}
-  m_Enabled: 1
 --- !u!20 &1545030643
 Camera:
   m_ObjectHideFlags: 0
@@ -13993,7 +13992,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 102acb03cb4e3b445acb2b24091d041e, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 3b1f46ccf33d72549be22a17a60f2bc5, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -14750,7 +14749,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 102acb03cb4e3b445acb2b24091d041e, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 3b1f46ccf33d72549be22a17a60f2bc5, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -15001,7 +15000,6 @@ GameObject:
   - component: {fileID: 1637863205}
   - component: {fileID: 1637863209}
   - component: {fileID: 1637863208}
-  - component: {fileID: 1637863207}
   - component: {fileID: 1637863206}
   m_Layer: 5
   m_Name: 1 (6)
@@ -15042,20 +15040,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1637863207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637863204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6999520a2f4db440848f91559229ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indiceTorreta: 6
-  datos: {fileID: 1981450581}
 --- !u!114 &1637863208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15605,6 +15589,8 @@ PlayableDirector:
     value: {fileID: 8129342}
   - key: {fileID: -2543378672542348964, guid: 8285550957672e643a07c6aac73b1cb4, type: 2}
     value: {fileID: 5664785754478266524}
+  - key: {fileID: -5753567170421348300, guid: 8285550957672e643a07c6aac73b1cb4, type: 2}
+    value: {fileID: 335575841}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1705227668
@@ -16981,7 +16967,6 @@ GameObject:
   - component: {fileID: 1924079990}
   - component: {fileID: 1924079994}
   - component: {fileID: 1924079993}
-  - component: {fileID: 1924079992}
   - component: {fileID: 1924079991}
   m_Layer: 5
   m_Name: 1 (7)
@@ -17022,20 +17007,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1924079992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924079989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6999520a2f4db440848f91559229ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indiceTorreta: 7
-  datos: {fileID: 1981450581}
 --- !u!114 &1924079993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17753,7 +17724,6 @@ GameObject:
   - component: {fileID: 1969967444}
   - component: {fileID: 1969967448}
   - component: {fileID: 1969967447}
-  - component: {fileID: 1969967446}
   - component: {fileID: 1969967445}
   m_Layer: 5
   m_Name: 1 (0)
@@ -17794,20 +17764,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1969967446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969967443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6999520a2f4db440848f91559229ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indiceTorreta: 0
-  datos: {fileID: 1981450581}
 --- !u!114 &1969967447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19435,7 +19391,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -19446,7 +19402,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
+  m_AllowXRRendering: 0
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -19461,7 +19417,6 @@ GameObject:
   - component: {fileID: 2111511227}
   - component: {fileID: 2111511231}
   - component: {fileID: 2111511230}
-  - component: {fileID: 2111511229}
   - component: {fileID: 2111511228}
   m_Layer: 5
   m_Name: 1 (1)
@@ -19502,20 +19457,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &2111511229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111511226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6999520a2f4db440848f91559229ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indiceTorreta: 1
-  datos: {fileID: 1981450581}
 --- !u!114 &2111511230
 MonoBehaviour:
   m_ObjectHideFlags: 0

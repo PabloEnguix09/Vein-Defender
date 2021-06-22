@@ -55,6 +55,7 @@ public class MenuButtons : MonoBehaviour
     public void OnClickStart()
     {
         SceneManager.LoadScene(GameScene);
+        SceneManager.LoadScene(3,LoadSceneMode.Additive);
     }
 
     public void OnClickReset()
