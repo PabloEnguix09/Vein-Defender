@@ -761,12 +761,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70361786}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 164474557}
-  m_RootOrder: 0
+  m_Father: {fileID: 1849511860}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2331,7 +2331,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 70361787}
   - {fileID: 452563729}
   - {fileID: 1849511860}
   m_Father: {fileID: 0}
@@ -4704,7 +4703,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 164474557}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14154,7 +14153,7 @@ MonoBehaviour:
   timerFinMision: 0
   mejoras: {fileID: 1594907900}
   victoryCanvas: {fileID: 1140854525}
-  HudCanvas: {fileID: 164474553}
+  HudCanvas: {fileID: 1849511859}
 --- !u!4 &1594907899
 Transform:
   m_ObjectHideFlags: 0
@@ -16919,8 +16918,9 @@ RectTransform:
   - {fileID: 1309640305}
   - {fileID: 986197244}
   - {fileID: 1638441701}
+  - {fileID: 70361787}
   m_Father: {fileID: 164474557}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
