@@ -18,10 +18,12 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
+    [Header("EMPIEZA ACTIVADO SIEMPRE")]
     public AudioMixer audioMixer;
     public Text audioGeneral;
     public Text audioEfectos;
     public Text audioMusica;
+    public Text audioAmbiente;
     Resolution[] resoluciones;
     public Dropdown resolucionDropdown;
     public Dropdown calidadDropdown;
@@ -30,23 +32,19 @@ public class Settings : MonoBehaviour
     public Slider masterSlider;
     public Slider sfxSlider;
     public Slider ostSlider;
+    public Slider ambienteSlider;
 
-    [Header("Botones")]
-    public GameObject aplicar;
-    public GameObject ajustes;
-
+    public AudioSource ostSource, sfxSource, masterSource, ambienteSource;
 
     private int resActual;
     private float currVolMaster;
     private float currVolSfx;
     private float currVolOst;
+    float currVolAmbiente;
     private int calActual;
     private bool compActual;
 
-    private float volMaster;
-    private float volSfx;
-    private float volOst;
-    private void Awake()
+    private void Start()
     {
         resoluciones = Screen.resolutions;
         resolucionDropdown.options.Clear();
@@ -63,11 +61,6 @@ public class Settings : MonoBehaviour
 
         resolucionDropdown.value = currentRes;
         resolucionDropdown.RefreshShownValue();
-        
-        // Coge las variables del audiomixer
-        audioMixer.GetFloat("VolMaster", out currVolMaster);
-        audioMixer.GetFloat("VolSfx", out currVolSfx);
-        audioMixer.GetFloat("VolOst", out currVolOst);
 
         // Calidad de la pantalla
         calActual = QualitySettings.GetQualityLevel();
@@ -76,35 +69,62 @@ public class Settings : MonoBehaviour
         calidadDropdown.RefreshShownValue();
 
         // Recoge los valores del player prefs para el volumen
-        volMaster = PlayerPrefs.GetFloat("Volumen Master");
-        volOst = PlayerPrefs.GetFloat("Volumen Ost");
-        volSfx = PlayerPrefs.GetFloat("Volumen Sfx");
+        masterSlider.value = PlayerPrefs.GetFloat("Volumen Master", 0.75f);
+        sfxSlider.value = PlayerPrefs.GetFloat("Volumen Ost", 0.75f);
+        ostSlider.value = PlayerPrefs.GetFloat("Volumen Sfx", 0.75f);
+        ambienteSlider.value = PlayerPrefs.GetFloat("Volumen Ambiente", 0.75f);
 
-        // Aplica los valores por defecto a los sliders
-        masterSlider.value = volMaster;
-        sfxSlider.value = volSfx;
-        ostSlider.value = volOst;
+        // Coge las variables del audiomixer
+        audioMixer.GetFloat("VolMaster", out currVolMaster);
+        audioMixer.GetFloat("VolSfx", out currVolSfx);
+        audioMixer.GetFloat("VolOst", out currVolOst);
+        audioMixer.GetFloat("VolAmbiente", out currVolAmbiente);
+
+        // Desactiva el objeto de los ajustes
+        if (gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     #region Llamadas desde los sliders de sonido
     public void SetVolumenGeneral (float volumen)
     {
-        volMaster = volumen;
-        audioMixer.SetFloat("VolMaster", volumen);
-        audioGeneral.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
+        audioMixer.SetFloat("VolMaster", Mathf.Log10(volumen) * 20);
+        audioGeneral.text = Mathf.FloorToInt(volumen * 100).ToString();
     }
-
     public void SetVolumenEfectos(float volumen)
     {
-        volSfx = volumen;
-        audioMixer.SetFloat("VolSfx", volumen);
-        audioEfectos.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
+        audioMixer.SetFloat("VolSfx", Mathf.Log10(volumen) * 20);
+        audioEfectos.text = Mathf.FloorToInt(volumen * 100).ToString();
     }
     public void SetVolumenMusica(float volumen)
     {
-        volOst = volumen;
-        audioMixer.SetFloat("VolOst", volumen);
-        audioMusica.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
+        audioMixer.SetFloat("VolOst", Mathf.Log10(volumen) * 20);
+        audioMusica.text = Mathf.FloorToInt(volumen * 100).ToString();
+    }
+    public void SetVolumenAmbiente(float volumen)
+    {
+        audioMixer.SetFloat("VolAmbiente", Mathf.Log10(volumen) * 20);
+        audioMixer.SetFloat("VolGrupal", Mathf.Log10(volumen) * 20);
+
+        audioAmbiente.text = Mathf.FloorToInt(volumen * 100).ToString();
+    }
+    public void PruebaSonidoMaster()
+    {
+        masterSource.Play();
+    }
+    public void PruebaSonidoSfx()
+    {
+        sfxSource.Play();
+    }
+    public void PruebaSonidoOst()
+    {
+        ostSource.Play();
+    }
+    public void PruebaSonidoAmbiente()
+    {
+        ambienteSource.Play();
     }
     #endregion 
 
@@ -133,13 +153,17 @@ public class Settings : MonoBehaviour
         PlayerPrefs.SetFloat("Screenmanager Resolution RefreshRate", Screen.currentResolution.refreshRate);
 
         // Guarda los valores en los playerPrefs
-        currVolSfx = volSfx;
-        currVolOst = volOst;
-        currVolMaster = volMaster;
+        currVolSfx = sfxSlider.value;
+        currVolOst = ostSlider.value;
+        currVolMaster = masterSlider.value;
+        currVolAmbiente = ambienteSlider.value;
         PlayerPrefs.SetFloat("Volumen Master", currVolMaster);
         PlayerPrefs.SetFloat("Volumen Ost", currVolOst);
         PlayerPrefs.SetFloat("Volumen Sfx", currVolSfx);
+        PlayerPrefs.SetFloat("Volumen Ambiente", currVolAmbiente);
         PlayerPrefs.Save();
+
+        gameObject.SetActive(false);
     }
     public void DiscardChanges()
     {

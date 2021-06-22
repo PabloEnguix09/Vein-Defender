@@ -123,6 +123,10 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 205f45dd5b1b02a47925a686012c56f1
+    name: VolAmbiente
+  - guid: 82b0aa482fdcd2a4591b7060ce62425f
+    name: VolGrupal
   - guid: ef17f7cd591beed4fb6ce013d5ca0e42
     name: VolMaster
   - guid: ff42845637398ec488c858b810697f66
@@ -186,10 +190,11 @@ AudioMixerSnapshotController:
   m_SnapshotID: 207c52fa1834b3c4391406705edeb5be
   m_FloatValues:
     ff42845637398ec488c858b810697f66: -5.145858e-11
-    82b0aa482fdcd2a4591b7060ce62425f: 0.04171297
+    82b0aa482fdcd2a4591b7060ce62425f: 0
     f14a6eca255f0194a864d0b91f21336c: -0.025776565
     a072dacbbf3b55f4d93e91e4f96fb6b3: 1
-    a1eb91cea5f64944db620a65bc158f22: 0
+    205f45dd5b1b02a47925a686012c56f1: 0
+    a1eb91cea5f64944db620a65bc158f22: -0.02577656
   m_TransitionOverrides: {}
 --- !u!243 &2469770798598495462
 AudioMixerGroupController:
