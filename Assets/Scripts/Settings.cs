@@ -1,10 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+// ---------------------------------------------------
+// NAME: Settings.cs
+// STATUS: DONE
+// GAMEOBJECT: SettingsMenu
+// DESCRIPTION: Guarda y modifica los componentes de los ajuster
+//
+// AUTHOR: Luis Belloch
+// FEATURES ADDED: Sliders de sonido
+//
+// AUTHOR: Pablo Enguix
+// FEATURES ADDED: Menu
+// ---------------------------------------------------
 
 public class Settings : MonoBehaviour
 {
@@ -16,20 +26,26 @@ public class Settings : MonoBehaviour
     public Dropdown resolucionDropdown;
     public Dropdown calidadDropdown;
 
+    [Header("Sliders volumen")]
+    public Slider masterSlider;
+    public Slider sfxSlider;
+    public Slider ostSlider;
+
+    [Header("Botones")]
     public GameObject aplicar;
     public GameObject ajustes;
 
 
     private int resActual;
-    private float volGenActual;
-    private float volEfActual;
-    private float volMusActual;
+    private float currVolMaster;
+    private float currVolSfx;
+    private float currVolOst;
     private int calActual;
     private bool compActual;
 
-    private float volGen;
-    private float volEf;
-    private float volMus;
+    private float volMaster;
+    private float volSfx;
+    private float volOst;
     private void Awake()
     {
         resoluciones = Screen.resolutions;
@@ -48,36 +64,49 @@ public class Settings : MonoBehaviour
         resolucionDropdown.value = currentRes;
         resolucionDropdown.RefreshShownValue();
         
+        // Coge las variables del audiomixer
+        audioMixer.GetFloat("VolMaster", out currVolMaster);
+        audioMixer.GetFloat("VolSfx", out currVolSfx);
+        audioMixer.GetFloat("VolOst", out currVolOst);
 
-
-        audioMixer.GetFloat("volumen", out volGenActual);
-        audioMixer.GetFloat("efectos", out volEfActual);
-        audioMixer.GetFloat("musica", out volMusActual);
+        // Calidad de la pantalla
         calActual = QualitySettings.GetQualityLevel();
         compActual = Screen.fullScreen;
         calidadDropdown.value = calActual;
         calidadDropdown.RefreshShownValue();
+
+        // Recoge los valores del player prefs para el volumen
+        volMaster = PlayerPrefs.GetFloat("Volumen Master");
+        volOst = PlayerPrefs.GetFloat("Volumen Ost");
+        volSfx = PlayerPrefs.GetFloat("Volumen Sfx");
+
+        // Aplica los valores por defecto a los sliders
+        masterSlider.value = volMaster;
+        sfxSlider.value = volSfx;
+        ostSlider.value = volOst;
     }
+
+    #region Llamadas desde los sliders de sonido
     public void SetVolumenGeneral (float volumen)
     {
-
-        volGen = volumen;
-        audioMixer.SetFloat("volumen", volumen);
+        volMaster = volumen;
+        audioMixer.SetFloat("VolMaster", volumen);
         audioGeneral.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
     }
 
     public void SetVolumenEfectos(float volumen)
     {
-        volEf = volumen;
-        audioMixer.SetFloat("efectos", volumen);
+        volSfx = volumen;
+        audioMixer.SetFloat("VolSfx", volumen);
         audioEfectos.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
     }
     public void SetVolumenMusica(float volumen)
     {
-        volMus = volumen;
-        audioMixer.SetFloat("musica", volumen);
+        volOst = volumen;
+        audioMixer.SetFloat("VolOst", volumen);
         audioMusica.text = Mathf.Abs(Mathf.CeilToInt(((volumen + 80) / -80 * 100))).ToString();
     }
+    #endregion 
 
     public void SetCalidad(int index)
     {
@@ -102,16 +131,21 @@ public class Settings : MonoBehaviour
         PlayerPrefs.SetFloat("Screenmanager Resolution Width", Screen.currentResolution.width);
         PlayerPrefs.SetFloat("Screenmanager Resolution Height", Screen.currentResolution.height);
         PlayerPrefs.SetFloat("Screenmanager Resolution RefreshRate", Screen.currentResolution.refreshRate);
-        volGenActual = volGen;
-        volMusActual = volMus;
-        volEfActual = volEf;
+
+        // Guarda los valores en los playerPrefs
+        currVolSfx = volSfx;
+        currVolOst = volOst;
+        currVolMaster = volMaster;
+        PlayerPrefs.SetFloat("Volumen Master", currVolMaster);
+        PlayerPrefs.SetFloat("Volumen Ost", currVolOst);
+        PlayerPrefs.SetFloat("Volumen Sfx", currVolSfx);
         PlayerPrefs.Save();
     }
     public void DiscardChanges()
     {
-        SetVolumenGeneral(volGenActual);
-        SetVolumenEfectos(volEfActual);
-        SetVolumenMusica(volMusActual);
+        SetVolumenGeneral(currVolMaster);
+        SetVolumenEfectos(currVolSfx);
+        SetVolumenMusica(currVolOst);
         SetResolucion(resActual);
 
         resolucionDropdown.value = resActual;
