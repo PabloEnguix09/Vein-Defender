@@ -144,6 +144,8 @@ public class Personaje : MonoBehaviour
 
     public GameObject gui;
     public GameObject menu;
+    public GameObject settings;
+    public GameObject controls;
 
     Coroutine c1;
     Coroutine c2;
@@ -410,13 +412,15 @@ public class Personaje : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             camara.BloquearCamara(true);
             menu.SetActive(true);
+            gui.SetActive(false);
             audioHandler.Play(3);
         }
-        else if (menu.activeSelf)
+        else if (menu.activeSelf && !settings.activeSelf && !controls.activeSelf)
         {
             Cursor.lockState = CursorLockMode.Locked;
             camara.BloquearCamara(false);
             menu.SetActive(false);
+            gui.SetActive(true);
             audioHandler.Play(3);
         }
     }
