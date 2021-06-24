@@ -513,7 +513,7 @@ MonoBehaviour:
   velocidadParpadeoCursor: 0.5
   finCinematica: 0
   empezarAlIncio: 1
-  cinematicaIngame: 0
+  cinematicaIngame: 1
 --- !u!114 &1077069240
 MonoBehaviour:
   m_ObjectHideFlags: 0
