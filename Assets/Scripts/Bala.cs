@@ -162,9 +162,7 @@ public class Bala : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("Enemigo"))
-
-        {
+        if (collision.gameObject.CompareTag("Enemigo")){
 
             if (ataque.origenTag != "Enemigo")
 
@@ -172,28 +170,21 @@ public class Bala : MonoBehaviour
 
                 ControladorEntidad enemigo = collision.gameObject.GetComponent<ControladorEntidad>();
 
-                if (!enemigo.stats.subterraneo)
-
+                if (enemigo.marcado)
                 {
 
-                    if(enemigo.marcado)
-
-                    {
-
-                        ataque.fuerza *= 0.2f;
-
-                    }
-
-                    enemigo.RecibeAtaque(ataque);
+                    ataque.fuerza *= 0.2f;
 
                 }
+                enemigo.RecibeAtaque(ataque);
 
                 ExplosionAtaque(ataque);
 
             }
 
-        } 
-        if(collision.gameObject.CompareTag("Terreno"))
+        }
+
+        if (collision.gameObject.CompareTag("Terreno"))
         {
             ExplosionAtaque(ataque);
             //Destroy(gameObject);
