@@ -31,7 +31,7 @@ public class TextMission : MonoBehaviour
     public bool empezarAlIncio;
     public bool cinematicaIngame;
 
-    AudioSource audio;
+    AudioSource audioSource;
 
 
     Coroutine textoChachi;
@@ -43,7 +43,7 @@ public class TextMission : MonoBehaviour
         //vaciar el texto
         texto.text = "";
 
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         if (empezarAlIncio)
         {
@@ -128,9 +128,9 @@ public class TextMission : MonoBehaviour
             //recorre cada letra del string
             for (int j = 0; j < buffer.textos[i].texto.Length; j++)
             {
-                if (!audio.isPlaying)
+                if (!audioSource.isPlaying)
                 {
-                    audio.Play();
+                    audioSource.Play();
                 }
                 
                 //añade la letra
