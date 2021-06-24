@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44835997, g: 0.49839443, b: 0.57561255, a: 1}
+  m_IndirectSpecularColor: {r: 0.4483596, g: 0.49839413, b: 0.57561207, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15551,6 +15551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1705227668}
   - component: {fileID: 1705227667}
+  - component: {fileID: 1705227669}
   m_Layer: 0
   m_Name: Timeline
   m_TagString: Untagged
@@ -15607,6 +15608,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705227669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705227666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca3303bb9aa39042a0a86d1fdf1c08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener: []
 --- !u!1 &1713147176
 GameObject:
   m_ObjectHideFlags: 0
@@ -17925,6 +17939,10 @@ PlayableDirector:
   - key: {fileID: -4611032780096446329, guid: 8285550957672e643a07c6aac73b1cb4, type: 2}
     value: {fileID: 0}
   - key: {fileID: 3186027324965784776, guid: 8285550957672e643a07c6aac73b1cb4, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2543378672542348964, guid: 8285550957672e643a07c6aac73b1cb4, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5753567170421348300, guid: 8285550957672e643a07c6aac73b1cb4, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
