@@ -28,7 +28,9 @@ public class ControladorEntidad : MonoBehaviour
     public GameObject balaObjeto;
     public Transform parteQueRota;
 
+    [Header("Efectos")]
     public bool marcado;
+    public bool enterrado;
     #endregion
 
     private void Awake()
@@ -44,6 +46,7 @@ public class ControladorEntidad : MonoBehaviour
     {
         movimiento.Parar();
         animacion.Bloqueado(true);
+        enterrado = false;
     }
 
     public void RecibeAtaque(Ataque ataque)
@@ -65,6 +68,10 @@ public class ControladorEntidad : MonoBehaviour
     {
         movimiento.Caminar();
         animacion.Bloqueado(false);
+        if (stats.subterraneo)
+        {
+            enterrado = true;
+        }
     }
 
     public void Muerte()

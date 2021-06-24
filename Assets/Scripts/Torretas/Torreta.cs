@@ -313,7 +313,7 @@ public class Torreta : MonoBehaviour
                 else
                 {
                     // Si el EnemigoControlador.stats no es subterraneo
-                    if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.subterraneo)
+                    if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().enterrado)
                     {
                         //Si el EnemigoControlador.stats es visible esta marcado le esta disparndo una Mohawk
                         if (!enemigosEnRango[i].GetComponent<ControladorEntidad>().stats.invisibilidad || torretaBasica.visual.nombre.Equals("Mohawk") || enemigosEnRango[i].GetComponent<ControladorEntidad>().marcado)
