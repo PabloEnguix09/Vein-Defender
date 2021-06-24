@@ -21629,8 +21629,17 @@ PrefabInstance:
       propertyPath: camara
       value: 
       objectReference: {fileID: 4821090250942725008}
+    - target: {fileID: 6328634591501453580, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+      propertyPath: camara
+      value: 
+      objectReference: {fileID: 6328634591610334701}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+--- !u!4 &6328634591610334701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6328634591501453586, guid: 0b25dca7b09e00e478224da2191bfafd, type: 3}
+  m_PrefabInstance: {fileID: 6328634591610334700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6349135960536605879
 GameObject:
   m_ObjectHideFlags: 0

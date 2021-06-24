@@ -14,14 +14,14 @@ using UnityEngine;
 public class CamaraMinimapa : MonoBehaviour
 {
 
-    Transform camara;
+    public Transform camara;
 
     public Transform marcadorPersonaje;
 
     // Start is called before the first frame update
     void Start()
     {
-        camara = Camera.main.transform;
+
     }
 
     // Update is called once per frame
