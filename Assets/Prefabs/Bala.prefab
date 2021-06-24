@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 0
-  explosion: {fileID: 239686495835347244, guid: 6e76efe3252ce944bb3354ca2b34d17d, type: 3}
+  explosion: {fileID: 239686495835347244, guid: 7cadafff8a2369a4aad733fec0c5ed36, type: 3}
   ataque: {fileID: 0}
   enemigosPerforados: 0
   perseguir: {fileID: 0}

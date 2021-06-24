@@ -15551,7 +15551,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1705227668}
   - component: {fileID: 1705227667}
-  - component: {fileID: 1705227669}
   m_Layer: 0
   m_Name: Timeline
   m_TagString: Untagged
@@ -15608,19 +15607,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1705227669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705227666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca3303bb9aa39042a0a86d1fdf1c08f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listener: []
 --- !u!1 &1713147176
 GameObject:
   m_ObjectHideFlags: 0
@@ -20143,6 +20129,7 @@ MonoBehaviour:
   balaObjeto: {fileID: 359144644986097494, guid: 1d3e76fc0819f574585ca161d1614a7c, type: 3}
   parteQueRota: {fileID: 3963209385072686646}
   marcado: 0
+  enterrado: 0
 --- !u!195 &2189903771710301313
 NavMeshAgent:
   m_ObjectHideFlags: 0

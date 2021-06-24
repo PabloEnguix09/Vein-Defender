@@ -265,8 +265,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.8375375, y: 2.3397899, z: 2.7651377}
-  m_Center: {x: 0.039749503, y: 0.6698949, z: -0.14632297}
+  m_Size: {x: 2.8375375, y: 1.9256301, z: 2.7651377}
+  m_Center: {x: 0.039749503, y: 0.8769748, z: -0.14632297}
 --- !u!54 &-3325992021545711481
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   balaObjeto: {fileID: 359144644986097494, guid: c29adaba8e6ea2048a785a00e9bbd770, type: 3}
   spawnerBalas: {fileID: 3733249860804764528}
   escudoObjeto: {fileID: 0}
-  explosionElectrica: {fileID: 0}
+  explosionElectrica: {fileID: 442871650001608145, guid: 11e22b382ecf84f45814bc83db35ce21, type: 3}
   explosionBala: {fileID: 0}
 --- !u!114 &-233508616460162296
 MonoBehaviour:
