@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 4033247051020612411}
   - component: {fileID: 410828492240004157}
   - component: {fileID: 2579217227110655022}
-  m_Layer: 11
+  - component: {fileID: 5227121973300735440}
+  m_Layer: 7
   m_Name: Scutum
   m_TagString: Scutum
   m_Icon: {fileID: 0}
@@ -117,6 +118,50 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5227121973300735440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367610572343465110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96517f2596bd50641b5a63963c836b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torretaBasica: {fileID: 11400000, guid: 7cbf5b8606404c440a2f159e07749816, type: 2}
+  nombre: 
+  energia: 0
+  energiaAlt: 0
+  energiaEnUso: 0
+  vidaActual: 0
+  vidaMaxima: 0
+  escudoMaximo: 0
+  escudoActual: 0
+  escudoRegen: 0
+  timerEscudo: 0
+  ataque: 0
+  cadenciaDisparo: 0
+  velocidadRotacion: 0
+  distanciaDisparo: 0
+  antiaerea: 0
+  invisibilidad: 0
+  escudo: 0
+  perforante: 0
+  perseguidor: 0
+  disparoPEM: 0
+  disparoMarcado: 0
+  anguloDisparo: {x: 0, y: 0, z: 0, w: 0}
+  radioExplosion: 0
+  danyoExplosion: 0
+  torretaInhabilitada: 0
+  parteQueRota: {fileID: 0}
+  balaObjeto: {fileID: 0}
+  spawnerBalas: {fileID: 0}
+  escudoObjeto: {fileID: 0}
+  explosionElectrica: {fileID: 442871650001608145, guid: 11e22b382ecf84f45814bc83db35ce21, type: 3}
+  explosionBala: {fileID: 0}
 --- !u!1 &4746864569548358760
 GameObject:
   m_ObjectHideFlags: 0
