@@ -231,10 +231,10 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Back to menu
+  m_Text: "Volver al men\xFA"
 --- !u!222 &9467344
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2751,8 +2751,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 92.82372, y: 0}
+  m_SizeDelta: {x: 185.6475, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &214206448
 MonoBehaviour:
@@ -2787,7 +2787,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: // No
+  m_Text: // volver al juego
 --- !u!222 &214206449
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2980,7 +2980,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: // Settings
+  m_Text: // Ajustes
 --- !u!222 &231983277
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4535,7 +4535,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Are you sure you want to discard changes?
+  m_Text: "\xBFEst\xE1s seguro de querer descartar los cambios?"
 --- !u!222 &433370381
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5371,8 +5371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Are you sure you want to go back to the main menu? All unsaved progress
-    will be lost
+  m_Text: "Tu progreso no se guardar\xE1"
 --- !u!222 &517680691
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5609,7 +5608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: // Back to menu
+  m_Text: // Menu
 --- !u!222 &534999742
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7419,7 +7418,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: // Controls
+  m_Text: // Controles
 --- !u!222 &743971548
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7462,8 +7461,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 48.811184, y: 0}
+  m_SizeDelta: {x: 97.6224, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &773847630
 MonoBehaviour:
@@ -7498,7 +7497,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: // Yes
+  m_Text: // Descartar
 --- !u!222 &773847631
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9195,7 +9194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 124.99997, y: -57.499878}
+  m_AnchoredPosition: {x: 48, y: -57.499878}
   m_SizeDelta: {x: 74.4, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946581967
@@ -11182,7 +11181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 125, y: -57.5}
+  m_AnchoredPosition: {x: -52, y: -56}
   m_SizeDelta: {x: 74.4, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1167602673
@@ -12669,7 +12668,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: // Resume
+  m_Text: // Continuar
 --- !u!222 &1331613382
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14173,10 +14172,10 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Discard changes
+  m_Text: Descartar cambios
 --- !u!222 &1547106299
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15582,7 +15581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 218.9, y: -57.5}
+  m_AnchoredPosition: {x: 49, y: -57.5}
   m_SizeDelta: {x: 74.4, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1667942471
@@ -18006,7 +18005,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1959755111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18290,8 +18289,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 11.1708, y: 0}
+  m_SizeDelta: {x: 22.3418, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1970286431
 MonoBehaviour:
@@ -18326,7 +18325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: // Yes
+  m_Text: // Salir
 --- !u!222 &1970286432
 CanvasRenderer:
   m_ObjectHideFlags: 0
