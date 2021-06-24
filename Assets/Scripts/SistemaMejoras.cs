@@ -77,6 +77,12 @@ public class SistemaMejoras : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(postCarga());
+    }
+
+    IEnumerator postCarga()
+    {
+        yield return new WaitForSeconds(0.5F);
         GameObject objetos = SceneManager.GetSceneByName("Nave").GetRootGameObjects()[1].GetComponentsInChildren<Interaccion>()[1].GetComponentInChildren<CinemachineVirtualCamera>(true).GetComponentInChildren<HUD>(true).gameObject;
         iconos = objetos.GetComponentsInChildren<DragDrop>();
     }

@@ -70,9 +70,11 @@ public class TextMission : MonoBehaviour
                 {
                     finCinematica = true;
                     //al pulsar cualquier tecla carga la siguiente escena
-                    SceneManager.LoadScene(GameScene);
-                    SceneManager.LoadScene(3, LoadSceneMode.Additive);
-                    SceneManager.LoadScene(4, LoadSceneMode.Additive);
+                    string[] s = new string[3];
+                    s[0] = "Game_Level1";
+                    s[1] = "Nave";
+                    s[2] = "Volumes";
+                    ControladorCarga.LoadLevel(s);
                 }
             }
         }
@@ -90,9 +92,11 @@ public class TextMission : MonoBehaviour
                 if (Input.anyKeyDown)
                 {
                     //al pulsar cualquier tecla carga la siguiente escena
-                    SceneManager.LoadScene(GameScene);
-                    SceneManager.LoadScene(3,LoadSceneMode.Additive);
-                    SceneManager.LoadScene(4, LoadSceneMode.Additive);
+                    string[] s = new string[3];
+                    s[0] = "Game_Level1";
+                    s[1] = "Nave";
+                    s[2] = "Volumes";
+                    ControladorCarga.LoadLevel(s);
                 }
             }
             

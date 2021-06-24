@@ -54,8 +54,10 @@ public class MenuButtons : MonoBehaviour
 
     public void OnClickStart()
     {
-        SceneManager.LoadScene(GameScene);
-        SceneManager.LoadScene(3,LoadSceneMode.Additive);
+        string[] s = new string[2];
+        s[0]= "Game_Mision";
+        s[1]= "Nave";
+        ControladorCarga.LoadLevel(s);
     }
 
     public void OnClickReset()
