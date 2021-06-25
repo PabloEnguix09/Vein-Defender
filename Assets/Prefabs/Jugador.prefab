@@ -131,7 +131,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4821090250797695092}
-  m_Material: {fileID: 13400000, guid: 5c74e0a2e1f077644b26b8d8678559a8, type: 2}
+  m_Material: {fileID: 13400000, guid: 388913d036b30ab498d2a07b168075c3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.4285488
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 0}
+  prescindible: {fileID: 0}
   correr: Run
   menuRadial: MenuRadial
   saltar: Jump
@@ -198,6 +199,7 @@ MonoBehaviour:
   salud: 1
   dardoLocalizador: {fileID: 0}
   camaraJugador: {fileID: 4821090251707822497}
+  "effctoDelDa\xF1o": {fileID: 0}
   minimapa: {fileID: 6328634591501453583}
   alcance: 50
   energia: 10
@@ -210,6 +212,8 @@ MonoBehaviour:
   movimientoPersonaje: {fileID: 0}
   gui: {fileID: 0}
   menu: {fileID: 0}
+  settings: {fileID: 0}
+  controls: {fileID: 0}
 --- !u!114 &4821090250797695098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,7 +483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6328634591451811988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000020861626, y: 0.7700001, z: -4.570003}
+  m_LocalPosition: {x: 0.00000017881393, y: 0.7700001, z: -4.5700026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6328634590462124202}
@@ -639,6 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f671af383b67ffe4897f49156b5373ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camara: {fileID: 0}
   marcadorPersonaje: {fileID: 1253159929}
 --- !u!114 &6328634590150752966
 MonoBehaviour:
